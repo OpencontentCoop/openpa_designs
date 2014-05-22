@@ -1,0 +1,21 @@
+div.logos-container
+{
+    padding: 10px 20px;
+}
+div#header
+{
+    height: auto;
+}
+
+div.block-singolo_imgtit div.attribute-image {
+    height: 250px;
+}
+
+div.block-singolo_imgtit div.attribute-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+div.block-singolo_imgtit div.attribute-link a {
+    font-size: 1em;
+}

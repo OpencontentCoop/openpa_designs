@@ -1,0 +1,697 @@
+
+.split-2,
+.split-3,
+.split-4,
+.split-5,
+.split-6,
+.split-7
+{
+    float:left;
+    overflow:hidden;
+}
+
+.split-2
+{
+    width:50%;
+}
+
+.split-3
+{
+    width:33.32%;
+}
+
+.split-4
+{
+    width:25%;
+}
+
+.split-5
+{
+    width:20%;
+}
+
+.split-6
+{
+    width:16.65%;
+}
+
+.split-7,
+.split-8,
+.split-9,
+.split-10,
+.split-11,
+.split-12,
+.split-13,
+.split-14,
+.split-15
+{
+    width:14.27%;
+}
+
+.column-right
+{
+    clear:right;
+}
+
+.column-left
+{
+    clear:left;
+}
+
+.distance
+{
+    margin-top: 1.5em;
+}
+
+.nobullet ul,
+.nobullet li
+{
+    list-style:none;
+    margin-right:0;
+    margin-left:0;
+    padding-right:0;
+    padding-left:0;
+}
+
+.nomargin
+{
+    margin:0
+}
+
+
+/* TOPMENU */
+div#top-menu
+{
+    float:right;
+    padding-left:10px;
+    background:url( ../images/topmenu/menu-l.png ) no-repeat top left;
+    right:40px;
+    position:absolute;
+    top:44px;
+    z-index:100;
+}
+
+div#topmenu-image
+{
+	margin: 0;
+	padding-right:10px;
+    background:url( ../images/topmenu/menu-r.png ) no-repeat top right;
+}
+
+div#topmenu-position
+{
+    background:url( ../images/topmenu/menu-c.png ) repeat-x;
+    border-bottom: none;
+    float: left;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: auto;
+    height:auto;
+}
+
+div#top-menu ul
+{
+	margin: 0;
+	padding:0;
+    white-space:nowrap;
+}
+
+div#top-menu ul li
+{
+    background-image: none;
+    display:inline-block;
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+	text-align:center;
+    float:none;
+}
+
+div#top-menu ul#topmenu-firstlevel li
+{
+    width:auto;
+}
+
+div#top-menu ul#topmenu-firstlevel li a
+{
+    letter-spacing: 0;
+    padding:0 10px;
+    line-height:32px;
+    color:#000;
+    display: inline-block;
+    text-decoration:none;
+    background:none;
+    border:none;
+    font-weight:bold;
+    text-transform:none;
+    font-size:1.2em;
+}
+
+div#top-menu ul#topmenu-firstlevel li a span
+{
+    background:none;
+}
+
+
+div#top-menu ul#topmenu-firstlevel li.hover a,
+div#top-menu ul#topmenu-firstlevel li a:hover,
+div#top-menu ul#topmenu-firstlevel li.selected a,
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul li:hover,
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul li.current,
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul li.selected,
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul li:hover a,
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul li.current a,
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul li.selected a
+{
+    background-color:#222;
+    color:#fff;
+}
+
+#page div#top-menu ul#topmenu-firstlevel div.secondlevel ul li a
+{
+    background:none;
+}
+
+div#top-menu ul#topmenu-firstlevel li.hover a
+{
+    margin-bottom:12px;
+}
+
+div#top-menu ul#topmenu-firstlevel li.hover
+{
+    background-image: url( ../images/topmenu/menu-hover.png );
+    background-repeat: no-repeat;
+    background-position:center 32px;
+}
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel
+{
+	display:none;
+	background:none;
+	border:none;
+	position:absolute;
+	margin:0;
+	z-index:100;	    
+	width:590px;
+	right:0;
+	padding:0;
+	text-align:left;
+    white-space:normal;
+    padding:0;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 3px #555555;
+}
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel-design
+{
+    padding:10px 15px 10px;
+}
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul
+{
+    white-space:normal;
+    width:30%;
+    float:left;
+    border-right:1px dotted #000000
+}
+
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche div.secondlevel ul
+{
+    width:100%;
+    border:none;
+}
+
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche div.secondlevel ul li
+{
+    width:48%;
+    float:left;
+    margin-right:1%;
+}
+
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche div.secondlevel .menu-default
+{
+    display:none;
+}
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel div.menu-default,
+div#top-menu ul#topmenu-firstlevel div.secondlevel .menu-preview
+{
+    width:68%;
+    float:right;
+}
+
+.menu-default-design
+{
+    padding:8px;
+}
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul li,
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche div.secondlevel ul li
+{
+	padding:5px;
+	margin:3px 0 1px;
+    display:block;
+    text-align:left;
+}
+
+div#top-menu ul#topmenu-firstlevel ul.thirdlevel li 
+{
+    display:none;
+}
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul li a
+{
+	font-size:1.1em;
+    text-decoration: none;
+	text-transform:none;
+	font-weight:normal;
+    display: inline;
+    line-height:normal;
+	padding:0;
+	margin:0;	
+	text-align:left;
+	color:#222;
+	border:none;
+    font-family:Arial,Helvetica,sans-serif;
+    background:none;
+    letter-spacing:normal;
+}
+
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul li div
+{
+	padding:0;
+}
+
+div#top-menu ul#topmenu-firstlevel div.hover
+{
+	display:block;
+}
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul ul,
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche div.secondlevel ul ul
+{
+    width:100%;
+    float:none;
+    border:none;
+}
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul ul li,
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche div.secondlevel ul ul li
+{
+    display:list-item;
+    padding:0;
+    margin:2px 0;
+}
+
+div.secondlevel div.menu-tl
+{
+    background: url(../images/topmenu/menu-l.png) no-repeat top left;
+}
+
+div.secondlevel div.menu-tr
+{
+    background: url(../images/topmenu/menu-r.png) no-repeat top right;
+    padding: 0 10px;
+}
+
+div.secondlevel div.menu-tc
+{
+    font-size: 0;
+    height: 10px;
+    background: url(../images/topmenu/menu-c.png) repeat-x top left;
+}
+
+div.secondlevel div.menu-ml
+{
+    background: url(../images/topmenu/menu-c.png) repeat-y center left;
+}
+
+div.secondlevel div.menu-mr
+{
+    background: url(../images/topmenu/menu-c.png) repeat-y center right;
+    padding: 0 10px;
+}
+
+div.secondlevel div.menu-mc
+{
+    height: 1%; /* Preventing margins on content from breaking the box (for IE) */
+    background: url(../images/topmenu/menu-c.png) repeat;
+    padding: 0;
+    position:relative;
+}
+
+div.secondlevel div.menu-bl
+{
+    background: url(../images/topmenu/menu-l.png) no-repeat bottom left;
+}
+
+div.secondlevel div.menu-br
+{
+    background: url(../images/topmenu/menu-r.png) no-repeat bottom right;
+    padding: 0 10px;
+}
+
+div.secondlevel div.menu-bc
+{
+    font-size: 0;
+    height: 10px;
+    background: url(../images/topmenu/menu-c.png) repeat-x bottom left;
+}
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul.thirdlevel
+{
+    display: none;
+}
+
+div#top-menu ul#topmenu-firstlevel div.secondlevel div.menu-default ul,
+div#top-menu ul#topmenu-firstlevel div.secondlevel ul.menu-preview
+{
+    border:none;
+}
+
+div#top-menu ul#topmenu-firstlevel li.menu-area-tematica
+{
+    margin-bottom:0 !important;
+}
+
+div#top-menu ul#topmenu-firstlevel li.default-1.hover a,
+div#top-menu ul#topmenu-firstlevel li.default-1 a:hover,
+div#top-menu ul#topmenu-firstlevel li.default-1.selected a,
+div#top-menu ul#topmenu-firstlevel li.default-1 div.secondlevel ul li:hover,
+div#top-menu ul#topmenu-firstlevel li.default-1 div.secondlevel ul li.current,
+div#top-menu ul#topmenu-firstlevel li.default-1 div.secondlevel ul li.selected
+{
+    background-color:#FF6600;
+}
+
+div#top-menu ul#topmenu-firstlevel li.default-2.hover a,
+div#top-menu ul#topmenu-firstlevel li.default-2 a:hover,
+div#top-menu ul#topmenu-firstlevel li.default-2.selected a,
+div#top-menu ul#topmenu-firstlevel li.default-2 div.secondlevel ul li:hover,
+div#top-menu ul#topmenu-firstlevel li.default-2 div.secondlevel ul li.current,
+div#top-menu ul#topmenu-firstlevel li.default-2 div.secondlevel ul li.selected
+{
+    background-color:#F7931D;
+}
+
+div#top-menu ul#topmenu-firstlevel li.default-3.hover a,
+div#top-menu ul#topmenu-firstlevel li.default-3 a:hover,
+div#top-menu ul#topmenu-firstlevel li.default-3.selected a,
+div#top-menu ul#topmenu-firstlevel li.default-3 div.secondlevel ul li:hover,
+div#top-menu ul#topmenu-firstlevel li.default-3 div.secondlevel ul li.current,
+div#top-menu ul#topmenu-firstlevel li.default-3 div.secondlevel ul li.selected
+{
+    background-color:#71BF44;
+}
+
+div#top-menu ul#topmenu-firstlevel li.default-4.hover a,
+div#top-menu ul#topmenu-firstlevel li.default-4 a:hover,
+div#top-menu ul#topmenu-firstlevel li.default-4.selected a,
+div#top-menu ul#topmenu-firstlevel li.default-4 div.secondlevel ul li:hover,
+div#top-menu ul#topmenu-firstlevel li.default-4 div.secondlevel ul li.current,
+div#top-menu ul#topmenu-firstlevel li.default-4 div.secondlevel ul li.selected
+{
+    background-color:#3F6AB4;
+}
+
+div#top-menu ul#topmenu-firstlevel li.default-4.hover a,
+div#top-menu ul#topmenu-firstlevel li.default-4 a:hover,
+div#top-menu ul#topmenu-firstlevel li.default-4.selected a,
+div#top-menu ul#topmenu-firstlevel li.default-4 div.secondlevel ul li:hover,
+div#top-menu ul#topmenu-firstlevel li.default-4 div.secondlevel ul li.current,
+div#top-menu ul#topmenu-firstlevel li.default-4 div.secondlevel ul li.selected
+{
+    background-color:#3F6AB4;
+}
+
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche.hover a,
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche a:hover,
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche.selected a,
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche div.secondlevel ul li:hover,
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche div.secondlevel ul li.current,
+div#top-menu ul#topmenu-firstlevel li.aree-tematiche div.secondlevel ul li.selected
+{
+    background-color:#990100;
+}
+
+div#spinner-menu-detail
+{
+    display:none;
+    background:url( ../images/topmenu/spinning-loader.gif ) no-repeat center;
+    height: 20px;
+    position: absolute;
+    right: 3px;
+    top: 48px;
+    width: 20px;
+    z-index: 100;
+}
+
+html #page div#top-menu ul#topmenu-firstlevel div.menu-default a,
+html #page div#top-menu ul#topmenu-firstlevel .menu-preview li.description a
+{
+    display:inline;
+    line-height:1.5;
+    padding:0;
+    color:#000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1em;
+    background:none !important;
+    text-decoration:none;
+    font-weight:normal;
+}
+
+html #page div#top-menu ul#topmenu-firstlevel .menu-default li:hover,
+html #page div#top-menu ul#topmenu-firstlevel .menu-preview li.description:hover,
+html #page div#top-menu ul#topmenu-firstlevel .menu-default li a:hover,
+html #page div#top-menu ul#topmenu-firstlevel .menu-preview li.description a:hover,
+html #page div#top-menu ul#topmenu-firstlevel div.secondlevel ul ul li:hover
+{
+    background:none !important;
+    color:#000 !important;
+}
+
+html #page div#top-menu ul#topmenu-firstlevel .menu-default a:hover,
+html #page div#top-menu ul#topmenu-firstlevel .menu-preview li.description a:hover
+{
+    text-decoration:underline;
+}
+
+/* END TOPMENU */
+
+div#page {
+    background:#666;
+}
+
+div#header {
+    background: url( ../images/consorzio/header-bg.jpg ) repeat;
+    border-top: 5px solid #953447;
+    overflow: visible;
+    position: relative;
+    height:auto;
+}
+
+div#page.area_tematica div#header {
+    background: url( ../images/consorzio/header-areatematica-bg.jpg ) repeat;
+}
+
+div#links {
+    background:#333;;
+    border:none;
+    clear: none;
+    padding-top:5px;
+}
+
+div#searchbox {
+    border-bottom:none;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+}
+
+div#links div.accessibilita a,
+div#links div.accessibilita a:hover
+{
+    border-radius:15px;
+    border: 1px solid #333;
+}
+
+div#links div.accessibilita a.access_selected {
+    border: 1px solid #FFFFFF;
+}
+
+#searchbox button#searchbox_submit {
+    background: url("../images/searchbox/searchbox_submit-bg.png") no-repeat scroll left top transparent;
+}
+
+div#links ul li
+{
+    line-height:24px;
+}
+
+div#links ul li a{
+    color:#eee;
+    border:none;
+}
+
+input#searchbox_text {
+    color:#fff;
+    width:80%;
+}
+
+#searchbox form {
+    padding-top:0;
+    float:none;
+    width:90%;
+}
+
+div#searchbox,
+div#links ul,
+div#links div.accessibilita
+{
+    display:inline-block;
+    float:none;
+    vertical-align:top;
+    height:25px;
+    padding-top:0;
+}
+
+div#logo
+{
+    position:absolute;
+    z-index:50;
+    top:10px;
+}
+
+div#logo h1 a, div#logo h1 a:hover, div#logo h1 a:visited
+{
+    background: url( ../images/consorzio/CCT_logo.png ) no-repeat center;
+    color: #FFFFFF;
+    display: block;
+    height: 130px;
+    padding: 0;
+    text-decoration: none;
+    text-indent: -9999px;
+    width: 360px;
+    font-family:sans-serif;
+    font-size:14px;
+    line-height:1;
+}
+
+div#slug
+{
+    clear:both;
+    height:150px;
+    position:relative;
+    background: url( ../images/consorzio/CAL_CCT_logo.png ) no-repeat right 58px;
+    z-index:1;
+}
+
+#slug p
+{
+    background: #222222 url( ../images/consorzio/CAL_CCT_logo.png ) no-repeat right -58px;
+    bottom: 0;
+    color: #FFFFFF;
+    font-family: Georgia;
+    font-size: 19px;
+    font-style: italic;
+    margin: 0;
+    padding:5px 0;
+    position: absolute;
+    width: 100%;
+}
+
+#slug span
+{
+    padding:0 15px;
+}
+
+div#virtual-path, div#path
+{
+    background:#333;
+    border-top:none !important;
+    border-bottom-width:5px;
+}
+
+div#virtual-path span.path-text, div#path span.path-text,
+div#virtual-path a, div#path a,
+div#virtual-path a:hover, div#path a:hover
+{
+    color:#fff;
+}
+
+div#virtual-path span.path-separator, div#path span.path-separator
+{
+    background:url("../images/consorzio/path-sep.jpg") repeat-x scroll center top #333
+}
+
+
+div#footer div#footer-design
+{
+    background:#333;
+}
+
+div#footer ul
+{
+    margin: 0;
+    padding: 0;
+    text-align:left;
+}
+
+.footer-menu ul li
+{
+    padding: 0;
+    margin:0;
+    background-image: none;
+    list-style:none;
+    font-weight:bold;
+}
+
+div#footer .footer-menu ul li ul
+{
+    margin-top:10px;    
+}
+
+.footer-menu ul li ul li
+{
+    font-weight:normal;
+    margin-bottom:3px;
+}
+
+
+div#footer .info
+{
+    border-top:1px dotted #fff;
+    margin-top:20px;
+    padding-top:20px;
+    background:url(  ../images/consorzio/CAL_CCT_logo.png ) no-repeat right 20px;
+    height: 140px;
+    height: auto !important;
+    min-height: 140px;
+    text-align:left;
+}
+
+div#footer .info p
+{
+    margin:0;
+}
+
+div.class-newsletter_article .attribute-author
+{
+    background: #eee;
+}
+
+div.block-singolo_imgtit div.attribute-image {
+    height: 300px;
+}
+
+div.block-singolo_imgtit div.attribute-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+div.block-singolo_imgtit div.attribute-link a {
+    font-size: 1.1em;
+}
