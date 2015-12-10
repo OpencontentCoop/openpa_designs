@@ -1,0 +1,393 @@
+/*STYle GENerator versione 0.4*/
+
+
+/******************************************************************
+1. SFONDO PAGINA
+Usare se si vuole modificare lo sfondo esterno al blocco generale della pagina.
+Per cambiarlo occorre intervenire sulla regola div#page.<nome_css>. L'immagine deve essere larga almeno quanto la larghezza del blocco contentui (1000px). Nel css di default l'immagine è larga 1040px perché deve comprendere la sfumatura dell'ombra.
+
+div#page.verde{
+	background: #FFF url(images/verde/page-bg.gif) repeat-y center;
+}*/
+
+
+
+/******************************************************************
+2. SFONDO CONTENUTI
+Usare se si vuole modificare lo sfondo del blocco contenuti che inizia sotto la testata e comprende il footer.
+Generalmente è sufficiente assegnare un colore esadecimale: di default eredita il colore dello Sfondo Pagina ad eccezione dello sfondo del menu di sinistra che va configurato con le regole COLORI MENU DI SINISTRA.
+*/
+div#page.verde #page-content{
+	background:#fff;
+}
+
+
+
+/******************************************************************
+3. COLORE MENU PRINCIPALE
+Usare se si vuole modificare il colore caratteristico del menu principale (in alto sotto la testata). 
+Di default il colore del menu per le aree tematiche è #990100
+Per coerenza si consiglia di configurare questo colore anche per la regole 4.2
+*/
+div#page.verde div#topmenu ul#topmenu-firstlevel li#menu-aree-tematiche.hover ul li a:hover,
+div#page.verde div#topmenu ul#topmenu-firstlevel li a{
+	background-color:#249c58 !important;
+	color:#5D5D5D;
+}
+
+div#page.verde div#topmenu ul#topmenu-firstlevel  li.aree-tematiche ul
+{
+	border-color:#249c58;
+}
+
+
+/******************************************************************
+4. COLORI MENU DI SINISTRA
+Usare se si vuole modificare l'aspetto del menu di sinistra.
+*/
+
+/* 4.1 Sfondo del menu */
+div#page.verde div#sidemenu div.border-box div.border-mc{
+	background:#fff;
+}
+
+/* 4.2 Colore di sfondo del menu attivo (le sfumature sono automatiche) */
+div#page.verde div#sidemenu ul li div span.handler,
+div#page.verde div#sidemenu  a.current{
+	background-color:#249c58;
+}
+
+/* 4.3 Colore di sfondo dei livelli di menu (NOTABENE: il .second_level_menu è il primo livello del menu di sinistra) */
+div#page.verde div.second_level_menu{
+}
+div#page.verde div.third_level_menu{
+}
+div#page.verde div.fourth_level_menu{
+}
+
+/* 4.4 Colore del testo del menu di sinistra 
+div#page.verde div#sidemenu a {
+	color:#000;
+}*/
+
+
+
+/******************************************************************
+5. COLORI BOTTONI DI DEFAULT
+Usare se si vuole modificare l'aspetto dei bottoni principali (Ad esempio "Cerca" o "Accedi con il tuo utente per lasciare un commento")
+La regola viene recepita solo dai contenuti effettivi della pagina (#columns-position): vengono perciò esclusi i bottoni esterni (per esempio il bottone di 'Aiutaci a migliorare')
+*/
+div#page.verde #columns-position a.button, 
+div#page.verde #columns-position a.defaultbutton, 
+div#page.verde #columns-position button.button,
+div#page.verde #columns-position button.defaultbutton, 
+div#page.verde #columns-position input.button, 
+div#page.verde #columns-position input.defaultbutton {
+	background-color:#6eefa6;
+	border:1px solid #6bb38a;
+	color:#000;
+}
+
+div#page.verde #columns-position a.button:hover, 
+div#page.verde #columns-position a.defaultbutton:hover,
+div#page.verde #columns-position button.button:hover, 
+div#page.verde #columns-position button.defaultbutton:hover,
+div#page.verde #columns-position input.button:hover, 
+div#page.verde #columns-position input.defaultbutton:hover
+{
+  background-color:#6bb38a;
+  border:1px solid #6bb38a;
+  color:#fff;
+}
+
+
+/******************************************************************
+6. BOX ACCORDION
+*/
+
+/* 6.1 Bordi accordion */
+div#page.verde div.box-accordion div.border-mc{
+    background: #E5FFF0;
+}
+div#page.verde div.box-accordion div.border-tl{ background-image: url(images/verde/accordion-tl.gif); }
+div#page.verde div.box-accordion div.border-tr{ background-image: url(images/verde/accordion-tr.gif); }
+div#page.verde div.box-accordion div.border-tc{ background-image: url(images/verde/accordion-tc.gif); }
+div#page.verde div.box-accordion div.border-ml{ background-image: url(images/verde/accordion-ml.gif); }
+div#page.verde div.box-accordion div.border-mr{ background-image: url(images/verde/accordion-mr.gif); }
+div#page.verde div.box-accordion div.border-bl{ background-image: url(images/verde/accordion-bl.gif); }
+div#page.verde div.box-accordion div.border-br{ background-image: url(images/verde/accordion-br.gif); }
+div#page.verde div.box-accordion div.border-bc{ background-image: url(images/verde/accordion-bc.gif); }
+
+/* 6.2 Icone accordion */
+div#page.verde div.box-accordion  .ui-icon  { background-image:url(images/verde/arrow-accordion.gif); }
+
+
+
+/******************************************************************
+7. BOX TABS
+*/
+
+/* 7.1 Bordi tabs header */
+div#page.verde div.box-tabs-header div.border-mc{
+    background: #6bb38a;
+}
+div#page.verde div.box-tabs-header div.border-tl{ background-image: url(images/verde/tabsheader-tl.gif); }
+div#page.verde div.box-tabs-header div.border-tr{ background-image: url(images/verde/tabsheader-tr.gif); }
+div#page.verde div.box-tabs-header div.border-tc{ background-image: url(images/verde/tabsheader-tc.gif); }
+div#page.verde div.box-tabs-header div.border-ml{ background-image: url(images/verde/tabsheader-ml.gif); }
+div#page.verde div.box-tabs-header div.border-mr{ background-image: url(images/verde/tabsheader-mr.gif); }
+
+/* 7.2 Colori linguette tabs */
+	
+	/* 7.2.1 Immagini pre rendere il bordo arrotondato nelle linguette dei tab */
+	div#page.verde .block-lista_tab .ui-tabs .ui-tabs-nav li { background-image:url(../images/verde/tabs-border-tr.gif); background-position:top right; background-repeat:no-repeat }
+	div#page.verde .block-lista_tab .ui-tabs .ui-tabs-nav li  a{ background-image:url(../images/verde/tabs-border-tl.gif);	background-position:top left; background-repeat:no-repeat }
+
+	/* 7.2.2 Colore di default del tab (il tab non è selezionato) */
+	div#page.verde .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-default ,
+	div#page.verde .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-default  a{
+		background-color:#E5FFF0;
+	}
+
+	/* 7.2.3 Colore del tab selezionato */
+	div#page.verde .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-active,
+	div#page.verde .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-hover,
+	div#page.verde .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-active a,
+	div#page.verde .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-hover a
+	{
+		background-color:#fff;	
+	}
+
+/* 7.3 Bordi tabs panel */
+div#page.verde div.box-tabs-panel div.border-mc{
+    background: #fff;
+}
+div#page.verde div.box-tabs-panel div.border-ml{ background-image: url(images/verde/tabspanel-ml.gif); }
+div#page.verde div.box-tabs-panel div.border-mr{ background-image: url(images/verde/tabspanel-mr.gif); }
+
+/* 7.4 Bordi tabs footer */
+div#page.verde div.box-tabs-footer div.border-bl{ background-image: url(images/verde/tabsfooter-bl.gif); }
+div#page.verde div.box-tabs-footer div.border-br{ background-image: url(images/verde/tabsfooter-br.gif); }
+div#page.verde div.box-tabs-footer div.border-bc{ background-image: url(images/verde/tabsfooter-bc.gif); }
+
+
+
+/******************************************************************
+8. BOX CERCA
+*/
+div#page.verde div.block-search div.border-mc{
+    background: #E5FFF0;
+}
+div#page.verde div.block-search div.border-tl{ background-image: url(images/verde/search-tl.gif); }
+div#page.verde div.block-search div.border-tr{ background-image: url(images/verde/search-tr.gif); }
+div#page.verde div.block-search div.border-tc{ background-image: url(images/verde/search-tc.gif); }
+div#page.verde div.block-search div.border-ml{ background-image: url(images/verde/search-ml.gif); }
+div#page.verde div.block-search div.border-mr{ background-image: url(images/verde/search-mr.gif); }
+div#page.verde div.block-search div.border-bl{ background-image: url(images/verde/search-bl.gif); }
+div#page.verde div.block-search div.border-br{ background-image: url(images/verde/search-br.gif); }
+div#page.verde div.block-search div.border-bc{ background-image: url(images/verde/search-bc.gif); }
+
+
+
+/******************************************************************
+9. BOX NUMERI
+*/
+div#page.verde div.box-numeri div.border-mc{
+    background: #E5FFF0;
+}
+div#page.verde div.box-numeri div.border-tl{ background-image: url(images/verde/numeri-tl.gif); }
+div#page.verde div.box-numeri div.border-tr{ background-image: url(images/verde/numeri-tr.gif); }
+div#page.verde div.box-numeri div.border-tc{ background-image: url(images/verde/numeri-tc.gif); }
+div#page.verde div.box-numeri div.border-ml{ background-image: url(images/verde/numeri-ml.gif); }
+div#page.verde div.box-numeri div.border-mr{ background-image: url(images/verde/numeri-mr.gif); }
+div#page.verde div.box-numeri div.border-bl{ background-image: url(images/verde/numeri-bl.gif); }
+div#page.verde div.box-numeri div.border-br{ background-image: url(images/verde/numeri-br.gif); }
+div#page.verde div.box-numeri div.border-bc{ background-image: url(images/verde/numeri-bc.gif); }
+
+/* Colori dei numeri  */
+
+div#page.verde div.box-numeri .num-tabs li a 
+{ 
+	border:1px solid #6bb38a;
+	color:#000;
+	background-color:#E5FFF0;
+}
+
+div#page.verde div.box-numeri .num-tabs li.ui-tabs-selected a,
+div#page.verde div.box-numeri .num-tabs li.ui-state-active a
+{
+	background:#6bb38a;
+	color:#fff;	
+}
+
+div#page.verde div.box-numeri .num-tabs li.ui-state-hover a
+{
+	background-color:#aef7ce;
+	color:#000;
+}
+
+
+/******************************************************************
+10. BOX LISTA
+*/
+
+/* 10.1 Prima colonna */
+div#page.verde div.box-lista div.border-tc,
+div#page.verde div.box-lista div.border-ml,
+div#page.verde div.box-lista div.border-mr,
+div#page.verde div.box-lista div.border-bc,
+div#page.verde div.box-lista div.border-mc{
+    background: #E5FFF0;
+}
+div#page.verde div.box-lista div.border-tl{ background-image: url(../images/verde/lista-tl.gif); }
+div#page.verde div.box-lista div.border-tr{ background-image: url(../images/verde/lista-tr.gif); }
+div#page.verde div.box-lista div.border-bl{ background-image: url(../images/verde/lista-bl.gif); }
+div#page.verde div.box-lista div.border-br{ background-image: url(../images/verde/lista-br.gif); }
+div#page.verde div.block-lista div.border-box div.border-tc ,
+div#page.verde div.block-lista div.border-box div.border-content  { background-image:url(../images/verde/lista-bg.gif); }
+
+
+/* 10.2 Seconda colonna */
+div#page.verde div.box-lista-2 div.border-tc,
+div#page.verde div.box-lista-2 div.border-ml,
+div#page.verde div.box-lista-2 div.border-mr,
+div#page.verde div.box-lista-2 div.border-bc,
+div#page.verde div.box-lista-2 div.border-mc{
+    background: #E5FFF0;
+}
+div#page.verde div.box-lista-2 div.border-tl{ background-image: url(../images/verde/lista-2-tl.gif); }
+div#page.verde div.box-lista-2 div.border-tr{ background-image: url(../images/verde/lista-2-tr.gif); }
+div#page.verde div.box-lista-2 div.border-bl{ background-image: url(../images/verde/lista-2-bl.gif); }
+div#page.verde div.box-lista-2 div.border-br{ background-image: url(../images/verde/lista-2-br.gif); }
+div#page.verde div.block-lista-2 div.border-box div.border-tc ,
+div#page.verde div.block-lista-2 div.border-box div.border-content { background-image:url(../images/verde/lista-2-bg.gif); }
+
+/* 10.3 Terza colonna */
+div#page.verde div.box-lista-3 div.border-tc,
+div#page.verde div.box-lista-3 div.border-ml,
+div#page.verde div.box-lista-3 div.border-mr,
+div#page.verde div.box-lista-3 div.border-bc,
+div#page.verde div.box-lista-3 div.border-mc{
+    background: #E5FFF0;
+}
+div#page.verde div.box-lista-3 div.border-tl{ background-image: url(../images/verde/lista-3-tl.gif); }
+div#page.verde div.box-lista-3 div.border-tr{ background-image: url(../images/verde/lista-3-tr.gif); }
+div#page.verde div.box-lista-3 div.border-bl{ background-image: url(../images/verde/lista-3-bl.gif); }
+div#page.verde div.box-lista-3 div.border-br{ background-image: url(../images/verde/lista-3-br.gif); }
+div#page.verde div.block-lista-3 div.border-box div.border-tc ,
+div#page.verde div.block-lista-3 div.border-box div.border-content  { background-image:url(../images/verde/lista-3-bg.gif); }
+
+
+
+/******************************************************************
+11. BOX ALLEGATI
+*/
+
+/* 11.1 Allegati Header */
+div#page.verde div.box-allegati-header div.border-mc{
+    background: #6bb38a;
+}
+div#page.verde div.box-allegati-header div.border-tl{ background-image: url(images/verde/allegatiheader-tl.gif); }
+div#page.verde div.box-allegati-header div.border-tr{ background-image: url(images/verde/allegatiheader-tr.gif); }
+div#page.verde div.box-allegati-header div.border-tc{ background-image: url(images/verde/allegatiheader-tc.gif); }
+div#page.verde div.box-allegati-header div.border-ml{ background-image: url(images/verde/allegatiheader-ml.gif); }
+div#page.verde div.box-allegati-header div.border-mr{ background-image: url(images/verde/allegatiheader-mr.gif); }
+
+/* 11.2 Allegati Content */
+div#page.verde div.box-allegati-content div.border-mc{
+    background: #fff;
+}
+div#page.verde div.box-allegati-content div.border-ml{ background-image: url(images/verde/allegaticontent-ml.gif); }
+div#page.verde div.box-allegati-content div.border-mr{ background-image: url(images/verde/allegaticontent-mr.gif); }
+div#page.verde div.box-allegati-content div.border-bl{ background-image: url(images/verde/allegaticontent-bl.gif); }
+div#page.verde div.box-allegati-content div.border-br{ background-image: url(images/verde/allegaticontent-br.gif); }
+div#page.verde div.box-allegati-content div.border-bc{ background-image: url(images/verde/allegaticontent-bc.gif); }
+
+
+
+/******************************************************************
+12. BOX COMMENTI
+*/
+div#page.verde div.box-comment div.border-tc,
+div#page.verde div.box-comment div.border-ml,
+div#page.verde div.box-comment div.border-mr,
+div#page.verde div.box-comment div.border-bc,
+div#page.verde div.box-comment div.border-mc{
+    background: #E5FFF0;
+}
+
+div#page.verde div.box-comment div.border-tl{ background-image: url(images/verde/lista-tl.gif); }
+div#page.verde div.box-comment div.border-tr{ background-image: url(images/verde/lista-tr.gif); }
+div#page.verde div.box-comment div.border-bl{ background-image: url(images/verde/lista-bl.gif); }
+div#page.verde div.box-comment div.border-br{ background-image: url(images/verde/lista-br.gif); }
+
+
+
+/******************************************************************
+13. RIGHE ALTERNATE CONTENUTO
+
+div#page.verde div.col-odd {
+	background-color:#EFEFEF;
+}
+
+div#page.verde div.col-even {
+	background-color:#EFEFEF;
+}*/
+
+
+
+/******************************************************************
+14. HEADER E LOGO
+*/
+div#page.verde div#header { 
+	background-image:url(images/verde/header-bg.jpg);
+	background-color:#249c58;
+}
+
+/******************************************************************
+15. COLORE LINK
+Usare se si vuole modificare il colore predefinito di tutti i link.
+La regola viene recepita solo dai contenuti effettivi della pagina (#columns-position)
+ 
+div#page.verde #columns-position a {
+	color:#0051A1;
+}*/
+
+
+/******************************************************************
+16. COLORE TITOLI
+Usare se si vuole modificare il colore predefinito di tutti i titoli H1 e H2.
+*/ 
+
+/* 16.1 Titoli principali (h1) */
+div#page.verde div.global-view-full h1, 
+div#page.verde div.attribute-header h1, 
+div#page.verde div.attribute-header h1.long {
+	color:#249c58;
+	border-bottom:3px solid #EFEFEF;
+	font-weight:normal;
+}
+
+/* 16.2 Titoli extrainfo (h2) */
+div#page.verde .block-title ,
+div#page.verde  #extrainfo h2.block-title {
+	color:#249c58;
+	font-weight:normal;
+	font-size:1.4em;
+}
+div#page.verde h2.block-title a {
+	background-image:url(images/verde/arrows.gif);
+	background-position:right 4px;
+	color:#249c58;
+}
+
+
+/******************************************************************
+17. PUNTI ELENCO
+Usare se si vuole modificare il colore predefinito dei punti elenco (UL LI).
+I punti elenco per qustioni di compatibiltà crossbrowser sono gestiti da immagini.
+*/ 
+div#page.verde  li {	
+	background-image:url(images/verde/list.gif);
+	background-repeat:no-repeat;
+}

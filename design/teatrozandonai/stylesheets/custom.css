@@ -1,0 +1,23 @@
+header.default-header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;   
+}
+
+div.default-container{
+    margin-top: 250px;
+    margin-bottom: 50px;
+}
+
+.video-wrapper {
+    max-width: 100%;
+    width: 600px;
+}
+
+.video-container {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;    
+    position: relative;
+}

@@ -1,0 +1,78 @@
+<section class="info">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 magenta text-center">
+                <header>
+                    <h3>Orari di apertura</h3>
+                </header>
+                <div class="text">
+                    <p>
+                        <span class="text-uppercase">Sale lettura</span><br>
+                        lunedì - sabato 9.00 - 22.00<br>
+                        domenica 9.00 - 13.00
+                    </p>
+                    <p>
+                        <span class="text-uppercase">Sala di consultazione</span><br>
+                        lunedì - venerdì 9.00 - 18.00
+                    </p>
+                    <p>
+                        <a href="{'Informazioni-generali/Orario-Calendario'|ezurl(no)}" class="btn btn-default btn-dark btn-sm text-uppercase">maggiori dettagli e calendario apertura</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 dark text-center">
+                <header>
+                    <h3>Dove si trova la biblioteca</h3>
+                </header>
+                <div class="text">
+                    <p>
+                        <span class="text-uppercase">Polo culturale e museale</span><br>
+                        Corso Angelo Bettini, 43 - Rovereto TN
+                    </p>
+
+                    <p>
+                        <span class="text-uppercase">Sale lettura</span><br>
+                        ai piani interrato e terra dell’edificio Polo
+                    </p>
+
+                    <p>
+                        <span class="text-uppercase">Sala di consultazione Biblioteca<br> storica, archivi e manoscritti</span><br>
+                        al primo piano di palazzo Annona
+                    </p>
+
+                    <p class="small">A disposizione parcheggio custodito (a pagamento)</p>
+                </div>
+            </div>
+            <div class="col-sm-4 cyan text-center">
+                <header>
+                    <h3>Contatti</h3>
+                </header>
+                <div class="text">
+                    <ul class="list-unstyled">
+                        <li>
+                            Informazioni di carattere generale<br>
+                            <a href="mailto:bibliotecacivica@comune.rovereto.tn.it">bibliotecacivica@comune.rovereto.tn.it</a>
+                        </li>
+                        <li>
+                            Servizio di consultazione archivi e manoscritti<br>
+                            <a href="mailto:archivistorici@comune.rovereto.tn.it">archivistorici@comune.rovereto.tn.it</a>
+                        </li>
+                        <li>
+                            Prestito interbibliotecario<br>
+                            <a href="mailto:prestitibiblioteca@comune.rovereto.tn.it">prestitibiblioteca@comune.rovereto.tn.it</a>
+                        </li>
+                    </ul>
+                    <p>
+                        Tel. (+39) 0464 452 500<br>
+                        Fax (+39) 0464 452 344
+                    </p>
+                    <p>
+                        <i class="icon-skype"></i> <a href="skype:bibliotecacivica.rovereto.tn.it?call">bibliotecacivica.rovereto.tn.it</a>
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /.info -->

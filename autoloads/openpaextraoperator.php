@@ -14,7 +14,9 @@ class OpenPAExtraOperator
             'section_image',
             'calculate_extra_menu',
             'calculate_left_menu',
-            'has_html_content'
+            'has_html_content',
+            'html_entity_decode',
+            'show_time'
         );
     }
 
@@ -50,12 +52,37 @@ class OpenPAExtraOperator
             'has_html_content' => array
             (
                 'text' => array( "type" => "string", "required" => true, "default" => false )
+            ),
+            'show_time' => array
+            (
+                'parameters' => array( "type" => "array", "required" => false, "default" => array() )
+            ),
+            'section_image' => array
+            (
+                'ignore_homepage' => array( "type" => "boolean", "required" => false, "default" => false )
             )
         );
     }
     
     function modify( &$tpl, &$operatorName, &$operatorParameters, &$rootNamespace, &$currentNamespace, &$operatorValue, &$namedParameters )
     {		
+
+        if( $operatorName == 'show_time' ) // Spettacolo Teatro Zandonai
+        {
+            $data = array();
+            $node = $operatorValue;
+            if ( $node instanceof eZContentObjectTreeNode && $node->attribute( 'class_identifier' ) == 'spettacolo' )
+            {
+                $data = self::getShowTimes( $node );
+            }
+            return $operatorValue = $data;
+        }
+        
+        if( $operatorName == 'html_entity_decode' )
+        {
+            return $operatorValue = html_entity_decode( $operatorValue );
+        }
+        
         if( $operatorName == 'calculate_extra_menu' )
         {
             $isEmpty = false;
@@ -231,32 +258,13 @@ class OpenPAExtraOperator
                 return $operatorValue = $namedParameters['section_key'] == $currentSection;
             case 'section_image':
                 $sectionImage = false;
-                $searchImagesClassIdentifiers = array( 'frontpage' );
-                $searchImagesAttributeIdentifiers = array( 'image' );
+                $ignoreHomepage = $namedParameters['ignore_homepage'];
                 if( isset( $moduleResult['node_id'] ) )
                 {
                     $currentNode = eZContentObjectTreeNode::fetch( $moduleResult['node_id'] );                    
                     if ( $currentNode instanceof eZContentObjectTreeNode )
                     {
-                        $useCurrentImage = false;
-                        $currentImage = false;
-                        $sectionImages = $currentNode->attribute( 'object' )->fetchAttributesByIdentifier( array( 'section_image', 'image' ) );
-                        foreach( $sectionImages as $attribute )
-                        {
-                            if ( $attribute->attribute( 'data_type_string' ) == 'ezimage' )
-                            {
-                                $currentImage = $attribute;
-                            }
-                            if ( $attribute->attribute( 'data_type_string' ) == 'ezboolean' )
-                            {
-                                $useCurrentImage = $attribute->content() == 1;
-                            }
-                        }
-                        
-                        if ( $useCurrentImage && $currentImage instanceof eZContentObjectAttribute && $currentImage->hasContent() )
-                        {
-                            $sectionImage = $currentImage->content();  
-                        }
+                        $sectionImage = $this->findSectionImageInNode( $currentNode );                        
                         
                         if ( !$sectionImage )
                         {
@@ -265,19 +273,18 @@ class OpenPAExtraOperator
                             $pathArray = array_reverse( $pathArray );
                             foreach( $pathArray as $item )
                             {
-                                if ( in_array( $item->attribute( 'class_identifier' ), $searchImagesClassIdentifiers ) )
+                                if ( $ignoreHomepage && $item->attribute( 'node_id' ) == eZINI::instance( 'content.ini' )->variable( 'NodeSettings', 'RootNode', 'content.ini' ) )
                                 {
-                                    $images = $item->attribute( 'object' )->fetchAttributesByIdentifier( $searchImagesAttributeIdentifiers );
-                                    foreach( $images as $image )
-                                    {                                                                   
-                                        if ( $image->hasContent() )
-                                        {
-                                            $sectionImage = $image->content();                                        
-                                            break;
-                                        }
-                                    }                                
+                                    continue;
                                 }
-                                if ( $sectionImage ) break;
+                                else
+                                {
+                                    $sectionImage = $this->findSectionImageInNode( $item );
+                                    if ( $sectionImage )
+                                    {
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
@@ -296,6 +303,80 @@ class OpenPAExtraOperator
             default:
                 return $operatorValue = false;
         }
+    }
+    
+    function findSectionImageInNode( eZContentObjectTreeNode $node )
+    {
+        if ( $node instanceof eZContentObjectTreeNode )
+        {
+            $useCurrentImage = false;
+            $image = false;
+            $searchImagesClassIdentifiers = array( 'frontpage' );
+            $searchImagesAttributeIdentifiers = array( 'image' );
+            $dataMap = $node->attribute( 'data_map' );
+            
+            if ( isset( $dataMap['image'] ) &&
+                 $dataMap['image'] instanceof eZContentObjectAttribute &&
+                 $dataMap['image']->attribute( 'data_type_string' ) == 'ezimage' &&
+                 $dataMap['image']->hasContent() )
+            {
+                $image = $dataMap['image']->content();  
+            }
+            
+            if ( isset( $dataMap['section_image'] ) &&
+                 $dataMap['section_image'] instanceof eZContentObjectAttribute &&
+                 $dataMap['section_image']->attribute( 'data_type_string' ) == 'ezboolean' &&
+                 $dataMap['section_image']->content() == 1 )
+            {
+                $useCurrentImage = true;  
+            }
+            
+            $useImage = $useCurrentImage || in_array( $node->attribute( 'class_identifier' ), $searchImagesClassIdentifiers );
+            if ( $image && $useImage )
+            {
+                return $image;
+            }
+        }
+        return false;
+    }
+    
+    static function getShowTimes( eZContentObjectTreeNode $node )
+    {
+        $dataMap = $node->attribute( 'data_map' );
+        $mainDateTimestamp = isset( $dataMap['main_datetime'] ) ? $dataMap['main_datetime']->attribute( 'content' )->attribute( 'timestamp' ) : null;
+        $repliche = array();
+        if ( $mainDateTimestamp )
+        {
+            try
+            {
+                $dateTime = new DateTime();
+                $repliche[] = $dateTime->setTimestamp( $mainDateTimestamp );
+            }
+            catch( Exception $e )
+            {
+                eZDebug::writeError( $e->getMessage(), __METHOD__ );
+            }
+        }                
+        $replicheMatrix = isset( $dataMap['repliche'] ) ? $dataMap['repliche']->attribute( 'content' ) : null;
+        $rows = $replicheMatrix->attribute( 'rows' );
+        foreach( $rows['sequential'] as $row )
+        {                                        
+            try
+            {
+                $repliche[] = DateTime::createFromFormat( 'd/m/Y H:i', "{$row['columns'][0]} {$row['columns'][1]}" );
+            }
+            catch( Exception $e )
+            {
+                eZDebug::writeError( $e->getMessage(), __METHOD__ );
+            }
+        }
+        $data = array();
+        foreach( $repliche as $replica )
+        {
+            if ( $replica instanceof DateTime )
+                $data[$replica->format( 'm-Y' )][] = $replica->format( 'U' );
+        }
+        return $data;
     }
     
 }

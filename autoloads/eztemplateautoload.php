@@ -1,5 +1,4 @@
 <?php
-
 $eZTemplateOperatorArray[] = array( 'script' => 'extension/openpa_designs/autoloads/openpaextraoperator.php',
                                     'class' => 'OpenPAExtraOperator',
                                     'operator_names' => array(
@@ -10,6 +9,11 @@ $eZTemplateOperatorArray[] = array( 'script' => 'extension/openpa_designs/autolo
                                         'calculate_extra_menu', //calcola il template di extramenu e, se vuoto, non mostra la colonna
                                         'calculate_left_menu', //calcola il template di leftmenu e, se vuoto, non mostra la colonna
                                         'has_html_content', // verifica che ci sia contentuto e non solo tag vuoti
+                                        'html_entity_decode', // come da funzione php
+                                        'show_time', //data e ora per gli spettacoli del Teatro Zandonai
                                     ) );
+$eZTemplateOperatorArray[] = array( 'class' => 'OCLessOperator',
+									'operator_names' => array( 'ocless', 'ocless_add' ) );
+
 
 ?>
