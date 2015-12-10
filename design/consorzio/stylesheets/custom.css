@@ -565,6 +565,11 @@ div#logo
     top:10px;
 }
 
+div#logo h1
+{
+    margin: 15px;
+}
+
 div#logo h1 a, div#logo h1 a:hover, div#logo h1 a:visited
 {
     background: url( ../images/consorzio/CCT_logo.png ) no-repeat center;

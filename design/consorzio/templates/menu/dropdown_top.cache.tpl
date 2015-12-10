@@ -27,7 +27,8 @@
                                         	'class_filter_array',  $top_menu_class_filter ) ) 
 			 $aree_tematiche_level_2_class = array()
 			 $aree_tematiche_level_2_count=0
-			 $current_node_in_path_2 = first_set($pagedata.path_array[2].node_id, 0  )}
+			 $current_node_in_path_2 = first_set($pagedata.path_array[2].node_id, 0  )
+			 $current_node_in_path_3 = cond( is_set( $pagedata.path_array[3] ), first_set($pagedata.path_array[3].node_id, 0  ), 0 )}
              
 		<li id="menu-aree-tematiche" class="lastli aree-tematiche">
             <a href={$aree_tematiche.url_alias|ezurl()}>
@@ -85,10 +86,12 @@
             {/foreach}
             {def $root_node=false
                  $current_node_in_path = first_set($pagedata.path_array[1].node_id, 0  )
-                 $current_node_in_path_2 = first_set($pagedata.path_array[2].node_id, 0  )}
+                 $current_node_in_path_2 = first_set($pagedata.path_array[2].node_id, 0  )
+				 $current_node_in_path_3 = cond( is_set( $pagedata.path_array[3] ), first_set($pagedata.path_array[3].node_id, 0  ), 0 )}
             {if eq($pagedata.path_array[1].node_id, ezini('NodeSettings', 'RootNode', 'content.ini'))}
             	{set $current_node_in_path = first_set($pagedata.path_array[2].node_id, 0  )
-                     $current_node_in_path_2 = first_set($pagedata.path_array[3].node_id, 0  )}
+                     $current_node_in_path_2 = first_set($pagedata.path_array[3].node_id, 0  )
+					 $current_node_in_path_3 = cond( is_set( $pagedata.path_array[3] ), first_set($pagedata.path_array[3].node_id, 0  ), 0 )}
             {/if}
         {/if}
         
