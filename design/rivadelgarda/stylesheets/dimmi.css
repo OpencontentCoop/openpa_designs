@@ -1,0 +1,58 @@
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative
+}
+body{
+    height:100%; /* force the BODY element to match the height of the HTML element */
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+*{
+    font-family: 'Merriweather Sans', sans-serif !important;
+}
+
+div#page {
+    background: url("../images/dimmi/dimmi_bg.jpg") no-repeat fixed top center #fff;
+    height:100%;
+    padding: 50px 0 100px;
+}
+
+div#header {
+    background: url("../images/dimmi/banner.png") no-repeat scroll center center transparent !important;
+    border: none !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+a.defaultbutton, button.defaultbutton, input.defaultbutton {
+    background: none repeat scroll 0 0 #8BC832;
+    border: medium none;
+    float: right;
+    font-size: 1.7em;
+    padding: 20px;
+    border-radius: 10px
+}
+h1{
+    border: none !important;
+    color: #8BC832  !important;
+    font-size: 3em !important;
+    text-align: center !important;
+    margin: 1.1em 0 !important;
+    text-transform: uppercase
+}
+
+div.block{
+    margin: 1em 0;
+    padding: .5em 0;
+}
+
+div.block > label{
+    margin-bottom: 1em;
+}
+
+label{font-size: 1.2em;}
+
+.last-modified, .info-dipendente
+{display: none}
+
+#debug{display: none}
