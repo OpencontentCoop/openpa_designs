@@ -45,9 +45,9 @@
 
                 {if is_set($data_map.antispam)}
                     {if $data_map.antispam.data_type_string|eq('ocrecaptcha')}
-                        <div class="block float-break">
-                            <label class="grouplabel">{$data_map.antispam.contentclass_attribute_name|wash()}</label>
-                            <div style="float: left">{attribute_view_gui attribute=$node.data_map.antispam}</div>
+                        <div class="form-group">
+                            <label for="helpcomment" class="control-label">{$data_map.antispam.contentclass_attribute_name|wash()}</label>
+                            {attribute_view_gui attribute=$node.data_map.antispam}
                         </div>
                     {else}
                         {ezcss_require( array( 'nxc.captcha.css' ) )}
