@@ -89,7 +89,7 @@
                 <p><span class="adr"><span class="street-address">piazza Podestà, 11</span> - <span class="postal-code">38068</span> <span class="locality">Rovereto</span> <abbr class="region" title="Trento">TN</abbr></span> - 
                     <span class="tel"><span class="type">tel.</span> 0464 452 111</span> -
                     <span class="tel"><span class="type">fax</span> 0464 452 433</span> <br />
-                    e-mail <a class="email" href="mailto:urp@comune.rovereto.tn.it">{'urp@comune.rovereto.tn.it'|wash(email)}</a> - Skype <a class="email" href="skype:comune.rovereto.skype?call">comune.rovereto.skype</a> <br />
+                    e-mail <a class="email" href="mailto:urp@comune.rovereto.tn.it">{'urp@comune.rovereto.tn.it'|wash(email)}</a> {*- Skype <a class="email" href="skype:comune.rovereto.skype?call">comune.rovereto.skype</a> *}<br />
                     posta elettronica certificata (p.e.c.) <a class="email" href="mailto:comunerovereto.tn@legalmail.it">{'comunerovereto.tn@legalmail.it'|wash(email)}</a> <br />
                     partita iva / codice fiscale  00125390229
                 </p>

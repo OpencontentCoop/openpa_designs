@@ -57,7 +57,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right social">
                     {*<li><a href="../navbar/" class="icon-newsletter"><span class="sr-only">Newsletter</span></a></li>*}
-                    <li><a href="skype:bibliotecacivica.rovereto.tn.it?call" title="Chiamaci con Skype - bibliotecacivica.rovereto.tn.it" class="icon-skype"><span class="sr-only">Skype</span></a></li>
+                    {*<li><a href="skype:bibliotecacivica.rovereto.tn.it?call" title="Chiamaci con Skype - bibliotecacivica.rovereto.tn.it" class="icon-skype"><span class="sr-only">Skype</span></a></li>*}
                     <li><a href="https://www.facebook.com/BibliotecaCivicaRovereto" title="Visita la pagina Facebook della Biblioteca" class="icon-facebook"><span class="sr-only">Facebook</span></a></li>
                     <li><a href="https://twitter.com/BiblioCivicaRov" title="Visita il profilo Twitter della Biblioteca" class="icon-twitter"><span class="sr-only">Twitter</span></a></li>
                     <li><a href="http://www.youtube.com/user/bibliocivicarov" title="Visita il canale YouTube della Biblioteca" class="icon-youtube"><span class="sr-only">YouTube</span></a></li>

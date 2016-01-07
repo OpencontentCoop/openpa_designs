@@ -67,7 +67,7 @@
                         Fax (+39) 0464 452 344
                     </p>
                     <p>
-                        <i class="icon-skype"></i> <a href="skype:bibliotecacivica.rovereto.tn.it?call">bibliotecacivica.rovereto.tn.it</a>
+                        {*<i class="icon-skype"></i> <a href="skype:bibliotecacivica.rovereto.tn.it?call">bibliotecacivica.rovereto.tn.it</a>*}
                     </p>
 
 
