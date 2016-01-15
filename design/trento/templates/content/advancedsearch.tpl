@@ -42,7 +42,7 @@
 	 $search			    = false()
 	 $select_sezioni		= array( 1026, 53937, 53943, 156904, 54603)
 	 $block_embed_searchbox	= false()
-     $_anni 			    = array( '2012', '2011','2010','2009','2008','2007','2006','2005','2004','2003','2002','2001' )
+     $_anni 			    = openpaini( 'MotoreDiRicerca', 'RicercaAvanzataSelezionaAnni', array( '2016', '2015', '2014', '2013'.'2012', '2011','2010','2009','2008','2007','2006','2005','2004','2003','2002','2001' ) )
 	 $contentClass			= array()
      $orig_position         = false()
      $sub_tree              = array()
