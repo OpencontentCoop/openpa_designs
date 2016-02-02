@@ -32,7 +32,7 @@ document.body.className = c;
 
 <div id="page">
 <h1><a href={"/"|ezurl} title="{ezini('SiteSettings','SiteName')}">{ezini('SiteSettings','SiteName')}</a></h1>
-{def $uri = $module_result.uri|explode( '/layout/set/print' )|implode('')|query_string()}
+{def $uri = $module_result.uri|explode( '/layout/set/print' )|implode('')}
 <p id="printuri"><a href="{concat( 'http://', ezsys('hostname'), $uri)}"><span class="no-print">Torna alla visualizzazione normale <br /></span> {concat( 'http://', ezsys('hostname'), $uri)}</a></p>
 
 {include uri="design:page_mainarea.tpl"}
