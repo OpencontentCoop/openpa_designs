@@ -1,0 +1,66 @@
+#content {
+	padding: 0; 
+}
+
+#content .content-view-full {
+	background-color: #fff;
+	padding: 20px 10px 40px 0
+}
+
+#content .content-view-full.class-avviso .content-main .abstract {
+	display: none;
+}
+
+#content .content-view-full.class-avviso .content-main .media {
+	text-align: justify;
+}
+
+#content .content-view-full.class-avviso .content-main .video-wrapper {
+	clear: both;
+}
+
+.content-main {
+	font-size: 1em;
+	line-height: 1.5;
+}
+
+/* nascondo i bullet del carousel */
+.panels-container.carousel-top-control .owl-carousel .owl-controls.clickable{
+	display: none!important;
+}
+
+/* ottimizzazione elementi di default di bootstrap */
+
+.main_image,
+.embed_image,
+.thumbnail
+ {
+	border: 0;
+}
+
+
+@media (max-width: 767px) {
+
+}
+
+
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px){
+	.navbar-brand > img.navbar-logo {
+		width: 120px;
+		height: 120px;
+	}
+	.navbar-brand .navbar-title {
+		padding-left: 100px;
+	}
+	
+}
+
+@media (min-width: 1200px){
+
+
+}
