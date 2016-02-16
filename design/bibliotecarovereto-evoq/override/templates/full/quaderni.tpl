@@ -29,7 +29,7 @@
                         subtree=array( $node.object.main_node_id )
                         classes=array( 'indice_costisella')
                         class_names=array( 'Indice Costisella')
-                        fields=array( 'name', 'attr_voce_indice_t', 'attr_tipologia_voce_t', 'attr_anno_t', 'attr_notaio_t', 'attr_quaderno_si', 'main_url_alias' )
+                        fields=array( 'name', solr_field('voce_indice','text'), solr_field('tipologia_voce','text'), solr_field('anno','text'), solr_field('notaio','text'), solr_field('quaderno','text'), 'main_url_alias' )
                         keys=array( 'Titolo', 'Voce indice', 'Tipologia voce', 'Anno', 'Notaio', 'Numero' )
                         filters=array( concat( '-meta_id_si:', $node.contentobject_id ) )
                         table_id=concat( 'childOf-', $node.node_id )}

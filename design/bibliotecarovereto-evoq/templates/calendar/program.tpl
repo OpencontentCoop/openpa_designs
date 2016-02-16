@@ -5,8 +5,8 @@
 {def $currentInterval = 'P1M'
      $calendarData = fetch( openpa, calendario_eventi, hash( 'calendar', $node,
                                                              'main_node_only', true(),
-                                                             'sort_by', hash( 'attr_from_time_dt', 'asc' ),
-                                                             'params', $view_parameters|merge( hash( 'interval', 'P1M', 'view', 'calendar', 'sort_by', hash( 'attr_from_time_dt', 'asc' ) ) ) ) )
+                                                             'sort_by', hash( solr_field('from_time','date'), 'asc' ),
+                                                             'params', $view_parameters|merge( hash( 'interval', 'P1M', 'view', 'calendar', 'sort_by', hash( solr_field('from_time','date'), 'asc' ) ) ) ) )
      $parent_event_types = fetch( 'content', 'node', hash( 'node_id', ezini( 'NodeSettings', 'EventTypesNodeID', 'content.ini' ) ) )
      $parent_target_types = fetch( 'content', 'node', hash( 'node_id', ezini( 'NodeSettings', 'TargetTypesNodeID', 'content.ini' ) ) )
      $laboratori_node = fetch( 'content', 'node', hash( 'node_id', ezini( 'NodeSettings', 'LaboratoriNode', 'content.ini' ) ) )

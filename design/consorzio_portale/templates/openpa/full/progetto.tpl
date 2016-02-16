@@ -62,7 +62,7 @@
     
     {def $testimonial = fetch( ezfind, search, hash( subtree_array, array( 1 ),
                                                      class_id, array( 'testimonial' ),
-                                                     filter, array( concat( 'submeta_oggetto___id_si:', $node.contentobject_id ) ),
+                                                     filter, array( concat( solr_meta_subfield('oggetto','id'),':', $node.contentobject_id ) ),
                                                      limit, 20,
                                                      sort_by, hash( published, desc ) ) )}
     {if $testimonial['SearchCount']|gt(0)}      

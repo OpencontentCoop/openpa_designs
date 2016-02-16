@@ -1,9 +1,9 @@
 {ezpagedata_set( 'extra_menu', false() )}
 {def $sortString = 'published-desc'
-     $default_filters = array( concat( 'submeta_evento_vita___id_si:', $node.contentobject_id ) )
+     $default_filters = array( concat( solr_meta_subfield('evento_vita','id'),':', $node.contentobject_id ) )
      $facets = array(        
         hash( 'field', 'meta_class_identifier_ms', 'name', 'Tipologia_di_contenuto', 'limit', 100, 'sort', 'alpha' ),
-        hash( 'field', 'submeta_argomento___id_si', 'name', 'Argomento', 'limit', 100, 'sort', 'alpha' )
+        hash( 'field', solr_meta_subfield('argomento','id'), 'name', 'Argomento', 'limit', 100, 'sort', 'alpha' )
      )
 }
 

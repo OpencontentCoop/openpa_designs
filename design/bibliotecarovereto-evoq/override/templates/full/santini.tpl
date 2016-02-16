@@ -29,7 +29,7 @@
                         subtree=array( $node.object.main_node_id )
                         classes=array( 'santino')
                         class_names=array( 'Luttini e memorie funebri')
-                        fields=array( 'name', 'attr_data_nascita_t', 'attr_luogo_nascita_t', 'attr_data_morte_t', 'main_url_alias' )
+                        fields=array( 'name', solr_field('data_nascita','text'), solr_field('luogo_nascita','text'), solr_field('data_morte','text'), 'main_url_alias' )
                         keys=array( 'Nome', 'Data di Nascita', 'Luogo di Nascita', 'Data di Morte')
                         filters, array( concat( '-meta_id_si:', $node.contentobject_id ) ),
                         table_id, concat( 'childOf-', $node.node_id )}

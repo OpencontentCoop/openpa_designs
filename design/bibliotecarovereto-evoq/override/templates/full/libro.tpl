@@ -5,12 +5,12 @@
     'class_id', array('libro'),
     'limit', 5,
     'sort_by', hash( 'published', 'desc' ),
-    'filter', array(concat( 'submeta_target___id_si:',  $node.data_map.target.content.relation_list[0].contentobject_id ))))
+    'filter', array(concat( solr_meta_subfield('target','id'),':',  $node.data_map.target.content.relation_list[0].contentobject_id ))))
 
      $counter = 1
      $nodes =fetch( ezfind, search, hash(
                     'class_id', array( 'corso' ),
-                    'filter', array( concat( 'attr_tipologia_t', $node.data_map.tipologia ) ),
+                    'filter', array( concat( solr_field('tipologia','text'), $node.data_map.tipologia ) ),
                     'limit', 4,
                     'sort_by', hash( 'published', 'desc' )
             ))}

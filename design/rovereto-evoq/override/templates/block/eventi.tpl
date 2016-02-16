@@ -55,23 +55,23 @@
      $prox_search_hash = hash( 
                         'limit', 100,
                         'subtree_array', $subtree_array,
-                        'sort_by', hash( 'attr_from_time_dt', 'asc' ),
+                        'sort_by', hash( solr_field('from_time','date'), 'asc' ),
                         'filter', array(
                             'or',
-                                concat( 'attr_from_time_dt:[', $ezfind_curr_first, ' TO ', $ezfind_month_last, ']' )
+                                concat( solr_field('from_time','date'),':[', $ezfind_curr_first, ' TO ', $ezfind_month_last, ']' )
                             )
                        )
      $search_hash = hash( 
                         'limit', 100,
                         'subtree_array', $subtree_array,
-                        'sort_by', hash( 'attr_from_time_dt', 'desc' ),
+                        'sort_by', hash( solr_field('from_time','date'), 'desc' ),
                         'filter', array(
                             'or',
-                                concat( 'attr_from_time_dt:[', $ezfind_curr_first, ' TO ', $ezfind_curr_last, ']' ),
-                                concat( 'attr_to_time_dt:[', $ezfind_curr_first, ' TO ', $ezfind_curr_last, ']' ),
+                                concat( solr_field('from_time','date'),':[', $ezfind_curr_first, ' TO ', $ezfind_curr_last, ']' ),
+                                concat( solr_field('to_time','date'),':[', $ezfind_curr_first, ' TO ', $ezfind_curr_last, ']' ),
                                 array( 'and',
-                                    concat( 'attr_from_time_dt:[* TO ', $ezfind_curr_first, ']' ),
-                                    concat( 'attr_to_time_dt:[', $ezfind_curr_last, ' TO *]' )
+                                    concat( solr_field('from_time','date'),':[* TO ', $ezfind_curr_first, ']' ),
+                                    concat( solr_field('to_time','date'),':[', $ezfind_curr_last, ' TO *]' )
                                 )
                             )
                        )

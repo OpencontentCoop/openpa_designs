@@ -125,7 +125,7 @@ $(function() {
                             type="text" name="subfilter_arr[{$class.identifier}/{$attribute.identifier}]" value="{if is_set($subfilter_arr[concat($class.identifier,'/',$attribute.identifier)])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)]}{/if}" />*}
         
                         <input id="{$attribute.identifier}" 
-                            type="text" name="filter[attr_{$attribute.identifier}_t]" value="{if is_set($subfilter[concat('attr_',$attribute.identifier,'_t')])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)]}{/if}" />
+                            type="text" name="filter[{solr_field($attribute.identifier,'text')}]" value="{if is_set($subfilter[solr_field($attribute.identifier,'text')])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)]}{/if}" />
         
         
                     {/case}
@@ -136,7 +136,7 @@ $(function() {
                         {if $attribute.identifier|eq('servizio')}
                         <label for="{$attribute.identifier}">{$attribute.name}</label>
                         {*<select name="Servizi[]" id="{$attribute.identifier}">*}
-                        <select name="filter[subattr_servizio___name____s]" id="{$attribute.identifier}">
+                        <select name="filter[{solr_subfield('servizio','name','string')}]" id="{$attribute.identifier}">
                             <option value="">Qualsiasi servizio</option>
                                 <optgroup  label="{$node_servizi_attivi.name|wash}">
                                 {foreach $servizi_attivi as $k => $servizio}

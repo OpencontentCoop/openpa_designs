@@ -5,7 +5,7 @@
 {def $parent_node = fetch( 'content', 'node', hash( 'node_id', ezini( 'NodeSettings', 'ProposedBooksNodeID', 'content.ini' ) ) )
      $nodes = fetch( ezfind, search, hash(
         'class_id', array( 'libro' ),
-        'filter', array( concat( 'submeta_target___id_si:',  $item.contentobject_id ) ),
+        'filter', array( concat( solr_meta_subfield('target','id'),':',  $item.contentobject_id ) ),
         'subtree_array', array( $parent_node.node_id ),
         'limit', 2,
         'sort_by', hash( 'published', 'desc' )))

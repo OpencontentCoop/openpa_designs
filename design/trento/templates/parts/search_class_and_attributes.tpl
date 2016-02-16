@@ -196,14 +196,14 @@ $(function() {
         {if and($attribute.is_searchable, $attribute.identifier|ne('errors'), $attributi_da_escludere_dalla_ricerca|contains($attribute.identifier)|not())}
             {switch match=$attribute.data_type_string}
                 {case in=array('ezstring','eztext')}
-                       {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', concat( 'attr_', $attribute.identifier, '_s' ) ) )}
+                       {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', solr_field($attribute.identifier,'string') ) )}
                 {/case}
                 {case in=array('ezdate', 'ezdatetime')}
-                    {set $filter_string = concat( 'attr_', $attribute.identifier, '_dt' )}
+                    {set $filter_string = solr_field($attribute.identifier,'date')}
                     {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', $filter_string ) )}
                 {/case}
                 {case in=array('ezinteger')}
-                    {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', concat( 'attr_', $attribute.identifier, '_si' ) ) )}
+                    {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', solr_field($attribute.identifier,'sint') ) )}
                 {/case}
                 {case}
                 {/case}
@@ -265,21 +265,21 @@ $(function() {
             {switch match=$attribute.data_type_string}
                 
                 {case in=array('ezstring','eztext')}
-                {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', concat( 'attr_', $attribute.identifier, '_t' ) ) )}
-                {set $filterParameter = getFilterParameter( concat( 'attr_', $attribute.identifier, '_t' ) )}
+                {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', solr_field($attribute.identifier,'text') ) )}
+                {set $filterParameter = getFilterParameter( solr_field($attribute.identifier,'text') )}
                     <label for="{$attribute.identifier}">{$attribute.name}</label>
-                    <input id="{$attribute.identifier}" type="text" name="filter[{concat( 'attr_', $attribute.identifier, '_t' )}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]}{/if}" />
+                    <input id="{$attribute.identifier}" type="text" name="filter[{solr_field($attribute.identifier,'text')}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]}{/if}" />
                 {/case}
                 
                 {case in=array('ezobjectrelationlist')}
                     
-                    {set $facets = $facets|append( hash( 'field', concat( 'subattr_', $attribute.identifier, '___name____s' ), 'name', $attribute.name, 'limit', 10000, 'sort', 'alpha' ) )}
+                    {set $facets = $facets|append( hash( 'field', solr_subfield($attribute.identifier,'name','string'), 'name', $attribute.name, 'limit', 10000, 'sort', 'alpha' ) )}
                     
                     {if $attribute.identifier|eq('')}
                     {/if}
                     
                     {if $attribute.identifier|eq('servizio')}
-                    {set $filterParameter = getFilterParameter( 'subattr_servizio___name____s' )}
+                    {set $filterParameter = getFilterParameter( solr_subfield('servizio','name','string') )}
                     {*
                     <label for="{$attribute.identifier}">{$attribute.name}</label>
                     <select name="filter[subattr_servizio___name____s]" id="{$attribute.identifier}">
@@ -299,7 +299,7 @@ $(function() {
                     {/if}
                     
                     {if $attribute.identifier|eq('argomento')}
-                    {set $filterParameter = getFilterParameter( 'subattr_argomento___name____s' )}
+                    {set $filterParameter = getFilterParameter( solr_subfield('argomento','name','string') )}
                     {*
                     <label for="{$attribute.identifier}">{$attribute.name}</label>
                     <select id="{$attribute.identifier}" name="filter[subattr_argomento___name____s]">
@@ -337,11 +337,11 @@ $(function() {
                                 {/foreach}
                         </select>
                     {else}
-                        {set $filterParameter = getFilterParameter( concat( 'attr_', $attribute.identifier, '_si' ) )}
+                        {set $filterParameter = getFilterParameter( solr_field($attribute.identifier,'sint') )}
                         <label for="{$attribute.identifier}">{$attribute.name}</label>
-                        <input id="{$attribute.identifier}" size="5" type="text" name="filter[{concat( 'attr_', $attribute.identifier, '_si' )}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]}{/if}" />
+                        <input id="{$attribute.identifier}" size="5" type="text" name="filter[{solr_field($attribute.identifier,'sint')}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]}{/if}" />
                     {/if}
-                    {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', concat( 'attr_', $attribute.identifier, '_si' ) ) )}
+                    {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', solr_field($attribute.identifier,'sint') ) )}
                 {/case}
                 
                 {*case in=array('ezgmaplocation')}

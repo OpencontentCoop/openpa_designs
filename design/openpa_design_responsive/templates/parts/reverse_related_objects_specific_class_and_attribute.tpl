@@ -18,7 +18,7 @@
 
 {def $search_hash = hash( 'limit', 100,
                           'class_id', array( $classe ),                        
-                          'filter', array( concat( 'submeta_', $attrib, '___id_si:', $node.object.id ) ) )
+                          'filter', array( concat( solr_meta_subfield($attrib,'id'),':', $node.object.id ) ) )
      $search = fetch( ezfind, search, $search_hash )
      $objects_count = $search.SearchCount
      $objects = $search.SearchResult}
@@ -63,7 +63,7 @@
 
     {set $search_hash = hash( 'limit', 100,
                               'class_id', array( 'area', 'servizio', 'ufficio', 'struttura' ),                        
-                              'filter', array( concat( 'submeta_responsabile___id_si:', $node.object.id ) ) )
+                              'filter', array( concat( solr_meta_subfield('responsabile','id'),':', $node.object.id ) ) )
          $search = fetch( ezfind, search, $search_hash )
          $objects_count = $search.SearchCount
          $objects = $search.SearchResult}

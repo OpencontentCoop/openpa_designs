@@ -75,7 +75,7 @@ $(function() {
                 {* FIGLI *}
                 {set $search_hash = hash( 'subtree_array', array( ezini( 'NodeSettings', 'RootNode', 'content.ini' ) ),                                              
                                           'limit', 100,
-                                          'filter', array( concat( 'submeta_argomento___id_si:', $first_level_child.contentobject_id ) ),
+                                          'filter', array( concat( solr_meta_subfield('argomento','id'),':', $first_level_child.contentobject_id ) ),
                                           'class_id', array( 'scheda_informativa' ),
                                           'sort_by', hash( 'name', 'asc' )
                                           )

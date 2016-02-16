@@ -29,7 +29,7 @@
 	{/if}
 	</ul>
 	
-	{def $consulenti = fetch( ezfind, search, hash( class_id, array( 'consulente' ), filter, array( concat( 'submeta_progetto___id_si:',  $node.contentobject_id ) ), sort_by, hash( name, asc ) ) )}
+	{def $consulenti = fetch( ezfind, search, hash( class_id, array( 'consulente' ), filter, array( concat( solr_meta_subfield('progetto','id'),':',  $node.contentobject_id ) ), sort_by, hash( name, asc ) ) )}
 	{if $consulenti['SearchCount']|gt(0)}
 	  <h3>Consulenti</h3>
 	  <ul class="list-unstyled">

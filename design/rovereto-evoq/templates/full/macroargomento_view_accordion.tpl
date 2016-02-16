@@ -13,17 +13,17 @@
 	<div class="col-md-12">
 
         <h1>{$node.name|wash()}</h1>
-	
+
         {* DATA e ULTIMAMODIFICA *}
         {include name = last_modified
-                 node = $node             
+                 node = $node
                  uri = 'design:parts/openpa/last_modified.tpl'}
-    
+
         {* EDITOR TOOLS *}
         {include name = editor_tools
-                 node = $node             
+                 node = $node
                  uri = 'design:parts/openpa/editor_tools.tpl'}
-    
+
         {* ATTRIBUTI : mostra i contenuti del nodo *}
         {include name = attributi_principali
                  uri = 'design:parts/openpa/attributi_principali.tpl'
@@ -32,34 +32,34 @@
         {if and( is_set($node.data_map.description), $node.data_map.description.has_content )}
             {attribute_view_gui attribute=$node.data_map.description}
         {/if}
-        
+
         {def $page_limit = openpaini( 'GestioneFigli', 'limite_paginazione', 25 )
              $children=array()
              $children_count=0
              $classes=array()
              $search_hash = array()
              $search = false()}
-        
+
 {ezscript_require(array( 'ezjsc::jquery', 'ui-widgets.js' ) )}
 
 <script type="text/javascript">
 {literal}
 $(function() {
-	$("#{/literal}{$node.name|slugize()}-container{literal}").accordion({ 
+	$("#{/literal}{$node.name|slugize()}-container{literal}").accordion({
 		autoHeight: false,
         active: false,
-		change: function(event, ui) { 
-			$('a', ui.newHeader ).addClass('active'); 
-			$('a', ui.oldHeader ).removeClass('active');  
+		change: function(event, ui) {
+			$('a', ui.newHeader ).addClass('active');
+			$('a', ui.oldHeader ).removeClass('active');
 		}
-	}); 
+	});
 });
 {/literal}
-</script>        
+</script>
 
         <div class="full-block lista_accordion color color-primary">
             <div id="{$node.name|slugize()}-container" class="ui-accordion">
-        
+
             {foreach $node.children as $index => $first_level_child}
                 <div id="{$first_level_child.name|slugize()}" class="border-box box-gray box-accordion ui-accordion-header">
                     <h4>
@@ -72,39 +72,39 @@ $(function() {
                         {/if}
                     </h4>
                 </div>
-        
+
                 {* FIGLI *}
-                {set $search_hash = hash( 'subtree_array', array( ezini( 'NodeSettings', 'RootNode', 'content.ini' ) ),                                              
+                {set $search_hash = hash( 'subtree_array', array( ezini( 'NodeSettings', 'RootNode', 'content.ini' ) ),
                                           'limit', 100,
-                                          'filter', array( concat( 'submeta_argomento___id_si:', $first_level_child.contentobject_id ) ),
+                                          'filter', array( concat( solr_meta_subfield('argomento','id'),':', $first_level_child.contentobject_id ) ),
                                           'class_id', array( 'scheda_informativa' ),
                                           'sort_by', hash( 'name', 'asc' )
                                           )
-                     $search = fetch( ezfind, search, $search_hash )                         
+                     $search = fetch( ezfind, search, $search_hash )
                      $children = $search['SearchResult']
                      $children_count = $search['SearchCount']}
-                                    
-            
-                
+
+
+
                 <div id="{$first_level_child.name|slugize()}-detail" class="ui-accordion-content">
                 {if $children_count|gt(0)}
-                    {foreach $children as $child }                    
+                    {foreach $children as $child }
                         <div class="list">
                             <p><strong>
-                            <a href={concat($first_level_child.url_alias, '/(view)/', $child.node_id )|ezurl()}>{$child.name|wash()}</a>                            
+                            <a href={concat($first_level_child.url_alias, '/(view)/', $child.node_id )|ezurl()}>{$child.name|wash()}</a>
                             </strong></p>
-                            
+
                             {include uri='design:block_item/list-item.tpl' name=folder-accordion node=$child show_title=false() show_image=false()}
-                        </div>                       
+                        </div>
                     {/foreach}
-                {/if}                    
-                </div>                
-                                
-                
+                {/if}
+                </div>
+
+
             {/foreach}
             </div>
         </div>
-    
+
     </div>
 </div>
 {/if}

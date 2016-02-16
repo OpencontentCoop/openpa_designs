@@ -44,7 +44,7 @@ $nodes=fetch('content','list',
     'class_id',array('event'),
     'limit',3,
     'sort_by', hash( 'event/from_time', 'asc' ),
-    'filter',array(concat('event/from_time:[NOW-', $curr_today, 'DAY TO NOW+60DAY]'), concat( 'submeta_target___id_si:',  $node.contentobject_id ))))
+    'filter',array(concat('event/from_time:[NOW-', $curr_today, 'DAY TO NOW+60DAY]'), concat( solr_meta_subfield('target','id'),':',  $node.contentobject_id ))))
 }
 
 {if $upcoming_events.SearchCount|gt(0)}

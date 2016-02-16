@@ -29,7 +29,7 @@
                         subtree=array( $node.object.main_node_id )
                         classes=array( 'amministratore_roveretano')
                         class_names=array( 'Amministratore roveretano')
-                        fields=array( 'attr_nome_t', 'attr_cognome_t', 'attr_da_t', 'attr_a_t', 'attr_carica_t', 'main_url_alias' )
+                        fields=array( solr_field('nome','text'), solr_field('cognome','text'), solr_field('da','text'), solr_field('a','text'), solr_field('carica','text'), 'main_url_alias' )
                         keys=array( 'Nome', 'Cognome', 'Inizio mandato', 'Fine mandato', 'Carica' )
                         filters=array( concat( '-meta_id_si:', $node.contentobject_id ) )
                         table_id=concat( 'childOf-', $node.node_id )}

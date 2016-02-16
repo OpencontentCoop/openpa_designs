@@ -402,9 +402,9 @@
                                 }
 
 								<div class="subfilter">
-                                {set $filterParameter = getFilterParameter( 'subattr_servizio___name____s' )}
+                                {set $filterParameter = getFilterParameter( solr_subfield('servizio','name','string') )}
 									<label for="Servizi">Inerente al Servizio:</label>
-									<select id="Servizi" name="filter[subattr_servizio___name____s]">
+									<select id="Servizi" name="filter[{solr_subfield('servizio','name','string')}]">
 									<option value="">Qualsiasi servizio</option>
 									<optgroup  label="{$node_servizi_attivi.name|wash}">
 									   {foreach $servizi_attivi as $k => $servizio}
@@ -445,9 +445,9 @@
 							<div class="col-2">
 							<div class="col-content">
 								<div class="subfilter">
-                                {set $filterParameter = getFilterParameter( 'subattr_argomento___name____s' )}
+                                {set $filterParameter = getFilterParameter( solr_subfield('argomento','name','string') )}
 									<label for="Argomenti">Argomento</label>
-									<select id="Argomenti" name="filter[subattr_argomento___name____s]">
+									<select id="Argomenti" name="filter[{solr_subfield('argomento','name','string')}]">
 										<option value="">Qualsiasi argomento</option>
 										
 										{foreach $margomenti as $k => $margomento}

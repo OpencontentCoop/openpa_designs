@@ -86,7 +86,7 @@
                                                             'sort_by', hash( 'name', 'asc' ),
                                                             'class_id', array( 'sala_pubblica' ),
                                                             'load_data_map', false(),
-                                                            'filter', array( concat( 'submeta_circoscrizione___id_si:', $node.contentobject_id ) ) ) )}
+                                                            'filter', array( concat( solr_meta_subfield('circoscrizione','id'),':', $node.contentobject_id ) ) ) )}
         {if $sale_pubbliche.SearchCount|gt(0)}
             <div class="filtered-children">
                 <h2>Sale pubbliche</h2>

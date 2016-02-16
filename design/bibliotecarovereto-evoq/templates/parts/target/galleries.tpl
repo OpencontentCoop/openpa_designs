@@ -1,6 +1,6 @@
 {def $nodes = fetch( ezfind, search, hash(
         'class_id', array( 'gallery' ),
-        'filter', array( concat( 'submeta_target___id_si:',  $item.contentobject_id ) ),
+        'filter', array( concat( solr_meta_subfield('target','id'),':',  $item.contentobject_id ) ),
         'limit', 2,
         'sort_by', hash( 'published', 'desc' )
 ))}
