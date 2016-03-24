@@ -198,7 +198,7 @@ div#logo h1 a:visited
 	display:block;
 }
 
-div#header
+div#header.float-break
 {
     background: url("../images/header/banner.jpg") no-repeat scroll center transparent !important;
     border-top: 5px solid #666666;
