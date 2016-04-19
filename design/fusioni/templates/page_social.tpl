@@ -24,7 +24,7 @@
         </div>
     </li>
     {/if}
-    
+    {*
     <li class="relative">
         <button class="sw_button t_align_c contact"><i class="fa fa-envelope-o"></i></button>
         <div class="sw_content">
@@ -34,7 +34,8 @@
                 <a href={"newsletter/subscribe"|ezurl} class="btn btn-lg r_corners mw_0 tr_all_hover color_dark bg_light_color_2">Iscriviti ora</a>
             </form>
         </div>
-    </li>	
+    </li>
+	*}
     {if is_set($pagedata.contacts.indirizzo)}
     <li class="relative">
         <button class="sw_button t_align_c googlemap"><i class="fa fa-map-marker"></i></button>

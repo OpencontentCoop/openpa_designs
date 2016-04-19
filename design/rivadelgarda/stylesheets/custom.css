@@ -119,8 +119,7 @@ div#page.area_tematica div#sidemenu  a.current
 }
 
 div#page.area_tematica  div#topmenu ul#topmenu-firstlevel li.aree-tematiche a span
-{
-	background:transparent url("../images/default/topmenu-lastli-bg.jpg") no-repeat top right;
+{	
 	display:block;
 }
 
