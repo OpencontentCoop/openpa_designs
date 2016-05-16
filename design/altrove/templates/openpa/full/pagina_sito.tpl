@@ -25,12 +25,18 @@
 
         {include uri=$openpa.content_main.template}
 
-        {include uri=$openpa.content_detail.template}        
+        {include uri=$openpa.content_detail.template}
 
-        {include uri='design:parts/children/datatable.tpl'}
+{*        {include uri='design:parts/children/datatable.tpl'}*}
+        {* - PIER - *}
+        {if and( is_set( $openpa.content_albotelematico ), $openpa.content_albotelematico.is_container )}
+            {include uri=$openpa.content_albotelematico.container_template}
+        {else}
+            {node_view_gui content_node=$node view=children view_parameters=$view_parameters}
+        {/if}
 
     </div>
-    
+
     {if $openpa.control_menu.show_extra_menu}
       {include uri='design:openpa/full/parts/section_right.tpl'}
     {/if}
