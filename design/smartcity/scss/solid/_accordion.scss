@@ -1,0 +1,40 @@
+.lista_accordion_manual {
+  	.panel-group {
+		.panel {
+			+ .panel {
+				margin-top: 2px;
+			}
+		}
+		.panel-default {
+			border: 0;
+    		border-radius:0;
+    		box-shadow: none;
+
+		    .panel-heading {
+			    background: $gray-lighter;
+			    padding: 8px 10px;
+			    border: 1px solid #dedede;
+			    &:hover {
+	    	  	background: #dedede;
+	      		}
+		      	.panel-title {
+			     	a {
+		      		text-decoration: none;
+		      		font-size: $font-size-base;
+			    	display: block;
+				    	&:hover {
+				    		color: $gray;
+				    	}
+
+				    	i {
+				    	font-size: $font-size-small;
+				     		color:  $gray-light;
+				     		margin-right: 7px;
+				     	}
+					}
+		      	}
+		 	}
+		 }
+	}
+
+}

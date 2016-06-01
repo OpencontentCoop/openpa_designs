@@ -1,0 +1,97 @@
+$openpa-palette: (
+        'no-main-style': (
+                'background-primary': rgb(102, 135, 195), //Sfondo #6687c3
+                'text-primary': #ffffff,
+                'content-title': rgb(102, 135, 195),
+                'background-secondary': $gray-lighter,
+                'text-secondary': $gray-lighter,
+                'background-page': #fff,
+                'text-link': rgb(102, 135, 195),
+                'text-link-menu': $gray-dark,
+                'skyline-image-url': url(../images/skyline-default.png),
+                'logo-img-url': url(../images/logo-o.png)
+        ),
+        'default-1': (
+                'background-primary': rgb(244, 67, 54), //Rosso #f44336
+                'text-primary': #ffffff,
+                'content-title': rgb(244, 67, 54),
+                'background-secondary': $gray-lighter,
+                'text-secondary': #fff,
+                'background-page': #fff,
+                'text-link': rgb(244, 67, 54),
+                'text-link-menu': $gray-dark,
+                'skyline-image-url': url(../images/skyline-default-1.png),
+                'logo-img-url': url(../images/logo-o.png)
+        ),
+        'default-2': (
+                'background-primary': rgb(164, 193, 55), //Verde #a4c137
+                'text-primary': #ffffff,
+                'content-title': rgb(164, 193, 55),
+                'background-secondary': $gray-lighter,
+                'text-secondary': #fff,
+                'background-page': #fff,
+                'text-link': rgb(164, 193, 55),
+                'text-link-menu': $gray-dark,
+                'skyline-image-url': url(../images/skyline-default-2.png),
+                'logo-img-url': url(../images/logo-o.png)
+        ),
+        'default-3': (
+                'background-primary': rgb(0, 188, 212), //Azzurro #00BCD4
+                'text-primary': #ffffff,
+                'content-title': rgb(0, 188, 212),
+                'background-secondary': $gray-lighter,
+                'text-secondary': #fff,
+                'background-page': #fff,
+                'text-link': rgb(0, 188, 212),
+                'text-link-menu': $gray-dark,
+                'skyline-image-url': url(../images/skyline-default-3.png),
+                'logo-img-url': url(../images/logo-o.png)
+        ),
+        'default-4': (
+                'background-primary': rgb(63, 81, 181), //Blu #3f51b5
+                'text-primary': #ffffff,
+                'content-title': rgb(63, 81, 181),
+                'background-secondary': $gray-lighter,
+                'text-secondary': #fff,
+                'background-page': #fff,
+                'text-link': rgb(63, 81, 181),
+                'text-link-menu': $gray-dark,
+                'skyline-image-url': url(../images/skyline-default-4.png),
+                'logo-img-url': url(../images/logo-o.png)
+        ),
+        'default-5': (
+                'background-primary': rgb(123, 31, 162), // Viola #7b1fa2
+                'text-primary': #ffffff,
+                'content-title': rgb(123, 31, 162),
+                'background-secondary': $gray-lighter,
+                'text-secondary': $gray-lighter,
+                'background-page': #fff,
+                'text-link': rgb(123, 31, 162),
+                'text-link-menu': $gray-dark,
+                'skyline-image-url': url(../images/skyline-default-5.png),
+                'logo-img-url': url(../images/logo-o.png)
+        ),
+        'default-6': (
+                'background-primary': rgb(255, 87, 34), // Arancione #FF5722
+                'text-primary': #ffffff,
+                'content-title': rgb(255, 87, 34),
+                'background-secondary': $gray-lighter,
+                'text-secondary': $gray-lighter,
+                'background-page': #fff,
+                'text-link': rgb(255, 87, 34),
+                'text-link-menu': $gray-dark,
+                'skyline-image-url': url(../images/skyline-default-6.png),
+                'logo-img-url': url(../images/logo-o.png)
+        ),
+        'default-7': (
+                'background-primary': $brand-success,
+                'text-primary': #ffffff,
+                'content-title': $brand-success,
+                'background-secondary': $gray-lighter,
+                'text-secondary': #fff,
+                'background-page': #fff,
+                'text-link': $brand-success,
+                'text-link-menu': $gray-dark,
+        )
+);
+

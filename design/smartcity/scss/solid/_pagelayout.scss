@@ -1,0 +1,162 @@
+body {
+  font: 300 14px/1.428571429 'Titillium Web' 'Open Sans', 'Arial', 'Helvetica', 'sans-serif';
+  background: #e6e6e6 url("../images/pagelayout/body_bg.png") repeat-x scroll 0 0;
+  //letter-spacing: 0.1px;
+  overflow-x: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+
+#header {
+  .head-banner {
+    height: 250px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .navtools {
+    background: $gray;
+    @extend .text-right;
+    @extend .t_xs_align_c;
+    i.fa {
+      vertical-align: middle;
+    }
+    ul {
+      margin: 0;
+      li {
+        line-height: 50px;
+        a {
+          color: #fff;
+        }
+      }
+    }
+    .navbar-form {
+      input.form-control {
+        //border-top-right-radius: $border-radius-base;
+        //border-bottom-right-radius: $border-radius-base;
+        border-radius: $border-radius-base;
+      }
+      button {
+        color: #fff;
+      }
+    }
+  }
+
+  .breadcrumb-container {
+    //background-color: $breadcrumb-bg;
+    ul {
+      margin: 0;
+      a {
+        color: darken($link-color, 10%);
+      }
+
+    }
+    font-size: $font-size-small;
+  }
+  .breadcrumb{
+    margin-bottom: 0;
+    .active{
+      color: $text-color;
+    }
+  }
+}
+
+#content{
+  padding-top: $line-height-computed;
+  //padding-bottom: $line-height-computed;
+}
+
+#footer {
+  background: $gray;
+  color: #fff;
+  .footer-data {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    a {
+      color: #fff;
+    }
+    .contacts, .links {
+      ul {
+        margin: 0;
+      }
+      i {
+        font-size: 1.1em;
+        vertical-align: middle;
+        padding-right: 5px;
+      }
+      a {
+        display: block;
+        padding: 8px 0;
+        position: relative;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+
+      }
+    }
+    .links a {
+      padding: 5px 0
+    }
+    .notes {
+      ul {
+        @extend .list-unstyled;
+      }
+    }
+  }
+  #footer-map-container {
+    background: #fff;
+    position: relative;
+    .caret-big {
+      border-top-color: $gray;
+      border-width: 50px;
+      bottom: auto;
+      display: block;
+      left: 50%;
+      transform: translate(-50%, 0);
+      margin: 0;
+      position: absolute;
+      top: -10px;
+      z-index: 10;
+    }
+  }
+}
+
+#credits {
+  background: $gray-dark;
+  padding: 5px 0;
+  font-size: $font-size-small;
+  p, a, ul {
+    color: #fff;
+    margin: 0;
+  }
+  .access {
+    text-align: right;
+  }
+}
+
+// page extra
+.blueimp-gallery {
+  display: none
+}
+
+#go_to_top {
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: #262c34;
+  position: fixed;
+  right: 20px;
+  margin: -20px 0 0 620px;
+  top: 90%;
+  font-size: 1.65em;
+  border-width: 0;
+  border-radius: $border-radius-base;
+  &:hover {
+    background: $gray-light;
+  }
+  &.animate_horizontal_finished {
+    opacity: .5;
+  }
+}

@@ -1,0 +1,39 @@
+.content-main {
+  h1.title_editor,
+  h2.title_editor,
+  h3.title_editor,
+  h4.title_editor,
+  h5.title_editor,
+  h6.title_editor {
+    background-color: transparent!important; 
+    color: $gray-dark!important;
+    padding: 0.5em 0;
+  }
+
+    h1.title_editor {
+    font-size: ($font-size-base * 1.8);  
+  }
+
+    h2.title_editor { 
+    font-size: ($font-size-base * 1.6); 
+  }
+
+    h3.title_editor { 
+    font-size: ($font-size-base * 1.4); 
+  }
+
+    h4.title_editor { 
+    font-size: ($font-size-base * 1.2); 
+  }
+
+    h5.title_editor { 
+    font-size: ($font-size-base * 1); 
+  }
+
+    h6.title_editor { 
+    font-size: ($font-size-base * 0.8); 
+  }
+ 
+}
+
+

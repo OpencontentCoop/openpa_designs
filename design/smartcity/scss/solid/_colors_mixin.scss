@@ -1,0 +1,476 @@
+$openpa-palette: (
+        'no-main-style': (
+                'background-primary': $gray,
+                'text-primary': #ffffff,
+                'content-title': $gray,
+                'background-secondary': $gray-light,
+                'text-secondary': $gray-lighter,
+        )
+) !default;
+
+//$openpa-filter-values: (
+//        'lighten': 1.5%,
+//        'darken': 0
+//) !default;
+
+@function openpa-color(
+  $palette-identifier: 'no-main-style',
+  $palette-variant: 'test'
+) {
+  @if map-has-key($openpa-palette, $palette-identifier) {
+    $palette_map: map-get($openpa-palette, $palette-identifier) !default;
+    @if map-has-key($palette_map, $palette-variant) {
+      $return: map-get($palette_map, $palette-variant);
+      //@if map-has-key($openpa-filter-values, $filter) {
+      //  $filter-value: map-get($openpa-filter-values, $filter);
+      //  $return: $filter( $return, $filter-value)
+      //}
+      //@if $variant {
+      //  $alpha: if(type-of($variant) == 'number', $variant, map-get($openpa-variant, $variant));
+      //  @if $alpha {
+      //    $return: rgba($return, $alpha);
+      //  }
+      //}
+      @return $return;
+    }
+  }
+  @return '';
+}
+
+@mixin openpa-block-color-by-section( $palette-identifier: 'no-main-style' ) {
+  h3.widget_title,
+  .widget_title h3 {
+    background: openpa-color($palette-identifier, 'background-primary');
+    color: openpa-color($palette-identifier, 'text-primary');
+    a {
+      color: openpa-color($palette-identifier, 'text-primary');
+    }
+  }
+  .owl-controls {
+    .owl-buttons {
+      .owl-next, .owl-prev {
+        background: openpa-color($palette-identifier, 'background-primary');
+        color: openpa-color($palette-identifier, 'text-primary');
+      }
+    }
+  }
+
+  .carousel-caption {
+    color: openpa-color($palette-identifier, 'text-secondary');
+    h3 {
+      background: openpa-color($palette-identifier, 'background-primary');
+      color: openpa-color($palette-identifier, 'text-primary');
+      a {
+        color: openpa-color($palette-identifier, 'text-primary');
+      }
+    }
+  }
+  .carousel-both-control {
+    .owl-pagination {
+      &.active {
+        background: openpa-color($palette-identifier, 'background-primary') !important;
+      }
+    }
+  }
+
+  .tabs_nav .ui-tabs-active a, .tabs_nav li:hover a[class*="color"] {
+    background: openpa-color($palette-identifier, 'background-secondary');
+    color: openpa-color($palette-identifier, 'text-secondary');
+  }
+
+  .widget.events {
+    .tab-content {
+      border-color: openpa-color($palette-identifier, 'background-primary');
+    }
+
+    .widget_title {
+      background: openpa-color($palette-identifier, 'background-primary');
+      h3 {
+        background: openpa-color($palette-identifier, 'background-primary');
+        color: openpa-color($palette-identifier, 'text-primary');
+      }
+      a .fa {
+        color: openpa-color($palette-identifier, 'text-primary');
+      }
+    }
+
+    .events-tabs {
+      li {
+        a {
+          background: openpa-color($palette-identifier, 'background-primary');
+          color: openpa-color($palette-identifier, 'text-primary');
+          opacity: 0.5;
+        }
+
+        &.active a,
+        a:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .events .calendar-date {
+    .month {
+      background-color: openpa-color($palette-identifier, 'background-primary');
+      color: openpa-color($palette-identifier, 'text-primary');
+    }
+    .day {
+      border-color: openpa-color($palette-identifier, 'background-primary');
+    }
+
+  }
+  .lista_accordion_manual .panel-group .panel-default .panel-heading .panel-title a i,
+  .lista_accordion .panel-group .panel-default .panel-heading .panel-title a i {
+    color: openpa-color($palette-identifier, 'background-primary');
+  }
+
+  .panel-label {
+    background: openpa-color($palette-identifier, 'background-primary');
+    color: openpa-color($palette-identifier, 'text-primary');
+  }
+  .media-panel {
+    figure {
+      border-bottom-color: openpa-color($palette-identifier, 'background-primary');
+    }
+  }
+  .panel-story {
+    color: openpa-color($palette-identifier, 'background-primary');
+    a {
+      color: openpa-color($palette-identifier, 'background-primary');
+    }
+  }
+
+  .widget_tabs,
+  .widget.events {
+    .tab-content {
+      border-color: openpa-color($palette-identifier, 'background-primary');
+    }
+
+    h2 {
+      background: openpa-color($palette-identifier, 'background-primary');
+      color: openpa-color($palette-identifier, 'text-primary');
+    }
+    .nav-tabs {
+      li {
+        a {
+          background-color: openpa-color($palette-identifier, 'background-primary');
+          color: openpa-color($palette-identifier, 'text-primary');
+          opacity: 0.5;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        &.active a {
+          background-color: openpa-color($palette-identifier, 'background-primary');
+          color: openpa-color($palette-identifier, 'text-primary');
+          opacity: 1;
+
+        }
+      }
+    }
+  }
+}
+
+@mixin openpa-color-by-section( $palette-identifier: 'no-main-style' ) {
+
+  #header {
+
+    /*
+    .navbar-brand{
+      background: openpa-color($palette-identifier, 'logo-img-url');
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 115px;
+      width: 181px;
+      display: inline-block;
+    }
+    */
+    .navbar-title {
+      color: openpa-color($palette-identifier, 'background-primary');
+      line-height: 2em;
+      font-size: $font-size-h1;
+    }
+
+    .navtools {
+      background: none;
+      .container {
+        background: openpa-color($palette-identifier, 'background-primary');
+      }
+      ul li a {
+        color: openpa-color($palette-identifier, 'text-primary');
+      }
+    }
+  }
+  #content {
+    background: openpa-color($palette-identifier, 'background-page');
+    margin-bottom: -1px;
+    //@include border-radius(10px);
+
+    /* .content-main,
+     .content-related {
+       .widget_title {
+         h3 {
+
+          background: openpa-color($palette-identifier, 'background-primary');
+          color: openpa-color($palette-identifier, 'text-primary');
+         }
+       }
+     }*/
+
+    .widget_tabs,
+    .widget.events {
+      .tab-content {
+        border-color: openpa-color($palette-identifier, 'background-primary');
+      }
+
+      h2 {
+        background: openpa-color($palette-identifier, 'background-primary');
+        color: openpa-color($palette-identifier, 'text-primary');
+      }
+      .nav-tabs {
+        li {
+          a {
+            background-color: openpa-color($palette-identifier, 'background-primary');
+            color: openpa-color($palette-identifier, 'text-primary');
+            opacity: 0.5;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+
+          &.active a {
+            background-color: openpa-color($palette-identifier, 'background-primary');
+            color: openpa-color($palette-identifier, 'text-primary');
+            opacity: 1;
+
+          }
+        }
+      }
+    }
+
+    .content-view-full {
+      /*a {
+       color: openpa-color($palette-identifier, 'text-link');
+    }*/
+
+      h1 {
+        background-color: openpa-color($palette-identifier, 'text-primary');
+        color: openpa-color($palette-identifier, 'background-primary');
+      }
+
+      h2 {
+        background-color: openpa-color($palette-identifier, 'background-primary');
+        color: openpa-color($palette-identifier, 'text-primary');
+        @include border-radius($border-radius-base);
+      }
+
+      h3 {
+        background-color: openpa-color($palette-identifier, 'background-primary');
+        color: openpa-color($palette-identifier, 'text-primary');
+
+        &.media-heading,
+        &.day {
+          background-color: transparent;
+          color: openpa-color($palette-identifier, 'background-primary');
+        }
+      }
+
+      /*.btn-success {
+        background-color: openpa-color($palette-identifier, 'text-primary'); 
+        color: openpa-color($palette-identifier, 'background-primary');
+      }*/
+      .content-title h1 {
+        color: openpa-color($palette-identifier, 'content-title');
+        background-color: openpa-color($palette-identifier, 'text-primary');
+      }
+
+    }
+
+    .content-main {
+      .content-view-children {
+        .media:nth-child(even) {
+          background-color: openpa-color($palette-identifier, 'background-secondary');
+        }
+        .media-panel .media {
+          background-color: transparent;
+        }
+      }
+      .content-detail .row:nth-child(even),
+      .oggetti-correlati .col-notitle:nth-child(even) .col-content .col-content-design .media {
+        background-color: openpa-color($palette-identifier, 'background-secondary');
+      }
+
+      .well {
+        .btn-info {
+          background-color: openpa-color($palette-identifier, 'background-primary');
+          border-color: openpa-color($palette-identifier, 'background-primary');
+
+          &:hover {
+            background-color: $gray-lighter;
+            border-color: $gray-lighter;
+            color: openpa-color($palette-identifier, 'background-primary');
+            @include transition(background-color 0.1s linear);
+          }
+        }
+      }
+
+      table {
+        thead tr {
+          background-color: openpa-color($palette-identifier, 'background-primary');
+          color: openpa-color($palette-identifier, 'text-primary');
+        }
+      }
+      .calendar-tools {
+        .btn-primary {
+          background-color: openpa-color($palette-identifier, 'background-primary');
+          color: openpa-color($palette-identifier, 'text-primary');
+        }
+        td h3 .label-primary {
+          background-color: openpa-color($palette-identifier, 'background-primary');
+          color: openpa-color($palette-identifier, 'text-primary');
+        }
+
+        .events .calendar-date {
+          .month {
+            background-color: openpa-color($palette-identifier, 'background-primary');
+            color: openpa-color($palette-identifier, 'text-primary');
+          }
+          .day {
+            border-color: openpa-color($palette-identifier, 'background-primary');
+          }
+
+        }
+      }
+
+    }
+
+    blockquote {
+      &:before {
+        color: openpa-color($palette-identifier, 'background-primary');
+      }
+    }
+    .nav-section .widget {
+      li {
+        a {
+          color: openpa-color($palette-identifier, 'text-link-menu');
+        }
+        &.current,
+        &.current li.current {
+          > a {
+            color: openpa-color($palette-identifier, 'background-primary');
+            background-color: openpa-color($palette-identifier, 'background-secondary');
+            @include border-radius($border-radius-base);
+          }
+        }
+        a {
+          color: openpa-color($palette-identifier, 'text-link-menu');
+        }
+      }
+      .widget_title {
+        background-color: openpa-color($palette-identifier, 'background-primary');
+        color: openpa-color($palette-identifier, 'text-primary');
+        h3 {
+          color: openpa-color($palette-identifier, 'text-primary') !important;
+        }
+        * {
+          color: openpa-color($palette-identifier, 'text-primary');
+          background-color: openpa-color($palette-identifier, 'background-primary');
+        }
+      }
+      .widget {
+        .row:nth-child(odd) {
+          background-color: openpa-color($palette-identifier, 'background-secondary');
+        }
+      }
+
+      @include openpa-block-color-by-section($palette-identifier);
+    }
+
+    /* TAB widget*/
+
+    .widget_tabs {
+      .tab-content {
+        border-color: openpa-color($palette-identifier, 'background-primary');
+      }
+    }
+  }
+
+  #footer {
+    background: openpa-color($palette-identifier, 'background-primary');
+    color: openpa-color($palette-identifier, 'text-primary');
+    .footer-data a {
+      color: openpa-color($palette-identifier, 'text-primary');
+    }
+    #footer-map-container {
+      .skyline
+      {
+        /*
+        background: url(../images/logo-omap.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 142px;
+        */
+        margin: 0 0 -2px -2px;
+        background: url(../images/skyline.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 60%;
+        height: 0;
+        padding-top: 12%;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      .caret-big {
+        border-top-color: openpa-color($palette-identifier, 'background-primary');
+      }
+    }
+  }
+  #valuation-container {
+    background: openpa-color($palette-identifier, 'background-page');
+
+    .valuation h4 {
+      color: openpa-color($palette-identifier, 'content-title');
+      i {
+        color: openpa-color($palette-identifier, 'text-primary');
+        background-color: openpa-color($palette-identifier, 'content-title');
+      }
+
+    }
+  }
+
+}
+
+/* menu color setting */
+@mixin openpa-menu-color-by-section( $palette-identifier: 'no-main-style' ) {
+  a {
+    color: openpa-color($palette-identifier, 'text-link-menu');
+    border-bottom-color: openpa-color($palette-identifier, 'background-primary');
+    bot {
+      color: openpa-color($palette-identifier, 'background-primary');
+    }
+    &:hover {
+      background-color: openpa-color($palette-identifier, 'background-primary');
+      color: openpa-color($palette-identifier, 'text-primary');
+      span {
+        color: openpa-color($palette-identifier, 'text-primary');
+      }
+
+    }
+  }
+  > a.current {
+    background: openpa-color($palette-identifier, 'background-primary');
+    color: openpa-color($palette-identifier, 'text-primary');
+    span {
+      color: openpa-color($palette-identifier, 'text-primary');
+    }
+  }
+}
+
+
