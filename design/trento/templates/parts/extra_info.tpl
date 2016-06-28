@@ -136,7 +136,7 @@ uri='design:parts/documenti_per_struttura.tpl' }
     $has_boxes_folder=false()
     $global_layout=array()
 }
-{if or( $node.class_identifier|eq(folder), $node.class_identifier|eq(organo_politico) )} 
+{if or( $node.class_identifier|eq(folder), $node.class_identifier|eq(pagina_sito), $node.class_identifier|eq(organo_politico) )} 
     {if is_set($node.data_map.layout)}		
 		{if count( $node.data_map.layout.content )}
 			{if $node.data_map.layout.content.zone_layout|ne('0ZonesLayoutFolder')}
@@ -207,7 +207,7 @@ uri='design:parts/documenti_per_struttura.tpl' }
             uri='design:parts/related_contents.tpl'}
             {set $has_boxes=true()}
     {else} 
-       {if $node.class_identifier|eq(folder)}
+       {if or($node.class_identifier|eq(folder),$node.class_identifier|eq(pagina_sito))}
             {if is_set($node.data_map.layout)}
                     {if count($node.data_map.layout.content)}	
                             {if $node.data_map.layout.content.zone_layout|ne('0ZonesLayoutFolder')}
