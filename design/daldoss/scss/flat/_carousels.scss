@@ -1,0 +1,69 @@
+/* -----------------------------------
+
+	8. Carousels
+
+------------------------------------- */
+
+.product_brands .owl-item,
+.our_recent_work_carousel .owl-item{
+  padding:0 15px;
+}
+.product_brands .owl-item:hover a img,.m_image_wrap:hover img{
+  -webkit-animation:sizejump .4s ease;
+  -moz-animation:sizejump .4s ease;
+  -o-animation:sizejump .4s ease;
+  -ms-animation:sizejump .4s ease;
+  animation:sizejump .4s ease;
+}
+.blog_carousel .owl-wrapper-outer{
+  padding:0 0 5px 2px;
+  -webkit-box-sizing:content-box;
+  -moz-box-sizing:content-box;
+  box-sizing:content-box;
+  margin-left:-2px;
+}
+.blog_carousel .photoframe{
+  margin-left:1px;
+}
+.testiomials_carousel .owl-item{
+  padding:0 2px;
+}
+.blog_carousel .photoframe{
+  width:263px;
+}
+[class*="qv_carousel"]:not(.qv_carousel_wrap){
+  padding:0 35px;
+}
+.qv_carousel_wrap li{
+  padding:0 3.5px;
+  cursor:pointer;
+}
+.qv_carousel_wrap .qv_carousel_single li{
+  padding:0 4.5px;
+}
+.qv_carousel_wrap [class*="qv_btn_"]{
+  position:absolute;
+  top:50%;
+  margin-top:-15px;
+  left:0;
+  z-index:1;
+}
+.qv_carousel_wrap .qv_btn_next,
+.qv_carousel_wrap .qv_btn_single_next{
+  left:auto;
+  right:0;
+}
+.wfilter_carousel:after{
+  content:"";
+  display:none;
+  width:32px;
+  height:32px;
+  background:url("../images/loader_2.gif") no-repeat;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin:-16px 0 0 -16px;
+}
+.wfilter_carousel.changed:after{
+  display:block;
+}

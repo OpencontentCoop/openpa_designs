@@ -1,0 +1,31 @@
+/* -----------------------------------
+
+	3. Color Scheme
+
+------------------------------------- */
+
+a,a[class*="color"]:not(.color_light):hover,.scheme_color,.close_product:hover,
+.search_button:hover,.close_search_form:hover,.banner_type_2.red b,#footer a.color_light:hover,
+.close_fieldset:hover,.text_cs_hover:hover,.tweet_list a:hover,[class*="alert_box"].error i[class^="fa "],
+label[class*="required"]:after,.vertical_list_type_7 li:before,.first_letter_1 > .fl{
+  color:$brand-secondary;
+}
+
+.bg_scheme_color{
+  background: $brand-primary;
+}
+
+.count,.button_type_3:hover .count.type_2,
+.button_type_3.active .count.type_2,
+.tp-bullets.simplebullets.round .bullet:hover,
+.tp-bullets.simplebullets.round .bullet.selected,
+.tp-bullets.simplebullets.navbar .bullet:hover,
+.tp-bullets.simplebullets.navbar .bullet.selected,
+[class*="button_type_"].bg_dark_color:hover,.banner:hover [class*="button_type_"].bg_dark_color,
+[class*="button_type_"].bg_cs_hover:hover,#go_to_top:hover,
+.ui-slider:after,.vertical_list_type_2 li:before,.camera_wrap .camera_pag .camera_pag_ul .cameracurrent,
+.camera_wrap .camera_prev:hover, .camera_wrap .camera_next:hover,.flex-control-nav .flex-active,
+.flex-direction-nav a:hover,.vertical_list_type_4 li:before,.vertical_list_type_8 li:before,
+.first_letter_2 > .fl,.info_block_type_2:hover [class*="icon_wrap"],#shopping_button:hover > a .count{
+  background:$brand-secondary;
+}

@@ -1,0 +1,184 @@
+/*header {
+  #nav-container {
+    padding-top:32px;
+
+    .navbar-brand {
+      padding: 0;
+    }
+
+    .breadcrumb {
+
+    }
+  }
+
+  #banner-container {
+    border-top: 1px solid #e7e7e7;
+    width: 100%;
+    height: 500px;
+    background: url(../images/header-home.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  #sections-container {
+    background-color: $brand-primary;
+    height: 100px;
+  }
+}*/
+
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.breadcrumb-container {
+  border-bottom: 1px solid $gray-light;
+  .breadcrumb {
+    background: none;
+    border-radius: 0;
+    padding: 10px 0;
+  }
+}
+
+.content-view-full {
+  padding-top: 30px;
+}
+
+.temi {
+  padding: 20px 0 10px 0;
+  background-color: $brand-primary;
+  a {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: top center;
+    padding-top: 50%;
+    color: #00cccc;
+    &.urbanistica {
+      background-image: url("../images/icone-menu/urbanistica-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/urbanistica-icon-on.png");
+      }
+    }
+    &.enti-locali {
+      background-image: url("../images/icone-menu/enti-locali-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/enti-locali-icon-on.png");
+      }
+    }
+    &.coesione-sviluppo {
+      background-image: url("../images/icone-menu/coesione-sviluppo-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/coesione-sviluppo-icon-on.png");
+      }
+    }
+    &.partecipazione {
+      background-image: url("../images/icone-menu/partecipazione-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/partecipazione-icon-on.png");
+      }
+    }
+    &.fondo-paesaggio {
+      background-image: url("../images/icone-menu/fondo-paesaggio-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/fondo-paesaggio-icon-on.png");
+      }
+    }
+    &.aree-interne {
+      background-image: url("../images/icone-menu/aree-interne-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/aree-interne-icon-on.png");
+      }
+    }
+    &:hover {
+      color: #fff;
+    }
+    h4 {
+      margin-top: 10px;
+    }
+  }
+}
+
+.lista_num {
+  padding: 20px 0;
+  .media-panel{
+    h2 {
+      margin-top: 0px;
+    }
+    .abstract {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-style: italic;
+    }
+  }
+}
+
+.partecipa {
+  .row {
+    margin-bottom: 15px;
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
+
+.last-news {
+  .row {
+    margin-bottom: 15px;
+    h4 {
+      margin-top: 0;
+    }
+  }
+}
+
+.stats {
+  padding: 20px 0;
+  background-color: $brand-primary;
+}
+
+.opinioni {
+  padding: 20px 0;
+}
+
+#footer {
+
+  .pre_footer {
+    padding: 20px 0 10px 0;
+    background-color: #ebebeb;
+    a {
+      color:$brand-primary;
+    }
+  }
+
+  .footer_top_part {
+    color: #fff;
+    background-color: #49494b;
+    a {
+      color: #fff;
+    }
+  }
+
+  .footer_bottom_part {
+    color: #fff;
+    background-color: #323232;
+    padding-top: 10px;
+  }
+}
+
+.owl-carousel {
+  .owl-item {
+    img {
+      width: 100%;
+    }
+    .carousel-caption {
+      //background: rgba(113,126,133,0.85);
+      a {
+        color: #fff;
+      }
+    }
+  }
+}

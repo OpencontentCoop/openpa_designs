@@ -1,0 +1,174 @@
+/* -----------------------------------
+
+	12. Tables
+
+------------------------------------- */
+
+.description_table{
+  margin-top:-5px;
+}
+.description_table td{
+  padding:5px 0;
+}
+.description_table tr td:first-child{
+  min-width:108px;
+}
+.description_table.type_2 tr td:first-child{
+  min-width:65px;
+}
+.description_table.type_3 tr td:first-child{
+  min-width:175px;
+}
+[class*="table_type_"]{
+  background:#fff;
+}
+[class*="table_type_"] th,[class*="table_type_"] td{
+  border:1px solid #ecf0f1;
+}
+.table_type_1 tr:first-child th:first-child,
+.table_type_2 tr:first-child th:first-child,
+.table_type_3 tr:first-child th:first-child,
+.table_type_4 tr:first-child th:nth-child(4),
+.table_type_6 tr:first-child td:first-child,
+.table_type_8 tr:first-child th:first-child{width:150px;}
+.table_type_1 tr:first-child th:nth-child(2),
+.table_type_3 tr:first-child th:nth-child(2),
+.table_type_3 tr:first-child th:nth-child(3){width:262px;}
+.table_type_1 tr:first-child th:nth-child(3),
+.table_type_4 tr:first-child th:nth-child(3){width:110px;}
+.table_type_1 tr:first-child th:nth-child(4){width:145px;}
+.table_type_2 tr:first-child th:not(:first-child){width:330px;}
+.table_type_4 tr:first-child th:first-child{width:320px;}
+.table_type_4 tr:first-child th:nth-child(2){width:90px;}
+.table_type_5 td:first-child{width:670px;}
+.table_type_7 tr:first-child th:first-child{width:74px;}
+.table_type_7 tr:first-child th:nth-child(2){width:180px;}
+.table_type_7 tr:first-child th:nth-child(4),
+.table_type_7 tr:first-child th:nth-child(7){width:100px;}
+.table_type_7 tr:first-child th:nth-child(5){width:65px;}
+.table_type_7 tr:first-child th:nth-child(6){width:80px;}
+.table_type_7 tr:first-child th:nth-child(3){width:160px;}
+.table_type_8 tr:first-child th:nth-child(2){width:262px;}
+[class*="table_type_"] tr:first-child th{
+  padding:15px 20px;
+  border-top:none;
+}
+[class*="table_type_"] tr:first-child th:first-child,
+[class*="table_type_"] tr td:first-child{
+  border-left:none;
+}
+[class*="table_type_"] tr:first-child th:last-child,
+[class*="table_type_"] tr td:last-child{
+  border-right:none;
+}
+[class*="table_type_"] tr:last-child td{
+  border-bottom:none;
+}
+.table_type_1 td,.table_type_4 td{
+  padding:20px;
+}
+.table_type_2 td{
+  padding:12px 20px;
+}
+.table_type_3 td,.table_type_5 td,.table_type_6 td,.table_type_6 td[class*="half_column"],.table_type_7 td{
+  padding:14px 20px;
+}
+.table_type_4 td[colspan],.table_type_4 td[colspan] + td{
+  padding-top:14px;
+  padding-bottom:14px;
+}
+.table_type_4 tr:last-child td{
+  padding:10px 20px;
+}
+.table_type_5 tr:first-child td:first-child{
+  padding-top:25px;
+}
+.table_type_5 tr:last-child td,.table_type_5 tr:nth-last-child(2) td{
+  border:none;
+}
+.table_type_5 tr:nth-last-child(2) td{
+  padding-bottom:0;
+}
+.table_type_8 td{
+  padding:14px 20px;
+}
+.about_project td:first-child{
+  width:96px;
+}
+.about_project tr:not(:first-child){
+  border-top:1px solid #e2e6e7;
+}
+.about_project td{
+  padding:7px 0;
+}
+.about_project tr:first-child td{
+  padding-top:2px;
+}
+.p_table{
+  width:283px;
+  margin:0 1px;
+  -webkit-transition:box-shadow .2s ease,opacity 1s ease !important;
+  -moz-transition:box-shadow .2s ease,opacity 1s ease !important;
+  -o-transition:box-shadow .2s ease,opacity 1s ease !important;
+  transition:box-shadow .2s ease,opacity 1s ease !important;
+}
+.p_table > header{
+  padding:10px 0 9px;
+  -webkit-border-radius:4px 4px 0 0;
+  -moz-border-radius:4px 4px 0 0;
+  border-radius:4px 4px 0 0;
+}
+.p_table > .price{
+  padding:16px 0 17px;
+}
+.price dt{
+  font-size:2.6em;
+  line-height:1em;
+}
+.p_list > li{
+  padding:11.5px 20px;
+  background:#f4f6f7;
+  position:relative;
+}
+.p_list i[class^="fa "]{
+  position:absolute;
+  left:10px;
+  height:100%;
+}
+.p_table > footer a{
+  padding:14px 0 15px;
+  -webkit-border-radius:0 0 4px 4px;
+  -moz-border-radius:0 0 4px 4px;
+  border-radius:0 0 4px 4px;
+}
+.p_table > .hot_p{
+  position: absolute;
+  top:-5px;
+  right:-5px;
+}
+.p_table:hover,.p_table.active{
+  margin-top:-15px;
+  margin-left:-4px;
+  margin-right:-4px;
+  width:293px;
+  z-index:2;
+  -webkit-box-shadow:0 0 17px rgba(0,0,0,.13);
+  -moz-box-shadow:0 0 17px rgba(0,0,0,.13);
+  -o-box-shadow:0 0 17px rgba(0,0,0,.13);
+  box-shadow:0 0 17px rgba(0,0,0,.13);
+}
+.p_table.active{
+  z-index:1;
+}
+.p_table:hover > header,.p_table.active > header{
+  padding:12px 0;
+}
+.p_table:hover > footer a,.p_table.active > footer a{
+  padding:17px 0;
+}
+.p_table:hover .p_list > li,.p_table.active .p_list > li{
+  padding:12.5px 25px;
+}
+.p_table:hover > .price, .p_table.active .price{
+  padding-bottom:21px;
+}

@@ -1,0 +1,87 @@
+h2{
+  font-size:1.71em;
+  line-height:1em;
+}
+h3,.tabs_nav,.search_button,.p_table > footer a{
+  font-size:1.3em;
+}
+h4{
+  font-size:1.25em;
+}
+h5{
+  font-size:1.15em;
+}
+h6{
+  font-size:1em;
+}
+
+.color_dark{
+  color:#111;
+}
+.color_grey{
+  color:#838a8f;
+}
+.color_light{
+  color:#fff;
+}
+.color_light_2{
+  color:#f9f9f9;
+}
+.default_t_color{
+  color:$brand-secondary;
+}
+.color_green{
+  color:#27ae60;
+}
+.bg_color_green_1{
+  background:#27ae60;
+}
+.bg_color_green_2{
+  background:#2ecc71;
+}
+.bg_color_orange_1{
+  background:#e67e22;
+}
+.bg_color_orange_2{
+  background:#f39c12;
+}
+.bg_color_orange_3{
+  background:#f1c40f;
+}
+.bg_color_red_1{
+  background:#c0392b;
+}
+.bg_color_blue_1{
+  background:#2980b9;
+}
+.bg_color_blue_2{
+  background:#3498db;
+}
+.bg_color_blue_3{
+  background:#41bedd;
+}
+.bg_color_pink_1{
+  background:#a255c4;
+}
+.bg_color_purple_1{
+  background:#4e4ca0;
+}
+s{
+  color:#6a6a6a;
+}
+.bg_light_color_1,.sub_menu li:hover > a,.select_list > li:hover,
+.p_list > li:nth-child(2n+1){
+  background:#ecf0f1;
+}
+.bg_light_color_2,.ui-slider-handle{
+  background:#e2e6e7;
+}
+.bg_light_color_3{
+  background:#fff;
+}
+.bg_color_dark_1{
+  background:#111;
+}
+.bg_color_dark_2{
+  background:#323a45;
+}
