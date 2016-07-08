@@ -45,7 +45,24 @@
 
 <div class="widget">
     <div class="widget_content">
-        <h3>Contattti</h3>
+        <h3>Tags</h3>
+        <div class="tags_list">
+            {*eztagcloud( hash( 'parent_node_id', 2 ))*}
+            {eztagscloud(
+            hash(
+            'parent_node_id', 2,
+            'sort_by', array(
+            'keyword', true()
+            )
+            )
+            )}
+        </div>
+    </div>
+</div>
+
+<div class="widget">
+    <div class="widget_content">
+        <h3>Contatti</h3>
         {if is_set($pagedata.contacts.telefono)}
             <p>
                 {def $tel = strReplace($pagedata.contacts.telefono,array(" ",""))}

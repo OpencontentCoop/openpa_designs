@@ -7,7 +7,8 @@
 {/if}
 
 {def $tree_menu = tree_menu( hash( 'root_node_id', $openpa.control_menu.side_menu.root_node.node_id, 'user_hash', $openpa.control_menu.side_menu.user_hash, 'scope', 'side_menu' ))
-     $show_left = and( $openpa.control_menu.show_side_menu, count( $tree_menu.children )|gt(0) )}
+     $show_left = $openpa.control_menu.show_side_menu}
+     {*$show_left = and( $openpa.control_menu.show_side_menu, count( $tree_menu.children )|gt(0) )*}
 
 <div class="content-view-full class-{$node.class_identifier} row">
 
@@ -17,11 +18,10 @@
     </div>*}
 
     {if $show_left}
-      {include uri='design:openpa/full/parts/section_left.tpl'}
-        {include uri='design:openpa/full/parts/section_right.tpl'}
+        {include uri='design:openpa/full/parts/section_left.tpl'}
     {/if}
 
-    <div class="content-main{if and( $openpa.control_menu.show_extra_menu|not(), $show_left|not() )} wide{elseif and( $show_left, $openpa.control_menu.show_extra_menu )} full-stack{/if}">
+    <div class="content-main">
 
         <h1>{$node.data_map.name.content|wash()}</h1>
 
@@ -37,9 +37,9 @@
 
     </div>
 
-    {if $openpa.control_menu.show_extra_menu}
+    {*if $openpa.control_menu.show_extra_menu}
       {include uri='design:openpa/full/parts/section_right.tpl'}
-    {/if}
+    {/if*}
 
 </div>
 

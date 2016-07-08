@@ -58,37 +58,37 @@ h1, h2, h3, h4, h5 {
     background-position: top center;
     padding-top: 50%;
     color: #00cccc;
-    &.urbanistica {
+    &.node_theme_1091 {
       background-image: url("../images/icone-menu/urbanistica-icon-off.png");
       &:hover {
         background-image: url("../images/icone-menu/urbanistica-icon-on.png");
       }
     }
-    &.enti-locali {
+    &.node_theme_1057 {
       background-image: url("../images/icone-menu/enti-locali-icon-off.png");
       &:hover {
         background-image: url("../images/icone-menu/enti-locali-icon-on.png");
       }
     }
-    &.coesione-sviluppo {
+    &.node_theme_1105 {
       background-image: url("../images/icone-menu/coesione-sviluppo-icon-off.png");
       &:hover {
         background-image: url("../images/icone-menu/coesione-sviluppo-icon-on.png");
       }
     }
-    &.partecipazione {
+    &.node_theme_1058 {
       background-image: url("../images/icone-menu/partecipazione-icon-off.png");
       &:hover {
         background-image: url("../images/icone-menu/partecipazione-icon-on.png");
       }
     }
-    &.fondo-paesaggio {
+    &.node_theme_1416 {
       background-image: url("../images/icone-menu/fondo-paesaggio-icon-off.png");
       &:hover {
         background-image: url("../images/icone-menu/fondo-paesaggio-icon-on.png");
       }
     }
-    &.aree-interne {
+    &.node_theme_1059 {
       background-image: url("../images/icone-menu/aree-interne-icon-off.png");
       &:hover {
         background-image: url("../images/icone-menu/aree-interne-icon-on.png");
@@ -111,6 +111,7 @@ h1, h2, h3, h4, h5 {
     }
     .abstract {
       font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
       font-weight: 600;
       font-style: italic;
     }
@@ -129,8 +130,13 @@ h1, h2, h3, h4, h5 {
 .last-news {
   .row {
     margin-bottom: 15px;
+    h3 {
+      margin-top: 10px;
+      text-transform: none;
+    }
     h4 {
       margin-top: 0;
+      text-transform: none;
     }
   }
 }
@@ -176,9 +182,20 @@ h1, h2, h3, h4, h5 {
     }
     .carousel-caption {
       //background: rgba(113,126,133,0.85);
-      a {
-        color: #fff;
+      h3 {
+        a {
+          color: #fff;
+          font-size: 1.5em;
+          text-transform: none;
+        }
+      }
+      p {
+        display: none;
       }
     }
   }
+}
+
+.media-heading {
+  text-transform: none;
 }

@@ -10784,18 +10784,17 @@ blockquote {
   font-style: italic;
   background: #fff;
   line-height: 1.55em;
-  padding: 20px 10px 15px 50px;
-}
-/* line 451, ../scss/_style.scss */
-blockquote:before {
-  content: "“";
-  position: absolute;
-  font-size: 50px;
-  font-weight: bold;
-  width: 20px;
-  left: 19px;
-  top: 26px;
-  color: #009999;
+  padding: 0;
+  /*&:before{
+    content:"“";
+    position:absolute;
+    font-size:50px;
+    font-weight:bold;
+    width:20px;
+    left:19px;
+    top:26px;
+    color: $brand-primary;
+  }*/
 }
 
 /* line 464, ../scss/_style.scss */
@@ -13672,51 +13671,51 @@ h1, h2, h3, h4, h5 {
   color: #00cccc;
 }
 /* line 61, ../scss/_custom.scss */
-.temi a.urbanistica {
+.temi a.node_theme_1091 {
   background-image: url("../images/icone-menu/urbanistica-icon-off.png");
 }
 /* line 63, ../scss/_custom.scss */
-.temi a.urbanistica:hover {
+.temi a.node_theme_1091:hover {
   background-image: url("../images/icone-menu/urbanistica-icon-on.png");
 }
 /* line 67, ../scss/_custom.scss */
-.temi a.enti-locali {
+.temi a.node_theme_1057 {
   background-image: url("../images/icone-menu/enti-locali-icon-off.png");
 }
 /* line 69, ../scss/_custom.scss */
-.temi a.enti-locali:hover {
+.temi a.node_theme_1057:hover {
   background-image: url("../images/icone-menu/enti-locali-icon-on.png");
 }
 /* line 73, ../scss/_custom.scss */
-.temi a.coesione-sviluppo {
+.temi a.node_theme_1105 {
   background-image: url("../images/icone-menu/coesione-sviluppo-icon-off.png");
 }
 /* line 75, ../scss/_custom.scss */
-.temi a.coesione-sviluppo:hover {
+.temi a.node_theme_1105:hover {
   background-image: url("../images/icone-menu/coesione-sviluppo-icon-on.png");
 }
 /* line 79, ../scss/_custom.scss */
-.temi a.partecipazione {
+.temi a.node_theme_1058 {
   background-image: url("../images/icone-menu/partecipazione-icon-off.png");
 }
 /* line 81, ../scss/_custom.scss */
-.temi a.partecipazione:hover {
+.temi a.node_theme_1058:hover {
   background-image: url("../images/icone-menu/partecipazione-icon-on.png");
 }
 /* line 85, ../scss/_custom.scss */
-.temi a.fondo-paesaggio {
+.temi a.node_theme_1416 {
   background-image: url("../images/icone-menu/fondo-paesaggio-icon-off.png");
 }
 /* line 87, ../scss/_custom.scss */
-.temi a.fondo-paesaggio:hover {
+.temi a.node_theme_1416:hover {
   background-image: url("../images/icone-menu/fondo-paesaggio-icon-on.png");
 }
 /* line 91, ../scss/_custom.scss */
-.temi a.aree-interne {
+.temi a.node_theme_1059 {
   background-image: url("../images/icone-menu/aree-interne-icon-off.png");
 }
 /* line 93, ../scss/_custom.scss */
-.temi a.aree-interne:hover {
+.temi a.node_theme_1059:hover {
   background-image: url("../images/icone-menu/aree-interne-icon-on.png");
 }
 /* line 97, ../scss/_custom.scss */
@@ -13739,71 +13738,89 @@ h1, h2, h3, h4, h5 {
 /* line 112, ../scss/_custom.scss */
 .lista_num .media-panel .abstract {
   font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
   font-weight: 600;
   font-style: italic;
 }
 
-/* line 121, ../scss/_custom.scss */
+/* line 122, ../scss/_custom.scss */
 .partecipa .row {
   margin-bottom: 15px;
 }
-/* line 123, ../scss/_custom.scss */
+/* line 124, ../scss/_custom.scss */
 .partecipa .row h3 {
   margin-top: 0;
 }
 
-/* line 130, ../scss/_custom.scss */
+/* line 131, ../scss/_custom.scss */
 .last-news .row {
   margin-bottom: 15px;
 }
-/* line 132, ../scss/_custom.scss */
+/* line 133, ../scss/_custom.scss */
+.last-news .row h3 {
+  margin-top: 10px;
+  text-transform: none;
+}
+/* line 137, ../scss/_custom.scss */
 .last-news .row h4 {
   margin-top: 0;
+  text-transform: none;
 }
 
-/* line 138, ../scss/_custom.scss */
+/* line 144, ../scss/_custom.scss */
 .stats {
   padding: 20px 0;
   background-color: #009999;
 }
 
-/* line 143, ../scss/_custom.scss */
+/* line 149, ../scss/_custom.scss */
 .opinioni {
   padding: 20px 0;
 }
 
-/* line 149, ../scss/_custom.scss */
+/* line 155, ../scss/_custom.scss */
 #footer .pre_footer {
   padding: 20px 0 10px 0;
   background-color: #ebebeb;
 }
-/* line 152, ../scss/_custom.scss */
+/* line 158, ../scss/_custom.scss */
 #footer .pre_footer a {
   color: #009999;
 }
-/* line 157, ../scss/_custom.scss */
+/* line 163, ../scss/_custom.scss */
 #footer .footer_top_part {
   color: #fff;
   background-color: #49494b;
 }
-/* line 160, ../scss/_custom.scss */
+/* line 166, ../scss/_custom.scss */
 #footer .footer_top_part a {
   color: #fff;
 }
-/* line 165, ../scss/_custom.scss */
+/* line 171, ../scss/_custom.scss */
 #footer .footer_bottom_part {
   color: #fff;
   background-color: #323232;
   padding-top: 10px;
 }
 
-/* line 174, ../scss/_custom.scss */
+/* line 180, ../scss/_custom.scss */
 .owl-carousel .owl-item img {
   width: 100%;
 }
-/* line 179, ../scss/_custom.scss */
-.owl-carousel .owl-item .carousel-caption a {
+/* line 186, ../scss/_custom.scss */
+.owl-carousel .owl-item .carousel-caption h3 a {
   color: #fff;
+  font-size: 1.5em;
+  text-transform: none;
+}
+/* line 192, ../scss/_custom.scss */
+.owl-carousel .owl-item .carousel-caption p {
+  display: none;
+}
+
+/* line 199, ../scss/_custom.scss */
+.media-heading {
+  text-transform: none;
 }
 
 /* -----------------------------------

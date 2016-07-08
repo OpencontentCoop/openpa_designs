@@ -15,16 +15,15 @@
     <div class="col-md-4">
         {attribute_view_gui attribute=$first_item|attribute( 'image' )}
         <h3><a href="{$first_item.url_alias|ezurl(no)}">{$first_item.name}</a></h3>
-        <div class="abstract">
+        <div>
             {$first_item.data_map.descrizione.content.output.output_text|openpa_shorten(270)} <a class="continue-reading pull-right" href="{$first_item.url_alias|ezurl(no)}">[...]</a>
         </div>
-        <ul class="tags list-unstyled list-inline">
-            <li><a href="#">sicurezza</a></li>
-        </ul>
+        <br />
+        {attribute_view_gui attribute=$first_item|attribute( 'tags' )}
         <div class="row">
             <div class="col-md-12">
-                <small>{$first_item.object.published||l10n(date)}</small>
-                {*<small class="pull-right"><i class="fa fa-comments" aria-hidden="true"></i> 55 commenti</small>*}
+                <br />
+                <small>{$first_item.object.published|l10n(date)}</small>
             </div>
         </div>
     </div>
@@ -42,12 +41,11 @@
                         <div class="media-body">
                             <h4 class="media-heading"><a href="{$item.url_alias|ezurl(no)}">{$item.name|wash()}</a></h4>
 
-                            <div class="abstract">
+                            <div>
                                 {$item.data_map.descrizione.content.output.output_text|openpa_shorten(135)} <a class="continue-reading pull-right" href="{$item.url_alias|ezurl(no)}">[...]</a>
                             </div>
-                            <ul class="tags list-unstyled list-inline">
-                                <li><a href="#">sicurezza</a></li>
-                            </ul>
+                            <br />
+                            {attribute_view_gui attribute=$item|attribute( 'tags' )}
                         </div>
                     </div>
                 </div>
@@ -61,7 +59,7 @@
 </div>
 <div class="row">
     <div class="col-md-12 text-right">
-        <a href="{$firt_item.parent.url_alias|ezurl(no)}">Guarda tutti gli elementi di questa sezione</a>
+        <a href="{$first_item.parent.url_alias|ezurl(no)}">Guarda tutti gli elementi di questa sezione</a>
     </div>
 </div>
 
