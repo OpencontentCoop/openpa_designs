@@ -66,7 +66,7 @@
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
 
-//@import "ezpublish";
+@import "ezpublish";
 @import "structure";
 @import "style";
 
@@ -84,17 +84,21 @@
 @import "flat/forms.scss";
 @import "flat/animations.scss";
 
-//@import "flat/retina.scss";
+@import "solid/ui-datepicker";
+@import "solid/table-calendar";
 
+//@import "flat/retina.scss";
+@import "chosen/bootstrap-chosen-variables";
+@import "chosen/bootstrap-chosen";
+@import "datatable/bootstrap-datatable.scss";
+
+@import "flat/responsive.scss";
 @import "pagelayout";
 @import "custom";
 
-@import "flat/responsive.scss";
 
-@import "chosen/bootstrap-chosen-variables";
-@import "chosen/bootstrap-chosen";
 
-@import "datatable/bootstrap-datatable.scss";
+
 
 
 

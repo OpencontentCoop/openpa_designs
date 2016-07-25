@@ -1,7 +1,7 @@
 {if is_unset($pagedata)}
     {def $pagedata = openpapagedata()}
 {/if}
-<div class="widget">
+<div class="widget hidden-xs hidden-sm">
     <form role="form" class="form form-search" method="get" action="{'/content/search'|ezurl( 'no' )}" id="site-wide-search">
         <div class="form-group">
             <label for="site-wide-search-field" class="control-label sr-only">{'Search'|i18n('design/ocbootstrap/pagelayout')}</label>
@@ -43,7 +43,7 @@
   </div>
 {/if}
 
-<div class="widget">
+<div class="widget hidden-xs hidden-sm">
     <div class="widget_content">
         <h3>Tags</h3>
         <div class="tags_list">
@@ -60,7 +60,7 @@
     </div>
 </div>
 
-<div class="widget">
+<div class="widget hidden-xs hidden-sm">
     <div class="widget_content">
         <h3>Contatti</h3>
         {if is_set($pagedata.contacts.telefono)}
@@ -98,7 +98,7 @@
 
 {*include uri='design:openpa/full/parts/tags.tpl'*}
 
-<div class="widget">
+<div class="widget hidden-xs hidden-sm">
     <div class="widget_content">
         <h3>Approfondimenti</h3>
         <p>Puoi seguire tutti i temi su cui sta lavorando l'Assessore Daldoss, tutti gli appuntamenti e le notizie aggiornate anche su <strong><a href="{$pagedata.contacts.facebook}" class="text-primary">Facebook</a></strong> e <strong><a href="{$pagedata.contacts.twitter}" class="text-primary">Twitter</a></strong>.</p>

@@ -144,6 +144,7 @@ h1, h2, h3, h4, h5 {
 .stats {
   padding: 20px 0;
   background-color: $brand-primary;
+  margin-bottom: 20px;
 }
 
 .opinioni {
@@ -185,8 +186,11 @@ h1, h2, h3, h4, h5 {
       h3 {
         a {
           color: #fff;
-          font-size: 1.5em;
+          font-size: 1.0em;
           text-transform: none;
+          @media only screen and (min-width : 768px) {
+            font-size: 1.5em;
+          }
         }
       }
       p {
@@ -198,4 +202,12 @@ h1, h2, h3, h4, h5 {
 
 .media-heading {
   text-transform: none;
+}
+
+.class-comunicato{
+  .content-main {
+    .abstract {
+      font-weight: 800;
+    }
+  }
 }

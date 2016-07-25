@@ -1,7 +1,7 @@
 {def $extra_item = cond( is_set( fetch( openpa, homepage ).data_map.menu_button ), fetch( openpa, homepage ).data_map.menu_button.content, false() )}
 
 <div class="container">
-  <div id="navigation" class="main-nav">
+  <div id="navigation" class="menu_wrap">
 
     <button id="menu_button">
         <span class="centered_db "></span>

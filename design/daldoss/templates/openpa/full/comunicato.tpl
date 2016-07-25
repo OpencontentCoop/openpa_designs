@@ -15,38 +15,43 @@
 
 <div class="content-view-full class-{$node.class_identifier} row">
 
-
-
     {if $show_left}
         {include uri='design:openpa/full/parts/section_left.tpl'}
     {/if}
 
-    <div class="content-main">
-
+    <div class="content-main  full-stack">
         <h1>{$node.name|wash()}</h1>
-
         {include uri=$openpa.content_main.template}
 
         {attribute_view_gui attribute=$node.data_map.testo_completo href=cond($openpa_attribute.full.show_link|not, 'no-link', '')}
-
-        {attribute_view_gui attribute=$node.data_map.immagini href=cond($openpa_attribute.full.show_link|not, 'no-link', '')}
+        {attribute_view_gui attribute=$item|attribute( 'tematica' )}
+    </div>
+    <br />
+    <div class="content-related">
+        {if $node.data_map.immagini.has_content}
+            <h4><i class="fa fa-picture-o" aria-hidden="true"></i> Immagini</h4>
+            {attribute_view_gui attribute=$node.data_map.immagini href=cond($openpa_attribute.full.show_link|not, 'no-link', '')}
+        {/if}
 
         {if $node.data_map.allegati.has_content}
-            <h4>Audio</h4>
+            <br />
+            <h4><i class="fa fa-volume-up"></i> Audio</h4>
             {attribute_view_gui attribute=$node.data_map.audio href=cond($openpa_attribute.full.show_link|not, 'no-link', '')}
         {/if}
 
         {if $node.data_map.video.has_content}
+            <br />
             <h4>Video</h4>
             {attribute_view_gui attribute=$node.data_map.video href=cond($openpa_attribute.full.show_link|not, 'no-link', '')}
         {/if}
 
         {if $node.data_map.allegati.has_content}
-            <h4>Allegati</h4>
+            <br />
+            <h4><i class="fa fa-file-text"></i> Allegati</h4>
             {attribute_view_gui attribute=$node.data_map.allegati href=cond($openpa_attribute.full.show_link|not, 'no-link', '')}
         {/if}
-
     </div>
+    {*include uri='design:openpa/full/parts/section_right.tpl'*}
 </div>
 
 

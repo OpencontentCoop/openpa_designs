@@ -1,7 +1,7 @@
 {set_defaults( hash(  
   'image_class', 'imagefull_cutwide',
   'items', array(),
-  'wide_class', 'original',
+  'wide_class', 'imagefullwide',
   'show_number', 1,
   'show_gallery', true()
 ))}
@@ -28,8 +28,8 @@ $(document).ready(function() {ldelim}
   $("#{$items[0].name|slugize()}").owlCarousel({ldelim}
 	items : {$show_number},
 	itemsDesktop : [1000,{$show_number}], // items between 1000px and 901px
-  itemsDesktopSmall : [900,2], // betweem 900px and 601px
-  itemsTablet: [600,2], // items between 600 and 0
+  itemsDesktopSmall : [900,1], // betweem 900px and 601px
+  itemsTablet: [600,1], // items between 600 and 0
 	itemsMobile : [400,1]
   {rdelim});
 {rdelim});
