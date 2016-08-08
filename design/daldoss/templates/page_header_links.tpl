@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav navbar-right">
+<ul class="list-unstyled list-inline pull-right header-links">
   {if $current_user.is_logged_in}
     {if fetch( 'user', 'has_access_to', hash( 'module', 'content', 'function', 'dashboard' ))}
       <li id="dashboard"><a href={"/content/dashboard/"|ezurl} title="{'Dashboard'|i18n('design/admin/content/dashboard')}">{'Dashboard'|i18n('design/admin/content/dashboard')}</a></li>
@@ -6,10 +6,11 @@
     <li id="myprofile"><a href={"/user/edit/"|ezurl} title="{'My profile'|i18n('design/ocbootstrap/pagelayout')}">{'My profile'|i18n('design/ocbootstrap/pagelayout')}</a></li>
     <li id="logout"><a href={"/user/logout"|ezurl} title="{'Logout'|i18n('design/ocbootstrap/pagelayout')}">{'Logout'|i18n('design/ocbootstrap/pagelayout')} ( {$current_user.contentobject.name|wash} )</a></li>
   {else}
-    {if ezmodule( 'user/register' )}
+    {*if ezmodule( 'user/register' )}
     <li id="registeruser"><a href={"/user/register"|ezurl} title="{'Register'|i18n('design/ocbootstrap/pagelayout')}">{'Register'|i18n('design/ocbootstrap/pagelayout')}</a></li>
-    {/if}
-    <li id="login" class="dropdown">
+    {/if*}
+    <li id="registeruser"><a href={"/user/login"|ezurl} title="{'Login'|i18n('design/ocbootstrap/pagelayout')}">{'Login'|i18n('design/ocbootstrap/pagelayout')}</a></li>
+    {*<li id="login" class="dropdown">
       <a href="#" title="hide login form" class="dropdown-toggle" data-toggle="dropdown">{'Login'|i18n('design/ocbootstrap/pagelayout')}</a>
       <div class="panel dropdown-menu login-menu">
         <form class="login-form" action="{'/user/login'|ezurl( 'no' )}" method="post">
@@ -30,7 +31,7 @@
           <input type="hidden" name="RedirectURI" value="" />
         </form>
       </div>
-    </li>
+    </li>*}
 {/if}
 </ul>
 

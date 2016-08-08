@@ -11,7 +11,7 @@
      )
 )}
 
-<div class="temi">
+<div class="temi hidden-xs">
     <div class="container">
         <div class="row">
             {foreach $themes as $t}

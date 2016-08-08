@@ -15,8 +15,6 @@
 
 <div class="content-view-full class-{$node.class_identifier} row">
 
-
-
     {if $show_left}
         {include uri='design:openpa/full/parts/section_left.tpl'}
     {/if}

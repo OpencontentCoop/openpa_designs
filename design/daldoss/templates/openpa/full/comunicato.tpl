@@ -19,7 +19,7 @@
         {include uri='design:openpa/full/parts/section_left.tpl'}
     {/if}
 
-    <div class="content-main  full-stack">
+    <div class="content-main full-stack">
         <h1>{$node.name|wash()}</h1>
         {include uri=$openpa.content_main.template}
 
