@@ -39,7 +39,7 @@
         <a href="javascript:window.print()" title="Stampa la pagina corrente">Stampa</a>
 </li>*}
 <li id="print">		
-    {def $print_url = concat( '/layout/set/print', $module_result.uri )}
+    {def $print_url = concat( '/layout/set/print', $module_result.uri )|query_string()}
     
     <a href="{$print_url}" title="Visualizza la versione stampabile della pagina corrente">Versione stampabile</a>
 </li>
