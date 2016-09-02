@@ -56,6 +56,8 @@
 
                 <div class="col-lg-5 col-md-5 col-sm-5">
                     <h4>Sponsor</h4>
+                    {def $sponsors=fetch( 'content', 'node', hash( 'node_id', 4806 ) )}
+                    {attribute_view_gui attribute=$sponsors.object.data_map.image figure = false()}
                 </div>
             </div>
         </div>

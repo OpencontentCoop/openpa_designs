@@ -31,17 +31,17 @@ body.no-main-style #content .nav-section .widget .leaflet-popup-content .events.
 .leaflet-popup-content body.no-main-style #content .nav-section .widget .events.media .nav-tabs li.active a,
 body.no-main-style #content .nav-section .leaflet-popup-content .media .events.media .nav-tabs li.active a,
 .leaflet-popup-content body.no-main-style #content .nav-section .media .events.media .nav-tabs li.active a {
-  background-color: #6687c3;
+  background-color: #4689c8;
   color: #ffffff;
   opacity: 1;
 }
 /* line 396, ../scss/solid/_colors_mixin.scss */
 body.no-main-style #content .widget_tabs .tab-content {
-  border-color: #6687c3;
+  border-color: #4689c8;
 }
 /* line 402, ../scss/solid/_colors_mixin.scss */
 body.no-main-style #footer {
-  background: #6687c3;
+  background: #4689c8;
   color: #ffffff;
 }
 /* line 405, ../scss/solid/_colors_mixin.scss */
@@ -72,7 +72,7 @@ body.no-main-style #footer #footer-map-container .skyline {
 }
 /* line 431, ../scss/solid/_colors_mixin.scss */
 body.no-main-style #footer #footer-map-container .caret-big {
-  border-top-color: #6687c3;
+  border-top-color: #4689c8;
 }
 /* line 436, ../scss/solid/_colors_mixin.scss */
 body.no-main-style #valuation-container {
@@ -80,12 +80,12 @@ body.no-main-style #valuation-container {
 }
 /* line 439, ../scss/solid/_colors_mixin.scss */
 body.no-main-style #valuation-container .valuation h4 {
-  color: #6687c3;
+  color: #4689c8;
 }
 /* line 441, ../scss/solid/_colors_mixin.scss */
 body.no-main-style #valuation-container .valuation h4 i {
   color: #ffffff;
-  background-color: #6687c3;
+  background-color: #4689c8;
 }
 
 /* line 179, ../scss/solid/_colors_mixin.scss */
@@ -3647,15 +3647,15 @@ body.default-6 #valuation-container .valuation h4 i {
 /* line 453, ../scss/solid/_colors_mixin.scss */
 #main-menu li.no-main-style a {
   color: #333333;
-  border-bottom-color: #6687c3;
+  border-bottom-color: #4689c8;
 }
 /* line 456, ../scss/solid/_colors_mixin.scss */
 #main-menu li.no-main-style a bot {
-  color: #6687c3;
+  color: #4689c8;
 }
 /* line 459, ../scss/solid/_colors_mixin.scss */
 #main-menu li.no-main-style a:hover {
-  background-color: #6687c3;
+  background-color: #4689c8;
   color: #ffffff;
 }
 /* line 462, ../scss/solid/_colors_mixin.scss */
@@ -3664,7 +3664,7 @@ body.default-6 #valuation-container .valuation h4 i {
 }
 /* line 468, ../scss/solid/_colors_mixin.scss */
 #main-menu li.no-main-style > a.current {
-  background: #6687c3;
+  background: #4689c8;
   color: #ffffff;
 }
 /* line 471, ../scss/solid/_colors_mixin.scss */
