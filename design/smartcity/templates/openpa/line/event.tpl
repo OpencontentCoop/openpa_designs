@@ -17,8 +17,11 @@ $to = $node.data_map.from_time.content.timestamp|datetime( 'custom', '%d %F %Y' 
             <div class="col-xs-12">
                 <i class="fa fa-calendar-o" aria-hidden="true"></i> <span>{$from}</span>
 
-                {if or( $node|has_attribute( 'indirizzo' ), $node|has_attribute( 'luogo_svolgimento' ), $node|has_attribute( 'comune' )) }
+                {if or( $node|has_attribute( 'indirizzo' ), $node|has_attribute( 'luogo_svolgimento' ), $node|has_attribute( 'comune' ), $node|has_attribute( 'orario_svolgimento' ), $node|has_attribute( 'argomento' )) }
                     <span>
+                        {if $node|has_attribute( 'orario_svolgimento' )}
+                            <b> ore </b>{attribute_view_gui attribute=$node.data_map.orario_svolgimento}
+                        {/if}
                          - <i class="fa fa-map-marker" aria-hidden="true"></i>
                         {if $node|has_attribute( 'indirizzo' )}
                             {attribute_view_gui attribute=$node.data_map.indirizzo}
@@ -28,6 +31,16 @@ $to = $node.data_map.from_time.content.timestamp|datetime( 'custom', '%d %F %Y' 
                         {/if}
                         {if $node|has_attribute( 'comune' )}
                             {attribute_view_gui attribute=$node.data_map.comune}
+                        {/if}
+                        {if $node|has_attribute( 'argomento' )}
+                            {def $argomento=''}
+                            {foreach $node.data_map.argomento.content.relation_list as $argomenti_rel}
+                                - <i class="fa fa-comment-o" aria-hidden="true"></i>
+                                {set $argomento=fetch( content, object, hash( object_id, $argomenti_rel.contentobject_id ) )}
+                                <a href={$argomento.main_node.url_alias|ezurl("no")}>
+                                    {attribute_view_gui attribute=$argomento.data_map.titolo}
+                                </a>
+                            {/foreach}
                         {/if}
                     </span>
                 {/if}
