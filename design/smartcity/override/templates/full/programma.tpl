@@ -1,3 +1,9 @@
+{literal}
+<style>
+  .list-markers-text {display:none}
+</style>
+{/literal}
+
 {def $openpa = object_handler($node)}
 
 {if $openpa.control_cache.no_cache}
@@ -28,7 +34,19 @@ $show_left = and( $openpa.control_menu.show_side_menu, is_set( $tree_menu.childr
 
         {*include uri=$openpa.content_detail.template*}
 
-        {include uri='design:parts/children/map.tpl' height=300}
+        <div class="row">
+            <div class="col-md-6">
+              {include uri='design:parts/children/map.tpl' height=457}
+            </div>
+            <div class="col-md-6">
+              {def $block = hash(                
+                view, 'tabs eventi',
+                valid_nodes, array($node),
+                custom_attributes, hash(tab_title, 'Prossimi', interval, 'P1W')                
+              )}
+              {include uri="design:openpa/full/parts/eventi.tpl" block=$block}
+            </div>
+        </div>        
         {include uri='design:parts/children/filters.tpl'}
 
     </div>

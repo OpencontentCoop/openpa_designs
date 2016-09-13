@@ -130,7 +130,7 @@ imgPreloader.src = 'https://firewall.comune.trento.it/kattivecli.cgi?state=statu
 												   'limitation', array(),
 												   'parent_node_id', openpaini('LinkSpeciali', 'NodoQuicklinks', 0) ) )}
 	{foreach $baseLinks as $baseLink}
-	{def $url = $baseLink.data_map.url.content}
+	{def $url = $baseLink.data_map.location.content}
 	{if $baseLink.data_map.link.has_content}
 	  {set $url = concat( 'content/view/full/', $baseLink.data_map.link.content.relation_list[0].node_id )|ezurl(no)}
 	{/if}

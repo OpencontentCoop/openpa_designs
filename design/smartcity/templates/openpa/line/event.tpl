@@ -20,7 +20,7 @@ $to = $node.data_map.from_time.content.timestamp|datetime( 'custom', '%d %F %Y' 
                 {if or( $node|has_attribute( 'indirizzo' ), $node|has_attribute( 'luogo_svolgimento' ), $node|has_attribute( 'comune' ), $node|has_attribute( 'orario_svolgimento' ), $node|has_attribute( 'argomento' )) }
                     <span>
                         {if $node|has_attribute( 'orario_svolgimento' )}
-                            <b> ore </b>{attribute_view_gui attribute=$node.data_map.orario_svolgimento}
+                            <b> orario </b>{attribute_view_gui attribute=$node.data_map.orario_svolgimento}
                         {/if}
                          - <i class="fa fa-map-marker" aria-hidden="true"></i>
                         {if $node|has_attribute( 'indirizzo' )}
