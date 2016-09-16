@@ -8711,7 +8711,7 @@ h1, h2, h3, h4, h5 {
 /* line 174, ../scss/_custom.scss */
 .owl-carousel .owl-item .carousel-caption h3 a {
   color: #fff;
-  font-size: 1.0em;
+  font-size: 0.7em;
   text-transform: none;
 }
 @media only screen and (min-width: 768px) {

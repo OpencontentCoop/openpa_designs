@@ -11,13 +11,14 @@
      )
 )}
 
-<div class="temi hidden-xs">
+<div class="hidden-xs" style="background-color: #009999; padding-top: 15px; padding-bottom: 6px;">
     <div class="container">
         <div class="row">
             {foreach $themes as $t}
-                <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2 text-center">
-                    <a href="{$t.url_alias|ezurl(no)}" class="node_theme_{$t.node_id}">
-                        <h4>{$t.name}</h4>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
+                    {*<a href="{$t.url_alias|ezurl(no)}" class="node_theme_{$t.node_id}">*}
+                    <a href="{$t.url_alias|ezurl(no)}">
+                        <h4 style="color: #FFFFFF; font-size: 1.5em;">{$t.name}</h4>
                     </a>
                 </div>
             {/foreach}
