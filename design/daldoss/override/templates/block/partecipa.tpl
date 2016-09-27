@@ -45,7 +45,7 @@
                         <img src="{'partecipa/newsletter.png'|ezimage(no)}" class="img-responsive" alt="Newsletter" />
                     </div>
                     <div class="col-xs-10">
-                        <a href="{'content/view/full/4721'|ezurl(no)}"><h3>Newsletter</h3></a>
+                        <a href="{'content/view/full/3576'|ezurl(no)}"><h3>Newsletter</h3></a>
                         <p>Iscriviti alla Newsletter di Carlo Daldoss e ricevi comodamente sul tuo pc e cellullare tutte le ultime informazioni.</p>
                     </div>
                 </div>

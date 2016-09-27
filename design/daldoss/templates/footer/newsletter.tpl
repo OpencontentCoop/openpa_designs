@@ -4,5 +4,5 @@
     <p class="f_size_medium m_bottom_15">
         Iscriviti alla newsletter, rimani aggiornato sulle ultime novità!</p>
 
-    <a href="{'content/view/full/4721'|ezurl(no)}" class="btn btn-lg btn-primary">Iscriviti ora</a>
+    <a href="{'content/view/full/3576'|ezurl(no)}" class="btn btn-lg btn-primary">Iscriviti ora</a>
 </div>
