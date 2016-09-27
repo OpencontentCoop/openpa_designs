@@ -18,13 +18,13 @@
 
 
                 <div class="col-xs-4">
-                    <a href="http://daldoss.opencontent.it/partecipa/sensor/posts"><img src="{'partecipa/di_la_tua.png'|ezimage(no)}" class="img-responsive" alt="Dì la tua!" style="margin-left: -20px;"/></a>
+                    <a href="{'/partecipa/sensor/posts'|ezurl(no)}"><img src="{'partecipa/di_la_tua.png'|ezimage(no)}" class="img-responsive" alt="Dì la tua!" style="margin-left: -20px;"/></a>
                 </div>
                 <div class="col-xs-8">
-                    <a href="{'content/view/full/4721'|ezurl(no)}"><h3>E' il tuo momento</h3></a>
+                    <a href="{'/partecipa/sensor/posts'|ezurl(no)}"><h3>E' il tuo momento</h3></a>
                     <p>Ti invito come cittadino a formulare suggerimenti, domande e commenti sulle tematiche che più mi stanno a cuore: coesione territoriale, sviluppo locale, urbanistica ed enti locali. Sono convinto che solo attraverso la partecipazione, anche on-line, si possa mettere tutti nelle condizioni di dare il proprio supporto, sforzandoci di trovare poi la migliore sintesi.
 
-                        <a href="http://daldoss.opencontent.it/partecipa/sensor/posts">DìLaTua come cittadino, questo spazio è anche per te.</a></p>
+                        <a href="{'/partecipa/sensor/posts'|ezurl(no)}">DìLaTua come cittadino, questo spazio è anche per te.</a></p>
                 </div>
             </div>
             <div class="col-md-4">

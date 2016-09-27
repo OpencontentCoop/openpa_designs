@@ -39,7 +39,7 @@ array( 'published', false() ) )) )}
 
             {include uri=$openpa.control_children.template}
 
-                {def $t = fetch( tags, tags_by_keyword, hash( keyword, $node.name|upcase() ) )}
+                {def $t = fetch( tags, tags_by_keyword, hash( keyword, $node|attribute( 'short_name' ).content|upcase() ) )}
 
                 {if $t|count}
 
