@@ -1,0 +1,81 @@
+body.no-main-style {
+  @include openpa-color-by-section('no-main-style');
+}
+
+body.aree-tematiche {
+  @include openpa-color-by-section('aree-tematiche');
+}
+body.default-1 {
+  @include openpa-color-by-section('default-1');
+}
+
+body.default-2 {
+  @include openpa-color-by-section('default-2');
+}
+
+body.default-3 {
+  @include openpa-color-by-section('default-3');
+}
+
+body.default-4 {
+  @include openpa-color-by-section('default-4');
+}
+
+body.default-5 {
+  @include openpa-color-by-section('default-5');
+}
+
+body.default-6 {
+  @include openpa-color-by-section('default-6');
+}
+
+
+#main-menu
+{
+  li.no-main-style{
+    @include openpa-menu-color-by-section('no-main-style');
+  }
+  li.aree-tematiche{
+    @include openpa-menu-color-by-section('aree-tematiche');
+  }
+  li.default-1{
+    @include openpa-menu-color-by-section('default-1');
+  }
+  li.default-2{
+    @include openpa-menu-color-by-section('default-2');
+  }
+  li.default-3{
+    @include openpa-menu-color-by-section('default-3');
+  }
+  li.default-4{
+    @include openpa-menu-color-by-section('default-4');
+  }
+  li.default-5{
+    @include openpa-menu-color-by-section('default-5');
+  }
+  li.default-6{
+    @include openpa-menu-color-by-section('default-6');
+  }
+
+
+}
+
+.block-color-select{
+  &.default-1{background: openpa-color('default-1', 'background-primary');}
+  &.aree-tematiche{background: openpa-color('aree-tematiche', 'background-primary');}
+  &.default-2{background: openpa-color('default-2', 'background-primary');}
+  &.default-3{background: openpa-color('default-3', 'background-primary');}
+  &.default-4{background: openpa-color('default-4', 'background-primary');}
+  &.default-5{background: openpa-color('default-5', 'background-primary');}
+  &.default-6{background: openpa-color('default-6', 'background-primary');}
+}
+
+#content .color{
+  &.color-default-1{@include openpa-block-color-by-section('default-1');}
+  &.color-aree-tematiche{@include openpa-block-color-by-section('aree-tematiche');}
+  &.color-default-2{@include openpa-block-color-by-section('default-2');}
+  &.color-default-3{@include openpa-block-color-by-section('default-3');}
+  &.color-default-4{@include openpa-block-color-by-section('default-4');}
+  &.color-default-5{@include openpa-block-color-by-section('default-5');}
+  &.color-default-6{@include openpa-block-color-by-section('default-6');}
+}

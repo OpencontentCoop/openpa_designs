@@ -1,0 +1,22 @@
+.calendar-tools {
+    .table-calendar {
+        ul {
+            margin: 1em 0.2em 0.5em;
+            li a {
+            font-size: 1em;
+            color: darken($link-color, 10%);
+            }
+        }
+        td {
+            .day {
+                float: none;
+            }
+        }
+    }
+
+    .calendar-date {
+        .media {
+            background-color: $gray-lighter;
+        }
+    }
+}

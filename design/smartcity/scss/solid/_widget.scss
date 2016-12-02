@@ -1,0 +1,261 @@
+.widget_title h3,
+h3.widget_title {
+  background-color: $gray;
+  color: #ffffff;
+  padding: 5px 8px;
+  text-transform: none;
+  margin: 0 0 10px;
+  font-size: .9em;
+  @extend .r_corners;
+  display: inline-block;
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+
+.content-main .widget .widget_title h3,
+.content-main .widget h3.widget_title {
+  font-size: 1.4em;
+}
+
+.widget {
+  @extend .shadow;
+  @extend .r_corners;
+  @extend .wrapper;
+  @extend .m_bottom_30;
+  .widget_title {
+    background: #fff;
+    padding: 10px;
+    h3 {
+      padding: 5px 8px;
+      text-transform: none;
+      font-size: .9em;
+      //font-weight: bold;
+      margin: 0;
+    }
+  }
+}
+
+.widget figcaption[class*="relative"] {
+  padding-right: 85px;
+}
+
+.widget_content {
+  padding: 23px 10px 25px;
+  background: #fff;
+}
+
+.widget_single {
+  @extend .m_bottom_10;
+}
+
+.widget_tabs {
+  @extend .m_bottom_10;
+  @extend .no-shadow;
+  overflow: visible !important;
+  .tab-content {
+    border-top: 3px solid $gray;
+    @extend .tabs_content;
+    @extend .shadow;
+    @extend .r_corners;
+    overflow: hidden;
+  }
+  .nav-tabs,
+  .events-tabs 
+   {
+    margin-bottom: 0;
+    border: none !important;
+    @extend .tabs_nav;
+    @extend .f_xs_none;
+    font-size: .9em !important;
+    li {
+      margin-bottom: 0 !important;
+      a {
+        border: none !important;
+        background: $gray-light;
+        color: #fff;
+        @extend .r_corners;
+        @extend .d_block;
+        padding: 5px 8px !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: normal;
+      }
+      &.active a {
+        background: $gray;
+        color: #fff;
+        border: none !important;
+      }
+    }
+  }
+}
+
+.events {
+  &.widget_tabs li {
+    a {
+      /*text-transform: uppercase;
+      font-size: .9em;
+      font-weight: bold;
+      text-decoration: none;
+      color: $gray-light;*/
+    }
+    &.active a{
+      color: $gray;
+    }
+  }
+  .widget_content {
+    ul.events-tabs {
+      margin-top: -23px;
+      text-transform: uppercase;
+      font-size: .8em;
+      margin-bottom: 20px;
+      border: none;
+      li {
+        padding: 0;
+        a {
+          background: $gray-lighter;
+          color: $gray;
+          padding: 5px 8px;
+          text-decoration: none;
+        }
+        &.active a {
+          background: $gray;
+          color: #fff;
+        }
+      }
+    }
+    .media {
+      height: 80px;
+    }
+  }
+
+  .events-tabs {
+
+  }
+  
+
+  .calendar-date {
+
+    .month {
+      background: $gray;
+      font-size: 1em;
+      line-height: 1;
+      color: #fff;
+      display: block;
+      text-align: center;
+      padding: 5px 3px;
+      text-transform: uppercase;
+      border-top-left-radius: $border-radius-base;
+      border-top-right-radius: $border-radius-base;
+    }
+    .day {
+      background: #fff;
+      color: $gray;
+      font-size: 2em;
+      line-height: 1em;
+      font-weight: bold;
+      display: block;
+      border: 1px solid $gray;
+      padding: 8px 3px;
+      text-align: center;
+      border-bottom-left-radius: $border-radius-base;
+      border-bottom-right-radius: $border-radius-base;
+    }
+  }
+  .media {
+    margin-bottom: 15px;
+  }
+  .owl-controls {
+    margin-top: 0;
+  }
+  .event-item {
+    margin-bottom: 10px;
+  }
+}
+
+.panels-container, .leaflet-popup-content {
+  .media {
+    @extend .widget;
+    padding: 10px;
+    background: #fff;
+    .main_image {
+      float: none;
+      margin: 0 0 10px;
+      box-shadow: 0 0 #fff;
+      border: none;
+      border-radius: 0;
+    }
+    .caption {
+      padding: 10px;
+    }
+  }
+  .panel-label {
+    background: $gray;
+    left: 20px;
+    padding: 5px 8px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 180px;
+    color: #fff;
+    @extend .r_corners;
+    font-size: .9em;
+  }
+  .media-panel {
+    figure {
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-color: #ffffff !important;
+      margin: 0;
+      min-height: 200px;
+      @extend .r_corners_top;
+      border-bottom: 3px solid $gray;
+      @extend .shadow;
+    }
+    .media {
+      &.has-image {
+        margin-top: 10px;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+      }
+      h4 {
+        font-size: 1.3em;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 0;
+        a {
+          text-decoration: none;
+        }
+      }
+     
+      p.link {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .panel-story {
+    font-size: .8em;
+    color: $gray;
+    a {
+      color: $gray;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+  }
+}
+
+
+.content-main .widget.lista_box .widget_content {
+  h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 0;
+
+    small {
+      text-transform: none;
+    }
+  }
+}

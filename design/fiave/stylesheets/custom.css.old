@@ -1,0 +1,28 @@
+/* logo */
+div#logo h1 a, div#logo h1 a:hover, div#logo h1 a:visited
+{
+    background: url("../images/logo/logo.png") no-repeat scroll center transparent;
+    margin-top: 90px;
+    color:#fff;
+	text-decoration:none;	
+	text-indent:-9999px;
+	width:428px;
+	padding:25px 0;
+	line-height:33px;
+	display:block;
+}
+
+div#header
+{
+    background: #333;    
+    height: 100px;
+}
+
+div#header
+{
+    background: url("../images/header/banner.jpg") no-repeat scroll center transparent !important;    
+    height: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: left;
+}

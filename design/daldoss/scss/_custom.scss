@@ -1,0 +1,229 @@
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.header-links {
+  margin-top: 8px;
+}
+
+.menu_wrap {
+  .main_menu {
+    &:last-child {
+      a {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+
+.breadcrumb-container {
+  border-bottom: 1px solid $gray-light;
+  .breadcrumb {
+    background: none;
+    border-radius: 0;
+    padding: 10px 0;
+    margin-bottom: 10px;
+
+  }
+}
+
+.content-view-full {
+  padding-top: 30px;
+}
+
+.temi {
+  padding: 20px 0 10px 0;
+  background-color: $brand-primary;
+  a {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: top center;
+    padding-top: 50%;
+    color: #00cccc;
+    &.node_theme_1091 {
+      background-image: url("../images/icone-menu/urbanistica-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/urbanistica-icon-on.png");
+      }
+    }
+    &.node_theme_1057 {
+      background-image: url("../images/icone-menu/enti-locali-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/enti-locali-icon-on.png");
+      }
+    }
+    &.node_theme_1105 {
+      background-image: url("../images/icone-menu/coesione-sviluppo-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/coesione-sviluppo-icon-on.png");
+      }
+    }
+    &.node_theme_1058 {
+      background-image: url("../images/icone-menu/partecipazione-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/partecipazione-icon-on.png");
+      }
+    }
+    &.node_theme_1416 {
+      background-image: url("../images/icone-menu/fondo-paesaggio-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/fondo-paesaggio-icon-on.png");
+      }
+    }
+    &.node_theme_1059 {
+      background-image: url("../images/icone-menu/aree-interne-icon-off.png");
+      &:hover {
+        background-image: url("../images/icone-menu/aree-interne-icon-on.png");
+      }
+    }
+    &:hover {
+      color: #fff;
+    }
+    h4 {
+      margin-top: 10px;
+    }
+  }
+}
+
+.lista_num {
+  padding: 20px 0;
+  .media-panel{
+    h2 {
+      margin-top: 0px;
+    }
+    .abstract {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      font-style: italic;
+    }
+  }
+}
+
+.partecipa {
+  .row {
+    margin-bottom: 15px;
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
+
+.last-news {
+  .row {
+    margin-bottom: 15px;
+    h3 {
+      margin-top: 10px;
+      text-transform: none;
+    }
+    h4 {
+      margin-top: 0;
+      text-transform: none;
+    }
+  }
+}
+
+.stats {
+  padding: 20px 0;
+  background-color: $brand-primary;
+  margin-bottom: 20px;
+}
+
+.opinioni {
+  padding: 20px 0;
+}
+
+#footer {
+
+  .pre_footer {
+    padding: 20px 0 10px 0;
+    background-color: #ebebeb;
+    a {
+      color:$brand-primary;
+    }
+  }
+
+  .footer_top_part {
+    color: #fff;
+    background-color: #49494b;
+    a {
+      color: #fff;
+    }
+  }
+
+  .footer_bottom_part {
+    color: #fff;
+    background-color: #323232;
+    padding-top: 10px;
+  }
+}
+
+.owl-carousel {
+  .owl-item {
+    img {
+      width: 100%;
+    }
+    .carousel-caption {
+      //background: rgba(113,126,133,0.85);
+      h3 {
+        a {
+          color: #fff;
+          font-size: 1.0em;
+          text-transform: none;
+          @media only screen and (min-width : 768px) {
+            font-size: 1.5em;
+          }
+        }
+      }
+      p {
+        display: none;
+      }
+    }
+  }
+}
+
+.media-heading {
+  text-transform: none;
+}
+
+.class-comunicato{
+  .content-main {
+    .abstract {
+      font-weight: 800;
+    }
+  }
+}
+
+
+.vmm-timeline {
+  a {
+    color: $brand-primary;
+    &:hover {
+
+    }
+  }
+  .feature {
+    h3 {
+      font-size: 18px;
+    }
+  }
+}
+
+#menu_button {
+  float: right;
+}
+
+
+.node_3037 {
+  display: none;
+  @media only screen and (min-width : 768px) {
+    display: inline-block;
+  }
+}
+
+

@@ -1,0 +1,189 @@
+{* Event Calendar - Full Calendar view *}
+{def
+    $event_node    = $node
+    $event_node_id = $event_node.node_id
+
+    $curr_ts = currentdate()
+    $curr_today = $curr_ts|datetime( custom, '%j')
+    $curr_year = $curr_ts|datetime( custom, '%Y')
+    $curr_month = $curr_ts|datetime( custom, '%n')
+
+    $temp_ts = cond( and(ne($view_parameters.month, ''), ne($view_parameters.year, '')), makedate($view_parameters.month, cond(ne($view_parameters.day, ''),$view_parameters.day, eq($curr_month, $view_parameters.month), $curr_today, 1 ), $view_parameters.year), currentdate() )
+
+    $temp_month = $temp_ts|datetime( custom, '%n')
+    $temp_year = $temp_ts|datetime( custom, '%Y')
+    $temp_today = $temp_ts|datetime( custom, '%j')
+
+    $days = $temp_ts|datetime( custom, '%t')
+
+    $first_ts = makedate($temp_month, 1, $temp_year)    
+    $last_ts = makedate($temp_month, $days, $temp_year)
+
+    $day_array = " "
+    $loop_dayone = 1
+    $loop_daylast = 1
+    $day_events = array()    
+    }
+
+
+{if ne($temp_month, 12)}
+    {set $last_ts=makedate($temp_month|sum( 1 ), 1, $temp_year)}
+{else}
+    {set $last_ts=makedate(1, 1, $temp_year|sum(1))}
+{/if}
+{def $ezfind_month_first = $first_ts|sum(1)|datetime( 'custom', '%Y-%m-%dT%H:%i:%sZ' )
+     $ezfind_month_last = $last_ts|sub(1)|datetime( 'custom', '%Y-%m-%dT%H:%i:%sZ' )
+     $subtree_array = array( $event_node_id )}
+{if and( is_set( $node.data_map.subtree_array ), $node.data_map.subtree_array.has_content )}
+    {set $subtree_array = array()}
+    {foreach $node.data_map.subtree_array.content.relation_list as $item}
+        {set $subtree_array = $subtree_array|append($item.node_id)}
+    {/foreach}
+{/if}
+
+{def $hash = hash('subtree_array', $subtree_array,
+                  'limit', 100,
+                  'sort_by', hash( 'attr_from_time_dt', 'desc' ),
+                  'class_id', array( 'event' ),
+                  'filter', array(
+                    'or',
+                        concat( 'attr_from_time_dt:[', $ezfind_month_first, ' TO ', $ezfind_month_last, ']' ),
+                        concat( 'attr_to_time_dt:[', $ezfind_month_first, ' TO ', $ezfind_month_last, ']' ),
+                        array( 'and',
+                            concat( 'attr_from_time_dt:[ * TO ', $ezfind_month_first, ']' ),
+                            concat( 'attr_to_time_dt:[', $ezfind_month_last, ' TO * ]' )
+                        )
+                    )
+                 )
+     $search = fetch( ezfind, search, $hash )
+     $events = $search['SearchResult']
+     $events_count  = $search['SearchCount']}
+
+{*set $events=fetch( 'content', 'list', hash(
+        'parent_node_id', $event_node_id,
+        'sort_by', array( 'attribute', true(), 'event/from_time'),
+        'class_filter_type',  'include',
+        'class_filter_array', array( 'event' ),
+        'attribute_filter',
+        array( 'or',
+                array( 'event/from_time', 'between', array( sum($first_ts,1), sub($last_ts,1)  )),
+                array( 'event/to_time', 'between', array( sum($first_ts,1), sub($last_ts,1) )), 
+                array(  'and', array( 'event/from_time', '<', '$first_ts'), array( 'event/to_time', '>', '$last_ts') )
+        )
+))*}
+
+{foreach $events as $event}
+    {if eq($temp_month|int(), $event.data_map.from_time.content.month|int())}
+        {set $loop_dayone = $event.data_map.from_time.content.day}
+    {else}
+        {set $loop_dayone = 1}
+    {/if}
+    {if $event.data_map.to_time.content.is_valid}
+       {if eq($temp_month|int(), $event.data_map.to_time.content.month|int())}
+            {set $loop_daylast = $event.data_map.to_time.content.day}
+        {else}
+            {set $loop_daylast = $days}
+        {/if}
+    {else}
+         {set $loop_daylast = $loop_dayone}
+    {/if}
+    {for $loop_dayone|int() to $loop_daylast|int() as $counter}
+        {set $day_array = concat($day_array, $counter, ', ')}
+        {if eq($counter,$temp_today)}
+            {set $day_events = $day_events|append($event)}
+        {/if}
+    {/for}    
+{/foreach}
+
+<div class="row class-event-calendar event-calendar-calendarview">
+    <div class="col-md-12">
+        
+        <h1>{$event_node.name|wash()}</h1>
+
+        {* EDITOR TOOLS *}
+        {include name=editor_tools node=$node uri='design:parts/openpa/editor_tools.tpl'}
+
+        <div class="row">
+            <div class="col-md-12">
+                {include name=table_calendar uri='design:content/parts/table_calendar.tpl' timestamp=$temp_ts calendar=$event_node events=$events}
+            </div>
+            
+            {def $max = false()
+                 $alreadyShow = array()}
+            {if count($day_events)|gt(0)}
+            <div class="col-md-12">        
+                <h2>Eventi del {$temp_ts|datetime( custom, '%j %F %Y' )|upfirst()}:</h2>
+                
+                {if count($day_events)|gt(3)}
+                    {set $max = ceil( count($day_events)|div(3) )}
+                {else}
+                    {set $max = 1}
+                {/if}
+                
+                <div class="row">
+                    <div class="col-md-4">        
+                    {foreach $day_events as $day_event max $max}
+                        {set $alreadyShow = $alreadyShow|append($day_event.contentobject_id)}
+                        {include name=event uri='design:block_item/event.tpl' node=$day_event}                        
+                    {/foreach}
+                    </div>
+                    <div class="col-md-4">        
+                    {foreach $day_events as $day_event offset $max max $max}
+                        {set $alreadyShow = $alreadyShow|append($day_event.contentobject_id)}
+                        {include name=event uri='design:block_item/event.tpl' node=$day_event}                        
+                    {/foreach}
+                    </div>
+                    <div class="col-md-4">        
+                    {foreach $day_events as $day_event offset $max|mul(2)}
+                        {set $alreadyShow = $alreadyShow|append($day_event.contentobject_id)}
+                        {include name=event uri='design:block_item/event.tpl' node=$day_event}                        
+                    {/foreach}
+                    </div>
+                </div>
+            </div>
+            {/if}
+
+{def $tempEvents = $events}
+{set $events = array()}
+{foreach $tempEvents as $event}
+    {if $alreadyShow|contains($event.contentobject_id)|not()}
+        {set $events = $events|append($event)}
+    {/if}
+{/foreach}
+
+            
+            {if count($events)|gt(0)}
+            <div class="col-md-12">        
+                <h2>Eventi di {$temp_ts|datetime( custom, '%F %Y' )|upfirst()}:</h2> 
+                                
+                {if count($events)|gt(3)}
+                    {set $max = floor( count($events)|div(3) )}
+                {else}
+                    {set $max = 1}
+                {/if}
+                
+                <div class="row">
+                    <div class="col-md-4">        
+                    {foreach $events as $event max $max}
+                        {include name=event uri='design:block_item/event.tpl' node=$event}                        
+                    {/foreach}
+                    </div>
+                    <div class="col-md-4">        
+                    {foreach $events as $event offset $max max $max}
+                        {include name=event uri='design:block_item/event.tpl' node=$event}                        
+                    {/foreach}
+                    </div>
+                    <div class="col-md-4">        
+                    {foreach $events as $event offset $max|mul(2)}
+                        {include name=event uri='design:block_item/event.tpl' node=$event}                        
+                    {/foreach}
+                    </div>
+                </div>
+            </div>
+            {/if}
+          
+        </div>
+    </div>
+</div>
+
+{undef}

@@ -1,0 +1,57 @@
+
+//fix per google maps 3.0
+.balloon {
+  line-height: 1.35;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+p.link {
+  text-align: right;
+  margin: 0;
+  a {
+    text-transform: uppercase;
+    text-decoration: none;
+    @extend .btn;
+    @extend .btn-default;
+    @extend .btn-sm;
+  }
+}
+
+ul.list-markers-text {
+  li a{
+    padding: 5px 0;
+    font-size: .9em;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    small{
+      text-transform: none;
+      font-weight: normal;
+      display: block;
+    }
+  }
+
+  &.list-markers-text-full {
+    li {
+      display: inline;
+      a{
+        display: inline;
+        padding-right: 10px;
+        small {
+          display: inline;
+        }
+      }
+    }
+  }
+}
+
+.leaflet-popup-content {
+  .media{
+    @extend .no-shadow;
+  }
+  .media-panel figure{
+    min-width: 200px;
+  }
+}

@@ -1,0 +1,669 @@
+div#page
+{
+    background:#f0f0f0 url("../images/trento/page-bg.jpg") repeat-y center;
+}
+
+div#logo h1
+{
+	font-size:2.5em;
+	font-family:"Times New Roman", Times, serif;
+	text-transform:uppercase;
+	margin:0;
+	padding:0;
+	color:#fff;
+}
+
+div#logo h1 a,
+div#logo h1 a:hover,
+div#logo h1 a:visited
+{
+	color:#fff;
+	text-decoration:none;
+	background: url("../images/trento/logo-bg.png") no-repeat top left;
+	text-indent:-9999px;
+	width:428px;
+	padding:25px 0;
+	line-height:33px;
+	display:block;
+}
+
+div#header
+{
+    margin: 0 auto;
+    text-align: left;
+    height:83px;
+    overflow:hidden;    
+    background:#154985 url("../images/trento/header-bg.jpg") no-repeat bottom right;
+    border-top:5px solid #666666
+}
+
+
+/* folder facet */
+ul.facet-list li
+{
+    background: none !important;
+    padding: 0;
+    font-size: .9em;
+}
+
+ul.facet-list li div.current
+{
+    background: #0051A1;
+    padding: 4px;    
+}
+
+ul.facet-list li div.current a
+{
+    color: #fff;
+    font-weight: bold;
+}
+
+ul.facet-list li div.current a.helper
+{
+    font-size: 1.3em
+}
+
+ul.facet-list li div.current-inherit
+{
+    opacity: 0.5;
+}
+
+/* line-compact */
+
+body.js .line-handler .blocco-titolo-oggetto,
+body.js .line-handler .blocco-contenuto-oggetto,
+body.js .line-handler .image-small,
+body.js .line-handler .main-image
+{ 
+    padding-left: 20px
+}
+
+body.js .line-handler .blocco-titolo-oggetto
+{
+    position: relative; 
+}
+
+body.js .line-compact .compact-handler,
+body.js .line-expand .compact-handler
+{
+    background: url(../images/trento/line-compact.gif) center center no-repeat;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 15px;
+    cursor: pointer;
+}
+
+body.js .line-expand .compact-handler
+{
+    background: url(../images/trento/line-expand.gif) center center no-repeat;
+}
+
+body.js .line-global-handler-close,
+body.js .line-global-handler-open
+{
+    background: url(../images/trento/line-compact.gif) center center no-repeat;
+    height: 20px;    
+    width: 15px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+body.js .line-global-handler-close
+{
+    background: url(../images/trento/line-expand.gif) center center no-repeat;    
+}
+
+body.js .line-compact .main-image,
+body.js .line-compact .image-small,
+body.js .line-compact .blocco-contenuto-oggetto
+{
+    display: none;
+}
+
+.col-content-design form.left
+{
+    position: relative;
+    z-index: 10;
+}
+
+.sort-icons,
+.sort-label
+{
+    float: left;
+}
+
+.sort-icons
+{
+    margin-left: 10px;
+}
+
+.sort-icon
+{
+    clear: left;
+    display: block;
+    float: left;
+    height: 7px;
+    margin-bottom: 2px;
+    text-indent: -999px;
+    width: 7px;
+    background: url(../images/trento/sort-icons.gif) top center no-repeat;
+    opacity: .3;
+    overflow: hidden;
+}
+.sort-icon-asc
+{
+    background-position: top center;
+}
+.sort-icon-desc
+{
+    background-position: bottom center;
+}
+.sort-icons .selected
+{
+    opacity: 1;
+}
+
+div.global-view-full h1, div.attribute-header h1, div.attribute-header h1.long {
+    background-image: none;
+    border-bottom: 3px solid #EFEFEF;
+    color: #002454;
+    font-size: 1.75em;
+    font-weight: normal;
+    margin: 0 0 0.5em;
+    padding: 0 0 5px;
+    width: 100%;
+}
+
+
+/*STYle GENerator versione 0.3*/
+
+
+/******************************************************************
+1. SFONDO PAGINA
+Usare se si vuole modificare lo sfondo esterno al blocco generale della pagina.
+Per cambiarlo occorre intervenire sulla regola div#page.<nome_css>. L'immagine deve essere larga almeno quanto la larghezza del blocco contentui (1000px). Nel css di default l'immagine è larga 1040px perché deve comprendere la sfumatura dell'ombra.
+*/
+body{background: #EDF2B5}
+div#page{
+	/*background: #EDF2B5 url("../images/intranet/page-bg.jpg") repeat-y center;*/
+	background: #EDF2B5 url("../images/intranet/body-bg.jpg") repeat-x;
+}
+
+
+
+/******************************************************************
+2. SFONDO CONTENUTI
+Usare se si vuole modificare lo sfondo del blocco contenuti che inizia sotto la testata e comprende il footer.
+Generalmente è sufficiente assegnare un colore esadecimale: di default eredita il colore dello Sfondo Pagina ad eccezione dello sfondo del menu di sinistra che va configurato con le regole COLORI MENU DI SINISTRA.
+*/
+div#page #page-content{
+	background:#fff;
+}
+
+
+
+/******************************************************************
+3. COLORE MENU PRINCIPALE
+Usare se si vuole modificare il colore caratteristico del menu principale (in alto sotto la testata). 
+Di default il colore del menu per le aree tematiche è #990100
+Per coerenza si consiglia di configurare questo colore anche per la regole 4.2
+*/
+div#page div#topmenu ul#topmenu-firstlevel li a:hover,
+div#page div#topmenu ul#topmenu-firstlevel li a{
+
+}
+
+
+
+/******************************************************************
+4. COLORI MENU DI SINISTRA
+Usare se si vuole modificare l'aspetto del menu di sinistra.
+*/
+
+/* 4.1 Sfondo del menu */
+div#page div#sidemenu div.border-box div.border-mc{
+	background:#fff;
+}
+
+/* 4.2 Colore di sfondo del menu attivo (le sfumature sono automatiche) */
+div#sidemenu ul li div span.handler,
+div#sidemenu a.current{
+	background-color:#EBF2AF;
+}
+
+/* 4.3 Colore di sfondo dei livelli di menu (NOTABENE: il .second_level_menu è il primo livello del menu di sinistra) */
+div#page div.second_level_menu{
+}
+div#page div.third_level_menu{
+}
+div#page div.fourth_level_menu{
+}
+
+/* 4.4 Colore del testo del menu di sinistra */
+div#page div#sidemenu a {
+	color:#000;
+}
+
+
+
+/******************************************************************
+5. COLORI BOTTONI DI DEFAULT
+Usare se si vuole modificare l'aspetto dei bottoni principali (Ad esempio "Cerca" o "Accedi con il tuo utente per lasciare un commento")
+La regola viene recepita solo dai contenuti effettivi della pagina (#columns-position): vengono perciò esclusi i bottoni esterni (per esempio il bottone di 'Aiutaci a migliorare')
+*/
+
+div#page #columns-position a.defaultbutton, 
+div#page #columns-position a.button, 
+div#page #columns-position button.defaultbutton, 
+div#page #columns-position input.defaultbutton, 
+div#page #columns-position input.button {
+	
+	background-image:url(../images/intranet/header-button.png);
+	border:1px solid #6299C5;
+	/* background-color:#6299C5;
+	  color:#FFFFFF; */
+	color:#37354A;
+}
+
+
+/******************************************************************
+6. BOX ACCORDION
+*/
+
+/* 6.1 Bordi accordion */
+div#page div.box-accordion div.border-mc{
+    background: #EBF2AF;
+}
+div#page div.box-accordion div.border-tl{ background-image: url("../images/intranet/accordion-tl.jpg"); }
+div#page div.box-accordion div.border-tr{ background-image: url("../images/intranet/accordion-tr.jpg"); }
+div#page div.box-accordion div.border-tc{ background-image: url("../images/intranet/accordion-tc.jpg"); }
+div#page div.box-accordion div.border-ml{ background-image: url("../images/intranet/accordion-ml.jpg"); }
+div#page div.box-accordion div.border-mr{ background-image: url("../images/intranet/accordion-mr.jpg"); }
+div#page div.box-accordion div.border-bl{ background-image: url("../images/intranet/accordion-bl.jpg"); }
+div#page div.box-accordion div.border-br{ background-image: url("../images/intranet/accordion-br.jpg"); }
+div#page div.box-accordion div.border-bc{ background-image: url("../images/intranet/accordion-bc.jpg"); }
+
+/* 6.2 Icone accordion */
+div#page div.box-accordion  .ui-icon  { background-image:url("../images/intranet/arrow-accordion.gif"); }
+
+
+
+/******************************************************************
+7. BOX TABS
+*/
+
+/* 7.1 Bordi tabs header */
+div#page div.box-tabs-header div.border-mc{
+    background: #CFDB26;
+}
+div#page div.box-tabs-header div.border-tl{ background-image: url("../images/intranet/tabsheader-tl.jpg"); }
+div#page div.box-tabs-header div.border-tr{ background-image: url("../images/intranet/tabsheader-tr.jpg"); }
+div#page div.box-tabs-header div.border-tc{ background-image: url("../images/intranet/tabsheader-tc.jpg"); }
+div#page div.box-tabs-header div.border-ml{ background-image: url("../images/intranet/tabsheader-ml.jpg"); }
+div#page div.box-tabs-header div.border-mr{ background-image: url("../images/intranet/tabsheader-mr.jpg"); }
+
+/* 7.2 Colori linguette tabs */
+	
+	/* 7.2.1 Immagini pre rendere il bordo arrotondato nelle linguette dei tab */
+	div#page .block-lista_tab .ui-tabs .ui-tabs-nav li { background-image:url(../images/intranet/tabs-border-tr.gif); background-position:top right; background-repeat:no-repeat }
+	div#page .block-lista_tab .ui-tabs .ui-tabs-nav li  a{ background-image:url(../images/intranet/tabs-border-tl.gif);	background-position:top left; background-repeat:no-repeat }
+
+	/* 7.2.2 Colore di default del tab (il tab non è selezionato) */
+	div#page .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-default ,
+	div#page .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-default  a{
+		background-color:#DFDFDF;
+	}
+
+	/* 7.2.3 Colore del tab selezionato */
+	div#page .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-active,
+	div#page .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-hover,
+	div#page .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-active a,
+	div#page .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-hover a
+	{
+		background-color:#EDF2B5;	
+	}
+
+/* 7.3 Bordi tabs panel */
+div#page div.box-tabs-panel div.border-mc,
+div#page div.box-tabs-footer div.border-mc{
+    background: #EBF1A7;
+}
+div#page div.box-tabs-panel div.border-ml{ background-image: url(../images/intranet/tabspanel-ml.jpg); }
+div#page div.box-tabs-panel div.border-mr{ background-image: url(../images/intranet/tabspanel-mr.jpg); }
+div#page div.box-tabs-footer div.border-ml{ background-image: url(../images/intranet/tabspanel-ml.jpg); }
+div#page div.box-tabs-footer div.border-mr{ background-image: url(../images/intranet/tabspanel-mr.jpg); }
+
+/* 7.4 Bordi tabs footer */
+div#page div.box-tabs-footer div.border-bl{ background-image: url(../images/intranet/tabsfooter-bl.jpg); }
+div#page div.box-tabs-footer div.border-br{ background-image: url(../images/intranet/tabsfooter-br.jpg); }
+div#page div.box-tabs-footer div.border-bc{ background-image: url(../images/intranet/tabsfooter-bc.jpg); }
+
+div.box-tabs-footer div.border-content a span.arrows-blue-r {
+	background-position:right 0;
+}
+
+/******************************************************************
+8. BOX CERCA
+*/
+div#page div.block-search div.border-mc{
+    background: #EBF2AF;
+}
+div#page div.block-search div.border-tl{ background-image: url(../images/intranet/search-tl.jpg); }
+div#page div.block-search div.border-tr{ background-image: url(../images/intranet/search-tr.jpg); }
+div#page div.block-search div.border-tc{ background-image: url(../images/intranet/search-tc.jpg); }
+div#page div.block-search div.border-ml{ background-image: url(../images/intranet/search-ml.jpg); }
+div#page div.block-search div.border-mr{ background-image: url(../images/intranet/search-mr.jpg); }
+div#page div.block-search div.border-bl{ background-image: url(../images/intranet/search-bl.jpg); }
+div#page div.block-search div.border-br{ background-image: url(../images/intranet/search-br.jpg); }
+div#page div.block-search div.border-bc{ background-image: url(../images/intranet/search-bc.jpg); }
+
+
+
+/******************************************************************
+9. BOX NUMERI
+*/
+div#page div.box-numeri div.border-mc{
+    background: #EBF2AF;
+}
+div#page div.box-numeri div.border-tl{ background-image: url(../images/intranet/numeri-tl.jpg); }
+div#page div.box-numeri div.border-tr{ background-image: url(../images/intranet/numeri-tr.jpg); }
+div#page div.box-numeri div.border-tc{ background-image: url(../images/intranet/numeri-tc.jpg); }
+div#page div.box-numeri div.border-ml{ background-image: url(../images/intranet/numeri-ml.jpg); }
+div#page div.box-numeri div.border-mr{ background-image: url(../images/intranet/numeri-mr.jpg); }
+div#page div.box-numeri div.border-bl{ background-image: url(../images/intranet/numeri-bl.jpg); }
+div#page div.box-numeri div.border-br{ background-image: url(../images/intranet/numeri-br.jpg); }
+div#page div.box-numeri div.border-bc{ background-image: url(../images/intranet/numeri-bc.jpg); }
+
+
+
+
+/******************************************************************
+10. BOX LISTA
+*/
+
+/* 10.1 Prima colonna */
+div#page div.box-lista div.border-tc,
+div#page div.box-lista div.border-ml,
+div#page div.box-lista div.border-mr,
+div#page div.box-lista div.border-bc,
+div#page div.box-lista div.border-mc{
+    background: #EBF2AF;
+}
+div#page div.box-lista div.border-tl{ background-image: url(../images/intranet/lista-tl.gif); }
+div#page div.box-lista div.border-tr{ background-image: url(../images/intranet/lista-tr.gif); }
+div#page div.box-lista div.border-bl{ background-image: url(../images/intranet/lista-bl.gif); }
+div#page div.box-lista div.border-br{ background-image: url(../images/intranet/lista-br.gif); }
+div#page div.block-lista div.border-box div.border-tc ,
+div#page div.block-lista div.border-box div.border-content  { background-image:url(../images/intranet/lista-bg.jpg); }
+
+
+/* 10.2 Seconda colonna */
+div#page div.box-lista-2 div.border-tc,
+div#page div.box-lista-2 div.border-ml,
+div#page div.box-lista-2 div.border-mr,
+div#page div.box-lista-2 div.border-bc,
+div#page div.box-lista-2 div.border-mc{
+    background: #EBF2AF;
+}
+div#page div.box-lista-2 div.border-tl{ background-image: url(../images/intranet/lista-2-tl.gif); }
+div#page div.box-lista-2 div.border-tr{ background-image: url(../images/intranet/lista-2-tr.gif); }
+div#page div.box-lista-2 div.border-bl{ background-image: url(../images/intranet/lista-2-bl.gif); }
+div#page div.box-lista-2 div.border-br{ background-image: url(../images/intranet/lista-2-br.gif); }
+div#page div.block-lista-2 div.border-box div.border-tc ,
+div#page div.block-lista-2 div.border-box div.border-content { background-image:url(../images/intranet/lista-2-bg.jpg); }
+
+/* 10.3 Terza colonna */
+div#page div.box-lista-3 div.border-tc,
+div#page div.box-lista-3 div.border-ml,
+div#page div.box-lista-3 div.border-mr,
+div#page div.box-lista-3 div.border-bc,
+div#page div.box-lista-3 div.border-mc{
+    background: #EBF2AF;
+}
+div#page div.box-lista-3 div.border-tl{ background-image: url(../images/intranet/lista-3-tl.gif); }
+div#page div.box-lista-3 div.border-tr{ background-image: url(../images/intranet/lista-3-tr.gif); }
+div#page div.box-lista-3 div.border-bl{ background-image: url(../images/intranet/lista-3-bl.gif); }
+div#page div.box-lista-3 div.border-br{ background-image: url(../images/intranet/lista-3-br.gif); }
+div#page div.block-lista-3 div.border-box div.border-tc ,
+div#page div.block-lista-3 div.border-box div.border-content  { background-image:url(../images/intranet/lista-3-bg.jpg); }
+
+
+
+/******************************************************************
+11. BOX ALLEGATI
+*/
+
+/* 11.1 Allegati Header */
+div#page div.box-allegati-header div.border-mc{
+    background: #CFDB26;
+}
+div#page div.box-allegati-header div.border-tl{ background-image: url(../images/intranet/allegatiheader-tl.jpg); }
+div#page div.box-allegati-header div.border-tr{ background-image: url(../images/intranet/allegatiheader-tr.jpg); }
+div#page div.box-allegati-header div.border-tc{ background-image: url(../images/intranet/allegatiheader-tc.jpg); }
+div#page div.box-allegati-header div.border-ml{ background-image: url(../images/intranet/allegatiheader-ml.jpg); }
+div#page div.box-allegati-header div.border-mr{ background-image: url(../images/intranet/allegatiheader-mr.jpg); }
+
+/* 11.2 Allegati Content */
+div#page div.box-allegati-content div.border-mc{
+    background: #fff;
+}
+div#page div.box-allegati-content div.border-ml{ background-image: url(../images/intranet/allegaticontent-ml.jpg); }
+div#page div.box-allegati-content div.border-mr{ background-image: url(../images/intranet/allegaticontent-mr.jpg); }
+div#page div.box-allegati-content div.border-bl{ background-image: url(../images/intranet/allegaticontent-bl.jpg); }
+div#page div.box-allegati-content div.border-br{ background-image: url(../images/intranet/allegaticontent-br.jpg); }
+div#page div.box-allegati-content div.border-bc{ background-image: url(../images/intranet/allegaticontent-bc.jpg); }
+
+
+
+/******************************************************************
+12. BOX COMMENTI
+*/
+div#page div.box-comment div.border-tc,
+div#page div.box-comment div.border-ml,
+div#page div.box-comment div.border-mr,
+div#page div.box-comment div.border-bc,
+div#page div.box-comment div.border-mc{
+    background: #EBF2AF;
+}
+
+div#page div.box-comment div.border-tl{ background-image: url(../images/intranet/lista-tl.gif); }
+div#page div.box-comment div.border-tr{ background-image: url(../images/intranet/lista-tr.gif); }
+div#page div.box-comment div.border-bl{ background-image: url(../images/intranet/lista-bl.gif); }
+div#page div.box-comment div.border-br{ background-image: url(../images/intranet/lista-br.gif); }
+
+
+
+/******************************************************************
+13. RIGHE ALTERNATE CONTENUTO
+*/
+div#page div.col-odd {
+	background-color:#FFF;
+}
+
+div#page div.col-even {
+	background-color:#ffffb9;
+}
+
+
+
+/******************************************************************
+14. HEADER E LOGO
+*/
+div#page div#header, div#page.area_tematica div#header { background-image:url("../images/intranet/header-bg.jpg");background-color:#fff;}
+
+div#page div#logo h1 a, 
+div#page div#logo h1 a:hover, 
+div#page div#logo h1 a:visited { background:url("../images/intranet-logo.jpg") no-repeat scroll left top; width: 1000px; }
+
+/******************************************************************
+14.1 HEADER E LOGO per le aree tematiche
+*/
+
+/* prova di Giacomo per dare un logo diverso all'area tematica --- MA NON SONO CAPACE!!!! */
+
+div#page.area-tematica div#logo h1 a, 
+div#page.area-tematica div#logo h1 a:hover, 
+div#page.area-tematica div#logo h1 a:visited { background:url("../images/intranet-logo-areatematica.jpg") no-repeat scroll left top; }
+
+
+/******************************************************************
+15. COLORE LINK
+Usare se si vuole modificare il colore predefinito di tutti i link.
+La regola viene recepita solo dai contenuti effettivi della pagina (#columns-position)
+*/ 
+div#page #columns-position a {
+	color:#0051A1;
+}
+
+
+/******************************************************************
+16. COLORE TITOLI
+Usare se si vuole modificare il colore predefinito di tutti i titoli H1 e H2.
+*/ 
+
+/* 16.1 Titoli principali (h1) */
+div#page div.global-view-full h1, 
+div#page div.attribute-header h1, 
+div#page div.attribute-header h1.long {
+	color:#002454;
+	border-bottom:3px solid #EFEFEF;
+	font-weight:normal;
+}
+
+/* 16.2 Titoli extrainfo (h2) */
+div#page  #extrainfo h2.block-title {
+	color:#002454;
+	font-weight:normal;
+	font-size:1.4em;
+}
+
+
+/******************************************************************
+17. PUNTI ELENCO
+Usare se si vuole modificare il colore predefinito dei punti elenco (UL LI).
+I punti elenco per qustioni di compatibiltà crossbrowser sono gestiti da immagini.
+*/ 
+div#page  li {	background-image:url("../images/intranet/list.gif"); background-repeat: no-repeat}
+
+
+/* FACTBOX */
+
+div#page div.factbox
+{
+    /*width: 17em;*/
+	width:100%;
+	float:none;
+}
+
+div.factbox-header
+{
+    margin-bottom: 0;
+}
+
+div.factbox-header h2
+{
+    margin: 1px 0px 3px 0px;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+div.factbox-header div.border-tl
+{
+    background-image: url(../images/trento/factbox-header/border-tl.gif);
+}
+
+div.factbox-header div.border-tr
+{
+    background-image: url(../images/trento/factbox-header/border-tr.gif);
+}
+
+div.factbox-header div.border-tc
+{
+    background-image: url(../images/trento/factbox-header/border-tc.gif);
+}
+
+div.factbox-header div.border-ml
+{
+    background-image: url(../images/trento/factbox-header/border-ml.gif);
+}
+
+div.factbox-header div.border-mr
+{
+    background-image: url(../images/trento/factbox-header/border-mr.gif);
+}
+
+div.factbox-header div.border-mc
+{
+    background: #D5D5C2 url(../images/trento/factbox-header/border-mc.gif) repeat-x top left;
+    padding: 0 6px 0 6px;
+}
+
+div.factbox-header div.border-bl
+{
+    background-image: url(../images/trento/factbox-header/border-bl.gif);
+}
+
+div.factbox-header div.border-br
+{
+    background-image: url(../images/trento/factbox-header/border-br.gif);
+}
+
+div.factbox-header div.border-bc
+{
+    background-image: url(../images/trento/factbox-header/border-bc.gif);
+}
+
+div.factbox-content div.attribute-image
+{
+    margin: 0.5em 0.5em 0.5em 0;
+    float: left;
+}
+
+div.factbox-content div.border-tl
+{
+    background-image: url(../images/trento/factbox/border-tl.gif);
+}
+
+div.factbox-content div.border-tr
+{
+    background-image: url(../images/trento/factbox/border-tr.gif);
+}
+
+div.factbox-content div.border-tc
+{
+    background-image: url(../images/trento/factbox/border-tc.gif);
+}
+
+div.factbox-content div.border-ml
+{
+    background-image: url(../images/trento/factbox/border-ml.gif);
+}
+
+div.factbox-content div.border-mr
+{
+    background-image: url(../images/trento/factbox/border-mr.gif);
+}
+
+div.factbox-content div.border-mc
+{
+    background: #ECECE3 url(../images/trento/factbox/border-mc.gif) repeat-x top left;
+    padding: 3px 6px 3px 6px;
+}
+
+div.factbox-content div.border-bl
+{
+    background-image: url(../images/trento/factbox/border-bl.gif);
+}
+
+div.factbox-content div.border-br
+{
+    background-image: url(../images/trento/factbox/border-br.gif);
+}
+
+div.factbox-content div.border-bc
+{
+    background-image: url(../images/trento/factbox/border-bc.gif);
+}
