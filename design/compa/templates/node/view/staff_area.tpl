@@ -1,10 +1,11 @@
 {def $responsabili = fetch( 'openpa', 'ruoli', hash( 'subtree_array', array( ezini('NodeSettings', 'RootNode','content.ini') ),
 													 'struttura_object_id', $node.contentobject_id,
-                           'role_names_type', 'include', 'role_names_array', array( "Responsabile" ) ) )
-
+                           'role_names_type', 'include',
+													 'role_names_array', array( "Responsabile" ) ) )
 	 $staff = fetch( 'openpa', 'ruoli', hash( 'subtree_array', array( ezini('NodeSettings', 'RootNode','content.ini') ),
 											  'struttura_object_id', $node.contentobject_id,
-                        'role_names_type', 'exclude', 'role_names_array', array( "Responsabile", "Segreteria", "Referente", "SenzaRuolo" ) ) )
+                        'role_names_type', 'exclude',
+											  'role_names_array', array( "Responsabile", "Segreteria", "SenzaRuolo" ) ) )
 
 
      $referenti = fetch( 'openpa', 'ruoli', hash( 'subtree_array', array( ezini('NodeSettings', 'RootNode','content.ini') ),
