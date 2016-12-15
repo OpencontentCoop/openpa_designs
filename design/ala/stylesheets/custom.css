@@ -207,3 +207,17 @@ div#header.float-break
     overflow: hidden;
     text-align: left;
 }
+
+.no-sezioni_per_tutti{ opacity: .5;}
+.owl-item .item .carousel-image{
+    background-size: contain !important;
+}
+.main_image {
+    display: inline-block;
+    float: none;
+    margin-right: 0;
+    margin-top: 0;
+}
+#side-menu.navbar-collapse{
+    padding: 23px 10px 25px;
+}
