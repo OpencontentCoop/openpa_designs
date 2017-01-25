@@ -179,7 +179,7 @@ $(function() {
 		<input name="SubTreeArray[]" type="hidden" value="{$subtreearray}" />
 	{/if}
 	<label for="search-string">Ricerca libera</label>
-	<input {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text}" />
+	<input {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text|wash()}" />
 
 {if $node.class_identifier|eq('folder')}
 	{set $class_filters = $node.data_map.classi_filtro.content|explode(',')}

@@ -12,7 +12,7 @@
 
 <div class="row">
     <div class="{$css_page}">
-        {*Controllo anche la presenza di filtri perchè l'offset viene considerata ricerca( le fetch con offset restituiscono valori diversi) *}
+        {*Controllo anche la presenza di filtri perchè l\'offset viene considerata ricerca( le fetch con offset restituiscono valori diversi) *}
         {if and($data.is_search_request, $data.fetch_parameters.filter|count)}
             {include name=class_search_form_result
                      uri='design:parts/class_search_form_result.tpl'
@@ -21,10 +21,11 @@
                      view_parameters=$view_parameters
                      page_limit=$page_limit}
         {else}
-            {if $type|eq( 'exclude' )}
-                {def $params = hash( 'class_filter_type', 'exclude', 'class_filter_array', $exclude_classes )}
-            {else}
-                {def $params = hash( 'class_filter_type', 'include', 'class_filter_array', $include_classes )}
+            {def $params = hash()}
+            {if and( count($exclude_classes)|gt(0), $type|eq( 'exclude' ))}
+                {set $params = hash( 'class_filter_type', 'exclude', 'class_filter_array', $exclude_classes )}
+            {elseif count($include_classes)|gt(0)}
+                {set $params = hash( 'class_filter_type', 'include', 'class_filter_array', $include_classes )}
             {/if}
 
             {def $children_count =fetch( content, 'list_count', hash( 'parent_node_id', $node.node_id )|merge( $params ) )

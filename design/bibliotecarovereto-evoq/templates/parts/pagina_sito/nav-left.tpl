@@ -58,7 +58,7 @@
                                 <li><a href="{$v.url_alias|ezurl(no)}">{$v.name|wash()}</a></li>
                             {/foreach}
                         </ul>
-                        {delmiter}<hr class="spacer">{/delimiter}
+                        {delimiter}<hr class="spacer">{/delimiter}
                     {/foreach}
                 </aside><!-- /.sidebar-main -->
 

@@ -160,8 +160,8 @@ class OCLessOperator{
                 eZFile::create( $tmpFileName, $tmpFileDir, $mustParse );
                 $source = $tmpFileDir . $tmpFileName;                
                 $command = "cd " . eZSys::rootDir() . "; lessc ". $source ." $cssFile";
-                shell_exec( $command );                
-                eZDebug::writeNotice( $command, __METHOD__ );                        
+                shell_exec( $command );
+                eZDebug::writeNotice( $command, __METHOD__ );
                 
                 try
                 {                
@@ -259,6 +259,10 @@ class OCLessOperator{
         if ( !eZTemplate::isTemplatesUsageStatisticsEnabled() )
             return '';
 
+        if (!isset(self::$log['imports'])){
+            self::$log['imports'] = array();            
+        }
+        
         $stats = '';
         if ( $as_html && ( count( self::$log['files'] ) || count( self::$log['imports'] ) ) )
         {

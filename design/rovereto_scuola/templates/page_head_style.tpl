@@ -45,6 +45,7 @@
     "ez/general-content.less",
     "ez/debug.less",
     "app.less",
+    "custom.less"
 )|ocless_add()}
 
 {ezcss_load()}
