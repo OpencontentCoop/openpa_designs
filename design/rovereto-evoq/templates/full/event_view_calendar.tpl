@@ -62,7 +62,7 @@ $(function() {
                     </p>
                 </div>
                 
-                <div class="col-md-5">
+                {*<div class="col-md-5">                
                     {if $calendarData.search_facets|count()|gt(0)}
                     <h4>Cerca per classificazione</h4>
                     
@@ -77,7 +77,7 @@ $(function() {
                     <input class="btn btn-sm btn-primary" type="submit" name="SearchButton" value="Cerca" />
                     <input class="btn btn-sm btn-inverse" type="submit" name="TodayButton" value="Azzera ricerca" />                    
                     {/if}
-                </div>
+                </div>*}
             </div>
 
         <hr />

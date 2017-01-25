@@ -160,8 +160,8 @@ class OCLessOperator{
                 eZFile::create( $tmpFileName, $tmpFileDir, $mustParse );
                 $source = $tmpFileDir . $tmpFileName;                
                 $command = "cd " . eZSys::rootDir() . "; lessc ". $source ." $cssFile";
-                shell_exec( $command );
-                eZDebug::writeNotice( $command, __METHOD__ );
+                shell_exec( $command );                
+                eZDebug::writeNotice( $command, __METHOD__ );                        
                 
                 try
                 {                

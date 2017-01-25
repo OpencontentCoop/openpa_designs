@@ -79,9 +79,9 @@ document.addEventListener('DOMContentLoaded', function(event) {cookieChoices.sho
 
     {if $ui_context|eq('navigation')|not()}
         {include uri='design:page_header.tpl'}
-    {elseif is_home()}
+    {elseif is_home()}    
         {include uri='design:page_header_home.tpl'}
-    {elseif is_area_tematica()}
+    {elseif is_area_tematica()}    
         {include uri='design:page_header_area_tematica.tpl'}
     {elseif is_section(  'comune' )}
         {include uri='design:page_header_comune.tpl'}
