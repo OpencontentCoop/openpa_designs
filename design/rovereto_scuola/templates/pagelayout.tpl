@@ -65,9 +65,10 @@ document.addEventListener('DOMContentLoaded', function(event) {cookieChoices.sho
 {/if}
 
 <div id="page"
-{if $ui_context|eq( 'browse' )}
-{elseif $ui_context|eq( 'edit' )}
-{elseif $background_ignore_home|ne(false())  } style="background: url({$background_ignore_home.background.url|ezroot(no)}) no-repeat top center;"
+{*if $ui_context|eq( 'browse' )}
+{elseif $ui_context|eq( 'edit' )*}
+
+{if $background_ignore_home|ne(false())  } style="background: url({$background_ignore_home.background.url|ezroot(no)}) no-repeat top center;"
 {elseif $home.data_map.cover.has_content} style="background: url({$home.data_map.cover.content.background.url|ezroot(no)}) no-repeat top center;"
 {elseif is_home()}
 {/if}>
