@@ -14,7 +14,7 @@
 
     <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-12">
 
 
                 <div class="col-xs-4">
@@ -27,10 +27,12 @@
                         <a href="{'/partecipa/sensor/posts'|ezurl(no)}">DìLaTua come cittadino, questo spazio è anche per te.</a></p>
                 </div>
             </div>
+        {*
+
             <div class="col-md-4">
                 <div class="row">
 
-                    <div class="col-xs-2">
+                    <div class="col-xs-12">
                         <img src="{'partecipa/fusione.png'|ezimage(no)}" class="img-responsive" alt="Fusione comuni" />
                     </div>
                     <div class="col-xs-10">
@@ -49,7 +51,7 @@
                         <p>Iscriviti alla Newsletter di Carlo Daldoss e ricevi comodamente sul tuo pc e cellullare tutte le ultime informazioni.</p>
                     </div>
                 </div>
-            </div>
+            </div>*}
 </div>
 
         {*

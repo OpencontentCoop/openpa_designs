@@ -14,7 +14,7 @@
 
     {def $browser = checkbrowser() $ie9 = 0}
     {if and( $browser.browser_name|eq('msie'), $browser.browser_math_number|lt(10) )}{set $ie9 = 1}{/if}
-    {cache-block expiry=86400  keys=array( $module_result.uri, $basket_is_empty, $current_user.contentobject_id, $extra_cache_key, $ie9 )}
+    {cache-block expiry=86400 keys=array( $module_result.uri, $user_hash_cache_key, $extra_cache_key )}	
     {def $pagedata = openpapagedata()
     $locales = fetch( 'content', 'translation_list' )
     $current_node_id = $pagedata.node_id}
@@ -32,8 +32,11 @@
 
 <div id="page">
 
-    {include uri='design:page_browser_alert.tpl'}
+	{/cache-block}
 
+    {cache-block keys=array( $module_result.uri, $basket_is_empty, $current_user.contentobject_id, $extra_cache_key, $ie9 )}
+	{include uri='design:page_browser_alert.tpl'}
+	
     {include uri='design:page_header.tpl'}
 
     {/cache-block}
