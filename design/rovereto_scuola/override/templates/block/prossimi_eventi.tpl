@@ -14,30 +14,26 @@ $show_link = true()}
 {def $currentInterval = 'P2M'
 $calendarData = calendar( $valid_node, hash( 'interval', $currentInterval, 'view', 'program' )|merge( $view_parameters ) ) }
 
-<div class="ezpage-block {$block.view}{if is_set($block.custom_attributes.color)} color color-{$block.custom_attributes.color}{/if}">
-    {if $block.name|ne('')}
-        <h2>
-            {if $show_link}
-                <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">{$block.name|wash()}</a>
-            {else}
-                {$block.name|wash()}
-            {/if}
-        </h2>
-    {/if}
-    {foreach $calendarData.day_by_day as $calendarDay}
-        {if $calendarDay.count|gt(0)}
-
-            <div class="calendar-day-program float-break" id="day-{$calendarDay.identifier}">
-                {foreach $calendarDay.events as $event max 5}
-                    {include uri="design:calendar/block_list_item.tpl" item=$event}
-                {/foreach}
-            </div>
+{if $calendarData.search_count|gt(0)}
+    <div class="ezpage-block {$block.view}{if is_set($block.custom_attributes.color)} color color-{$block.custom_attributes.color}{/if}">
+        {if $block.name|ne('')}
+            <h2>
+                {if $show_link}
+                    <a href="{$valid_node.url_alias|ezurl(no)}" title="Vai al calendario">{$block.name|wash()}</a>
+                {else}
+                    {$block.name|wash()}
+                {/if}
+            </h2>
         {/if}
-    {/foreach}
-</div>
+        {foreach $calendarData.day_by_day as $calendarDay}
+            {if $calendarDay.count|gt(0)}
 
-{literal}
-    <style>
-
-    </style>
-{/literal}
+                <div class="calendar-day-program float-break" id="day-{$calendarDay.identifier}">
+                    {foreach $calendarDay.events as $event max 5}
+                        {include uri="design:calendar/block_list_item.tpl" item=$event}
+                    {/foreach}
+                </div>
+            {/if}
+        {/foreach}
+    </div>
+{/if}

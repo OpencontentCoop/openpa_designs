@@ -13,7 +13,7 @@
     <div class="col-md-6">
         <div class="row">            
             {if $pagedata.top_menu}
-            <div class="col-xs-2">
+            <div class="col-xs-3">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Mostra menu</span>
                     <span class="icon-bar"></span>
@@ -22,7 +22,7 @@
                 </button>
             </div>
             {/if}
-            <div class="col-xs-12">
+            <div class="col-xs-9">
               {if and( is_set( $home.data_map.show_search ), $home.data_map.show_search.data_int|eq(1) )}
 				<form action={"/content/search"|ezurl} id="searchbox">
                     <fieldset>

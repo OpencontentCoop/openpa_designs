@@ -11,13 +11,15 @@
 {/if}
 
 <div class="event-item row">
-    <div class="col-sm-5">
+    <div class="col-xs-5">
         <div class="calendar-date">
-            <span class="month">{$month}</span>
-            <span class="day">{if $sameDay|not()}<small>dal </small>{/if}{$day}</span>
+            {if $sameDay|not()}
+                <span class="month"><small>dal </small></span>
+            {/if}
+            <span class="day">{$day} {$month}</span>
         </div>
     </div>
-    <div class="col-sm-7">
+    <div class="col-xs-7" style="padding-left: 0">
         <div class="calendar-title">
             {node_view_gui content_node=$__node view=text_linked shorten=80}
         </div>

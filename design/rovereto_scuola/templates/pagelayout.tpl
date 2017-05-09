@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function(event) {cookieChoices.sho
 
 {if $background_ignore_home|ne(false())  } style="background: url({$background_ignore_home.background.url|ezroot(no)}) no-repeat top center;"
 {elseif $home.data_map.cover.has_content} style="background: url({$home.data_map.cover.content.background.url|ezroot(no)}) no-repeat top center;"
-{elseif is_home()}
+{elseif is_home()} class="home"
 {/if}>
 
     {if and( $pagedata.website_toolbar, $pagedata.is_edit|not, is_set( $view_parameters.view )|not)}

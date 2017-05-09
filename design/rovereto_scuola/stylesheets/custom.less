@@ -21,11 +21,17 @@
   .day {
     background: @highlight-color;
     color: #fff;
-    font-size: 2em;
+    font-size: 1.6em;
     line-height: 1em;
     font-weight: bold;
     display: block;
     padding: 8px 3px;
     text-align: center;
   }
+}
+
+#bgcontainer {
+    @media screen and (max-width: 768px) {
+      display: none !important;
+    }
 }

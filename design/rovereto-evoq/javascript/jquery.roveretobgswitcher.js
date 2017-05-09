@@ -288,6 +288,7 @@
      */
     _setupBackgroundElement: function() {
       this.$bg = $(document.createElement('div'));
+      this.$bg.attr('id', 'bgcontainer');
       this.$bg.css({
         position: 'absolute',
         zIndex: (parseInt(this.$el.css('zIndex'), 10) || 0) - 1,
