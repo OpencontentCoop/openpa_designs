@@ -33,6 +33,8 @@
 {* creato un codice di verifica da Luca il 27/5/13 per rimuovere i contentuti di rovereto.opencontent.it da google *}
 <meta name="google-site-verification" content="vJmrgUY7jhJ0I7cSS3gTj2LI-DWXCyZMefGXmcwhhYU" />
 <META name="robots" content="NOINDEX,NOFOLLOW" />
+{else}
+<meta name="google-site-verification" content="vvTxOqc18lhrfwLKnfU36JiIGdHe_9bPrmTAwq-eCuc" />
 {/if}
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

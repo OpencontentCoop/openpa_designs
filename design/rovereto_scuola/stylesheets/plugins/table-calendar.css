@@ -7,9 +7,10 @@
 .table-calendar td,
 .table-calendar th { display: none; }
 .table-calendar .events { display: block; }
-.table-calendar ul { display: block; list-style: none; margin: 0; padding: 0; }
-.table-calendar li { display: block; position: relative; margin: 0; padding: 0; }
+.table-calendar ul { display: block; list-style: none; margin: 32px 0 0; padding: 0; }
+.table-calendar li { display: block; position: relative; margin: 0; padding: 0; text-indent: 0}
 .table-calendar .not-in-current-month { display: none; }
+.table-calendar ul li::before {content: ""; line-height: 0;}
 
 
 @media only screen and (min-width: 40em) {
@@ -31,8 +32,7 @@
     .table-calendar tr.last_row td {border-bottom:none}
 
     .table-calendar .day { margin: 1em 0 .5em 0; font-weight: bold; font-size: 1em; }
-    .table-calendar ul { margin: 0 0 0 2em; }
     .table-calendar li {height: 1.8em;}
-    .table-calendar li a { display: block; position: absolute; left: 0; right: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: .75em  }
+    .table-calendar li a { display: block; position: absolute; left: 0; right: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: .9em; padding: 2px !important; background-color: #ccc; }
 
 }
