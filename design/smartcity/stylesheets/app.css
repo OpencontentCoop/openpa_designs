@@ -15643,7 +15643,7 @@ h3.widget_title a {
 }
 /* line 107, ../scss/solid/_carousel.scss */
 .owl-item .item img.img-responsive {
-  min-height: 350px;
+  /*min-height: 350px;*/
 }
 
 /* line 113, ../scss/solid/_carousel.scss */

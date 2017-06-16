@@ -14,7 +14,7 @@
             </div>
             <div class="menu-container col-md-9">
                 <div id="partners">
-                    <img src="{'partners.jpg'|ezimage(no))}" class="img-responsive hidden-xs" >
+                    <img src="{'partners.jpg'|ezimage(no)}" class="img-responsive hidden-xs" >
                 </div>
                 {if $pagedata.is_login_page|not()}
                     <div id="main-menu" class="navbar-collapse collapse">
