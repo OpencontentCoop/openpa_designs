@@ -16,7 +16,8 @@ class OpenPAExtraOperator
             'calculate_left_menu',
             'has_html_content',
             'html_entity_decode',
-            'show_time'
+            'show_time',
+            'fake_block'
         );
     }
 
@@ -60,12 +61,29 @@ class OpenPAExtraOperator
             'section_image' => array
             (
                 'ignore_homepage' => array( "type" => "boolean", "required" => false, "default" => false )
+            ),
+            'fake_block' => array
+            (
+                'type' => array( "type" => "string", "required" => true, "default" => false ),
+                'view' => array( "type" => "string", "required" => true, "default" => false ),
+                'valid_nodes' => array( "type" => "array", "required" => true, "default" => array() )
             )
         );
     }
     
     function modify( &$tpl, &$operatorName, &$operatorParameters, &$rootNamespace, &$currentNamespace, &$operatorValue, &$namedParameters )
     {		
+
+        if( $operatorName == 'fake_block' )
+        {
+            $block = new eZPageBlock('', array('name' => ''));
+            $block->setAttribute( 'id', md5( mt_rand() . microtime() ) );
+            $block->setAttribute( 'view', $namedParameters['view'] );
+            $block->setAttribute( 'type', $namedParameters['type'] );
+            $block->setAttribute( 'name', '' );
+            $block->setAttribute( 'valid_nodes', $namedParameters['valid_nodes'] );
+            return $operatorValue = $block;
+        }
 
         if( $operatorName == 'show_time' ) // Spettacolo Teatro Zandonai
         {

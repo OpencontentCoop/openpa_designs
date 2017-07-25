@@ -11,6 +11,7 @@ $eZTemplateOperatorArray[] = array( 'script' => 'extension/openpa_designs/autolo
                                         'has_html_content', // verifica che ci sia contentuto e non solo tag vuoti
                                         'html_entity_decode', // come da funzione php
                                         'show_time', //data e ora per gli spettacoli del Teatro Zandonai
+                                        'fake_block', //crea un oggetto eZPageBlock
                                     ) );
 $eZTemplateOperatorArray[] = array( 'class' => 'OCLessOperator',
 									'operator_names' => array( 'ocless', 'ocless_add' ) );
