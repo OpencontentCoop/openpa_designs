@@ -75,6 +75,7 @@
                     <p class="social-links">
                         <a href="https://www.facebook.com/ComuneDiRovereto" title="Link a Facebook"><img src="{concat('comune/facebook',$suffix,'.png')|ezimage(no)}" alt="Facebook" /></a>
                         <a href="https://twitter.com/ComuneRovereto" title="Link a Twitter"><img src="{concat('comune/twitter',$suffix,'.png')|ezimage(no)}" alt="Twitter" /></a>
+                        <a href="https://plus.google.com/107703675590669799685" title="Link a Google Plus"><img src="{concat('comune/google',$suffix,'.png')|ezimage(no)}" alt="Google Plus" /></a>                        
                         <span>Rovereto è social!</span>
                     </p>
                 </div>

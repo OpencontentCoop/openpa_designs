@@ -22,6 +22,7 @@
      $left_menu        = calculate_left_menu( 'design:menu/left.tpl' )
      $background       = section_image()
      $background_ignore_home  = section_image( true() )
+     $home = fetch( 'content', 'node', hash( 'node_id', ezini( 'NodeSettings', 'RootNode', 'content.ini' ) ) )
 }
 
 
@@ -32,6 +33,8 @@
 {* creato un codice di verifica da Luca il 27/5/13 per rimuovere i contentuti di rovereto.opencontent.it da google *}
 <meta name="google-site-verification" content="vJmrgUY7jhJ0I7cSS3gTj2LI-DWXCyZMefGXmcwhhYU" />
 <META name="robots" content="NOINDEX,NOFOLLOW" />
+{else}
+<meta name="google-site-verification" content="vvTxOqc18lhrfwLKnfU36JiIGdHe_9bPrmTAwq-eCuc" />
 {/if}
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -64,39 +67,27 @@ document.addEventListener('DOMContentLoaded', function(event) {cookieChoices.sho
 {/if}
 
 <div id="page"
-{if $ui_context|eq( 'browse' )}
-{elseif $ui_context|eq( 'edit' )}
-{elseif and( is_area_tematica(), $background_ignore_home|ne(false())  )} style="background: url({$background_ignore_home.background.url|ezroot(no)}) no-repeat top center;"
-{elseif and( is_area_tematica(), is_area_tematica().data_map.cover.has_content )} style="background: url({is_area_tematica().data_map.cover.content.background.url|ezroot(no)}) no-repeat top center;"
-{elseif is_section( 'comune' )}
+{*if $ui_context|eq( 'browse' )}
+{elseif $ui_context|eq( 'edit' )*}
+
+{if $background_ignore_home|ne(false())  } style="background: url({$background_ignore_home.background.url|ezroot(no)}) no-repeat top center;"
+{elseif $home.data_map.cover.has_content} style="background: url({$home.data_map.cover.content.background.url|ezroot(no)}) no-repeat top center;"
 {elseif is_home()} class="home"
-{elseif and( is_section( 'citta' ), $background|ne(false()) )} style="background: url({$background.background.url|ezroot(no)}) no-repeat top center;"
 {/if}>
 
     {if and( $pagedata.website_toolbar, $pagedata.is_edit|not, is_set( $view_parameters.view )|not)}
         {include uri='design:page_toolbar.tpl'}
     {/if}
 
-    {if $ui_context|eq('navigation')|not()}
-        {include uri='design:page_header.tpl'}
-    {elseif is_home()}    
-        {include uri='design:page_header_home.tpl'}
-    {elseif is_area_tematica()}    
-        {include uri='design:page_header_area_tematica.tpl'}
-    {elseif is_section(  'comune' )}
-        {include uri='design:page_header_comune.tpl'}
-    {elseif is_section(  'citta' )}
-        {include uri='design:page_header_citta.tpl'}
-    {else}
-        {include uri='design:page_header.tpl'}
-    {/if}
+    {include uri='design:page_header.tpl'}
+
 
 {* Il div.container è aperto all'interno dei page_header*.tpl *}    
 
     <div class="row">
     
     {def $has_leftmenu = false()}
-    {if and( $pagedata.left_menu, or( is_home(), is_section( 'comune' ), is_section( 'citta' ), is_area_tematica() ) )}
+    {if and( $pagedata.left_menu, or( is_home()|not, is_section( 'comune' ), is_section( 'citta' ), is_area_tematica() ) )}
         {set $has_leftmenu = true()}
     {/if}
     
@@ -125,13 +116,6 @@ document.addEventListener('DOMContentLoaded', function(event) {cookieChoices.sho
     </div>
     
     {include name=footer_menu node_id=$current_node_id uri='design:page_footermenu.tpl'}
-    
-
-
-{if and( $current_node_id|ne( ezini( 'NodeSettings', 'RootNode', 'content.ini' ) ), $pagedata.class_identifier|ne(''), is_area_tematica()|not(), $pagedata.class_identifier|ne('valuation') ) }    
-    {include name=valuation node_id=$current_node_id uri='design:parts/openpa/valuation.tpl'}        
-{/if}
-
 {/cache-block}
 
 {cache-block keys=array( $module_result.uri, $current_user.contentobject_id, $extra_cache_key )}    

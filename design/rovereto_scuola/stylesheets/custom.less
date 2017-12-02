@@ -1,0 +1,37 @@
+.shadow-container{
+  .box-shadow(0 0 8px rgba(0,0,0,.3));
+  &.area_tematica{
+    margin-bottom: 250px;
+  }
+
+}
+
+.calendar-date {
+  margin-bottom: 20px;
+  .month {
+    background: @highlight-color;
+    font-size: 1em;
+    line-height: 1;
+    color: #fff;
+    display: block;
+    text-align: center;
+    padding: 5px 3px;
+    text-transform: uppercase;
+  }
+  .day {
+    background: @highlight-color;
+    color: #fff;
+    font-size: 1.6em;
+    line-height: 1em;
+    font-weight: bold;
+    display: block;
+    padding: 8px 3px;
+    text-align: center;
+  }
+}
+
+#bgcontainer {
+    @media screen and (max-width: 768px) {
+      display: none !important;
+    }
+}

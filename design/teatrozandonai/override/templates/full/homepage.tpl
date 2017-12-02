@@ -42,7 +42,7 @@
                   {if $evento.data_map.main_datetime_string.has_content}
                     {$evento.data_map.main_datetime_string.content|wash()}
                   {elseif $times|count()|eq(1)}
-                    {foreach $times as $group}{foreach $group as $time}ore {$time|datetime('custom', '%h.%i')}{delimiter}/{/delimiter}{/foreach}{/foreach}
+                    {foreach $times as $group}{foreach $group as $time}ore {$time|datetime('custom', '%H.%i')}{delimiter}/{/delimiter}{/foreach}{/foreach}
                   {/if}
                 </div>
               </div><!--info-->
