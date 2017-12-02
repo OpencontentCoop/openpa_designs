@@ -30,10 +30,12 @@ class OCLessOperator{
 
 		switch ( $operatorName ){
 			case 'ocless':
-				$operatorValue = $this->generateTag( $operatorValue, $namedParameters['params'] );
+				eZDebug::writeError("ocless function is removed", __METHOD__);
+                //$operatorValue = $this->generateTag( $operatorValue, $namedParameters['params'] );
 				break;
 			case 'ocless_add':
-				$operatorValue = $this->addFiles( $operatorValue, $namedParameters['tpl_vars'] );
+				eZDebug::writeError("ocless function is removed", __METHOD__);
+                //$operatorValue = $this->addFiles( $operatorValue, $namedParameters['tpl_vars'] );
 				break;			
 		}
 
