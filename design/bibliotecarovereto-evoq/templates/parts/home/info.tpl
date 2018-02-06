@@ -7,12 +7,12 @@
                 </header>
                 <div class="text">
                     <p>
-                        <span class="text-uppercase">Sale lettura</span><br>
+                        <span class="text-uppercase">BIBLIOTECA<br>DI PUBBLICA LETTURA</span><br>
                         lunedì - sabato 9.00 - 22.00<br>
                         domenica 9.00 - 13.00
                     </p>
                     <p>
-                        <span class="text-uppercase">Sala di consultazione</span><br>
+                        <span class="text-uppercase">BIBLIOTECA STORICA,<br>ARCHIVI E MANOSCRITTI</span><br>
                         lunedì - venerdì 9.00 - 18.00
                     </p>
                     <p>
@@ -31,12 +31,12 @@
                     </p>
 
                     <p>
-                        <span class="text-uppercase">Sale lettura</span><br>
+                        <span class="text-uppercase">BIBLIOTECA<br>DI PUBBLICA LETTURA</span><br>
                         ai piani interrato e terra dell’edificio Polo
                     </p>
 
                     <p>
-                        <span class="text-uppercase">Sala di consultazione Biblioteca<br> storica, archivi e manoscritti</span><br>
+                        <span class="text-uppercase">BIBLIOTECA STORICA,<br>ARCHIVI E MANOSCRITTI</span><br>
                         al primo piano di palazzo Annona
                     </p>
 
@@ -54,7 +54,11 @@
                             <a href="mailto:bibliotecacivica@comune.rovereto.tn.it">bibliotecacivica@comune.rovereto.tn.it</a>
                         </li>
                         <li>
-                            Servizio di consultazione archivi e manoscritti<br>
+                            Biblioteca di pubblica lettura<br>
+                            <a href="mailto:bibliotecario@comune.rovereto.tn.it">bibliotecario@comune.rovereto.tn.it</a>
+                        </li>
+                        <li>
+                            Biblioteca storica, archivi e manoscritti<br>
                             <a href="mailto:archivistorici@comune.rovereto.tn.it">archivistorici@comune.rovereto.tn.it</a>
                         </li>
                         <li>
