@@ -43,13 +43,13 @@ $conteggio_figli_pagina_trasparenza = fetch( 'content', 'list_count', hash( 'par
 
                 {* Guida al cittadino *}
                 {include name = guida_al_cittadino
-                node = $node
-                uri = 'design:parts/openpa/amminsitrazione_trasparente/guida_al_cittadino.tpl'}
+                node = $node                
+                uri = 'design:parts/openpa/amministrazione_trasparente/guida_al_cittadino.tpl'}
 
                 {* Guida al redattore *}
                 {include name = guida_al_cittadino
-                node = $node
-                uri = 'design:parts/openpa/amminsitrazione_trasparente/guida_al_redattore.tpl'}
+                node = $node                
+                uri = 'design:parts/openpa/amministrazione_trasparente/guida_al_redattore.tpl'}
 
 
                 {* Nota: una sola nota *}
