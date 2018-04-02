@@ -4,9 +4,9 @@ class RoveretoClearHomePageType extends eZWorkflowEventType
 {
     const WORKFLOW_TYPE_STRING = "roveretoclearhomepage";
     
-	function RoveretoClearHomePageType()
+	function __construct()
     {
-        $this->eZWorkflowEventType( RoveretoClearHomePageType::WORKFLOW_TYPE_STRING, ezpI18n::tr( 'opencontent', 'Biblioteca Rovereto - Svuota la cache della home al cambio prorità di un libro' ) );
+        parent::__construct( RoveretoClearHomePageType::WORKFLOW_TYPE_STRING, ezpI18n::tr( 'opencontent', 'Biblioteca Rovereto - Svuota la cache della home al cambio prorità di un libro' ) );
         $this->setTriggerTypes( array( 'content' => array( 'updatepriority' => array( 'after' ) ) ) );
     }
 

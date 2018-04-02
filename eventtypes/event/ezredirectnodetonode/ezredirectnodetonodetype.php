@@ -4,9 +4,9 @@ class eZRedirectNodeToNodeType extends eZWorkflowEventType
 {
     const WORKFLOW_TYPE_STRING = "ezredirectnodetonode";
     
-	function eZRedirectNodeToNodeType()
+	function __construct()
     {
-        $this->eZWorkflowEventType( eZRedirectNodeToNodeType::WORKFLOW_TYPE_STRING, ezpI18n::tr( 'opencontent', 'Redirect node to node' ) );
+        parent::__construct( eZRedirectNodeToNodeType::WORKFLOW_TYPE_STRING, ezpI18n::tr( 'opencontent', 'Redirect node to node' ) );
         $this->setTriggerTypes( array( 'content' => array( 'read' => array( 'before' ) ) ) );
     }
 

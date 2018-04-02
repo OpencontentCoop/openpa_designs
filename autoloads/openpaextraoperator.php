@@ -5,7 +5,7 @@ class OpenPAExtraOperator
     
     private $area_tematica_node = array();
     
-    function OpenPAExtraOperator()
+    function __construct()
     {
         $this->Operators= array(
             'is_home',    
