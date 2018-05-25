@@ -171,6 +171,12 @@
                                 </div>
                             </div>
 
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" id="Privacy" /> <p>Dichiaro di aver preso visione dell'<a href="#" data-toggle="modal" data-target="#informativa">informativa sul trattamento dei dati personali</a>. *</p>
+                              </label>
+                            </div>
+
                             <div class="form-group">
                                 <div class="col-xs-12 col-md-12 col-lg-12">
                                     {if $recaptcha_public_key}
@@ -205,3 +211,32 @@
         </div>
     </section>
 </div>
+
+
+<div id="informativa" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="clearfix">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="clearfix">
+                    {include uri='design:newsletter/informativa.tpl'}
+                    <a class="btn btn-info pull-right" href="#" data-dismiss="modal" aria-hidden="true">Chiudi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>{literal}
+    $(document).ready(function(){
+        $('#Privacy').bind('change', function(e){
+            if( $(e.currentTarget).is(':checked') ){
+                $('#SubscribeButton').removeAttr( 'disabled' );
+            }else{
+                $('#SubscribeButton').attr( 'disabled', 'disabled' );
+            }
+        });
+    });
+{/literal}</script>
