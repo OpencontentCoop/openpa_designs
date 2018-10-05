@@ -344,6 +344,7 @@
 
       this.$bg.css(copiedStyle);
       this.$bg.css({'backgroundPosition':'center top'});
+      this.$bg.css({'backgroundColor':'#eee'});
     },
 
     /**

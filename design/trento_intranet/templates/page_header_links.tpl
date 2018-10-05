@@ -1,4 +1,4 @@
-{if $current_node_id|eq( ezini('NodeSettings', 'RootNode', 'content.ini' ) )}
+{if openpacontext().current_node_id|eq( ezini('NodeSettings', 'RootNode', 'content.ini' ) )}
 {literal}
 <script type="text/javascript">
 
@@ -53,58 +53,9 @@ imgPreloader.src = 'https://firewall.comune.trento.it/kattivecli.cgi?state=statu
 <h2 class="hide">Menu di utilit&agrave;</h2>
 <ul>
 
-{*
-	{if is_set($pagedesign.data_map.tag_cloud_url)}
-		{if $pagedesign.data_map.tag_cloud_url.data_text|ne('')}
-			{if $pagedesign.data_map.tag_cloud_url.content|eq('')}
-			<li id="tagcloud"><a href={concat("/content/view/tagcloud/", $pagedata.root_node)|ezurl} title="{$pagedesign.data_map.tag_cloud_url.data_text|wash}">{$pagedesign.data_map.tag_cloud_url.data_text|wash}</a></li>
-			{else}
-			<li id="tagcloud"><a href={$pagedesign.data_map.tag_cloud_url.content|ezurl} title="{$pagedesign.data_map.tag_cloud_url.data_text|wash}">{$pagedesign.data_map.tag_cloud_url.data_text|wash}</a></li>
-			{/if}
-		{/if}
-	{/if}
-	{if is_set($pagedesign.data_map.site_map_url)}
-		{if $pagedesign.data_map.site_map_url.data_text|ne('')}
-			{if $pagedesign.data_map.site_map_url.content|eq('')}
-			<li id="sitemap"><a href={concat("/content/view/sitemap/", $pagedata.root_node)|ezurl} title="{$pagedesign.data_map.site_map_url.data_text|wash}">{$pagedesign.data_map.site_map_url.data_text|wash}</a></li>
-			{else}
-			<li id="sitemap"><a href={$pagedesign.data_map.site_map_url.content|ezurl} title="{$pagedesign.data_map.site_map_url.data_text|wash}">{$pagedesign.data_map.site_map_url.data_text|wash}</a></li>
-			{/if}
-		{/if}
-	{/if}
-	{if $basket_is_empty|not()}
-	<li id="shoppingbasket"><a href={"/shop/basket/"|ezurl} title="{$pagedesign.data_map.shopping_basket_label.data_text|wash}">{$pagedesign.data_map.shopping_basket_label.data_text|wash}</a></li>
-   {/if}
-*}
+	<li id="login" style="display: none"><a href={concat("/user/login?url=",$module_result.uri)|ezurl} title="Login">Login</a></li>
 
-{if and($current_user.is_logged_in, $current_user.login|ne('utente'))}
-	{if $pagedesign.data_map.my_profile_label.has_content}
-	<li id="myprofile"><a href={"/user/edit/"|ezurl} title="{$pagedesign.data_map.my_profile_label.data_text|wash}">{$pagedesign.data_map.my_profile_label.data_text|wash}</a></li>
-	{/if}
-	{if $pagedesign.data_map.logout_label.has_content}
-	<li id="logout"><a href={"/user/logout"|ezurl} title="{$pagedesign.data_map.logout_label.data_text|wash}">{$pagedesign.data_map.logout_label.data_text|wash} ( {$current_user.contentobject.name|wash} )</a></li>
-	{/if}
-{else}
-	{if is_set($pagedesign.data_map.register_user_label)}
-		{if and( $pagedesign.data_map.register_user_label.has_content, ezmodule( 'user/register' ) )}
-		<li id="registeruser"><a href={"/user/register"|ezurl} title="{$pagedesign.data_map.register_user_label.data_text|wash}">{$pagedesign.data_map.register_user_label.data_text|wash}</a></li>
-		{/if}
-	{/if}
-	{if is_set($pagedesign.data_map.login_label)}
-		{if $pagedesign.data_map.login_label.has_content}
-		<li id="login"><a href={concat( "/user/login?url=",$requested_uri_string )|ezurl} title="{$pagedesign.data_map.login_label.data_text|wash}">{$pagedesign.data_map.login_label.data_text|wash}</a></li>
-		{/if}
-	{/if}
-{/if}
-
-	{if $pagedesign.can_edit}
-		<li id="sitesettings">
-		<a href={concat( "/content/edit/", $pagedesign.id, "/a" )|ezurl} title="{$pagedesign.data_map.site_settings_label.data_text|wash}">
-			{$pagedesign.data_map.site_settings_label.data_text|wash}
-		</a>
-		</li>
-	{/if}
-	<li id="print">		
+	<li id="print">
         {def $print_url = concat( '/layout/set/print', $module_result.uri )|query_string()}
         <a href="{$print_url}" title="Visualizza la versione stampabile della pagina corrente">Versione stampabile</a>
     </li>
@@ -145,5 +96,23 @@ imgPreloader.src = 'https://firewall.comune.trento.it/kattivecli.cgi?state=statu
 	{/foreach}
 	{*include uri='design:page_header_languages.tpl'*}
 {/if}
-</ul>	
+</ul>
 
+
+<script>{literal}
+$(document).ready(function(){
+	var injectUserInfo = function(data){
+		if(data.error_text || !data.content){
+			$('#login').show();
+		}else{
+			$('#login').after('<li id="myprofile"><a href="/user/edit/" title="Visualizza il profilo utente">Il mio profilo</a></li><li id="logout"><a href="/user/logout" title="Logout">Logout ('+data.content.name+')</a></li>');
+			if(data.content.has_access_to_dashboard){
+				$('#login').after('<li id="dashboard"><a href="/content/dashboard/" title="Pannello strumenti">Pannello strumenti</a></li>');
+			}
+		}
+	};
+	$.ez('openpaajax::userInfo', null, function(data){
+		injectUserInfo(data);
+	});
+});
+{/literal}</script>

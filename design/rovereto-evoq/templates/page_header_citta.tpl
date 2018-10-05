@@ -21,11 +21,3 @@
         </div>
     </div>
 </div>
-
-<div id="content" class="container citta">
-    
-    {include uri='design:menu/top.tpl' start_node=$citta}
-
-    {if $current_node_id|ne($sections.citta)}
-    {include uri='design:parts/path.tpl'}
-    {/if}

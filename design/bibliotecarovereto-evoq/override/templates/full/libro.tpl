@@ -1,6 +1,4 @@
-{*def $disponibilitaLibroArray = getDisponibilitaLibro($node.data_map.amicus.data_int)*}
-{*$disponibilitaLibroArray.ROVERETO_CIVICA_|attribute(show)*}
-
+{ezpagedata_set( 'has_container', true() )}
 {def $related_books =fetch(ezfind, search, hash('query','',
     'class_id', array('libro'),
     'limit', 5,

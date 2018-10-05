@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {* Event Calendar - Full view *}
 {set-block scope=root variable=cache_ttl}400{/set-block}
 {def $view = $node.data_map.view.class_content.options[$node.data_map.view.value[0]].name|downcase()}

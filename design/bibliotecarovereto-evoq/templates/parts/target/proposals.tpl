@@ -14,7 +14,9 @@
                             <div class="col-left col-md-4">
                                 <header>
                                     <a href="{$children[0].url_alias|ezurl('no')}"><h3>{$children[0].name|wash}</h3></a>
-                                    <p class="text-uppercase">{attribute_view_gui attribute=$children[0]|attribute( 'short_title' )}</p>
+                                    {if $children[0]|has_attribute('short_title')}
+                                        <p class="text-uppercase">{attribute_view_gui attribute=$children[0]|attribute( 'short_title' )}</p>
+                                    {/if}
                                 </header>
                                 <div class="text">
                                     {attribute_view_gui attribute=$children[0]|attribute( 'abstract' )}
@@ -39,7 +41,9 @@
                         <article >
                             <header>
                                 <a href="{$children[1].url_alias|ezurl('no')}"><h3>{$children[1].name|wash}</h3></a>
-                                <p class="text-uppercase">{attribute_view_gui attribute=$children[1]|attribute( 'short_title' )}</p>
+                                {if $children[1]|has_attribute('short_title')}
+                                    <p class="text-uppercase">{attribute_view_gui attribute=$children[1]|attribute( 'short_title' )}</p>
+                                {/if}
                             </header>
                             <div class="text">
                                 {attribute_view_gui attribute=$children[1]|attribute( 'abstract' )}
@@ -61,7 +65,9 @@
                         <article>
                             <header>
                                 <a href="{$children[2].url_alias|ezurl('no')}"><h3>{$children[2].name|wash}</h3></a>
+                                {if $children[2]|has_attribute('short_title')}
                                 <p class="text-uppercase">{attribute_view_gui attribute=$children[2]|attribute( 'short_title' )}</p>
+                                {/if}
                             </header>
                             <div class="text">
                                 {attribute_view_gui attribute=$children[2]|attribute( 'abstract' )}

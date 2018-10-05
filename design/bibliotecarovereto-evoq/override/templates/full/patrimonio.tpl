@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {def $counter = 1}
 
 <div id="main-container" class="layout-page section-patrimonio-e-risorse page-patrimonio-e-risorse">

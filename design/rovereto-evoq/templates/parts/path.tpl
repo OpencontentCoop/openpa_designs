@@ -3,10 +3,10 @@
 <h2 class="hide">Ti trovi in:</h2>
 <ol class="breadcrumb">
    
-    {def $index = ezini( 'SiteSettings', 'IndexPage', 'site.ini' )|explode( 'content/view/full/' )|implode('')|explode( '/' )|implode('')}  
+    {def $pageIndex = ezini( 'SiteSettings', 'IndexPage', 'site.ini' )|explode( 'content/view/full/' )|implode('')|explode( '/' )|implode('')}
     {foreach $pagedata.path_array as $path}
     {def $do = true()}        
-    {if and( $index|ne( 2 ), $path.node_id|eq( 2 ) )}
+    {if and( $pageIndex|ne( 2 ), $path.node_id|eq( 2 ) )}
         {set $do = false()}
     {/if}
 	{if is_area_tematica()}
@@ -16,7 +16,7 @@
         {if is_area_tematica().node_id|eq( $path.node_id )}
             {set $do = true()}
         {/if}
-        {if is_area_tematica().node_id|eq( $module_result.content_info.node_id )}
+        {if is_area_tematica().node_id|eq( $current_node_id )}
             {*set $do = false()*}
         {/if}
     {/if}

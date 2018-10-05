@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 <div id="main-container" class="layout-page">
 
     <section class="main-content">

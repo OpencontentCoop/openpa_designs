@@ -1,11 +1,15 @@
 {if $node.data_map.image.content[$image_class]}
-  {def $image = $node.data_map.image.content[$image_class]}
-  <img src={$image.url|ezroot} alt="{$node.name|wash}" class="img-responsive" />
-  {undef $image}
+    {def $image = $node.data_map.image.content[$image_class]}
+    <img src={$image.url|ezroot} alt="{$node.name|wash}" class="img-responsive" />
+    {undef $image}
 {/if}
 {def $url = $node.url_alias|ezurl(no)}
 {if $node|has_attribute( 'link' )}
-  {set $url = concat( 'content/view/full/', $node|attribute( 'link' ).content.relation_list[0].node_id )|ezurl(no)}
+    {set $url = concat( 'content/view/full/', $node|attribute( 'link' ).content.relation_list[0].node_id )|ezurl(no)}
+{elseif $node|has_attribute( 'url' )}
+    {set $url = $node|attribute( 'url' ).content}
+{elseif is_set($node.data_map.link)}
+    {set $url = '#'}
 {/if}
 <div class="container">
     <div class="carousel-caption">

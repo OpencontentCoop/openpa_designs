@@ -35,8 +35,8 @@
      $ini_not_available_groups 	= openpaini( 'MotoreRicerca', 'gruppi_faccette_non_disponibili', array() )
      $classes_not_available     = openpaini( 'MotoreRicerca', 'classi_non_disponibili', array() )
      $class_group_not_available = openpaini( 'MotoreRicerca', 'gruppi_classi_non_disponibili', array() )
-     $not_available_facets      = array()
-     $available_classes     = array()
+     $not_available_facets      = search_exclude_class_facets()
+     $available_classes         = search_include_classes()
      $sort_by 			        = ''
 	 $order_by 			        = ''
 	 $argomenti_tutti 		    = array()
@@ -55,48 +55,7 @@
      $f                         = false()
 }
 
-{def $classes=fetch( 'class', 'list' )
-     $not_available_facets_names = array()
-     $available_classes_names = array()}
-{foreach $classes as $class}
-    {if $ini_not_available_facets|contains( $class.id )}
-        {if $not_available_facets|contains($class.id)|not()}
-            {set $not_available_facets = $not_available_facets|append( $class.id )}
-            {set $not_available_facets_names = $not_available_facets_names|append( $class.identifier )}
-        {/if}
-    {/if}
-    {if $class.identifier|begins_with( 'tipo' )}
-        {if $not_available_facets|contains($class.id)|not()}
-            {set $not_available_facets = $not_available_facets|append( $class.id )}
-            {set $not_available_facets_names = $not_available_facets_names|append( $class.identifier )}
-        {/if}
-    {/if}
-    {foreach $ini_not_available_groups as $id_group}
-        {if $class.ingroup_id_list|contains($id_group)}
-            {if $not_available_facets|contains($class.id)|not()}
-                {set $not_available_facets = $not_available_facets|append( $class.id )}
-                {set $not_available_facets_names = $not_available_facets_names|append( $class.identifier )}
-            {/if}
-        {/if}
-    {/foreach}
-    
-    
-    {def $allow_class = true()}    
-    {foreach $class_group_not_available as $class_id_group}
-        {if $class.ingroup_id_list|contains($class_id_group)}        
-            {set $allow_class = false()}
-        {/if}
-    {/foreach}    
-    
-    {if and( $allow_class, $available_classes|contains($class.id)|not(), $classes_not_available|contains($class.id)|not() )}
-        {set $available_classes = $available_classes|append( $class.id )}
-        {set $available_classes_names = $available_classes_names|append( $class.identifier )}
-    {/if}
-    {undef $allow_class}
-    
-{/foreach}
-
-{debug-log var=$not_available_facets_names msg='faccette non visualizzate' }
+{debug-log var=$not_available_facets.identifiers msg='faccette non visualizzate' }
 
 {* da SubTreeArray a orig_position *}
 {if $SubTreeArray}
@@ -217,11 +176,11 @@
 
 {if $ClassFilter|count()|eq(0)}
     
-    {foreach $available_classes as $class_id}
+    {foreach $available_classes.ids as $class_id}
         {set $filterParameters = setFilterParameter( 'meta_contentclass_id_si', $class_id )}
     {/foreach}
     
-    {debug-log var=$available_classes_names msg='classi incluse nella query' }
+    {debug-log var=$available_classes.identifiers msg='classi incluse nella query' }
 
 {* se si parte dal motore di ricerca globale e si filtra per una sola classe *}
 {elseif $ClassFilter|count()|eq(1)}
@@ -412,7 +371,7 @@
         {def $faccette=$search_extras.facet_fields.0.nameList}
         {set $faccette=$faccette|asort()}
         {foreach $faccette as $facetID => $name}							
-            {if $not_available_facets|contains($facetID)|not()}
+            {if $not_available_facets.ids|contains($facetID)|not()}
             <div class="checkbox">
                 <label>
                     <input value="{$search_extras.facet_fields.0.queryLimit[$facetID]|wash}" title="{$name|wash}" name="filter[]" type="checkbox" {$stai_filtrando_per} /> {$name|wash} ({$search_extras.facet_fields.0.countList[$facetID]})

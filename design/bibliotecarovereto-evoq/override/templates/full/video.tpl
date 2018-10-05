@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {def $css_page = 'col-xs-12 col-md-12 col-lg-12'}
 {if $node|has_attribute( 'image' )}
     {set $css_page = 'col-xs-12 col-md-9 col-lg-9'}

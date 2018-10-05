@@ -1,66 +1,46 @@
-{*<ul class="nav navbar-nav navbar-right">
-  {if $current_user.is_logged_in}
-    {if fetch( 'user', 'has_access_to', hash( 'module', 'content', 'function', 'dashboard' ))}
-      <li id="dashboard"><a href={"/content/dashboard/"|ezurl} title="{'Dashboard'|i18n('design/admin/content/dashboard')}">{'Dashboard'|i18n('design/admin/content/dashboard')}</a></li>
-    {/if}
-    <li id="myprofile"><a href={"/user/edit/"|ezurl} title="{'My profile'|i18n('design/ocbootstrap/pagelayout')}">{'My profile'|i18n('design/ocbootstrap/pagelayout')}</a></li>
-    <li id="logout"><a href={"/user/logout"|ezurl} title="{'Logout'|i18n('design/ocbootstrap/pagelayout')}">{'Logout'|i18n('design/ocbootstrap/pagelayout')} ( {$current_user.contentobject.name|wash} )</a></li>
-  {else}
-    {if ezmodule( 'user/register' )}
-    <li id="registeruser"><a href={"/user/register"|ezurl} title="{'Register'|i18n('design/ocbootstrap/pagelayout')}">{'Register'|i18n('design/ocbootstrap/pagelayout')}</a></li>
-    {/if}
-    <li id="login" class="dropdown">
-      <a href="#" title="hide login form" class="dropdown-toggle" data-toggle="dropdown">{'Login'|i18n('design/ocbootstrap/pagelayout')}</a>
-      <div class="panel dropdown-menu login-menu">
-        <form class="login-form" action="{'/user/login'|ezurl( 'no' )}" method="post">
-          <fieldset>
-            <div class="form-group">
-              <label for="login-username" class="sr-only">{'Username'|i18n('design/ocbootstrap/pagelayout')}</label>
-              <input class="form-control" type="text" name="Login" id="login-username" placeholder="Username">
-            </div>
-            <div class="form-group">
-              <label for="login-password" class="sr-only">{'Password'|i18n('design/ocbootstrap/pagelayout')}</label>
-              <input class="form-control" type="password" name="Password" id="login-password" placeholder="Password">
-            </div>
-            <button class="btn btn-primary pull-right" type="submit">
-                  {'Login'|i18n('design/ocbootstrap/pagelayout')}
-              </button>
-              <p class="small"><a href="{'/user/forgotpassword'|ezurl( 'no' )}" class="forgot-password">{'Forgot your password?'|i18n('design/ocbootstrap/pagelayout')}</a></p>
-          </fieldset>
-          <input type="hidden" name="RedirectURI" value="" />
-        </form>
-      </div>
-    </li>
-{/if}
-</ul>*}
 
-{if $current_user.is_logged_in}
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="icon-log-in"></i> {$current_user.contentobject.name|wash} <span class="caret"></span></a>
-    <ul class="dropdown-menu" role="menu">
-        <li id="myprofile"><a href={"/user/edit/"|ezurl} title="{'My profile'|i18n('design/ocbootstrap/pagelayout')}">{'My profile'|i18n('design/ocbootstrap/pagelayout')}</a></li>
-        <li id="logout"><a href={"/user/logout"|ezurl} title="{'Logout'|i18n('design/ocbootstrap/pagelayout')}">{'Logout'|i18n('design/ocbootstrap/pagelayout')}</a></li>
-    </ul>
-{else}
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="icon-log-in"></i> Log-in <span class="caret"></span></a>
-    <ul class="dropdown-menu" role="menu">
-        <li>
-            <form class="form form-login" action="{'/user/login'|ezurl( 'no' )}" method="post">
-                <p class="text-uppercase">Accedi con il tuo utente</p>
-                <div class="form-group">
-                    <label for="user-name" class="sr-only">Nome utente</label>
-                    <input type="text" name="Login" class="form-control" id="user-name" placeholder="Nome utente">
-                </div>
-                <div class="form-group">
-                    <label for="user-pwd" class="sr-only">Password</label>
-                    <input type="password" name="Password" class="form-control" id="user-pwd" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-default btn-magenta btn-block text-uppercase" type="submit">Accesso</button>
-                </div>
-            </form>
-        </li>
-        <li class="divider"></li>
-        {*<li><a href="{"/user/register"|ezurl( 'no' )}">Nuova registrazione utente</a></li>*}
-        <li><a href="{'/user/forgotpassword'|ezurl( 'no' )}">Recupero nome utente / Password</a></li>
-    </ul>
-{/if}
+<a href="#" id="user-logged-in" class="dropdown-toggle hide" data-toggle="dropdown" role="button"><i class="icon-log-in"></i> <span class="username"></span> <span class="caret"></span></a>
+<ul class="hide" role="menu">
+    <li id="myprofile"><a href={"/user/edit/"|ezurl} title="{'My profile'|i18n('design/ocbootstrap/pagelayout')}">{'My profile'|i18n('design/ocbootstrap/pagelayout')}</a></li>
+    <li id="logout"><a href={"/user/logout"|ezurl} title="{'Logout'|i18n('design/ocbootstrap/pagelayout')}">{'Logout'|i18n('design/ocbootstrap/pagelayout')}</a></li>
+</ul>
+
+<a id="user-anonymous" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="icon-log-in"></i> Log-in <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+    <li>
+        <form class="form form-login" action="{'/user/login'|ezurl( 'no' )}" method="post">
+            <p class="text-uppercase">Accedi con il tuo utente</p>
+            <div class="form-group">
+                <label for="user-name" class="sr-only">Nome utente</label>
+                <input type="text" name="Login" class="form-control" id="user-name" placeholder="Nome utente">
+            </div>
+            <div class="form-group">
+                <label for="user-pwd" class="sr-only">Password</label>
+                <input type="password" name="Password" class="form-control" id="user-pwd" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default btn-magenta btn-block text-uppercase" type="submit">Accesso</button>
+            </div>
+        </form>
+    </li>
+    <li class="divider"></li>
+    <li><a href="{'/user/forgotpassword'|ezurl( 'no' )}">Recupero nome utente / Password</a></li>
+</ul>
+
+
+<script>{literal}
+$(document).ready(function(){
+	var injectUserInfo = function(data){
+		if(!data.error_text && data.content){
+			$('#user-anonymous').hide().next().remove();
+			$('#user-logged-in').removeClass('hide').find('.username').html(data.content.name);
+			$('#user-logged-in').next().addClass('dropdown-menu').removeClass('hide');
+		}
+	};
+	if(CurrentUserIsLoggedIn){
+		$.ez('openpaajax::userInfo', null, function(data){
+			injectUserInfo(data);
+		});
+	}
+});
+{/literal}</script>

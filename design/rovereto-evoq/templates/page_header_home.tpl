@@ -37,5 +37,3 @@ $(document).ready(function(){
         </div>
     </div>
 </div>
-
-<div id="content" class="container home">

@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {def $main_node=$node}
 
 <div id="main-container" class="layout-front section-home page-home">

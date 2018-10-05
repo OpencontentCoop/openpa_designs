@@ -1,10 +1,7 @@
-{* Chiusura del div.container *}
-</div>
-
 {def $home = fetch( 'content', 'node', hash( 'node_id', ezini( 'NodeSettings', 'RootNode', 'content.ini' ) ) )}
 
 {def $show_logo = cond( and( is_set( $home.data_map.show_search ), $home.data_map.show_search.data_int|eq(1) ), true(), false() )
-   $show_footer = cond( and( is_set( $home.data_map.footer ), $home.data_map.footer.has_content ), true(), false() )}
+     $show_footer = cond( and( is_set( $home.data_map.footer ), $home.data_map.footer.has_content ), true(), false() )}
 
 {if or( $show_footer, $show_logo )}
 <div id="footer">

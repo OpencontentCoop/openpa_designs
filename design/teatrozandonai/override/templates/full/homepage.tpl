@@ -2,24 +2,34 @@
 
 {def $programma = fetch( content, node, hash( node_id, ezini('NodeSettings', 'ProgrammazioneRootNode', 'content.ini') ) )
      $container = fetch( content, node, hash( node_id, ezini('NodeSettings', 'HomeDataRootNode', 'content.ini')) )
-     $evento = fetch( content, list, hash( parent_node_id, $container.node_id, limit, 1, class_filter_type, 'include', class_filter_array, array( 'spettacolo' ), sort_by, $programma.sort_array ) )[0]
+     $eventi = fetch( content, list, hash( parent_node_id, $container.node_id, limit, 1, class_filter_type, 'include', class_filter_array, array( 'spettacolo' ), sort_by, $programma.sort_array ) )
      $parts = fetch( content, list, hash( parent_node_id, $container.node_id, limit, 2, class_filter_type, 'include', class_filter_array, array( 'infobox' ), sort_by, array( 'priority', 'asc' ) ) )
-     $folder = fetch( content, list, hash( parent_node_id, $container.node_id, limit, 1, class_filter_type, 'include', class_filter_array, array( 'folder' ), sort_by, $programma.sort_array ) )[0]
-     $bottom_parts = fetch( content, list, hash( parent_node_id, $folder.node_id, limit, 3, class_filter_type, 'include', class_filter_array, array( 'infobox' ), sort_by, array( 'priority', 'asc' ) ) )}
-
-{if or( $evento|not(), $evento.is_invisible, $evento.is_hidden )}
-  {set $evento = fetch( content, list, hash( parent_node_id, $programma.node_id,
+     $folders = fetch( content, list, hash( parent_node_id, $container.node_id, limit, 1, class_filter_type, 'include', class_filter_array, array( 'folder' ), sort_by, $programma.sort_array ) )
+     $bottom_parts = array()}
+{if count($folders)}
+    {def $folder = $folders[0]}
+    {set $bottom_parts = fetch( content, list, hash( parent_node_id, $folder.node_id, limit, 3, class_filter_type, 'include', class_filter_array, array( 'infobox' ), sort_by, array( 'priority', 'asc' ) ) )}
+{/if}
+{def $evento = false()}
+{if count($eventi)}
+  {set $evento = $eventi[0]}
+{/if}
+{if or( $evento|not(), or( $evento, $evento.is_invisible, $evento.is_hidden ) )}
+  {set $eventi = fetch( content, list, hash( parent_node_id, $programma.node_id,
                                              limit, 1,
                                              class_filter_type, 'include',
                                              class_filter_array, array( 'spettacolo' ),
                                              attribute_filter, array( array( 'spettacolo/main_datetime', '>=', currentdate() ) ),
                                              sort_by, array( 'attribute', true(), 'spettacolo/main_datetime' )
-                                             ) )[0]}
+                                             ) )}
+  {if count($eventi)}
+    {set $evento = $eventi[0]}
+  {/if}
 {/if}
-<header {foreach $evento.data_map.immagini.content.relation_list as $related} style="background-image:url({fetch(content,object,hash(object_id,$related.contentobject_id)).data_map.image.content.evoq_zandonai_bg.full_path|ezroot(no)});{break}{/foreach}">
+{if $evento}
+<header {if $evento}{foreach $evento.data_map.immagini.content.relation_list as $related} style="background-image:url({fetch(content,object,hash(object_id,$related.contentobject_id)).data_map.image.content.evoq_zandonai_bg.full_path|ezroot(no)});{break}{/foreach}"{/if}>
   <div class="container">
     {include uri="design:menu.tpl"}
-    
     <div id="appuntamento">
       <div class="container">
         <div class="row">
@@ -78,10 +88,20 @@
     </div><!--appuntamento-->
   </div><!--container-->
 </header>
-
-
+{else}
+    <div style="background: #000;min-height: 200px">
+        <div class="container">
+            {include uri="design:menu.tpl"}
+        </div>
+    </div>
+    {def $archivio = fetch( content, node, hash( node_id, ezini('NodeSettings', 'ArchivioRootNode', 'content.ini') ) )}
+    {if $archivio}
+        <a href={$archivio.url_alias|ezurl} title="{$archivio.name|wash()}"><img class="responsive" src={'archivio-spettacoli.jpg'|ezimage()} alt="{$archivio.name|wash()}" /></a>
+    {/if}
+{/if}
 
 <section id="main">
+{if count($parts)}
   <div id="presentazione">
     <div class="container">
       <div class="row">
@@ -100,7 +120,8 @@
       </div><!--row-->
     </div><!--container-->
   </div><!--presentazione-->
-  
+{/if}
+
   {if fetch( content, list_count, hash( parent_node_id, $programma.node_id, class_filter_type, 'include', class_filter_array, array( 'spettacolo' )  ) )}
   <div id="programma">
     {foreach fetch( content, list, hash( parent_node_id, $programma.node_id,
@@ -109,7 +130,7 @@
 										 sort_by, array( 'attribute', true(), 'spettacolo/main_datetime' ) ) ) as $child}    
     <div class="col-lg-4 col-md-4 col-sm-6">
       <div class="row">
-        <div class="programma divLink">
+          <div class="programma divLink" style="height: 350px;background: url({$child|attribute('image').content.evoq_zandonai_show.url|ezroot(no)}) no-repeat center center; background-size: cover">
             <div class="areaInfo">
               {def $times = $child|show_time()}              
               <div class="data">
@@ -125,8 +146,7 @@
               {undef $times}
               <h2><a href="{$child.url_alias|ezurl(no)}" title="">{$child.data_map.titolo.content|wash()}</a></h2>
               <div class="esecutore">{$child.data_map.sottotitolo.content|wash()}</div>              
-            </div><!--areaInfo-->          
-          {attribute_view_gui attribute=$child|attribute('image') image_class="evoq_zandonai_show" image_css_class="responsive"}
+            </div><!--areaInfo-->
         </div><!--programma-->
       </div><!--row-->
     </div><!--col-lg-4 col-md-4 col-sm-6-->

@@ -1,10 +1,3 @@
-{ezscript_require(array('ezjsc::jquery', 'plugins/chosen.jquery.js'))}
-{ezcss_require(array('chosen.css'))}
-<script>{literal}
-$(document).ready(function(){    
-  $("#ezwt-create").chosen({width:'300px'});
-});
-{/literal}</script>
 {def $current_node = fetch( 'content', 'node', hash( 'node_id', $current_node_id ) )
      $content_object = $current_node.object
      $can_edit_languages = $content_object.can_edit_languages
@@ -101,7 +94,12 @@ $(document).ready(function(){
 
 <div id="ezwt-miscaction" class="ezwt-actiongroup">
 {* Custom templates inclusion *}
+{def $avoid_replication = array()}
 {foreach $custom_templates as $custom_template}
+    {if $avoid_replication|contains($custom_template)}
+        {skip}
+    {/if}
+    {set $avoid_replication = $avoid_replication|append($custom_template)}
     {if is_set( $include_in_view[$custom_template] )}
         {def $views = $include_in_view[$custom_template]|explode( ';' )}
         {if $views|contains( 'full' )}
@@ -183,8 +181,6 @@ $(document).ready(function(){
 
 </div>
 </div>
-
-{include uri='design:parts/websitetoolbar/floating_toolbar.tpl'}
 
 <!-- eZ website toolbar: END -->
 

@@ -2,103 +2,72 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 <head>
 
-{def $user_hash = concat( $current_user.role_id_list|implode( ',' ), ',', $current_user.limited_assignment_value_list|implode( ',' ) )
-     $is_login_page = cond( and( module_params()['module_name']|eq( 'user' ), module_params()['function_name']|eq( 'login' ) ), true(), false() )
-     $cookies = check_and_set_cookies()}
-
-
 {if is_set( $extra_cache_key )|not}
     {def $extra_cache_key = ''}
 {/if}
-{cache-block keys=array( $module_result.uri, $user_hash, $extra_cache_key, $cookies|implode(',') )}
-{def $browser          = checkbrowser('checkbrowser')     
-     $pagedata         = openpapagedata()
-     $pagestyle        = $pagedata.css_classes
-     $locales          = fetch( 'content', 'translation_list' )
-     $pagedesign       = $pagedata.template_look
-     $current_node_id  = $pagedata.node_id
-     $main_style       = get_main_style()}
 
-{include uri='design:page_head_google-site-verification.tpl'}
-{include uri='design:page_head.tpl'}
-
-<!-- Site: {ezsys( 'hostname' )} -->
-{if ezsys( 'hostname' )|contains( 'opencontent' )}
-<META name="robots" content="NOINDEX,NOFOLLOW" />
+{if openpacontext().is_area_tematica}
+    {set $extra_cache_key = concat($extra_cache_key, 'areatematica_', openpacontext().is_area_tematica)}
 {/if}
 
+{debug-accumulator id=page_head_style name=page_head_style}
 {include uri='design:page_head_style.tpl'}
+{/debug-accumulator}
+
+{debug-accumulator id=page_head_script name=page_head_script}
 {include uri='design:page_head_script.tpl'}
+{/debug-accumulator}
+
+{include uri='design:page_head_google-site-verification.tpl'}
+
+{include uri='design:page_head.tpl'}
+{no_index_if_needed()}
 
 </head>
 <body class="no-js">
-<script type="text/javascript">{literal}
+<script type="text/javascript">
 //<![CDATA[
-var UiContext = {/literal}"{$ui_context}"{literal};
-var UriPrefix = {/literal}{'/'|ezurl()}{literal};
-var PathArray = [{/literal}{if is_set( $pagedata.path_array[0].node_id )}{foreach $pagedata.path_array|reverse as $path}{$path.node_id}{delimiter},{/delimiter}{/foreach}{/if}{literal}];
-
-(function(){var c = document.body.className;
-c = c.replace(/no-js/, 'js');
-document.body.className = c;
-})();
-//]]>{/literal}
+var CurrentUserIsLoggedIn = {cond(fetch('user','current_user').is_logged_in, 'true', 'false')};
+var UiContext = "{$ui_context}";
+var UriPrefix = {'/'|ezurl()};
+var PathArray = [{if is_set( openpacontext().path_array[0].node_id )}{foreach openpacontext().path_array|reverse as $path}{$path.node_id}{delimiter},{/delimiter}{/foreach}{/if}];
+(function(){ldelim}var c = document.body.className;c = c.replace(/no-js/, 'js');document.body.className = c;{rdelim})();
+//]]>
 </script>
-{/cache-block}
 
 {include uri='design:page_browser_alert.tpl'}
 
-{cache-block expiry=86400 keys=array( $module_result.uri, $user_hash, $extra_cache_key )}
-<div id="page" class="{$pagestyle} {$main_style}">
+<div id="page" class="{openpacontext().css_classes} {openpacontext().current_main_style}">
 
-    {if and( is_set( $pagedata.persistent_variable.extra_template_list ), $pagedata.persistent_variable.extra_template_list|count() )}
-        {foreach $pagedata.persistent_variable.extra_template_list as $extra_template}
-            {include uri=concat('design:extra/', $extra_template)}
-        {/foreach}
-    {/if}
-
+    {debug-accumulator id=page_header name=page_header}
     {include uri='design:page_header.tpl'}
+    {/debug-accumulator}
 
-{/cache-block}
-
-{include uri='design:page_banner_fusione.tpl'}
-
-{cache-block expiry=86400 keys=array( $module_result.uri, $user_hash, $extra_cache_key )}    
-
-    <div id="columns-position" class="width-layout{if $pagedata.class_identifier|eq('frontpage')} frontpage{/if}">
-    <div id="columns" class="float-break">
-
-    {if $pagedata.left_menu}
-        {include uri='design:page_leftmenu.tpl'}
-    {/if}
-
-{/cache-block}
+    {include uri='design:page_banner_fusione.tpl'}
 
     {include uri='design:page_mainarea.tpl'}
 
-{cache-block expiry=86400 keys=array( $module_result.uri, $user_hash, $extra_cache_key )}
 
-    {if is_unset($pagedesign)}
-        {def $pagedata   = openpapagedata()
-             $pagedesign = $pagedata.template_look}
-    {/if}
+    {cache-block expiry=86400 ignore_content_expiry keys=array( $access_type.name )}
+        {debug-accumulator id=page_footer name=page_footer}
+        {include uri='design:page_footer.tpl'}
+        {/debug-accumulator}
+    {/cache-block}
 
-    {if and($pagedata.extra_menu, $module_result.content_info)}
-        {include uri='design:page_extramenu.tpl'}
-    {/if}
-	
-    </div>
-    </div>     
-    {include uri='design:page_footer.tpl'}
 </div>
 
-{include uri='design:page_footer_script.tpl'}
-{/cache-block}
+{if and( $ui_context|ne( 'edit' ), $ui_context|ne( 'browse' ), is_set($module_result.content_info.persistent_variable.has_footer_banner) )}
+{debug-accumulator id=page_footer_banner name=page_footer_banner}
+{include uri='design:parts/sensor_footer_banner.tpl'
+         url=$module_result.content_info.persistent_variable.footer_banner_url
+         banner=$module_result.content_info.persistent_variable.footer_banner_text
+         name=sensor_ad}
+{/debug-accumulator}
+{/if}
 
-{* modal window and AJAX stuff 
-<div id="overlay-mask" style="display:none;"></div>
-<img src={'loading.gif'|ezimage()} id="ajaxuploader-loader" style="display:none;" alt="{'Loading...'|i18n( 'design/admin/pagelayout' )}" />
-*}
+{debug-accumulator id=page_footer_script name=page_footer_script}
+{include uri='design:page_footer_script.tpl'}
+{/debug-accumulator}
 
 <!--DEBUG_REPORT-->
 </body>

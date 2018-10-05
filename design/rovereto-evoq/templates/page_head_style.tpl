@@ -1,4 +1,4 @@
-{if is_area_tematica()}
+{if openpacontext().is_area_tematica}
     {ezcss_load(array('area_tematica.css'))}
 {elseif is_section( 'comune' )}
     {ezcss_load(array('comune.css'))}

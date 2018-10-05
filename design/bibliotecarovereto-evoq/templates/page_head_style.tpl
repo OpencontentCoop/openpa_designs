@@ -9,10 +9,10 @@
   {ezcss_load( array( 'debug.css',
                       ezini( 'StylesheetSettings', 'CSSFileList', 'design.ini' ),
                       ezini( 'StylesheetSettings', 'FrontendCSSFileList', 'design.ini' ),
-                      'webfonts.css','icons.css','main.css', 'fix.css', 'plugins/blueimp/blueimp-gallery.css', 'websitetoolbar.css') )}
+                      'webfonts.css','icons.css','main.css', 'fix.css', 'plugins/blueimp/blueimp-gallery.css', 'websitetoolbar.css', 'chosen.css') )}
 {else}
   {ezcss_load( array( 'debug.css',
-                      'webfonts.css','icons.css','main.css', 'fix.css', 'plugins/blueimp/blueimp-gallery.css', 'websitetoolbar.css') )}
+                      'webfonts.css','icons.css','main.css', 'fix.css', 'plugins/blueimp/blueimp-gallery.css', 'websitetoolbar.css', 'chosen.css') )}
 {/if}
 
 

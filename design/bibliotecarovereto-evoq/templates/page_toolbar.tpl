@@ -1,3 +1,2 @@
-  <div id="toolbar">
-  {include uri='design:parts/website_toolbar.tpl'}
-  </div>
+<div id="toolbar"></div>
+{include uri='design:parts/load_website_toolbar.tpl' current_node_id=$current_node_id}

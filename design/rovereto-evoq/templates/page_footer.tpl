@@ -1,5 +1,3 @@
-{* Chiusura del div.container *}
-</div>
 
 {if is_area_tematica()}
 
@@ -102,17 +100,33 @@
                 <ul>
                     {foreach $infos.children as $info}
                         <li><a href={$info.url_alias|ezurl()} title="Link a {$info.name|wash()}">{$info.name|wash()}</a></li>
-                    {/foreach}                    
-                    {if $current_user.is_logged_in}
-                    <li id="logout"><a href={"/user/logout"|ezurl} title="Esegui il logout">Esci ( {$current_user.contentobject.name|wash} )</a></li>
-                    {else}
-                    <li><a href={concat("/user/login?url=",$module_result.uri)|ezurl} title="Login al sistema">Accesso redazione</a></li>
-                    {/if}
+                    {/foreach}
+                    <li id="login" style="display: none"><a href={concat("/user/login?url=",$module_result.uri)|ezurl} title="Login al sistema">Accesso redazione</a></li>
                 </ul>
             </div>
         </div>
     </div>
     
 </div>
-
+<script>{literal}
+$(document).ready(function(){
+	var injectUserInfo = function(data){
+		if(data.error_text || !data.content){
+			$('#login').show();
+		}else{
+			$('#login').after('<li id="myprofile"><a href="/user/edit/" title="Visualizza il profilo utente">Il mio profilo</a></li><li id="logout"><a href="/user/logout" title="Logout">Logout ('+data.content.name+')</a></li>');
+			if(data.content.has_access_to_dashboard){
+				$('#login').after('<li id="dashboard"><a href="/content/dashboard/" title="Pannello strumenti">Pannello strumenti</a></li>');
+			}
+		}
+	};
+	if(CurrentUserIsLoggedIn){
+		$.ez('openpaajax::userInfo', null, function(data){
+			injectUserInfo(data);
+		});
+	}else{
+		$('#login').show();
+	}
+});
+{/literal}</script>
 {/if}

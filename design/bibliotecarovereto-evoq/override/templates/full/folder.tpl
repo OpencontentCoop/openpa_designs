@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {def $css_page = 'col-xs-12 col-md-12 col-lg-12'
      $sidebar = false()
      $filter_tools = false()}

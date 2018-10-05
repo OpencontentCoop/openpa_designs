@@ -5,8 +5,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-{cache-block keys=array( $module_result.uri, $user_hash )}
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href={"stylesheets/bootstrap.min.css"|ezdesign()}>
+    <link rel="stylesheet" type="text/css" href={"stylesheets/style.css"|ezdesign()}>
+    <link rel="stylesheet" type="text/css" href={"stylesheets/custom.css"|ezdesign()}>
+    <link rel="stylesheet" type="text/css" href={"stylesheets/royalslider.css"|ezdesign()}>
+    <link rel="stylesheet" type="text/css" href={"stylesheets/debug.css"|ezdesign()}>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+{cache-block keys=array( $access_type.name )}
     
     {if is_set($module_result.content_info.persistent_variable.site_title)}
 	  {set scope=root site_title=$module_result.content_info.persistent_variable.site_title}
@@ -18,19 +32,6 @@
 	  {def $site_title = false()}
     {/if}
     <title>{if $site_title}{$site_title} - {/if}Sito ufficiale del Teatro Riccardo Zandonai - Rovereto</title>
-
-    <!--CSS-->
-    <link rel="stylesheet" type="text/css" href={"stylesheets/bootstrap.min.css"|ezdesign()}>
-    <link rel="stylesheet" type="text/css" href={"stylesheets/style.css"|ezdesign()}>
-    <link rel="stylesheet" type="text/css" href={"stylesheets/custom.css"|ezdesign()}>
-    <link rel="stylesheet" type="text/css" href={"stylesheets/royalslider.css"|ezdesign()}>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
     {def $pagedata = ezpagedata()}
@@ -58,7 +59,7 @@
     
     {$module_result.content}
     
-{cache-block keys=array( $module_result.uri, $user_hash )}
+{cache-block keys=array( $access_type.name )}
     
     {if is_set( $pagedata )|not()}
       {def $pagedata = ezpagedata()}

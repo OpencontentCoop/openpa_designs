@@ -2,6 +2,7 @@
     {def $openpa = object_handler($node)}
 {/if}
 {if $openpa.content_tools.editor_tools}
+<div class="row">
 <div id="editor_tools" class="panel panel-info editor_tools">
     <div class="panel-heading">
         <h4 class="panel-title"><i class="fa fa-info-circle"></i> Informazioni per l'editor</h4>
@@ -253,5 +254,6 @@
             {/if}            
         </p>
     </div>
+</div>
 </div>
 {/if}
