@@ -19,8 +19,11 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-{cache-block keys=array( $access_type.name )}
+{def $has_header = 0}
+{if or( is_set( $pagedata.persistent_variable.header )|not(), $pagedata.persistent_variable.header|ne( false() ) )}
+    {set $has_header = 1}
+{/if}
+{cache-block keys=array( $access_type.name, $has_header  )}
     
     {if is_set($module_result.content_info.persistent_variable.site_title)}
 	  {set scope=root site_title=$module_result.content_info.persistent_variable.site_title}
@@ -59,7 +62,7 @@
     
     {$module_result.content}
     
-{cache-block keys=array( $access_type.name )}
+{cache-block keys=array( $access_type.name, $has_header  )}
     
     {if is_set( $pagedata )|not()}
       {def $pagedata = ezpagedata()}
