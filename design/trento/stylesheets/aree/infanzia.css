@@ -1,0 +1,526 @@
+/******************************************************************
+1. SFONDO PAGINA
+Usare se si vuole modificare lo sfondo esterno al blocco generale della pagina.
+Per cambiarlo occorre intervenire sulla regola div#page.<nome_css>. L'immagine deve essere larga almeno quanto la larghezza del blocco contentui (1000px). Nel css di default l'immagine è larga 1040px perché deve comprendere la sfumatura dell'ombra.
+*/
+div#page.infanzia{
+	background: #C2FFD6 url(images/infanzia/page-bg.jpg) repeat-y center;
+}
+
+
+/******************************************************************
+2. SFONDO CONTENUTI
+Usare se si vuole modificare lo sfondo del blocco contenuti che inizia sotto la testata e comprende il footer.
+Generalmente è sufficiente assegnare un colore esadecimale: di default eredita il colore dello Sfondo Pagina ad eccezione dello sfondo del menu di sinistra che va configurato con le regole COLORI MENU DI SINISTRA.
+*/
+div#page.infanzia #page-content{
+	background:#fff;
+}
+
+
+/******************************************************************
+3. COLORE MENU PRINCIPALE
+Usare se si vuole modificare il colore caratteristico del menu principale (in alto sotto la testata). 
+Di default il colore del menu per le aree tematiche è #990100
+Per coerenza si consiglia di configurare questo colore anche per la regole 4.2
+*/
+div#page.infanzia div#topmenu ul#topmenu-firstlevel li a{
+	background-color:#66FF99;
+	color:#000;
+}
+
+
+/******************************************************************
+4. COLORI MENU DI SINISTRA
+Usare se si vuole modificare l'aspetto del menu di sinistra.
+*/
+
+/* 4.1 Sfondo del menu */
+div#page.infanzia div#sidemenu div.border-box div.border-mc{
+	background:#fff;
+}
+
+/* 4.2 Colore di sfondo del menu attivo (le sfumature sono automatiche) */
+div#page.infanzia div#sidemenu ul li div span.handler,
+div#page.infanzia div#sidemenu  a.current{
+	background-color:#66FF99;
+}
+
+/* 4.3 Colore di sfondo dei livelli di menu (NOTABENE: il second_level_menu è il primo livello del menu di sinistra) */
+div#page.infanzia div.second_level_menu{
+	background-color:#fff;
+}
+div#page.infanzia div.third_level_menu{
+	background-color:#fff;
+}
+div#page.infanzia div.fourth_level_menu{
+	background-color:#fff;
+}
+
+/* 4.4 Colore del testo del menu di sinistra */
+div#page.infanzia div#sidemenu a {
+	color:#006600;
+}
+
+/* 4.5 Icona menu di sinistra */
+/* @TODO */
+
+/******************************************************************
+5. COLORI BOTTONI DI DEFAULT
+Usare se si vuole modificare l'aspetto dei bottoni principali (Ad esempio "Cerca" o "Accedi con il tuo utente per lasciare un commento")
+La regola viene recepita solo dai contenuti effettivi della pagina (#columns-position): vengono perciò esclusi i bottoni esterni (per esempio il bottone di 'Aiutaci a migliorare')
+*/
+div#page.infanzia #columns-position a.defaultbutton, 
+div#page.infanzia #columns-position button.defaultbutton, 
+div#page.infanzia #columns-position input.defaultbutton {
+	background-color:#66FF99;
+	border:1px solid #66CC99;
+	color:#000;
+}
+
+
+
+/******************************************************************
+5. COLORE LINK
+Usare se si vuole modificare il colore predefinito di tutti i link.
+La regola viene recepita solo dai contenuti effettivi della pagina (#columns-position)
+*/ 
+div#page.infanzia #columns-position a {
+	color:#009900;
+}
+
+
+/******************************************************************
+5. COLORE TITOLI
+Usare se si vuole modificare il colore predefinito di tutti i titoli H1 e H2.
+*/ 
+
+/* 5.1 Titoli principali (h1) */
+div#page.infanzia div.global-view-full h1, 
+div#page.infanzia div.attribute-header h1, 
+div#page.infanzia div.attribute-header h1.long {
+	color:#009900;
+	border-bottom:2px solid #009900;
+	font-weight:bold;
+}
+
+/* 5.2 Titoli extrainfo (h2) */
+div#page.infanzia  #extrainfo h2.block-title {
+	color:#009900;
+	font-weight:bold;
+	font-size:1.2em;
+}
+
+
+/******************************************************************
+5. PUNTI ELENCO
+Usare se si vuole modificare il colore predefinito dei punti elenco (UL LI).
+I punti elenco per qustioni di compatibiltà crossbrowser sono gestiti da immagini.
+*/ 
+div#page.infanzia  li {
+	background-image:url(images/infanzia/list.gif);
+}
+
+
+/******************************************************************
+6. BOX ACCORDION
+*/
+
+/* 6.1 Icone accordion */
+div#page.infanzia div.block-lista_accordion  .ui-icon   {
+	background-image:url(images/infanzia/arrow-accordion.gif);
+}
+
+/* 6.2 Bordi accordion */
+div#page.infanzia div.box-accordion div.border-tl{
+    background-image: url(images/infanzia/accordion-tl.jpg);
+}
+
+div#page.infanzia div.box-accordion div.border-tr{
+    background-image: url(images/infanzia/accordion-tr.jpg);
+}
+
+div#page.infanzia div.box-accordion div.border-tc{
+    background-image: url(images/infanzia/accordion-tc.jpg);
+}
+
+div#page.infanzia div.box-accordion div.border-ml{
+    background-image: url(images/infanzia/accordion-ml.jpg);
+}
+
+div#page.infanzia div.box-accordion div.border-mr{
+    background-image: url(images/infanzia/accordion-mr.jpg);
+}
+
+div#page.infanzia div.box-accordion div.border-mc{
+    background: #C2FFD6;
+}
+
+div#page.infanzia div.box-accordion div.border-bl{
+    background-image: url(images/infanzia/accordion-bl.jpg);
+}
+
+div#page.infanzia div.box-accordion div.border-br{
+    background-image: url(images/infanzia/accordion-br.jpg);
+}
+
+div#page.infanzia div.box-accordion div.border-bc{
+    background-image: url(images/infanzia/accordion-bc.jpg);
+}
+
+
+/******************************************************************
+7. BOX TABS
+*/
+
+/* 7.1 Bordi tabs header */
+div#page.infanzia div.box-tabs-header div.border-tl{
+    background-image: url(images/infanzia/tabsheader-tl.jpg);
+}
+div#page.infanzia div.box-tabs-header div.border-tr{
+    background-image: url(images/infanzia/tabsheader-tr.jpg);
+}
+div#page.infanzia div.box-tabs-header div.border-tc{
+    background-image: url(images/infanzia/tabsheader-tc.jpg);
+}
+div#page.infanzia div.box-tabs-header div.border-ml{
+    background-image: url(images/infanzia/tabsheader-ml.jpg);
+}
+div#page.infanzia div.box-tabs-header div.border-mr{
+    background-image: url(images/infanzia/tabsheader-mr.jpg);
+}
+div#page.infanzia div.box-tabs-header div.border-mc{
+    background: #348634;
+}
+
+/* 7.2 Colori linguette tabs */
+
+/* 7.2.1 Immagini pre rendere il bordo arrotondato nelle linguette dei tab */
+div#page.infanzia .block-lista_tab .ui-tabs .ui-tabs-nav li {  
+	background-image:url(images/infanzia/tabs-border-tr.gif);
+	background-position:top right;
+	background-repeat:no-repeat 
+}
+div#page.infanzia .block-lista_tab .ui-tabs .ui-tabs-nav li  a{	
+	background-image:url(images/infanzia/tabs-border-tl.gif);
+	background-position:top left;
+	background-repeat:no-repeat 
+}
+
+/* 7.2.2 Colore di default del tab (il tab non è selezionato) */
+div#page.infanzia .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-default ,
+div#page.infanzia .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-default  a{
+	background-color:#7FFFB2;
+}
+
+/* 7.2.3 Colore del tab selezionato */
+div#page.infanzia .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-active,
+div#page.infanzia .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-hover,
+div#page.infanzia .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-active a,
+div#page.infanzia .block-lista_tab .ui-tabs .ui-tabs-nav li.ui-state-hover a
+{
+	background-color:#fff;	
+}
+
+/* 7.3 Bordi tabs panel */
+div#page.infanzia div.box-tabs-panel div.border-ml{
+    background-image: url(images/infanzia/tabspanel-ml.jpg);
+}
+div#page.infanzia div.box-tabs-panel div.border-mr{
+    background-image: url(images/infanzia/tabspanel-mr.jpg);
+}
+div#page.infanzia div.box-tabs-panel div.border-mc{
+    background: #fff;
+}
+
+/* 7.4 Bordi tabs footer */
+div#page.infanzia div.box-tabs-footer div.border-bl{
+    background-image: url(images/infanzia/tabsfooter-bl.jpg);
+}
+div#page.infanzia div.box-tabs-footer div.border-br{
+    background-image: url(images/infanzia/tabsfooter-br.jpg);
+}
+div#page.infanzia div.box-tabs-footer div.border-bc{
+    background-image: url(images/infanzia/tabsfooter-bc.jpg);
+}
+
+
+
+/******************************************************************
+8. BOX CERCA
+*/
+div#page.infanzia div.block-search div.border-tl{
+    background-image: url(images/infanzia/search-tl.jpg);
+}
+
+div#page.infanzia div.block-search div.border-tr{
+    background-image: url(images/infanzia/search-tr.jpg);
+}
+
+div#page.infanzia div.block-search div.border-tc{
+    background-image: url(images/infanzia/search-tc.jpg);
+}
+
+div#page.infanzia div.block-search div.border-ml{
+    background-image: url(images/infanzia/search-ml.jpg);
+}
+
+div#page.infanzia div.block-search div.border-mr{
+    background-image: url(images/infanzia/search-mr.jpg);
+}
+
+div#page.infanzia div.block-search div.border-mc{
+    background: #94FFB9;
+}
+
+div#page.infanzia div.block-search div.border-bl{
+    background-image: url(images/infanzia/search-bl.jpg);
+}
+
+div#page.infanzia div.block-search div.border-br{
+    background-image: url(images/infanzia/search-br.jpg);
+}
+
+div#page.infanzia div.block-search div.border-bc{
+    background-image: url(images/infanzia/search-bc.jpg);
+}
+
+
+/******************************************************************
+9. BOX NUMERI
+*/
+div#page.infanzia div.box-numeri div.border-tl{
+    background-image: url(images/infanzia/numeri-tl.jpg);
+}
+
+div#page.infanzia div.box-numeri div.border-tr{
+    background-image: url(images/infanzia/numeri-tr.jpg);
+}
+
+div#page.infanzia div.box-numeri div.border-tc{
+    background-image: url(images/infanzia/numeri-tc.jpg);
+}
+
+div#page.infanzia div.box-numeri div.border-ml{
+    background-image: url(images/infanzia/numeri-ml.jpg);
+}
+
+div#page.infanzia div.box-numeri div.border-mr{
+    background-image: url(images/infanzia/numeri-mr.jpg);
+}
+
+div#page.infanzia div.box-numeri div.border-mc{
+    background: #fff;
+}
+
+div#page.infanzia div.box-numeri div.border-bl{
+    background-image: url(images/infanzia/numeri-bl.jpg);
+}
+
+div#page.infanzia div.box-numeri div.border-br{
+    background-image: url(images/infanzia/numeri-br.jpg);
+}
+
+div#page.infanzia div.box-numeri div.border-bc{
+    background-image: url(images/infanzia/numeri-bc.jpg);
+}
+
+
+/******************************************************************
+10. BOX LISTA
+*/
+
+/* 10.1 Prima colonna */
+div#page.infanzia div.box-lista div.border-tl{
+    background-image: url(images/infanzia/lista-tl.gif);
+}
+
+div#page.infanzia div.box-lista div.border-tr{
+    background-image: url(images/infanzia/lista-tr.gif);
+}
+
+div#page.infanzia div.box-lista div.border-bl{
+    background-image: url(images/infanzia/lista-bl.gif);
+}
+
+div#page.infanzia div.box-lista div.border-br{
+    background-image: url(images/infanzia/lista-br.gif);
+}
+
+div#page.infanzia div.box-lista div.border-tc,
+div#page.infanzia div.box-lista div.border-ml,
+div#page.infanzia div.box-lista div.border-mr,
+div#page.infanzia div.box-lista div.border-bc,
+div#page.infanzia div.box-lista div.border-mc{
+    background: #B2FFCB;
+}
+
+div#page.infanzia div.block-lista div.border-box div.border-tc 
+div#page.infanzia div.block-lista div.border-box div.border-content 
+{
+	background-image:url(images/infanzia/lista-bg.jpg);
+}
+
+
+/* 10.2 Seconda colonna */
+div#page.infanzia div.box-lista-2 div.border-tl{
+    background-image: url(images/infanzia/lista-2-tl.gif);
+}
+
+div#page.infanzia div.box-lista-2 div.border-tr{
+    background-image: url(images/infanzia/lista-2-tr.gif);
+}
+
+div#page.infanzia div.box-lista-2 div.border-bl{
+    background-image: url(images/infanzia/lista-2-bl.gif);
+}
+
+div#page.infanzia div.box-lista-2 div.border-br{
+    background-image: url(images/infanzia/lista-2-br.gif);
+}
+
+div#page.infanzia div.box-lista-2 div.border-tc,
+div#page.infanzia div.box-lista-2 div.border-ml,
+div#page.infanzia div.box-lista-2 div.border-mr,
+div#page.infanzia div.box-lista-2 div.border-bc,
+div#page.infanzia div.box-lista-2 div.border-mc{
+    background: #B3FFE5;
+}
+
+div#page.infanzia div.block-lista-2 div.border-box div.border-tc 
+div#page.infanzia div.block-lista-2 div.border-box div.border-content 
+{
+	background-image:url(images/infanzia/lista-2-bg.jpg);
+}
+
+/* 10.3 Terza colonna */
+div#page.infanzia div.box-lista-3 div.border-tl{
+    background-image: url(images/infanzia/lista-3-tl.gif);
+}
+
+div#page.infanzia div.box-lista-3 div.border-tr{
+    background-image: url(images/infanzia/lista-3-tr.gif);
+}
+
+div#page.infanzia div.box-lista-3 div.border-bl{
+    background-image: url(images/infanzia/lista-3-bl.gif);
+}
+
+div#page.infanzia div.box-lista-3 div.border-br{
+    background-image: url(images/infanzia/lista-3-br.gif);
+}
+
+div#page.infanzia div.box-lista-3 div.border-tc,
+div#page.infanzia div.box-lista-3 div.border-ml,
+div#page.infanzia div.box-lista-3 div.border-mr,
+div#page.infanzia div.box-lista-3 div.border-bc,
+div#page.infanzia div.box-lista-3 div.border-mc{
+    background: #B3FFFF;
+}
+
+div#page.infanzia div.block-lista-3 div.border-box div.border-tc 
+div#page.infanzia div.block-lista-3 div.border-box div.border-content 
+{
+	background-image:url(images/infanzia/lista-3-bg.jpg);
+}
+
+/******************************************************************
+11. BOX ALLEGATI
+*/
+
+/* 11.1 Allegati Header */
+div#page.infanzia div.box-allegati-header div.border-tl{
+    background-image: url(images/infanzia/allegatiheader-tl.jpg);
+}
+div#page.infanzia div.box-allegati-header div.border-tr{
+    background-image: url(images/infanzia/allegatiheader-tr.jpg);
+}
+div#page.infanzia div.box-allegati-header div.border-tc{
+    background-image: url(images/infanzia/allegatiheader-tc.jpg);
+}
+div#page.infanzia div.box-allegati-header div.border-ml{
+    background-image: url(images/infanzia/allegatiheader-ml.jpg);
+}
+div#page.infanzia div.box-allegati-header div.border-mr{
+    background-image: url(images/infanzia/allegatiheader-mr.jpg);
+}
+div#page.infanzia div.box-allegati-header div.border-mc{
+    background: #348634;
+}
+
+/* 11.2 Allegati Content */
+div#page.infanzia div.box-allegati-content div.border-ml{
+    background-image: url(images/infanzia/allegaticontent-ml.jpg);
+}
+div#page.infanzia div.box-allegati-content div.border-mr{
+    background-image: url(images/infanzia/allegaticontent-mr.jpg);
+}
+div#page.infanzia div.box-allegati-content div.border-mc{
+    background: #fff;
+}
+div#page.infanzia div.box-allegati-content div.border-bl{
+    background-image: url(images/infanzia/allegaticontent-bl.jpg);
+}
+div#page.infanzia div.box-allegati-content div.border-br{
+    background-image: url(images/infanzia/allegaticontent-br.jpg);
+}
+div#page.infanzia div.box-allegati-content div.border-bc{
+    background-image: url(images/infanzia/allegaticontent-bc.jpg);
+}
+
+/******************************************************************
+12. BOX COMMENTI
+*/
+div#page.infanzia div.box-comment div.border-tl{
+    background-image: url(images/infanzia/lista-tl.gif);
+}
+
+div#page.infanzia div.box-comment div.border-tr{
+    background-image: url(images/infanzia/lista-tr.gif);
+}
+
+div#page.infanzia div.box-comment div.border-bl{
+    background-image: url(images/infanzia/lista-bl.gif);
+}
+
+div#page.infanzia div.box-comment div.border-br{
+    background-image: url(images/infanzia/lista-br.gif);
+}
+
+div#page.infanzia div.box-comment div.border-tc,
+div#page.infanzia div.box-comment div.border-ml,
+div#page.infanzia div.box-comment div.border-mr,
+div#page.infanzia div.box-comment div.border-bc,
+div#page.infanzia div.box-comment div.border-mc{
+    background: #B2FFCB;
+}
+
+div#page.infanzia div.block-comment div.border-box div.border-tc 
+div#page.infanzia div.block-comment div.border-box div.border-content 
+{
+	background-image:url(images/infanzia/lista-bg.jpg);
+}
+
+/******************************************************************
+13. RIGHE ALTERNATE CONTENUTO
+*/
+div#page.infanzia div.col-odd {
+	background-color:#fff;
+}
+
+div#page.infanzia div.col-even {
+	background-color:#fff;
+}
+
+/******************************************************************
+13. HEADER E LOGO
+*/
+div#page.infanzia div#header {
+	background-image:url(images/infanzia/header-bg.jpg);
+}
+
+div#page.area_tematica div#logo h1 a, 
+div#page.area_tematica div#logo h1 a:hover, 
+div#page.area_tematica div#logo h1 a:visited {
+	background:url(images/infanzia/logo-bg.jpg) no-repeat scroll left top !important;
+}

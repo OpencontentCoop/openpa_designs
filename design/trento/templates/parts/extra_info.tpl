@@ -1,0 +1,241 @@
+{*
+	TEMPLATE EXTRA INFO
+	node	nodo principale
+*}
+
+{*
+	DISPOSIZIONE DEI BLOCCHI
+	- navigazione
+	- motore di ricerca basato sulla classe
+	- 1 colonna definita in ezflow del folder
+	oppure:
+	- 1 colonna definita in ezflow del folder antenato
+	oppure:
+	- global layout (se definito entro il QUINTO LIVELLO) 
+
+*}
+
+
+{def $layout1zone = '1ZonesLayoutFolder'
+	$enabled_container = ezini( 'GestioneClassi', 'escludere_da_extra_info', 'openpa.ini')
+	$folder =''
+    $folder_virtuale = false()
+	$classi_filtro = ezini( 'GestioneClassi', 'classi_che_producono_contenuti', 'openpa.ini')
+	$classe_filtro = false()}
+
+
+{if $classi_filtro|contains($node.class_identifier)}
+	{set $classe_filtro = $node.class_identifier}
+{/if}
+{if $enabled_container|contains($node.class_identifier)}
+	{if is_set($node.data_map.classi_filtro)}
+		{if $node.data_map.classi_filtro.content|ne('')}
+			{set $folder = $node}
+		{/if}
+	{/if}
+{elseif $enabled_container|contains($node.parent.class_identifier)}
+	{set $folder = $node.parent}
+{/if}
+
+{if and( is_set( $folder.data_map.classi_filtro ), $folder.data_map.classi_filtro.content|ne('') )}
+    {set $folder_virtuale = true()}
+{/if}
+
+{def $sort_order=$node.parent.sort_array[0][1]
+     $sort_column=$node.parent.sort_array[0][0]
+     $sort_column_value=cond( $sort_column|eq( 'published' ), $node.object.published,
+                             $sort_column|eq( 'modified' ), $node.object.modified,
+                             $sort_column|eq( 'name' ), $node.object.name,
+                             $sort_column|eq( 'priority' ), $node.priority,
+                             $sort_column|eq( 'modified_subnode' ), $node.modified_subnode,
+                             false() ) }
+{if $sort_column_value|eq( false() )}
+    {set $sort_column_value = $node.object.published
+         $sort_column = 'published'}
+{/if}
+
+
+
+{set-block variable=$open}
+<div class="extrainfo-box">
+{/set-block}
+{set-block variable=$close}
+</div>
+{/set-block}
+
+
+
+{* 
+	BLOCCO NAVIGAZIONE 
+{$open}
+	{include 
+		node=$node			
+		uri='design:parts/navigator.tpl' }
+{$close}
+*}
+
+
+{*
+	CALENDARIO
+*}
+
+{if or( $node.class_identifier|eq('event'), $node.class_identifier|eq('event_new') )}
+	{$open}
+		{include 
+			node=$node			
+			uri='design:parts/search_on_calendar.tpl' }
+	{$close}
+{/if}
+
+{* 
+	BLOCCO DI RICERCA
+	compare solo nei folder e negli oggetti con padre folder
+	qualora il campo 'engine' sia valorizzato la ricerca viene estesa a tutto il database
+*}
+{if $folder_virtuale}
+	{$open}
+		{include 
+			name=searchbox node=$node 			
+			folder=$folder.name|wash()
+			class_filters=$folder.data_map.classi_filtro.content|explode(',')
+			uri='design:parts/search_class_and_attributes.tpl' }
+	{$close}
+{/if}
+
+
+{*
+	BLOCCO PER LE STRUTTURE
+*}
+
+{if $classe_filtro}
+
+{set-block variable=$blocco_strutture}		
+{include 
+name=documenti 
+node=$node
+classe_filtro = $classe_filtro
+uri='design:parts/documenti_per_struttura.tpl' }
+{/set-block}			
+
+	{if ne($blocco_strutture|trim(), '')}
+		{$open}
+		{$blocco_strutture}
+		{$close}
+	{/if}
+
+{/if}
+
+
+
+{*
+	COLONNA DEFINITA NEL EZFLOW DEL FOLDER (O DELL'ANTENATO)
+*}
+{$open}
+{def $has_boxes=false() 
+    $has_boxes_folder=false()
+    $global_layout=array()
+}
+{if or( $node.class_identifier|eq(folder), $node.class_identifier|eq(pagina_sito), $node.class_identifier|eq(organo_politico) )} 
+    {if is_set($node.data_map.layout)}		
+		{if count( $node.data_map.layout.content )}
+			{if $node.data_map.layout.content.zone_layout|ne('0ZonesLayoutFolder')}
+				{if and($node.data_map.layout.content.zone_layout|eq($layout1zone), $node.depth|gt(2))}
+					{attribute_view_gui attribute=$node.data_map.layout}
+					{set $has_boxes_folder=true()}
+				{/if}
+			{/if}
+		{/if}
+	{/if}
+{/if}
+
+{def $findglobal = $node|find_global_layout()}    
+{if $findglobal}
+    {if or( $findglobal.object.can_edit, $findglobal.object.can_remove )}
+        <div class="controls square-box-soft-gray info-dipendente float-break" style="position: relative">
+            <div style='position: absolute; right: 3px; top: 3px; font-family: sans-serif; font-weight: bold;'><a href='#' onclick='javascript:this.parentNode.parentNode.style.display="none"; return false;'>X</a></div>
+            {if $findglobal.parent_node_id|ne( $node.node_id )}
+                <p><small>Questo menu di destra &egrave; ereditato da <a href={$findglobal.parent.url_alias|ezurl()}>{$findglobal.parent.name|wash()}</a></small></p>
+                {if fetch( 'content', 'access', hash( 'access', 'create', 'contentclass_id', 'global_layout', 'contentobject', $node ) )}
+                <form method="post" action={"content/action"|ezurl} class="left">
+                    <input type="hidden" name="HasMainAssignment" value="1" />
+                    <input type="hidden" name="ContentObjectID" value="{$node.object.id}" />
+                    <input type="hidden" name="NodeID" value="{$node.node_id}" />
+                    <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
+                    <input type="hidden" name="ContentLanguageCode" value="ita-IT" />
+                    <input type="hidden" name="ContentObjectLanguageCode" value="ita-IT" />
+                    <input type="hidden" value="global_layout" name="ClassIdentifier" />
+                    <input type="submit" value="Crea un menu dedicato" name="NewButton" />
+                </form>
+                {/if}
+            {else}
+                <form action={"/content/action"|ezurl} method="post">                
+                {if $findglobal.object.can_edit}
+                    <input type="submit" name="EditButton" value="Modifica menu" title="Modifica {$findglobal.name|wash()}" />
+                    <input type="hidden" name="ContentObjectLanguageCode" value="{$findglobal.object.current_language}" />
+                {/if}
+                {if $findglobal.object.can_remove}
+                    <input type="submit" name="ActionRemove" value="Elimina menu" alt="Elimina {$findglobal.name|wash()}" title="Elimina {$findglobal.name|wash()}" />
+                {/if}
+                    <input type="hidden" name="ContentObjectID" value="{$findglobal.object.id}" />
+                    <input type="hidden" name="NodeID" value="{$findglobal.node_id}" />
+                    <input type="hidden" name="ContentNodeID" value="{$findglobal.node_id}" />
+                </form>
+            {/if}                
+        </div>
+    {/if}
+    {attribute_view_gui attribute=$findglobal.data_map.page}
+{/if}
+{$close}
+
+{$open}
+    {if $enabled_container|contains($node.class_identifier)|not()}
+            {* BLOCCO RICERCA AUTOMATICA MORE LIKE THIS - con filtro sulla classe *}
+            {include 
+            name=morelikethis 
+            node=$node
+            title='Analoghi a questo'			
+            class_filter=$node.class_identifier
+            uri='design:parts/related_contents.tpl' }
+
+            {* BLOCCO RICERCA AUTOMATICA MORE LIKE THIS *}
+            {include 
+            name=morelikethis 
+            node=$node			
+            excluded_class_filter=$node.class_identifier
+            title='Forse ti può interessare'
+            uri='design:parts/related_contents.tpl'}
+            {set $has_boxes=true()}
+    {else} 
+       {if or($node.class_identifier|eq(folder),$node.class_identifier|eq(pagina_sito))}
+            {if is_set($node.data_map.layout)}
+                    {if count($node.data_map.layout.content)}	
+                            {if $node.data_map.layout.content.zone_layout|ne('0ZonesLayoutFolder')}
+                                    {if and($has_boxes|not(), $has_boxes_folder|not())}
+                                            {* mostra il motore di ricerca su una specifica classe *}
+                                            {attribute_view_gui attribute=$node.data_map.layout}
+                                            {set $has_boxes=true()}
+                                    {/if}
+                            {/if}
+                    
+                    {/if}
+            {else}
+                    {if $global_layout|count()|gt(0)}
+                                    {attribute_view_gui attribute=$global_layout[0].data_map.page}
+                    {/if}
+            {/if}
+       {else}
+            {* caso di organo politico*}
+            {*non faccio nulla*}
+       {/if}
+    {/if}
+
+{$close}		
+
+
+{*if or( $node.class_identifier|eq('event'), $node.class_identifier|eq('event_new') )}
+	{$open}
+		{include 
+			node=$node			
+			uri='design:parts/today_events.tpl' }
+	{$close}
+{/if*}
