@@ -101,7 +101,7 @@
                     {foreach $infos.children as $info}
                         <li><a href={$info.url_alias|ezurl()} title="Link a {$info.name|wash()}">{$info.name|wash()}</a></li>
                     {/foreach}
-                    <li id="login" style="display: none"><a href={concat("/user/login?url=",$module_result.uri)|ezurl} title="Login al sistema">Accesso redazione</a></li>
+                    <li id="login" style="display: none"><a href={"/user/login"|ezurl} title="Login al sistema">Accesso redazione</a></li>
                 </ul>
             </div>
         </div>

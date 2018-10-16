@@ -53,7 +53,7 @@ imgPreloader.src = 'https://firewall.comune.trento.it/kattivecli.cgi?state=statu
 <h2 class="hide">Menu di utilit&agrave;</h2>
 <ul>
 
-	<li id="login" style="display: none"><a href={concat("/user/login?url=",$module_result.uri)|ezurl} title="Login">Login</a></li>
+	<li id="login" style="display: none"><a href={"/user/login"|ezurl} title="Login">Login</a></li>
 
 	<li id="print">
         {def $print_url = concat( '/layout/set/print', $module_result.uri )|query_string()}

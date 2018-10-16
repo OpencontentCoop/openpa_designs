@@ -22,7 +22,7 @@
 	{/if}
 	{if is_set($pagedesign.data_map.login_label)}
 		{if $pagedesign.data_map.login_label.has_content}
-		<li id="login"><a href={concat("/user/login?url=",$module_result.uri)|ezurl} title="{$pagedesign.data_map.login_label.data_text|wash}">{$pagedesign.data_map.login_label.data_text|wash}</a></li>
+		<li id="login"><a href={"/user/login"|ezurl} title="{$pagedesign.data_map.login_label.data_text|wash}">{$pagedesign.data_map.login_label.data_text|wash}</a></li>
 		{/if}
 	{/if}
 {/if}
