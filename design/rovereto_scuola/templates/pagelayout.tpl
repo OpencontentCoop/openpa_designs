@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function(event) {ldelim}cookieChoi
 
 </div>
 
+{include uri='design:page_hidden_path.tpl'}
 {include uri='design:page_footer_script.tpl'}
 
 
