@@ -1,5 +1,6 @@
 {if and( is_set( $view_parameters.view ), $view_parameters.view|ne( $node.node_id ) )}
-    {node_view_gui view=full content_node=fetch( content, node, hash( 'node_id', $view_parameters.view ) )}
+    {def $embed_node = fetch( content, node, hash( 'node_id', $view_parameters.view ) )}
+    {include uri=object_handler($embed_node).control_template.full node=$embed_node}
 {else}
 {include name=menu_control node=$node uri='design:parts/common/menu_control.tpl'}
 

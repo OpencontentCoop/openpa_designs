@@ -20,7 +20,7 @@
                             {/if}
                         </a></li>
                 {elseif is_set( $view_parameters.view )}
-                    <li><a href={concat( 'content/view/full/', $current_node_id)|ezurl}>{$path.text|wash}</a></li>
+                    <li><a href={concat( 'content/view/full/', $pagedata.node_id)|ezurl}>{$path.text|wash}</a></li>
                 {else}
                     <li class="active">{$path.text|wash}</li>
                 {/if}

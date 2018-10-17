@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function(event) {ldelim}cookieChoi
         {else}
             {include uri='design:page_header.tpl'}
         {/if}
+        {undef $pagedata}
     {/cache-block}
     {/debug-accumulator}
 
