@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function(event) {ldelim}cookieChoi
     {/debug-accumulator}
 
     {debug-accumulator id=page_header name=page_header}
-    {cache-block expiry=86400 ignore_content_expiry keys=array( $access_type.name, $extra_cache_key )}
+    {cache-block expiry=86400 ignore_content_expiry keys=array( $access_type.name, $extra_cache_key, openpacontext().top_menu_cache_key )}
         {def $pagedata = openpapagedata()}
         {if $ui_context|eq('navigation')|not()}
             {include uri='design:page_header.tpl'}
