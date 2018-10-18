@@ -467,7 +467,8 @@ body.inner-page .navClone {
 }
 
 #appuntamento .area-text {
-    padding: 54px 36px 0;
+    /*padding: 54px 36px 0;*/
+    padding: 5px 36px 0;
 }
 
 #appuntamento .page {
