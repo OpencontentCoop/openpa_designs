@@ -1,5 +1,5 @@
-{if and( $current_node, $current_node.class_identifier|eq( 'ufficio' ) )}
-    {def $servizi_erogati = fetch( 'content', 'list', hash( 'parent_node_id', $node_id,
+{if $current_node.class_identifier|eq( 'ufficio' )}
+    {def $servizi_erogati = fetch( 'content', 'list', hash( 'parent_node_id', $current_node.node_id,
                                                            'sort_by', $current_node.sort_array,
                                                            'class_filter_type', 'include',
                                                            'class_filter_array', array( 'scheda_informativa' ) ) )}
@@ -35,8 +35,7 @@
     {/if}
 {/if}
 
-
-{if and( $current_node, $current_node.class_identifier|eq( 'event' ) )}
+{if $current_node.class_identifier|eq( 'event' )}
     {def $calendarData = fetch( openpa, calendario_eventi, hash( 'calendar', $current_node.parent, 'params', hash( 'interval', 'P2Y',
                                                                                                                'filter', array( concat( '-meta_id_si:', $current_node.contentobject_id ) ),
                                                                                                                'day', 1,

@@ -8,6 +8,8 @@
 
     </div>
 
+    {include name=footer_menu current_node=$node uri='design:page_footermenu.tpl'}
+
     {* aiutaci a migliorare *}
     {if and( $homepage.node_id|ne($node.node_id), $node.class_identifier|ne('frontpage'), $node.class_identifier|ne('homepage'), is_set($persistent_variable.hide_valuation)|not() ) }
         {include name=valuation node_id=$node.node_id uri='design:parts/openpa/valuation.tpl'}
@@ -15,8 +17,4 @@
 
 </div>
 
-
-
 {include uri='design:parts/load_website_toolbar.tpl'}
-
-{include name=footer_menu uri='design:page_footermenu.tpl' current_node=$node}

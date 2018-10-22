@@ -56,6 +56,7 @@
                     <ul>
                         {foreach $comune.children as $child}
                         {if openpaini( 'TopMenu', 'IdentificatoriMenu', array() )|contains($child.class_identifier)|not()}{skip}{/if}
+                        {if $child.can_read|not()}{skip}{/if}
                         <li><a href="{$child.url_alias|ezurl(no)}" title="Link a {$child.name|wash()}">{$child.name|wash()}</a></li>
                         {/foreach}
                     </ul>
@@ -65,6 +66,7 @@
                     <ul>
                         {foreach $citta.children as $child}
                         {if openpaini( 'TopMenu', 'IdentificatoriMenu', array() )|contains($child.class_identifier)|not()}{skip}{/if}
+                        {if $child.can_read|not()}{skip}{/if}
                         <li><a href="{$child.url_alias|ezurl(no)}" title="Link a {$child.name|wash()}">{$child.name|wash()}</a></li>
                         {/foreach}
                     </ul>
