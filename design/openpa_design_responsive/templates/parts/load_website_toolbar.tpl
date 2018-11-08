@@ -1,5 +1,5 @@
 {if $current_user.is_logged_in}
-    {ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio', 'chosen.jquery.js' ) )}
+    {ezscript_require( array( 'chosen.jquery.js' ) )}
     {ezcss_require( array( 'chosen.css' ) )}
     <script>{literal}
     $(document).ready(function(){
