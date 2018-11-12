@@ -17,7 +17,8 @@ class OpenPAExtraOperator
             'has_html_content',
             'html_entity_decode',
             'show_time',
-            'fake_block'
+            'fake_block',
+            'agenda_site_url'
         );
     }
 
@@ -73,6 +74,15 @@ class OpenPAExtraOperator
     
     function modify( &$tpl, &$operatorName, &$operatorParameters, &$rootNamespace, &$currentNamespace, &$operatorValue, &$namedParameters )
     {		
+
+        if( $operatorName == 'agenda_site_url' )
+        {
+            if (class_exists('OpenPAAgenda')){
+                $agenda = OpenPAAgenda::instance();                
+                return $operatorValue = $agenda->siteUrl();
+            }
+            return null;
+        }
 
         if( $operatorName == 'fake_block' )
         {
