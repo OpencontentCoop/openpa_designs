@@ -42,8 +42,12 @@
     "ez/edit.less",
     "ez/general-content.less",
     "ez/debug.less",
-    "app.less",
+    "app.less"
 )|ocless_add()}
 
-{ezcss_load()}
+{ezcss_load(array(
+    'leaflet/leaflet.css',
+    'leaflet/MarkerCluster.css',
+    'leaflet/MarkerCluster.Default.css'
+))}
 {ocless()}

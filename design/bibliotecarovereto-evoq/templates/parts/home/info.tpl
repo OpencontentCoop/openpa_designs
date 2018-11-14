@@ -1,6 +1,6 @@
 <section class="info">
-    <div class="container">
-        <div class="row">
+
+        <div class="row" style="margin: 0">
             <div class="col-sm-4 magenta text-center">
                 <header>
                     <h3>Orari di apertura</h3>
@@ -78,5 +78,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </section><!-- /.info -->

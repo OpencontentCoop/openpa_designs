@@ -1,4 +1,3 @@
-{if openpacontext().current_node_id|eq( ezini('NodeSettings', 'RootNode', 'content.ini' ) )}
 {literal}
 <script type="text/javascript">
 
@@ -48,7 +47,6 @@ imgPreloader.src = 'https://firewall.comune.trento.it/kattivecli.cgi?state=statu
         <img style="vertical-align: middle" id="kstatus" src={'loader.gif'|ezimage()} />
     </a>
 </div>
-{/if}
 
 <h2 class="hide">Menu di utilit&agrave;</h2>
 <ul>

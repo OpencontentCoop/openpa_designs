@@ -19,57 +19,71 @@
     {def $height = '600'}
 {/if}
 
+{if or( $width|ends_with('px'), $width|ends_with('%') )|not()}
+    {set $width = concat( $width, 'px' )}
+{/if}
+
+{if or( $height|ends_with('px'), $height|ends_with('%') )|not()}
+    {set $height = concat( $height, 'px' )}
+{/if}
+
 {def $root = ezini( 'NodeSettings', 'RootNode', 'content.ini' )}
 {if is_set( $block.custom_attributes.parent_node_id )}
     {set $root = $block.custom_attributes.parent_node_id}
 {/if}
 
-{def $locations = fetch( 'content', 'tree', hash( 'parent_node_id', $root,
-                                                  'class_filter_type', 'include',
-                                                  'class_filter_array', array( $block.custom_attributes.class ),
-                                                  'sort_by', array( 'name', true() ),
-                                                  'limit', $limit ) )
-     $attribute = $block.custom_attributes.attribute}
-
-{def $domain=ezsys( 'hostname' )|explode('.')|implode('_')}
-
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=" type="text/javascript"></script>
-{ezscript_require( 'ezflgmapview.js' )}
-
-<script type="text/javascript">
-<!--
-    var data{$block.id} = [];
-    
-    {foreach $locations as $location}
-    {if $location.data_map[$attribute].has_content}
-    data{$block.id}.push( {ldelim}
-                            point: new GLatLng( {$location.data_map[$attribute].content.latitude}, {$location.data_map[$attribute].content.longitude} ),
-                            address: "<h3><a href='{$location.url_alias|ezurl('no')}'>{$location.name|wash()}</a></h3>{$location.data_map[$attribute].content.address}"
-                        {rdelim} );
-    {/if}
-    {/foreach}
-
-    eZFLGMapAddListener( window, 'load', function(){ldelim} eZFLGMapView( '{$block.id}', data{$block.id} ) {rdelim}, false );
--->
-</script>
-
 <h2 class="block-title">{$block.name|wash()}</h2>
-
-{if or( $width|contains('px'), $width|contains('%') )|not()}
-    {set $width = concat( $width, 'px' )}
-{/if}
-{if or( $height|contains('px'), $height|contains('%') )|not()}
-    {set $height = concat( $width, 'px' )}
-{/if}
-
-
-<div id="ezflb-map-{$block.id}" class="block-map" style="float: left; width: {$width}; height: {$height}"></div>
-
-<div id="ezflb-map-right" class="block-markers" style="float: left; width: 30%; margin-right:5px">
-<ul>
-{foreach $locations as $index => $location}
-    <li><a id="ezflb-pointer-{$block.id}-{$index}" href="{$location.url_alias|ezurl('no')}">{$location.name|wash()}</a></li>
-{/foreach}
-</ul>
+<div class="float-break">
+    <div id="block-map-{$block.id}" class="block-map" style="float: left; width: {$width}; height: {$height}"></div>
+    <div class="block-markers" style="float: left; width: 30%;"><ul id="block-markers-{$block.id}"></ul></div>
 </div>
+
+<script>
+    {run-once}
+    {literal}
+    var loadMap = function(mapId,markersId,geoJson){
+        var tiles = L.tileLayer('//{s}.tile.osm.org/{z}/{x}/{y}.png', {maxZoom: 18,attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'});
+        var map = L.map(mapId).addLayer(tiles);
+        map.scrollWheelZoom.disable();
+        var markers = L.markerClusterGroup();
+        var markerMap = {};
+        $.getJSON(geoJson, function(data) {
+            $.each(data.features, function(i,v){
+                var markerListItem = $("<li data-id='"+v.id+"'><a href='"+v.properties.url+"'><small style='display:none'>"+v.properties.className+"</small> "+v.properties.name+"</a></li>");
+                markerListItem.bind('click',markerListClick);
+                $('#'+markersId).append(markerListItem);
+            });
+            var geoJsonLayer = L.geoJson(data, { pointToLayer: function (feature, latlng) {
+                    var customIcon = L.MakiMarkers.icon({icon: "star", color: "#f00", size: "l"});
+                    var marker = L.marker(latlng, {icon: customIcon});
+                    markerMap[feature.id] = marker;
+                    return marker;
+                } });
+            markers.addLayer(geoJsonLayer);
+            map.addLayer(markers);
+            map.fitBounds(markers.getBounds());
+        });
+        markers.on('click', function (a) {
+            $.getJSON("{/literal}{'/openpa/data/map_markers'|ezurl(no)}{literal}?contentType=marker&view=line&id="+a.layer.feature.id, function(data) {
+                var popup = new L.Popup({maxHeight:360});
+                popup.setLatLng(a.layer.getLatLng());
+                popup.setContent(data.content);
+                map.openPopup(popup);
+            });
+        });
+        markerListClick = function(e){
+            var id = $(e.currentTarget).data('id');
+            var m = markerMap[id];
+            markers.zoomToShowLayer(m, function() { m.fire('click');});
+            e.preventDefault();
+        }
+    };
+    {/literal}
+    {/run-once}
+    loadMap(
+        'block-map-{$block.id}',
+        'block-markers-{$block.id}',
+        "{concat('/openpa/data/map_markers'|ezurl(no), '?parentNode=',$block.custom_attributes.parent_node_id, '&classIdentifiers=', $block.custom_attributes.class )}&contentType=geojson"
+    );
+</script>
 
