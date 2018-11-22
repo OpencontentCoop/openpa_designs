@@ -1,6 +1,6 @@
 {def $_redirectAfterPublish = false()}
 {if ezhttp( 'url', 'get', true() )}
-    {set $_redirectAfterPublish = ezhttp( 'url', 'get' )}
+    {set $_redirectAfterPublish = ezhttp( 'url', 'get' )|wash()}
 {else}
     {set $_redirectAfterPublish = concat( 'openpa/object/', $object.id )}	
 {/if}  

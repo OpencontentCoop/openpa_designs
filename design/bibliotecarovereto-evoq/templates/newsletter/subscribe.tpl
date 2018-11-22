@@ -183,7 +183,7 @@
                                         <div class="g-recaptcha" data-sitekey="{$recaptcha_public_key}"></div>
                                         <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl={fetch( 'content', 'locale' ).country_code|downcase}"></script>
                                     {/if}
-                                    <input type="hidden" name="BackUrlInput" value="{cond( ezhttp_hasvariable('BackUrlInput'), ezhttp('BackUrlInput'), 'newsletter/subscribe'|ezurl('no'))}" />
+                                    <input type="hidden" name="BackUrlInput" value="{cond( ezhttp_hasvariable('BackUrlInput'), ezhttp('BackUrlInput')|wash(), 'newsletter/subscribe'|ezurl('no'))}" />
                                     <input class="btn btn-primary pull-right" type="submit" name="SubscribeButton" value="{'Subscribe'|i18n( 'cjw_newsletter/subscribe' )}" title="{'Add to subscription.'|i18n( 'cjw_newsletter/subscribe' )}" />
                                     <a href={$node_url|ezurl}><input class="btn btn-danger pull-left" type="submit" name="CancelButton" value="{'Cancel'|i18n( 'cjw_newsletter/subscribe' )}" /></a>
                                 </div>

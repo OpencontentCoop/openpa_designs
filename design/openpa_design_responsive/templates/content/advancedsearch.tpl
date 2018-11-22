@@ -11,23 +11,23 @@
 {/if}
 
 {* cattura le variabili passate via GET *}
-{def $latitude 				    = cond( ezhttp_hasvariable( 'latitude','get','hasVariable' ), ezhttp( 'latitude', 'get' ) )
-     $longitude 				= cond( ezhttp_hasvariable( 'longitude','get','hasVariable' ), ezhttp( 'longitude', 'get' ) )
+{def $latitude 				    = cond( ezhttp_hasvariable( 'latitude','get','hasVariable' ), ezhttp( 'latitude', 'get' )|wash() )
+     $longitude 				= cond( ezhttp_hasvariable( 'longitude','get','hasVariable' ), ezhttp( 'longitude', 'get' )|wash() )
      $address 				    = cond( ezhttp_hasvariable( 'address','get','hasVariable' ), ezhttp( 'address', 'get' ) )
      $anni 				        = cond( ezhttp_hasvariable( 'Anni','get','hasVariable' ), ezhttp( 'Anni', 'get' ) )
 	 $interna 			        = cond( ezhttp_hasvariable( 'Interna','get','hasVariable' ), ezhttp( 'Interna', 'get' ) )
-	 $Sort 			        	= cond( ezhttp_hasvariable( 'Sort','get','hasVariable' ), ezhttp( 'Sort', 'get' ) )
-	 $cond 			        	= cond( ezhttp_hasvariable( 'cond','get','hasVariable' ), ezhttp( 'cond', 'get' ) )
-	 $Order 		        	= cond( ezhttp_hasvariable( 'Order','get','hasVariable' ), ezhttp( 'Order', 'get' ) )
+	 $Sort 			        	= cond( ezhttp_hasvariable( 'Sort','get','hasVariable' ), ezhttp( 'Sort', 'get' )|wash() )
+	 $cond 			        	= cond( ezhttp_hasvariable( 'cond','get','hasVariable' ), ezhttp( 'cond', 'get' )|wash() )
+	 $Order 		        	= cond( ezhttp_hasvariable( 'Order','get','hasVariable' ), ezhttp( 'Order', 'get' )|wash() )
 	 $classe		        	= cond( ezhttp_hasvariable( 'SearchContentClassID','get','hasVariable' ), ezhttp( 'SearchContentClassID', 'get' ) )
 	 $anno_s 		        	= cond( ezhttp_hasvariable( 'anno_s','get','hasVariable' ), ezhttp( 'anno_s', 'get' ) )
-     $from       		        = cond( ezhttp( 'from','get','hasVariable' ), ezhttp( 'from', 'get' ) )
+     $from       		        = cond( ezhttp( 'from','get','hasVariable' ), ezhttp( 'from', 'get' )|wash() )
 	 $from_attributes      		= cond( ezhttp( 'from_attributes','get','hasVariable' ), ezhttp( 'from_attributes', 'get' ) )
-	 $to     		        	= cond( ezhttp( 'to','get','hasVariable' ), ezhttp( 'to', 'get' ) )
+	 $to     		        	= cond( ezhttp( 'to','get','hasVariable' ), ezhttp( 'to', 'get' )|wash() )
 	 $to_attributes    		    = cond( ezhttp( 'to_attributes','get','hasVariable' ), ezhttp( 'to_attributes', 'get' ) )
-	 $SearchButton 		    	= cond( ezhttp_hasvariable( 'SearchButton','get','hasVariable' ), ezhttp( 'SearchButton', 'get' ) )
+	 $SearchButton 		    	= cond( ezhttp_hasvariable( 'SearchButton','get','hasVariable' ), ezhttp( 'SearchButton', 'get' )|wash() )
 	 $SubTreeArray 	    	    = cond( ezhttp_hasvariable( 'SubTreeArray','get','hasVariable' ), ezhttp( 'SubTreeArray', 'get' ), false() )
-	 $OriginalNodeID 	    	= cond( ezhttp_hasvariable( 'OriginalNode','get','hasVariable' ), ezhttp( 'OriginalNode', 'get' ), ezini( 'NodeSettings', 'RootNode', 'content.ini' ) )
+	 $OriginalNodeID 	    	= cond( ezhttp_hasvariable( 'OriginalNode','get','hasVariable' ), ezhttp( 'OriginalNode', 'get' )|wash(), ezini( 'NodeSettings', 'RootNode', 'content.ini' ) )
 }
 
 {* altre variabili di default *}
