@@ -53,19 +53,20 @@
         </div></div>
 {/if}
 
-
+{if and(is_set($node.data_map.simpatico_enabled), $node.data_map.simpatico_enabled.data_int|eq(1), $node|has_attribute('simpatico_service_id'))}
+<!-- SIMPATICO BEGIN -->
 <script type="text/javascript">
-    var pageID = {$node.object.id}-{$node.object.current_version};
-    var simpaticoEservice = {$node.object.id}; //  the id corresponding to the e-service
+    var pageID = "{$node.object.id}-{$node.object.current_version}";
+    var simpaticoEservice = "{$node.data_map.simpatico_service_id.data_text|wash()}";
 </script>
-<script src="{'javascript/popupoverlay.js'|ezdesign(no)}"></script>
-<script src="{'javascript/log-core.js'|ezdesign(no)}"></script>
-<script src="{'javascript/ctz-core.js'|ezdesign(no)}"></script>
-<script src="{'javascript/ctz-ui.js'|ezdesign(no)}"></script>
-<script src="{'javascript/findAndReplaceDOMText.js'|ezdesign(no)}"></script>
-<script src="{'javascript/tae-core-store.js'|ezdesign(no)}"></script>
-<script src="{'javascript/simpatico-auth.js'|ezdesign(no)}"></script>
-<script src="{'javascript/simpatico-ife-oc.js'|ezdesign(no)}"></script>
-<link rel="stylesheet" href="{'stylesheets/simpatico-new-trento.css'|ezdesign(no)}" />
-<link rel="stylesheet" href="{'stylesheets/jquery-ui.css'|ezdesign(no)}" />
-<link rel="stylesheet" href="{'stylesheets/moduli.css'|ezdesign(no)}" />
+<link rel="stylesheet" href="https://simpatico.smartcommunitylab.it/simp-engines/wae/webdemo/css/simpatico-new-trento.css" media="all">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+<script src="https://simpatico.smartcommunitylab.it/simp-engines/wae/webdemo/demo/resources/js/popupoverlay.js"></script>
+<script src="https://simpatico.smartcommunitylab.it/simp-engines/wae/webdemo/js-ife/log-core.js"></script>
+<script src="https://simpatico.smartcommunitylab.it/simp-engines/wae/webdemo/js-ife/ctz-ui.js"></script>
+<script src="https://simpatico.smartcommunitylab.it/simp-engines/wae/webdemo/js-ife/ctz-core.js"></script>
+<script src="https://simpatico.smartcommunitylab.it/simp-engines/wae/webdemo/js-ife/tae-core-store.js"></script>
+<script src="https://simpatico.smartcommunitylab.it/simp-engines/wae/webdemo/js-ife/findAndReplaceDOMText.js"></script>
+<script src="https://simpatico.smartcommunitylab.it/simp-engines/wae/webdemo/demo/simpatico-ife-oc.js"></script>
+<!-- SIMPATICO END -->
+{/if}
