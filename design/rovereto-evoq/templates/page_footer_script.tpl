@@ -1,4 +1,5 @@
-{if openpaini( 'Seo', 'GoogleAnalyticsAccountID', false() )}
+{*https://opencontent.freshdesk.com/a/tickets/1383*}
+{*if openpaini( 'Seo', 'GoogleAnalyticsAccountID', false() )}
 <script type="text/javascript">
 <!--
     var _gaq = _gaq || [];
@@ -12,7 +13,7 @@
     {rdelim})();
 -->
 </script>
-{/if}
+{/if*}
 
 <!-- Piwik -->
 <script type="text/javascript">
