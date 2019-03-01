@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-9 col-lg-9 column-content">
                     <header>
-                        <h2>{$node.name|wash}</h2>
+                        <h2><span>{$node.name|wash}</span></h2>
                     </header>
 
                     <table class="table">
@@ -23,10 +23,11 @@
                             {/foreach}
                         </tbody>
                     </table>
-                    <hr class="spacer">
-                    <a href="{$node.parent.url_alias|ezurl('no')}"><i class="fa fa-arrow-circle-left"></i>Torna all'archivio</a>
+
                 </div>
                 <aside class="col-xs-12 col-md-3 col-lg-3 column-sidebar sidebar-extra">
+                    <a href="{$node.parent.url_alias|ezurl('no')}"><i class="fa fa-arrow-circle-left"></i>Torna all'archivio</a>
+                    <hr class="spacer">
                     <div class="well well-dark">
                         <h4>{$node.parent.name}</h4>
                         <div class="text">

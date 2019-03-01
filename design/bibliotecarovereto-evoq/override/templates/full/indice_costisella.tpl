@@ -7,12 +7,20 @@
                 <div class="col-xs-12 col-md-9 col-lg-9 column-content">
 
                     <header>
-                        <h2>{$node.name|wash}</h2>
+                        <h2><span>{$node.name|wash}</span></h2>
                     </header>
 
+                    {if $node|has_attribute( 'image' )}
+                        <hr class="spacer">
+                        {attribute_view_gui attribute=$node|attribute( 'image' ) image_class=large}
+                        <hr class="spacer">
+                    {/if}
+
+                    <div class="table-responsive">
                     <table class="table">
                         <tbody>
                             {foreach $node.object.contentobject_attributes as $attribute}
+                                {if $attribute.contentclass_attribute_identifier|ne('image')}
                                 {if $node|has_attribute( $attribute.contentclass_attribute_identifier )}
                                     <tr>
                                         <td>{$attribute.contentclass_attribute_name}</td>
@@ -21,13 +29,15 @@
                                         </td>
                                     </tr>
                                 {/if}
+                                {/if}
                             {/foreach}
                         </tbody>
                     </table>
-                    <hr class="spacer">
-                    <a href="{$node.parent.url_alias|ezurl('no')}"><i class="fa fa-arrow-circle-left"></i>Torna all'archivio</a>
+                    </div>
                 </div>
                 <aside class="col-xs-12 col-md-3 col-lg-3 column-sidebar sidebar-extra">
+                    <a href="{$node.parent.url_alias|ezurl('no')}"><i class="fa fa-arrow-circle-left"></i> Torna all'archivio</a>
+                    <hr class="spacer">
                     <div class="well well-dark">
                         <h4>{$node.parent.name}</h4>
                         <div class="text">
