@@ -80,7 +80,7 @@ class BibliotecaRoveretoNormalizeDate implements ezfIndexPlugin
             }
             $year = $this->clean($parts[2]);
 
-            return mktime(0,0,0, 1, (int)$day, (int)$year);
+            return mktime(0,0,0, (int)$month, (int)$day, (int)$year);
 
 
         }elseif (count($parts) == 1){
@@ -98,6 +98,7 @@ class BibliotecaRoveretoNormalizeDate implements ezfIndexPlugin
 
     private function clean($source)
     {
+        $value = trim($source);
         $value = trim($source, '[]');
         $value = str_replace('[', '', $value);
         $value = str_replace(']', '', $value);

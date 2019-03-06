@@ -19,20 +19,7 @@
 
                     <hr class="spacer">
 
-                    <div class="incontext-search-form">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="query" class="sr-only">Nome</label>
-                                <input type="text" class="form-control" id="query" placeholder="Ricerca libera">
-                            </div>
-                            <button type="submit" class="btn btn-default" id="FindContents">Cerca</button>
-                            <button type="submit" class="btn btn-default" style="display: none;" id="ResetContents">Annulla ricerca</button>
-                        </form>
-                    </div>
-
-                    <hr class="spacer">
-
-                    <div class="dataTables_wrapper table-responsive">
+                    <div class="dataTables_wrapper table-responsive" id="data-contents">
                         <table class="table table-bordered table-striped" id="id-{$node.node_id}">
                             <thead>
                             <tr>
@@ -40,6 +27,12 @@
                                 <th class="sorter sorting" data-field="raw[extra_data_morte_dt]">Data di morte</th>
                                 <th class="sorter sorting" data-field="raw[attr_luogo_morte_s]">Luogo di morte</th>
                                 <th class="sorter sorting" data-field="raw[extra_data_nascita_dt]">Data di nascita</th>
+                            </tr>
+                            <tr>
+                                <th class="finder"><input data-field="raw[{solr_meta_field('name')}]" type="text" class="form-control" placeholder="Cerca per nome" /></th>
+                                <th class="finder"><input data-field="raw[{solr_field('data_morte', 'text')}]" type="text" class="form-control" placeholder="Cerca per data di morte" /></th>
+                                <th class="finder"><input data-field="raw[{solr_field('luogo_morte', 'text')}]" type="text" class="form-control" placeholder="Cerca per luogo di morte" /></th>
+                                <th class="finder"><input data-field="raw[{solr_field('data_nascita', 'text')}]" type="text" class="form-control" placeholder="Cerca per data di nascita" /></th>
                             </tr>
                             </thead>
                             <tbody></tbody>
@@ -96,12 +89,12 @@
 </tr>
 {{/for}}
 <tr>
-	<td colspan="4">
+	<td colspan="4" class="text-right">
 		{{if prevPageQuery}}
-			<div class="pull-left"><a href="#" id="prevPage" data-query="{{>prevPageQuery}}">Pagina precedente</a></div>
+			<a href="#data-contents" id="prevPage" data-query="{{>prevPageQuery}}"><i class="fa fa-arrow-left"></i></a>
 		{{/if}}
 		{{if nextPageQuery }}
-			<div class="pull-right"><a href="#" id="nextPage" data-query="{{>nextPageQuery}}">Pagina successiva</a></div>
+			<a href="#data-contents" id="nextPage" data-query="{{>nextPageQuery}}"><i class="fa fa-arrow-right"></i></a>
 		{{/if}}
 	</td>
 </tr>
@@ -152,12 +145,27 @@
                 sort = 'desc';
             }
             var sortParams = '['+sortField+'=>'+sort+']';
-            var query = $('#query').val();
+
+            var filterParts = [];
+            $('th.finder input').each(function () {
+                var value = $(this).val();
+                var field = $(this).data('field');
+                if (value.length > 0){
+                    value = value.replace(/"/g, '\\\"')
+                        .replace(/'/g, "\\'")
+                        .replace(/\(/g, "\\(")
+                        .replace(/\)/g, "\\)");
+                    filterParts.push(field + ' = ' + "'\"" + value + "\"'");
+                }
+            });
             var filters = '';
-            if (query) {
-                filters += 'q = "' + query + '" and ';
+            if (filterParts.length > 0) {
+                filters = filterParts.join(' and ') + ' and ';
             }
-            return filters+classQuery+'subtree [' + ParentNodeId + '] sort '+sortParams+' limit ' + pageLimit;
+
+            var query = filters+classQuery+'subtree [' + ParentNodeId + '] sort '+sortParams+' limit ' + pageLimit;
+
+            return query;
         };
 
         var currentPage = 0;
@@ -184,6 +192,7 @@
                     if (remote) {
                         $.get(remote, function (response) {
                             remoteTarget.html($(response).find('section.main-content .column-content').html());
+                            remoteTarget.prepend('<div class="clearfix"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div>');
                             remoteTarget.find('header h2 span').wrap('<a href="/content/view/full/'+node+'"></a>');
                             $($this.data('target')).modal('show');
                         });
@@ -195,14 +204,13 @@
                 $container.find('#nextPage').on('click', function (e) {
                     currentPage++;
                     runQuery($(this).data('query'));
-                    e.preventDefault();
                 });
 
                 $container.find('#prevPage').on('click', function (e) {
                     currentPage--;
                     runQuery($(this).data('query'));
-                    e.preventDefault();
                 });
+                $('th.finder input').tooltip('hide');
             });
         };
 
@@ -226,22 +234,13 @@
             e.preventDefault();
         });
 
-        $('#FindContents').on('click', function (e) {
-            if ($('#query').val()) {
-                $('#ResetContents').show();
-                currentPage = 0;
+        $('th.finder input').on('change', function (e) {
+            loadContents();
+        }).on('keydown', function (e) {
+            if(e.keyCode === 13) {
+                loadContents();
             }
-            loadContents();
-            e.preventDefault();
-        });
-
-        $('#ResetContents').on('click', function (e) {
-            $('#query').val('');
-            $('#ResetContents').hide();
-            currentPage = 0;
-            loadContents();
-            e.preventDefault();
-        });
+        }).tooltip({'trigger':'focus', 'title': 'Digita un testo e premi invio'});
 
         loadContents();
     });

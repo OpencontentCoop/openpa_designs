@@ -12,7 +12,11 @@
 
                     {if $node|has_attribute( 'image' )}
                         <hr class="spacer">
-                        {attribute_view_gui attribute=$node|attribute( 'image' ) image_class=large}
+                        <div class="text-center">
+                            <a href={$node|attribute('image').content['original'].url|ezroot} title="{$node.name|wash()}" data-gallery>
+                                {attribute_view_gui attribute=$node|attribute( 'image' ) image_class=large}
+                            </a>
+                        </div>
                         <hr class="spacer">
                     {/if}
 
@@ -52,3 +56,5 @@
     {* Info *}
     {include uri='design:parts/home/info.tpl'}
 </div>
+{ezscript_require( array( 'ezjsc::jquery', "plugins/blueimp/jquery.blueimp-gallery.min.js" ) )}
+{ezcss_require( array( "plugins/blueimp/blueimp-gallery.css" ) )}

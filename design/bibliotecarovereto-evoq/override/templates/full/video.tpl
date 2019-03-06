@@ -1,11 +1,13 @@
+
 {ezpagedata_set( 'has_container', true() )}
 {def $css_page = 'col-xs-12 col-md-12 col-lg-12'}
 {if $node|has_attribute( 'image' )}
     {set $css_page = 'col-xs-12 col-md-9 col-lg-9'}
 {/if}
-
-
-{def $video_path = concat( '/content/download/', $node.data_map.media.contentobject_id, '/', $node.data_map.media.id, '/', $node.data_map.media.content.original_medianame )|ezurl( 'no', 'full' )}
+{def $video_path = false()}
+{if $node.data_map.media.has_content}
+    {set $video_path = concat( '/content/download/', $node.data_map.media.contentobject_id, '/', $node.data_map.media.id, '/', $node.data_map.media.content.original_medianame )|ezurl( 'no', 'full' )}
+{/if}
 {ezcss_require( 'video.css' )}
 {ezscript_require( 'video.js' )}
 
@@ -24,15 +26,25 @@
                         <div class="lead">{attribute_view_gui attribute=$node|attribute( 'sottotitolo' )}</div>
                     </header>
 
+                    {if $node|has_attribute('abstract')}
                     <div class="text">
                         {attribute_view_gui attribute=$node|attribute( 'abstract' )}
                     </div>
+                    {/if}
 
+                    {if $video_path}
                     <div class="attribute-video">
                         <video id="video_{$node.contentobject_id}" class="video-js vjs-default-skin" controls preload="auto" width="770" height="318" poster="" data-setup="{ldelim}{rdelim}">
                             <source src="{$video_path}" type="video/mp4" />
                         </video>
                     </div>
+                    {/if}
+
+                    {if $node|has_attribute('descrizione')}
+                    <div class="text">
+                        {attribute_view_gui attribute=$node|attribute( 'descrizione' )}
+                    </div>
+                    {/if}
                 </div><!-- /.column-content -->
 
                 {if $node|has_attribute( 'image' )}
