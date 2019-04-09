@@ -17,7 +17,6 @@
 
 
 {def $layout1zone = '1ZonesLayoutFolder'
-	$node = fetch(content, node, hash(node_id, $module_result.node_id))
 	$enabled_container = openpaini( 'GestioneClassi', 'escludere_da_extra_info' )
 	$folder =''
     $folder_virtuale = false()
@@ -134,7 +133,7 @@
     <div class="extrainfo-box findglobal">
         {attribute_view_gui attribute=$findglobal.data_map.page}
         {if or( $findglobal.object.can_edit, $findglobal.object.can_remove )}
-            <div class="panel panel-editor-tool">
+            <div class="panel panel-editor-tool editor_tools">
                 <div class="panel-heading">
                     <button type="button" class="close" onclick='javascript:this.parentNode.parentNode.style.display="none"; return false;'>&times;</button>
                     <h4 class="panel-title">Informazioni per l'editor</h4>

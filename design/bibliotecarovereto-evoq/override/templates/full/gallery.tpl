@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {* Gallery - Full view *}
 
 <div id="main-container" class="layout-page">

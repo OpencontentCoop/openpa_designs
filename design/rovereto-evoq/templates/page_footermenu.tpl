@@ -1,6 +1,5 @@
-{def $current_node = fetch( 'content', 'node', hash( 'node_id', $node_id ) )}
-{if and( $current_node, $current_node.class_identifier|eq( 'ufficio' ) )}
-    {def $servizi_erogati = fetch( 'content', 'list', hash( 'parent_node_id', $node_id,
+{if $current_node.class_identifier|eq( 'ufficio' )}
+    {def $servizi_erogati = fetch( 'content', 'list', hash( 'parent_node_id', $current_node.node_id,
                                                            'sort_by', $current_node.sort_array,
                                                            'class_filter_type', 'include',
                                                            'class_filter_array', array( 'scheda_informativa' ) ) )}
@@ -36,23 +35,12 @@
     {/if}
 {/if}
 
-
-{if and( $current_node, $current_node.class_identifier|eq( 'event' ) )}
+{if $current_node.class_identifier|eq( 'event' )}
     {def $calendarData = fetch( openpa, calendario_eventi, hash( 'calendar', $current_node.parent, 'params', hash( 'interval', 'P2Y',
                                                                                                                'filter', array( concat( '-meta_id_si:', $current_node.contentobject_id ) ),
                                                                                                                'day', 1,
                                                                                                                'month', 1,                                                                                                               
                                                                                                                'Manifestazione', $current_node.name ) ) )}
-    {*def $events=fetch( 'content', 'reverse_related_objects', hash( 'object_id',$current_node.object.id, 
-                                                                    'sort_by',  array( 'published', true() ),
-                                                                    'attribute_identifier', 'event/iniziativa' ) )          
-         $events_count=0
-         $done = array()}
-    {foreach $events as $item}	
-        {if $item.can_read}            
-            {set $events_count = $events_count|inc()}            
-        {/if}
-    {/foreach*}
 
     {if $calendarData.search_count|gt(0)}        
         <div class="row-fp">

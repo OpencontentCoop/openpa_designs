@@ -22,6 +22,8 @@
         </div>
     </div>
     {/if}
+
+    {def $current_node_id = openpacontext().reverse_path_id_array[0]}
     
     {if and( is_area_tematica(), $current_node_id|ne( is_area_tematica().node_id ) )}
     {include uri='design:parts/path.tpl'}
@@ -29,4 +31,3 @@
     
 </div>
 
-<div id="content" class="container">

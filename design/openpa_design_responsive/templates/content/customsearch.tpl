@@ -14,22 +14,22 @@
 
 
 {* cattura le variabili passate via GET *}
-{def $servizi_tmp = ezhttp( 'Servizi', 'get' )
+{def $servizi_tmp = ezhttp( 'Servizi', 'get' )|wash()
 	 $not_available_facets = openpaini( 'MotoreRicerca', 'faccette_non_disponibili' )
 	 $anni = ezhttp( 'Anni', 'get' )
 	 $interna = ezhttp( 'Interna', 'get' )
 	 $subfilter_arr = ezhttp('subfilter_arr','get')
 	 $argomenti = ezhttp( 'Argomenti', 'get' )
-	 $sort = ezhttp( 'Sort', 'get' )
-	 $cond = ezhttp( 'cond', 'get' )
-	 $order = ezhttp( 'Order', 'get' )
-	 $classe = ezhttp( 'SearchContentClassID', 'get' )
+	 $sort = ezhttp( 'Sort', 'get' )|wash()
+	 $cond = ezhttp( 'cond', 'get' )|wash()
+	 $order = ezhttp( 'Order', 'get' )|wash()
+	 $classe = ezhttp( 'SearchContentClassID', 'get' )|wash()
 	 $filtri_selezionati = ezhttp( 'Filtri', 'get' )
 	 $anno_s = ezhttp( 'anno_s', 'get' )
-	 $SearchButton = ezhttp( 'SearchButton', 'get' )
+	 $SearchButton = ezhttp( 'SearchButton', 'get' )|wash()
 	 $sub_tree_passed= ezhttp( 'SubTreeArray', 'get' )
 	 $orig_position=fetch(content,node,hash(node_id,$sub_tree_passed[0]))
-	 $OriginalNodeID= ezhttp( 'OriginalNode', 'get' )
+	 $OriginalNodeID= ezhttp( 'OriginalNode', 'get' )|wash()
 	 $filtro_id = ''
 	 $sort_by = ''
 	 $order_by = ''

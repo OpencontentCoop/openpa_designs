@@ -207,15 +207,6 @@ class OpenPAExtraOperator
             $moduleResult = array();
         }
         
-        $viewmode = false;
-        if ( isset( $moduleResult['content_info'] ) )
-        {
-            if ( isset( $moduleResult['content_info']['viewmode'] ) )
-            {
-                $viewmode = $moduleResult['content_info']['viewmode'];
-            }
-        }
-                
         $path = ( isset( $moduleResult['path'] ) && is_array( $moduleResult['path'] ) ) ? $moduleResult['path'] : array();
         
         if ( empty( $path ) && $tpl->hasVariable( 'node' ) && $tpl->variable( 'node' ) instanceof eZContentObjectTreeNode )
@@ -227,7 +218,16 @@ class OpenPAExtraOperator
             }
         }
         
-        
+        $currentNodeId = 0;
+        if ( isset( $moduleResult['node_id'] ) )
+        {
+            $currentNodeId = $moduleResult['node_id'];
+        }
+        elseif ( $tpl->hasVariable( 'node' ) && $tpl->variable( 'node' ) instanceof eZContentObjectTreeNode )
+        {
+            $currentNodeId = $tpl->variable( 'node' )->attribute('node_id');
+        }
+
         $pathIds = array();
         
         $isHome = false;
@@ -263,7 +263,7 @@ class OpenPAExtraOperator
             }
         }
         
-        if( isset( $moduleResult['node_id'] ) && $moduleResult['node_id'] == eZINI::instance( 'content.ini' )->variable( 'NodeSettings', 'RootNode', 'content.ini' ) )
+        if( $currentNodeId == eZINI::instance( 'content.ini' )->variable( 'NodeSettings', 'RootNode', 'content.ini' ) )
         {
             $isHome = true;
         }
@@ -277,12 +277,12 @@ class OpenPAExtraOperator
             case 'section_image':
                 $sectionImage = false;
                 $ignoreHomepage = $namedParameters['ignore_homepage'];
-                if( isset( $moduleResult['node_id'] ) )
+                if( $currentNodeId > 0 )
                 {
-                    $currentNode = eZContentObjectTreeNode::fetch( $moduleResult['node_id'] );                    
+                    $currentNode = eZContentObjectTreeNode::fetch( $currentNodeId );
                     if ( $currentNode instanceof eZContentObjectTreeNode )
                     {
-                        $sectionImage = $this->findSectionImageInNode( $currentNode );                        
+                        $sectionImage = self::findSectionImageInNode( $currentNode );
                         
                         if ( !$sectionImage )
                         {
@@ -297,7 +297,7 @@ class OpenPAExtraOperator
                                 }
                                 else
                                 {
-                                    $sectionImage = $this->findSectionImageInNode( $item );
+                                    $sectionImage = self::findSectionImageInNode( $item );
                                     if ( $sectionImage )
                                     {
                                         break;
@@ -323,7 +323,7 @@ class OpenPAExtraOperator
         }
     }
     
-    function findSectionImageInNode( eZContentObjectTreeNode $node )
+    private static function findSectionImageInNode( eZContentObjectTreeNode $node )
     {
         if ( $node instanceof eZContentObjectTreeNode )
         {

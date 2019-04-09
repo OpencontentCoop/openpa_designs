@@ -1,22 +1,5 @@
-{def $openpa = object_handler(false())
-     $show_editor = first_set( $openpa.content_tools.preferences.show_editor, 1)}
-<script>{literal}
-$(document).ready(function(){
-    var show = {/literal}{$show_editor}{literal};
-    var $editorTools = $(".editor_tools");
-    if ( $editorTools.length > 0 ){
-        if ( show == 0 ) $editorTools.hide();
-        $("#ezwt-help").removeClass('hide').find( 'a').on( 'click', function(e){
-            $editorTools.toggle();
-            $.ez.setPreference( 'show_editor', $editorTools.is(':hidden') == false ? 1 : 0 );
-            e.preventDefault();
-        });
-    }
-});
-{/literal}</script>
-<div id="ezwt-help" class="hide">
+<div id="ezwt-help" style="margin-right: 20px" data-show-editor="{if is_set($show_editor)}{$show_editor}{else}1{/if}">
     <a href="#" title="Mostra nascondi le informazioni per l'editor">
-        <i class="fa fa-info-circle fa-2x"></i>
+        <span class="glyphicon glyphicon-info-sign"></span>
     </a>
 </div>
-{undef $openpa}

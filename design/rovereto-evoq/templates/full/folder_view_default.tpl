@@ -1,8 +1,7 @@
 {* Folder - Full view *}
 {include name=menu_control node=$node uri='design:parts/common/menu_control.tpl'}
 
-{def $current_user = fetch( 'user', 'current_user' )
-     $classes_parent_to_edit=array('file_pdf', 'news')
+{def $classes_parent_to_edit=array('file_pdf', 'news')
      $sezioni_per_tutti= openpaini( 'GestioneSezioni', 'sezioni_per_tutti' )
 	 $style='col-odd'
 }

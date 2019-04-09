@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {* Link - Full view *}
 
 {def $css_page = 'col-xs-12 col-md-12 col-lg-12'}

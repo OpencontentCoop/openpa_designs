@@ -1,57 +1,65 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">
 <head>
-{set $current_user = fetch( 'user', 'current_user' )}
-{def $user_hash = concat( $current_user.role_id_list|implode( ',' ), ',', $current_user.limited_assignment_value_list|implode( ',' ) )
-     $is_login_page = cond( and( module_params()['module_name']|eq( 'user' ), module_params()['function_name']|eq( 'login' ) ), true(), false() )}
+    {if is_set( $extra_cache_key )|not}
+        {def $extra_cache_key = ''}
+    {/if}
+
+    {set $extra_cache_key = concat($extra_cache_key, $ui_context)}
+
+    {if openpacontext().is_area_tematica}
+        {set $extra_cache_key = concat($extra_cache_key, 'areatematica_', openpacontext().is_area_tematica)}
+    {/if}
+
+    {debug-accumulator id=section_identification name=section_identification}
+
+    {if is_home()}
+        {set $extra_cache_key = concat($extra_cache_key, 'home')}
+    {elseif is_section(  'comune' )}
+        {set $extra_cache_key = concat($extra_cache_key, 'comune')}
+    {elseif is_section(  'citta' )}
+        {set $extra_cache_key = concat($extra_cache_key, 'citta')}
+    {/if}
+
+    {def $main_sections = openpaini( 'Sezioni', 'Sezione', array() )}
+    {if and(is_set(openpacontext().reverse_path_id_array[0]), openpacontext().reverse_path_id_array[0]|ne($main_sections.comune))}
+        {set $extra_cache_key = concat($extra_cache_key, 'hide_path')}
+    {/if}
+
+    {/debug-accumulator}
 
 
-{if is_set( $extra_cache_key )|not}
-    {def $extra_cache_key = ''}
-{/if}
+    {set $extra_cache_key = concat($extra_cache_key, $ui_context)}
 
-{cache-block keys=array( $module_result.uri, $user_hash, $extra_cache_key )}
+    {debug-accumulator id=page_head_style name=page_head_style}
+    {include uri='design:page_head_style.tpl'}
+    {/debug-accumulator}
 
-{def $pagedata         = ezpagedata()
-     $pagestyle        = $pagedata.css_classes
-     $locales          = fetch( 'content', 'translation_list' )
-     $pagedesign       = $pagedata.template_look
-     $current_node_id  = $pagedata.node_id
-     $main_style       = get_main_style()
-     $extra_menu       = calculate_extra_menu( 'design:page_extramenu.tpl' )
-     $left_menu        = calculate_left_menu( 'design:menu/left.tpl' )
-     $background       = section_image()
-     $background_ignore_home  = section_image( true() )
-}
+    {debug-accumulator id=page_head_script name=page_head_script}
+    {include uri='design:page_head_script.tpl'}
+    {/debug-accumulator}
 
+    {include uri='design:page_head_google-site-verification.tpl'}
 
+    {include uri='design:page_head.tpl'}
+    {no_index_if_needed()}
 
-{include uri='design:page_head.tpl'}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-{if ezini( 'SiteSettings', 'SiteURL' )|contains( 'opencontent' )}
-{* creato un codice di verifica da Luca il 27/5/13 per rimuovere i contentuti di rovereto.opencontent.it da google *}
-<meta name="google-site-verification" content="vJmrgUY7jhJ0I7cSS3gTj2LI-DWXCyZMefGXmcwhhYU" />
-<META name="robots" content="NOINDEX,NOFOLLOW" />
-{/if}
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-{include uri='design:page_head_style.tpl'}
-{include uri='design:page_head_script.tpl'}
-
-<!--[if lt IE 9]>
-<script src={'javascript/html5shiv.js'|ezdesign()}></script>
-<script src={'javascript/respond.min.js'|ezdesign()}></script>
-<![endif]-->
 
 </head>
-<body>
-  
+<body class="no-js">
 <script src="{'javascript/cookiechoices.js'|ezdesign(no)}"></script>
-{literal}
-<script>
-document.addEventListener('DOMContentLoaded', function(event) {cookieChoices.showCookieConsentBar("I cookie ci aiutano ad erogare servizi di qualità. Utilizzando i nostri servizi, l'utente accetta le nostre modalità d'uso dei cookie.",'OK','Maggiori informazioni','{/literal}{'openpa/cookie'|ezurl(no,full)}{literal}');});
+<script type="text/javascript">
+//<![CDATA[
+var CurrentUserIsLoggedIn = {cond(fetch('user','current_user').is_logged_in, 'true', 'false')};
+var UiContext = "{$ui_context}";
+var UriPrefix = {'/'|ezurl()};
+var PathArray = [{if is_set( openpacontext().path_array[0].node_id )}{foreach openpacontext().path_array|reverse as $path}{$path.node_id}{delimiter},{/delimiter}{/foreach}{/if}];
+(function(){ldelim}var c = document.body.className;c = c.replace(/no-js/, 'js');document.body.className = c;{rdelim})();
+//]]>
+document.addEventListener('DOMContentLoaded', function(event) {ldelim}cookieChoices.showCookieConsentBar("I cookie ci aiutano ad erogare servizi di qualità. Utilizzando i nostri servizi, l'utente accetta le nostre modalità d'uso dei cookie.",'OK','Maggiori informazioni','{'openpa/cookie'|ezurl(no,full)}');{rdelim});
 </script>
-{/literal}
 
 <!--[if lt IE 7]>
 <div class="alert alert-info">
@@ -59,92 +67,47 @@ document.addEventListener('DOMContentLoaded', function(event) {cookieChoices.sho
 </div>
 <![endif]-->
 
-{if is_home()}
-    {include uri='design:home_gallery.tpl'}
-{/if}
+<div id="page"{if is_set($module_result.content_info.persistent_variable.background_style)} {$module_result.content_info.persistent_variable.background_style}{/if}{if is_set($module_result.content_info.persistent_variable.page_css_class)} class="{$module_result.content_info.persistent_variable.page_css_class}"{/if}>
 
-<div id="page"
-{if $ui_context|eq( 'browse' )}
-{elseif $ui_context|eq( 'edit' )}
-{elseif and( is_area_tematica(), $background_ignore_home|ne(false())  )} style="background: url({$background_ignore_home.background.url|ezroot(no)}) no-repeat top center;"
-{elseif and( is_area_tematica(), is_area_tematica().data_map.cover.has_content )} style="background: url({is_area_tematica().data_map.cover.content.background.url|ezroot(no)}) no-repeat top center;"
-{elseif is_section( 'comune' )}
-{elseif is_home()} class="home"
-{elseif and( is_section( 'citta' ), $background|ne(false()) )} style="background: url({$background.background.url|ezroot(no)}) no-repeat top center;"
-{/if}>
+    {debug-accumulator id=page_toolbar name=page_toolbar}
+    {include uri='design:page_toolbar.tpl'}
+    {/debug-accumulator}
 
-    {if and( $pagedata.website_toolbar, $pagedata.is_edit|not, is_set( $view_parameters.view )|not)}
-        {include uri='design:page_toolbar.tpl'}
-    {/if}
-
-    {if $ui_context|eq('navigation')|not()}
-        {include uri='design:page_header.tpl'}
-    {elseif is_home()}    
-        {include uri='design:page_header_home.tpl'}
-    {elseif is_area_tematica()}    
-        {include uri='design:page_header_area_tematica.tpl'}
-    {elseif is_section(  'comune' )}
-        {include uri='design:page_header_comune.tpl'}
-    {elseif is_section(  'citta' )}
-        {include uri='design:page_header_citta.tpl'}
-    {else}
-        {include uri='design:page_header.tpl'}
-    {/if}
-
-{* Il div.container è aperto all'interno dei page_header*.tpl *}    
-
-    <div class="row">
-    
-    {def $has_leftmenu = false()}
-    {if and( $pagedata.left_menu, or( is_home(), is_section( 'comune' ), is_section( 'citta' ), is_area_tematica() ) )}
-        {set $has_leftmenu = true()}
-    {/if}
-    
-    {if and( $has_leftmenu, $left_menu )}
-    <div class="col-md-2 leftmenu">
-        {$left_menu}
-    </div>
-    {/if}
-       
-    <div class="body col-md-{if and( $has_leftmenu, $pagedata.extra_menu )}6{elseif $has_leftmenu}10{elseif $pagedata.extra_menu}8{else}12{/if}">        
-{/cache-block} 
-        {$module_result.content}
-{cache-block keys=array( $module_result.uri, $user_hash, $extra_cache_key )}    
-    </div>
-    
-    {if is_unset($pagedata)}
-        {def $pagedata = ezpagedata()}
-    {/if}
-
-    {if and( $pagedata.extra_menu, $module_result.content_info )}
-        <div class="col-md-4 extramenu">
-            {$extra_menu}
-        </div>
-    {/if}    	
-    
-    </div>
-    
-    {include name=footer_menu node_id=$current_node_id uri='design:page_footermenu.tpl'}
-    
+    {debug-accumulator id=page_header name=page_header}
+    {cache-block expiry=86400 ignore_content_expiry keys=array( $access_type.name, $extra_cache_key, openpacontext().top_menu_cache_key )}
+        {def $pagedata = openpapagedata()}
+        {if $ui_context|eq('navigation')|not()}
+            {include uri='design:page_header.tpl'}
+        {elseif is_home()}
+            {include uri='design:page_header_home.tpl'}
+        {elseif is_area_tematica()}
+            {include uri='design:page_header_area_tematica.tpl'}
+        {elseif is_section(  'comune' )}
+            {include uri='design:page_header_comune.tpl'}
+        {elseif is_section(  'citta' )}
+            {include uri='design:page_header_citta.tpl'}
+        {else}
+            {include uri='design:page_header.tpl'}
+        {/if}
+        {undef $pagedata}
+    {/cache-block}
+    {/debug-accumulator}
 
 
-{if and( $current_node_id|ne( ezini( 'NodeSettings', 'RootNode', 'content.ini' ) ), $pagedata.class_identifier|ne(''), is_area_tematica()|not(), $pagedata.class_identifier|ne('valuation') ) }    
-    {include name=valuation node_id=$current_node_id uri='design:parts/openpa/valuation.tpl'}        
-{/if}
+    {include uri='design:page_mainarea.tpl'}
 
-{/cache-block}
-
-{cache-block keys=array( $module_result.uri, $current_user.contentobject_id, $extra_cache_key )}    
-    
-    {* Il div.container è chiuso all'interno dei page_footer.tpl *}    
+    {debug-accumulator id=page_footer name=page_footer}
+    {cache-block expiry=86400 ignore_content_expiry keys=array( $access_type.name, $extra_cache_key )}
     {include uri='design:page_footer.tpl'}
+    {/cache-block}
+    {/debug-accumulator}
 
 
 </div>
 
+{include uri='design:page_hidden_path.tpl'}
 {include uri='design:page_footer_script.tpl'}
 
-{/cache-block}
 
 <!--DEBUG_REPORT-->
 </body>

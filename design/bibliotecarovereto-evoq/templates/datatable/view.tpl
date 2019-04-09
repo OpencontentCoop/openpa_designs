@@ -34,7 +34,7 @@
 <div class='box bordered-box orange-border' style='margin-bottom:0;'>
   <div class='box-content box-no-padding'>
     <div>
-        <table id="table-{$table_id}" class='dt-column-filter table table-striped' style='margin-bottom:0;'>
+        <table id="table-{$table_id}" class='dt-column-filter table table-striped table-bordered' style='margin-bottom:0;'>
           <thead>
             <tr>
               {foreach $keys as $key}

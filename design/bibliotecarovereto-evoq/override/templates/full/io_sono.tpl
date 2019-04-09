@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {def $target = fetch( 'content', 'node', hash( 'node_id', $view_parameters.Target ) )}
 
 <div id="main-container" class="layout-page">

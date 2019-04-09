@@ -1,6 +1,6 @@
 <section class="info">
-    <div class="container">
-        <div class="row">
+
+        <div class="row" style="margin: 0">
             <div class="col-sm-4 magenta text-center">
                 <header>
                     <h3>Orari di apertura</h3>
@@ -8,12 +8,12 @@
                 <div class="text">
                     <p>
                         <span class="text-uppercase">BIBLIOTECA<br>DI PUBBLICA LETTURA</span><br>
-                        lunedì - sabato 9.00 - 22.00<br>
-                        domenica 9.00 - 13.00
+                        lunedì - sabato 8.30 - 22.00<br>
+                        domenica 8.30 - 13.00
                     </p>
                     <p>
                         <span class="text-uppercase">BIBLIOTECA STORICA,<br>ARCHIVI E MANOSCRITTI</span><br>
-                        lunedì - venerdì 9.00 - 18.00
+                        lunedì - venerdì 8.30 - 19.00
                     </p>
                     <p>
                         <a href="{'Informazioni-generali/Orario-Calendario'|ezurl(no)}" class="btn btn-default btn-dark btn-sm text-uppercase">maggiori dettagli e calendario apertura</a>
@@ -78,5 +78,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </section><!-- /.info -->

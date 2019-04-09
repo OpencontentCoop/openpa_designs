@@ -9,7 +9,4 @@
     
 </div>
 
-<div id="content" class="container area_tematica {if $pagedata.show_path|not()} no-path{/if}">
-
-{include uri='design:parts/path.tpl'}
 {undef $home}

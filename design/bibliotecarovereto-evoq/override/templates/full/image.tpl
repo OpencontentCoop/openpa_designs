@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {* Image - Full view *}
 {* Article - Full view *}
 

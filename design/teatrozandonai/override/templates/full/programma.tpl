@@ -74,7 +74,7 @@
     {foreach fetch( content, list, hash( parent_node_id, $node.node_id, class_filter_type, 'include', class_filter_array, array( 'spettacolo' ), sort_by, array( 'attribute', true(), 'spettacolo/main_datetime' ) ) ) as $child}    
     <div class="col-lg-4 col-md-4 col-sm-6">
       <div class="row">
-        <div class="programma divLink">
+        <div class="programma divLink" style="height: 350px;background: url({$child|attribute('image').content.evoq_zandonai_show.url|ezroot(no)}) no-repeat center center; background-size: cover">
             <div class="areaInfo">
               {def $times = $child|show_time()}              
               <div class="data">
@@ -90,8 +90,7 @@
               {undef $times}
               <h2><a href="{$child.url_alias|ezurl(no)}" title="">{$child.data_map.titolo.content|wash()}</a></h2>
               <div class="esecutore">{$child.data_map.sottotitolo.content|wash()}</div>              
-            </div><!--areaInfo-->          
-          {attribute_view_gui attribute=$child|attribute('image') image_class="evoq_zandonai_show" image_css_class="responsive"}
+            </div><!--areaInfo-->
         </div><!--programma-->
       </div><!--row-->
     </div><!--col-lg-4 col-md-4 col-sm-6-->
@@ -114,8 +113,8 @@
         var h = $(this).height();
         var oh = $(this).outerHeight();
         var mt = (h + (oh - h)) / 2;
-        $(this).css("margin-top", "-" + mt + "px");
-        $(this).css("top", "50%");
+        //$(this).css("margin-top", "-" + mt + "px");
+        $(this).css("top", "0");
         $(this).css("position", "absolute");
       });
     };

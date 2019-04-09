@@ -14,8 +14,8 @@
 	</ul>
 	*}
 	<address>
-		{if is_set($pagedesign.data_map.hide_powered_by)}
-			   {def $credits=fetch(content,node,hash(node_id,572255))
+
+           {def $credits=fetch(content,node,hash(node_id,572255))
 				$pagamento=fetch(content,node,hash(node_id,661013))
 				$note=fetch(content,node,hash(node_id,572253))
 				$dichiarazione=fetch(content,node,hash(node_id,572254))}
@@ -25,7 +25,6 @@
 			- <a title="Leggi i credits" href={$credits.url_alias|ezurl()}>credits</a> 
 			- <a title="Leggi la dichiarazione di accessibilit&agrave;" href={$dichiarazione.url_alias|ezurl()}>dichiarazione di accessibilit&agrave;</a> 
 			- powered by <a href="http://www.ez.no" title="eZ Publish - Enterprise Content Management System Open Source">eZ publish</a> <br />
-		{/if}
 	</address>
   </div>
   

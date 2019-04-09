@@ -21,3 +21,23 @@ div.default-container{
     padding-bottom: 56.25%;    
     position: relative;
 }
+
+/* PAGE NAVIGATION */
+
+div.pagenavigator
+{
+    text-align: center;
+    clear: both;
+    font-size:1.2em;
+    font-weight:bold;
+}
+
+div.pagenavigator span.previous
+{
+    float: left;
+}
+
+div.pagenavigator span.next
+{
+    float: right;
+}

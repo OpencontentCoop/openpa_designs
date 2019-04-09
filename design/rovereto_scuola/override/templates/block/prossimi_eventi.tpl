@@ -12,7 +12,7 @@ $show_link = true()}
 
 
 {def $currentInterval = 'P2M'
-$calendarData = calendar( $valid_node, hash( 'interval', $currentInterval, 'view', 'program' )|merge( $view_parameters ) ) }
+$calendarData = calendar( $valid_node, hash( 'interval', $currentInterval, 'view', 'program' ) ) }
 
 {if $calendarData.search_count|gt(0)}
     <div class="ezpage-block {$block.view}{if is_set($block.custom_attributes.color)} color color-{$block.custom_attributes.color}{/if}">

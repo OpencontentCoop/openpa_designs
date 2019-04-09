@@ -23,6 +23,8 @@
     
     {include uri='design:menu/top.tpl' start_node=$comune}
 
+    {def $current_node_id = openpacontext().reverse_path_id_array[0]}
+
     {if $current_node_id|ne($sections.comune)}
     {include uri='design:parts/path.tpl'}
     {/if}
@@ -30,4 +32,4 @@
     
 </div>
 
-<div id="content" class="container comune">
+

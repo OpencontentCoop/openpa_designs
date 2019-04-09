@@ -42,23 +42,12 @@
     "ez/edit.less",
     "ez/general-content.less",
     "ez/debug.less",
-    "app.less",
+    "app.less"
 )|ocless_add()}
 
-{ezcss_load()}
+{ezcss_load(array(
+    'leaflet/leaflet.css',
+    'leaflet/MarkerCluster.css',
+    'leaflet/MarkerCluster.Default.css'
+))}
 {ocless()}
-
-
-{if  $custom_keys.contrasto|eq('alto') }
-
-{/if}
-
-{* DEFINIZIONI INLINE DELLA DIMENSIONE DEI CARATTERI IN BASE AL COOKIE dimensione *}
-{if  $custom_keys.dimensione|eq('grande') }
-	
-{/if}
-
-{* DEFINIZIONI INLINE DEL LAYOUT IN BASE AL COOKIE layout *}
-{if  $custom_keys.layout|eq('fluido') }
-	
-{/if}

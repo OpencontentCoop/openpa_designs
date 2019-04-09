@@ -1,14 +1,5 @@
-{if $pagedesign.data_map.footer_script.has_content}
-<script type="text/javascript">
-<!--
-
-    {$pagedesign.data_map.footer_script.content}
-
--->
-</script>
-{/if}
-
-{if openpaini( 'Seo', 'GoogleAnalyticsAccountID', false() )}
+{*https://opencontent.freshdesk.com/a/tickets/1383*}
+{*if openpaini( 'Seo', 'GoogleAnalyticsAccountID', false() )}
 <script type="text/javascript">
 <!--
     var _gaq = _gaq || [];
@@ -22,7 +13,7 @@
     {rdelim})();
 -->
 </script>
-{/if}
+{/if*}
 
 <!-- Piwik -->
 <script type="text/javascript">

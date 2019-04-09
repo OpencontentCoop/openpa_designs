@@ -431,7 +431,7 @@
             <h3>{"Comments"|i18n("design/ezwebin/full/article")}</h3>
                 <div class="content-view-children">
                     {foreach fetch_alias( comments, hash( parent_node_id, $node.node_id ) ) as $comment}
-                        {node_view_gui view='full' content_node=$comment}
+						{include uri=object_handler($comment).control_template.full node=$comment}
                     {/foreach}
                 </div>
 

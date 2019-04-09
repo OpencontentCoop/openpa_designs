@@ -17,7 +17,6 @@
 
 
 {def $layout1zone = '1ZonesLayoutFolder'
-	$node = fetch(content, node, hash(node_id, $module_result.node_id))
 	$enabled_container = ezini( 'GestioneClassi', 'escludere_da_extra_info', 'openpa.ini')
 	$folder =''
     $folder_virtuale = false()

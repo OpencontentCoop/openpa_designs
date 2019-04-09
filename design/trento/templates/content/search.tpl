@@ -12,9 +12,9 @@
 
 {* cattura le variabili passate via GET *}
 {def $not_available_facets 		= ezini( 'MotoreRicerca', 'faccette_non_disponibili', 'openpa.ini')
-	 $latitude 				    = cond( ezhttp( 'latitude','get','hasVariable' ), ezhttp( 'latitude', 'get' ) )
-     $longitude 				= cond( ezhttp( 'longitude','get','hasVariable' ), ezhttp( 'longitude', 'get' ) )
-     $address 				    = cond( ezhttp( 'address','get','hasVariable' ), ezhttp( 'address', 'get' ) )
+	 $latitude 				    = cond( ezhttp( 'latitude','get','hasVariable' ), ezhttp( 'latitude', 'get' )|wash() )
+     $longitude 				= cond( ezhttp( 'longitude','get','hasVariable' ), ezhttp( 'longitude', 'get' )|wash() )
+     $address 				    = cond( ezhttp( 'address','get','hasVariable' ), ezhttp( 'address', 'get' )|wash() )
      $anni 				        = cond( ezhttp( 'Anni','get','hasVariable' ), ezhttp( 'Anni', 'get' ) )
 	 $interna 			        = cond( ezhttp( 'Interna','get','hasVariable' ), ezhttp( 'Interna', 'get' ) )
 	 $Sort 			        	= cond( ezhttp( 'Sort','get','hasVariable' ), ezhttp( 'Sort', 'get' ), '' )

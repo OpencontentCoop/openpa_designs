@@ -1,3 +1,4 @@
+{ezpagedata_set( 'has_container', true() )}
 {def $calendar = fetch( 'content', 'node', hash( 'node_id', ezini( 'NodeSettings', 'CalendarNode', 'content.ini' ) ) )}
 
 {if $node.path_array|contains($calendar.node_id)}

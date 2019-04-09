@@ -5,16 +5,8 @@
      $info_child   = fetch( 'content', 'list', hash(
                                              'parent_node_id', $informazioni.node_id,
                                              'sort_by', $informazioni.sort_array
-                                ))
-     $class =''}
+                                ))}
 
-{if $pagedata.path_id_array|contains($patrimonio.node_id)}
-    {set $class = 'section-patrimonio-e-risorse'}
-{elseif $pagedata.path_id_array|contains($calendar.node_id)}
-    {set $class = 'section-eventi-e-attivita'}
-{/if}
-
-<header id="main-header" class="{$class}">
     <nav id="main-navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -71,8 +63,4 @@
 
     {include uri='design:parts/page_heading.tpl'}
 
-    {include uri='design:parts/path.tpl'}
-
-</header>
-
-{undef $parent_target_types $patrimonio $calendar $class}
+{undef $parent_target_types $patrimonio $calendar}
