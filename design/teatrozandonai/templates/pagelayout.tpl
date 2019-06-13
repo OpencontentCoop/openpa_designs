@@ -31,6 +31,7 @@
     {/if}
     <title>{if $site_title}{$site_title} - {/if}Sito ufficiale del Teatro Riccardo Zandonai - Rovereto</title>
     {include uri='design:page_head_google_tag_manager.tpl'}
+    {include uri='design:page_head_google-site-verification.tpl'}
 </head>
 
 <body{if $pagedata.node_id|ne( ezini( 'NodeSettings', 'RootNode', 'content.ini' ) )} class="inner-page"{/if}>
