@@ -42,6 +42,7 @@
     {include uri='design:page_head_google-site-verification.tpl'}
 
     {include uri='design:page_head.tpl'}
+    {include uri='design:page_head_google_tag_manager.tpl'}
     {no_index_if_needed()}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,7 +61,7 @@ var PathArray = [{if is_set( openpacontext().path_array[0].node_id )}{foreach op
 //]]>
 document.addEventListener('DOMContentLoaded', function(event) {ldelim}cookieChoices.showCookieConsentBar("I cookie ci aiutano ad erogare servizi di qualità. Utilizzando i nostri servizi, l'utente accetta le nostre modalità d'uso dei cookie.",'OK','Maggiori informazioni','{'openpa/cookie'|ezurl(no,full)}');{rdelim});
 </script>
-
+{include uri='design:page_body_google_tag_manager.tpl'}
 <!--[if lt IE 7]>
 <div class="alert alert-info">
 <p class="browsehappy">Stai usando un browser <strong>obsoleto</strong>. <a href="http://browsehappy.com/">Aggiornalo</a> e navigherai più felice.</p>

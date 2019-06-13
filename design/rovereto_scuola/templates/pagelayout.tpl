@@ -37,6 +37,7 @@
 
     {debug-accumulator id=page_head_script name=page_head_script}
     {include uri='design:page_head_script.tpl'}
+    {include uri='design:page_head_google_tag_manager.tpl'}
     {/debug-accumulator}
 
     {include uri='design:page_head_google-site-verification.tpl'}
@@ -49,6 +50,7 @@
 
 </head>
 <body class="no-js">
+{include uri='design:page_body_google_tag_manager.tpl'}
 <script src="{'javascript/cookiechoices.js'|ezdesign(no)}"></script>
 <script type="text/javascript">
 //<![CDATA[
