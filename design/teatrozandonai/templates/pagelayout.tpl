@@ -30,9 +30,12 @@
         {def $site_title = false()}
     {/if}
     <title>{if $site_title}{$site_title} - {/if}Sito ufficiale del Teatro Riccardo Zandonai - Rovereto</title>
+    {include uri='design:page_head_google_tag_manager.tpl'}
+    {include uri='design:page_head_google-site-verification.tpl'}
 </head>
 
 <body{if $pagedata.node_id|ne( ezini( 'NodeSettings', 'RootNode', 'content.ini' ) )} class="inner-page"{/if}>
+{include uri='design:page_body_google_tag_manager.tpl'}
 <script src="{'javascript/cookiechoices.js'|ezdesign(no)}"></script>
 {literal}<script>document.addEventListener('DOMContentLoaded', function (event) {cookieChoices.showCookieConsentBar("I cookie ci aiutano ad erogare servizi di qualità. Utilizzando i nostri servizi, l'utente accetta le nostre modalità d'uso dei cookie.", 'OK', 'Maggiori informazioni', '{/literal}{'openpa/cookie'|ezurl(no,full)}{literal}');});</script>{/literal}
 
