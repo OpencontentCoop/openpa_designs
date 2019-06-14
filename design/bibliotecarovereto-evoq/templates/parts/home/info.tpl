@@ -50,6 +50,10 @@
                 <div class="text">
                     <ul class="list-unstyled">
                         <li>
+                            Posta elettronica certificata<br>
+                            <a href="mailto:biblioteca@pec.comune.rovereto.tn.it">biblioteca@pec.comune.rovereto.tn.it</a>
+                        </li>
+                        <li>
                             Informazioni di carattere generale<br>
                             <a href="mailto:bibliotecacivica@comune.rovereto.tn.it">bibliotecacivica@comune.rovereto.tn.it</a>
                         </li>

@@ -58,7 +58,7 @@
                             </h3>
                         </div>
                         <div class="col-sm-4">
-                            <a href="{'newsletter/subscribe'|ezurl(no)}" class="btn btn-default btn-dark-alt btn-block btn-lg text-uppercase">Iscrizione</a>
+                            <a href="{'Iscrizione-alla-newsletter'|ezurl(no)}" class="btn btn-default btn-dark-alt btn-block btn-lg text-uppercase">Iscrizione</a>
                         </div>
                     </div>
                 </form>
