@@ -270,7 +270,7 @@
     {set $stop_word_array=$search['StopWordArray']}
     {set $search_data=$search}
 {/if}
-{def $baseURI=concat( '/content/advancedsearch?SearchText=', $search_text )}
+{def $baseURI=concat( '/content/advancedsearch?SearchText=', $search_text|wash() )}
 
 
 {* Build the URI suffix, used throughout all URL generations in this page *}
