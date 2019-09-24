@@ -297,7 +297,7 @@
 	{/if}
 {/if}
 
-{def $baseURI=concat( '/content/advancedsearch?SearchText=', $search_text )}
+{def $baseURI=concat( '/content/advancedsearch?SearchText=', $search_text|wash() )}
 
 {def $uriSuffix = $filterParameters|getFilterUrlSuffix()}
 

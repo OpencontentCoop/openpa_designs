@@ -473,7 +473,7 @@ $(function() {
         
         {def $nameList = array()}
         
-        {def $baseURI=concat( '/content/advancedsearch?', 'OriginalNode=', $node.node_id, '&SubTreeArray[]=', $subtreearray|implode( '&SubTreeArray[]=' ) )}
+        {def $baseURI=concat( '/content/advancedsearch?', 'OriginalNode=', $node.node_id, '&SubTreeArray[]=', $subtreearray|wash()|implode( '&SubTreeArray[]=' ) )}
         {def $uriSuffix = $filters_parameters|getFilterUrlSuffix()}
 
         {if $class}
