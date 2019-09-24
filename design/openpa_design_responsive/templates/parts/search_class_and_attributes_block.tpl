@@ -123,12 +123,12 @@ $(function() {
     {if is_array($subtreearray)}
 		{set $subtreearray = $subtreearray|unique()} 
         {foreach $subtreearray as $sta}
-			<input name="SubTreeArray[]" type="hidden" value="{$sta}" />
+			<input name="SubTreeArray[]" type="hidden" value="{$sta|wash()}" />
 		{/foreach}
 	{/if}
 	
     <div class="form-group">
-        <input placeholder="Ricerca libera" class="form-control" type="text" name="SearchText" value="{$search_text}" />
+        <input placeholder="Ricerca libera" class="form-control" type="text" name="SearchText" value="{$search_text|wash()}" />
     </div>
 
     
@@ -173,7 +173,7 @@ $(function() {
                 {*<option {if $Sort|eq('class_name')} class="marked" selected="selected"{/if} value="class_name">Tipologia di contenuto</option>*}
                 {foreach $sorters as $sorter}
                     {if and( $sorter.name|ne( 'Nome' ), $sorter.name|ne( 'Rilevanza' ), $sorter.name|ne( 'Tipologia di contenuto' ), $sorter.name|ne( 'Data di pubblicazione' ) )}
-                        <option {if $Sort|eq($sorter.value)} class="marked" selected="selected"{/if} value="{$sorter.value}">{$sorter.name}</option>
+                        <option {if $Sort|eq($sorter.value)} class="marked" selected="selected"{/if} value="{$sorter.value|wash()}">{$sorter.name|wash()}</option>
                     {/if}
                 {/foreach}
             </select>
@@ -201,7 +201,7 @@ $(function() {
                 {set $filterParameter = getFilterParameter( solr_field( $attribute.identifier, 'text' ) )}
                     <div class="form-group">
                         <label for="{$attribute.identifier}">{$attribute.name}</label>
-                        <input class="form-control" id="{$attribute.identifier}" type="text" name="filter[{solr_field( $attribute.identifier, 'text' )}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]}{/if}" />
+                        <input class="form-control" id="{$attribute.identifier}" type="text" name="filter[{solr_field( $attribute.identifier, 'text' )|wash()}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]|wash()}{/if}" />
                     </div>
                 {/case}
                 
@@ -238,7 +238,7 @@ $(function() {
                         <select class="form-control" id="{$attribute.identifier}" name="anno_s[]">
                                 <option value="">Qualsiasi anno</option>
                                 {foreach $anni as $anno}
-                                <option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno}">{$anno}</option>
+                                <option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno|wash()}">{$anno|wash()}</option>
                                 {/foreach}
                         </select>
                     </div>
@@ -246,7 +246,7 @@ $(function() {
                         {set $filterParameter = getFilterParameter( solr_field( $attribute.identifier, 'sint' ) )}
                     <div class="form-group">
                         <label for="{$attribute.identifier}">{$attribute.name}</label>
-                        <input class="form-control" id="{$attribute.identifier}" size="5" type="text" name="filter[{solr_field( $attribute.identifier, 'sint' )}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]}{/if}" />
+                        <input class="form-control" id="{$attribute.identifier}" size="5" type="text" name="filter[{solr_field( $attribute.identifier, 'sint' )|wash()}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]|wash()}{/if}" />
                     </div>
                     {/if}
                     {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', solr_field( $attribute.identifier, 'sint' ) ) )}
@@ -259,11 +259,11 @@ $(function() {
                 <legend>Data di pubblicazione:</legend>
                 <div class="form-group">
                     <label for="from">Dalla data: <small class="no-js-show"> (GG-MM-AAAA)</small></label>
-                    <input type="text" class="form-control from_picker" name="from" title="Dalla data" value="{if $from}{$from}{/if}" />
+                    <input type="text" class="form-control from_picker" name="from" title="Dalla data" value="{if $from}{$from|wash()}{/if}" />
                 </div>
                 <div class="form-group">
                     <label for="to">Alla data: <small class="no-js-show"> (GG-MM-AAAA)</small></label>
-                    <input class="form-control to_picker" type="text" name="to" title="Alla data" value="{if $to}{$to}{/if}" />
+                    <input class="form-control to_picker" type="text" name="to" title="Alla data" value="{if $to}{$to|wash()}{/if}" />
                 </div>
             </fieldset>
     

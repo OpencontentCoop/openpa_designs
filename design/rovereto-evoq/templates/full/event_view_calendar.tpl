@@ -47,7 +47,7 @@ $(function() {
         
         <form class="calendar-tools" method='GET' action={concat('openpa/calendar/', $node.node_id)|ezurl}>
             <input type='hidden' name="UrlAlias" value="{$node.url_alias}" />            
-            <input type='hidden' name="CurrentInterval" value="{$calendarData.parameters.interval}" />
+            <input type='hidden' name="CurrentInterval" value="{$calendarData.parameters.interval|wash()}" />
 
         
             <div class="row">                
@@ -56,8 +56,8 @@ $(function() {
                     <p><a href="{$node.url_alias|ezurl(no)}">Eventi di oggi</a></p>
                     <p><a href="{concat($node.url_alias, '/(interval)/P7D')|ezurl(no)}">Eventi dei prossimi 7 giorni</a></p>
                     <p>
-                        Da <input style="width: 90px;" id="from" class="calendar_picker" placeholder="gg-mm-yyyy" type="text" name="SearchDate" title="Seleziona data" value="{$calendarData.parameters.search_from_picker_date}" />
-						a <input style="width: 90px;" id="to" class="calendar_picker" placeholder="gg-mm-yyyy" type="text" name="SearchEndDate" title="Seleziona data" value="{$calendarData.parameters.search_to_picker_date}" />
+                        Da <input style="width: 90px;" id="from" class="calendar_picker" placeholder="gg-mm-yyyy" type="text" name="SearchDate" title="Seleziona data" value="{$calendarData.parameters.search_from_picker_date|wash()}" />
+						a <input style="width: 90px;" id="to" class="calendar_picker" placeholder="gg-mm-yyyy" type="text" name="SearchEndDate" title="Seleziona data" value="{$calendarData.parameters.search_to_picker_date|wash()}" />
                         <input class="btn btn-sm btn-primary" type="submit" name="SearchButton" value="Cerca" />
                     </p>
                 </div>

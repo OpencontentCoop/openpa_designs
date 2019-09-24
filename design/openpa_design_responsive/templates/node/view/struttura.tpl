@@ -10,7 +10,7 @@
 			{def $objects=fetch( 'content', 'reverse_related_objects', 
 					hash('object_id', $id, 'attribute_identifier', concat($view_parameters.inverso, '/', $view_parameters.classe)))}
 			{foreach $objects as $object}
-			<option value="{$object.id}" {if $view_parameters.selezionato|eq($object.id)} selected="selected" {/if}>{$object.name}</option>
+			<option value="{$object.id}" {if $view_parameters.selezionato|eq($object.id)} selected="selected" {/if}>{$object.name|wash()}</option>
 			{/foreach}
 		{/if}
 	{/if}
