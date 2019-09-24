@@ -91,11 +91,11 @@
 
                                     {* check box subscribe to list *}
                                     <td valign="top" class="newsletter-list">
-                                        <input type="hidden" name="Subscription_IdArray[]" value="{$list_id}" title="" />
+                                        <input type="hidden" name="Subscription_IdArray[]" value="{$list_id|wash()}" title="" />
                                         {if $newsletter_list_node_list_count|eq(1)}
-                                            <input type="checkbox" name="Subscription_ListArray[]" value="{$list_id}" checked="checked" title="{$list_node.data_map.title.content|wash}" /> {$list_node.data_map.title.content|wash}
+                                            <input type="checkbox" name="Subscription_ListArray[]" value="{$list_id|wash()}" checked="checked" title="{$list_node.data_map.title.content|wash}" /> {$list_node.data_map.title.content|wash}
                                         {else}
-                                            <input type="checkbox" name="Subscription_ListArray[]" value="{$list_id}"{if $subscription_data_array['list_array']|contains( $list_id )} checked="checked"{/if} title="{$list_node.data_map.title.content|wash}" /> {$list_node.data_map.title.content|wash}
+                                            <input type="checkbox" name="Subscription_ListArray[]" value="{$list_id|wash()}"{if $subscription_data_array['list_array']|contains( $list_id )} checked="checked"{/if} title="{$list_node.data_map.title.content|wash}" /> {$list_node.data_map.title.content|wash}
                                         {/if}
                                     </td>
                                     {* outputformats *}
@@ -103,7 +103,7 @@
                                         {if $list_node.data_map.newsletter_list.content.output_format_array|count|gt(1)}
 
                                             {foreach $list_node.data_map.newsletter_list.content.output_format_array as $output_format_id => $output_format_name}
-                                    <td class="newsletter-list"><div class="nl-outputformat"><input type="radio" name="Subscription_OutputFormatArray_{$list_id}[]" value="{$output_format_id}" {if $list_selected_output_format_array|contains( $output_format_id )} checked="checked"{/if} title="{$output_format_name|wash}" /> {$output_format_name|wash}&nbsp;{*({$output_format_id})*}</div></td>
+                                    <td class="newsletter-list"><div class="nl-outputformat"><input type="radio" name="Subscription_OutputFormatArray_{$list_id}[]" value="{$output_format_id|wash()}" {if $list_selected_output_format_array|contains( $output_format_id )} checked="checked"{/if} title="{$output_format_name|wash}" /> {$output_format_name|wash}&nbsp;{*({$output_format_id})*}</div></td>
                                             {set $td_counter = $td_counter|inc}
                                             {/foreach}
 

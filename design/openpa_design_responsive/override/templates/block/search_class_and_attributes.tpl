@@ -95,7 +95,7 @@ $(function() {
                     <option value="score">Rilevanza</option>                
                     {foreach $sorters as $sorter}
                         {if and( $sorter.name|ne( 'Nome' ), $sorter.name|ne( 'Rilevanza' ), $sorter.name|ne( 'Tipologia di contenuto' ), $sorter.name|ne( 'Data di pubblicazione' ) )}
-                            <option value="{$sorter.value}">{$sorter.name}</option>
+                            <option value="{$sorter.value|wash()}">{$sorter.name|wash()}</option>
                         {/if}
                     {/foreach}
                 </select>
@@ -108,7 +108,7 @@ $(function() {
                     <option value="asc">Ascendente</option>
                     {foreach $sorters as $sorter}
                         {if and( $sorter.name|ne( 'Nome' ), $sorter.name|ne( 'Rilevanza' ), $sorter.name|ne( 'Tipologia di contenuto' ), $sorter.name|ne( 'Data di pubblicazione' ) )}
-                            <option value="{$sorter.value}">{$sorter.name}</option>
+                            <option value="{$sorter.value|wash()}">{$sorter.name|wash()}</option>
                         {/if}
                     {/foreach}
                 </select>
@@ -126,7 +126,7 @@ $(function() {
                     {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', solr_field($attribute.identifier,'text') ) )}
                         <div class="form-group">
                             <label for="{$attribute.identifier}">{$attribute.name}</label>
-                            <input class="form-control" id="{$attribute.identifier}" type="text" name="filter[{solr_field($attribute.identifier,'text')}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]}{/if}" />
+                            <input class="form-control" id="{$attribute.identifier}" type="text" name="filter[{solr_field($attribute.identifier,'text')|wash()}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]|wash()}{/if}" />
                         </div>
                     {/case}
                     
@@ -141,9 +141,9 @@ $(function() {
                             <div class="form-group">
                                 <span class="help-block"><strong>{$attribute.name}:</strong></span>
                                 <label for="from">Dalla data: <small class="no-js-show"> (GG-MM-AAAA)</small>
-                                <input type="text" class="from_picker form-control" name="from_attributes[{$filter_string}]" title="Dalla data" value="" /></label>
+                                <input type="text" class="from_picker form-control" name="from_attributes[{$filter_string|wash()}]" title="Dalla data" value="" /></label>
                                 <label for="to">Alla data: <small class="no-js-show"> (GG-MM-AAAA)</small>
-                                <input class="to_picker form-control" type="text" name="to_attributes[{$filter_string}]" title="Alla data" value="" /></label>
+                                <input class="to_picker form-control" type="text" name="to_attributes[{$filter_string|wash()}]" title="Alla data" value="" /></label>
                             </div>
                         {/if}                    
                     {/case}
@@ -158,7 +158,7 @@ $(function() {
                             <select class="form-control" id="{$attribute.identifier}" name="anno_s[]">
                                     <option value="">Qualsiasi anno</option>
                                     {foreach $anni as $anno}
-                                    <option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno}">{$anno}</option>
+                                    <option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno|wash()}">{$anno|wash()}</option>
                                     {/foreach}
                             </select>
                         {else}
@@ -186,10 +186,10 @@ $(function() {
             {if is_array($subtreearray)}
                 {set $subtreearray = $subtreearray|unique()} 
                 {foreach $subtreearray as $sta}
-                    <input name="SubTreeArray[]" type="hidden" value="{$sta}" />
+                    <input name="SubTreeArray[]" type="hidden" value="{$sta|wash()}" />
                 {/foreach}
             {else}
-            <input name="SubTreeArray[]" type="hidden" value="{$subtreearray}" />
+            <input name="SubTreeArray[]" type="hidden" value="{$subtreearray|wash()}" />
             {/if}
             
             {if count($facets)}
@@ -241,7 +241,7 @@ $(function() {
                                 {if ne( $key2, '' )}
                                     {def $filterName = $filters_search_extras.facet_fields.$key.queryLimit[$key2]|explode(':')
                                          $filterValue = getFilterParameter( $filterName[0] )}
-                                    <option {if $filterValue|contains( $facetName )} selected="selected" {/if} value='{$filters_search_extras.facet_fields.$key.queryLimit[$key2]}'>{if fetch( 'content', 'node', hash( 'node_id', $facetName ))}{fetch( 'content', 'node', hash( 'node_id', $facetName )).name|wash()}{else}{$facetName}{/if} ({$filters_search_extras.facet_fields.$key.countList[$key2]})</option>
+                                    <option {if $filterValue|contains( $facetName )} selected="selected" {/if} value='{$filters_search_extras.facet_fields.$key.queryLimit[$key2]|wash()}'>{if fetch( 'content', 'node', hash( 'node_id', $facetName ))}{fetch( 'content', 'node', hash( 'node_id', $facetName )).name|wash()}{else}{$facetName|wash()}{/if} ({$filters_search_extras.facet_fields.$key.countList[$key2]|wash()})</option>
                                     {undef $filterName $filterValue}
                                 {/if}
                             {/foreach}
@@ -253,7 +253,7 @@ $(function() {
                                          $filterValue = getFilterParameter( $filterName[0] )}                            
                                     <div class="radio">
                                     <label>
-                                        <input {if $filterValue|contains( $facetName )} checked="checked" {/if} class="inline" type="checkbox" name="filter[]" value='{$filters_search_extras.facet_fields.$key.queryLimit[$key2]}' /> {if fetch( 'content', 'node', hash( 'node_id', $facetName ))}{fetch( 'content', 'node', hash( 'node_id', $facetName )).name|wash()}{else}{$facetName}{/if} ({$filters_search_extras.facet_fields.$key.countList[$key2]})
+                                        <input {if $filterValue|contains( $facetName )} checked="checked" {/if} class="inline" type="checkbox" name="filter[]" value='{$filters_search_extras.facet_fields.$key.queryLimit[$key2]|wash()}' /> {if fetch( 'content', 'node', hash( 'node_id', $facetName ))}{fetch( 'content', 'node', hash( 'node_id', $facetName )).name|wash()}{else}{$facetName|wash()}{/if} ({$filters_search_extras.facet_fields.$key.countList[$key2]|wash()})
                                     </label>
                                     </div>
                                     {undef $filterName $filterValue}
@@ -266,7 +266,7 @@ $(function() {
                         <span class="help-block"><strong>{$facet['name']}</strong></span>
                             <div class="radio">
                             <label>
-                                <input checked="checked" class="inline" type="checkbox" name="filter[]" value='{concat( $facet.field, ':', $filterValue[0] )}' /> {if fetch( 'content', 'node', hash( 'node_id', $filterValue[0] ))}{fetch( 'content', 'node', hash( 'node_id', $filterValue[0] )).name|wash()}{else}{$filterValue[0]}{/if}
+                                <input checked="checked" class="inline" type="checkbox" name="filter[]" value='{concat( $facet.field, ':', $filterValue[0] )|wash()}' /> {if fetch( 'content', 'node', hash( 'node_id', $filterValue[0] ))}{fetch( 'content', 'node', hash( 'node_id', $filterValue[0] )).name|wash()}{else}{$filterValue[0]|wash()}{/if}
                             </label>
                             </div>
                         {/if}

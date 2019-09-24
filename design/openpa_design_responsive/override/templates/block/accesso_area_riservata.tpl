@@ -21,9 +21,9 @@
                 <label for="id-{$block.id}-password">{"Password"|i18n("design/ezwebin/user/login")}</label><div class="labelbreak"></div>
                 <input class="halfbox" type="password" size="10" name="Password" id="id-{$block.id}-password" value="" tabindex="2" />
                 
-                <input class="defaultbutton" type="submit" name="LoginButton" value="{'Login'|i18n('design/ezwebin/user/login','Button')}" tabindex="3" />
+                <input class="defaultbutton" type="submit" name="LoginButton" value="{'Login'|i18n('design/ezwebin/user/login','Button')|wash()}" tabindex="3" />
                 
-                <input type="hidden" name="RedirectURI" value="{$area.url_alias}" />
+                <input type="hidden" name="RedirectURI" value="{$area.url_alias|wash()}" />
             </form>
         
         {/if}

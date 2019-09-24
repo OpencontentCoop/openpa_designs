@@ -150,11 +150,11 @@ $(function() {
     {if is_array($subtreearray)}
 		{set $subtreearray = $subtreearray|unique()} 
         {foreach $subtreearray as $sta}
-			<input name="SubTreeArray[]" type="hidden" value="{$sta}" />
+			<input name="SubTreeArray[]" type="hidden" value="{$sta|wash()}" />
 		{/foreach}
 	{/if}
 	<label for="search-string">Ricerca libera</label>
-	<input {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text}" />
+	<input {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text|wash()}" />
 	<br />
 
 {if $class_filters[0]|ne('')}
@@ -196,7 +196,7 @@ $(function() {
                 <option {if $sort_by|eq('name')} class="marked" selected="selected"{/if} value="name">Nome</option>
                 {foreach $sorters as $sorter}
                     {if and( $sorter.name|ne( 'Nome' ), $sorter.name|ne( 'Rilevanza' ), $sorter.name|ne( 'Tipologia di contenuto' ), $sorter.name|ne( 'Data di pubblicazione' ) )}
-                        <option {if $sort_by|eq($sorter.value)} class="marked" selected="selected"{/if} value="{$sorter.value}">{$sorter.name}</option>
+                        <option {if $sort_by|eq($sorter.value)} class="marked" selected="selected"{/if} value="{$sorter.value|wash()}">{$sorter.name|wash()}</option>
                     {/if}
                 {/foreach}
             </select>

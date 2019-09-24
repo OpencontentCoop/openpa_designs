@@ -173,13 +173,13 @@ $(function() {
 	{$open}
 	{if is_array($subtreearray)}
 		{foreach $subtreearray as $sta}
-			<input name="SubTreeArray[]" type="hidden" value="{$sta}" />
+			<input name="SubTreeArray[]" type="hidden" value="{$sta|wash()}" />
 		{/foreach}
 	{else}
-		<input name="SubTreeArray[]" type="hidden" value="{$subtreearray}" />
+		<input name="SubTreeArray[]" type="hidden" value="{$subtreearray|wash()}" />
 	{/if}
 	<label for="search-string">Ricerca libera</label>
-	<input {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text}" />
+	<input {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text|wash()}" />
 
 {if $node.class_identifier|eq('folder')}
 	{set $class_filters = $node.data_map.classi_filtro.content|explode(',')}
@@ -227,7 +227,7 @@ $(function() {
                 <option {if $Sort|eq('class_name')} class="marked" selected="selected"{/if} value="class_name">Tipologia di contenuto</option>
 		{foreach $sorters as $sorter}
                     {if and( $sorter.name|ne( 'Nome' ), $sorter.name|ne( 'Rilevanza' ), $sorter.name|ne( 'Tipologia di contenuto' ), $sorter.name|ne( 'Data di pubblicazione' ) )}
-                        <option {if $Sort|eq($sorter.value)} class="marked" selected="selected"{/if} value="{$sorter.value}">{$sorter.name}</option>
+                        <option {if $Sort|eq($sorter.value)} class="marked" selected="selected"{/if} value="{$sorter.value|wash()}">{$sorter.name|wash()}</option>
                     {/if}
                 {/foreach}
             </select>
@@ -237,7 +237,7 @@ $(function() {
                 <option {if $Order|eq('asc')} class="marked" selected="selected"{/if} value="asc">Ascendente</option>
                 {foreach $sorters as $sorter}
                     {if and( $sorter.name|ne( 'Nome' ), $sorter.name|ne( 'Rilevanza' ), $sorter.name|ne( 'Tipologia di contenuto' ), $sorter.name|ne( 'Data di pubblicazione' ) )}
-                        <option {if $Sort|eq($sorter.value)} class="marked" selected="selected"{/if} value="{$sorter.value}">{$sorter.name}</option>
+                        <option {if $Sort|eq($sorter.value)} class="marked" selected="selected"{/if} value="{$sorter.value|wash()}">{$sorter.name|wash()}</option>
                     {/if}
                 {/foreach}
             </select>
@@ -268,7 +268,7 @@ $(function() {
                 {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', concat( 'attr_', $attribute.identifier, '_t' ) ) )}
                 {set $filterParameter = getFilterParameter( concat( 'attr_', $attribute.identifier, '_t' ) )}
                     <label for="{$attribute.identifier}">{$attribute.name}</label>
-                    <input id="{$attribute.identifier}" type="text" name="filter[{concat( 'attr_', $attribute.identifier, '_t' )}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]}{/if}" />
+                    <input id="{$attribute.identifier}" type="text" name="filter[{concat( 'attr_', $attribute.identifier, '_t' )|wash()}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]|wash()}{/if}" />
                 {/case}
                 
                 {case in=array('ezobjectrelationlist')}
@@ -333,13 +333,13 @@ $(function() {
                         <select id="{$attribute.identifier}" name="anno_s[]">
                                 <option value="">Qualsiasi anno</option>
                                 {foreach $anni as $anno}
-                                <option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno}">{$anno}</option>
+                                <option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno|wash()}">{$anno|wash()}</option>
                                 {/foreach}
                         </select>
                     {else}
                         {set $filterParameter = getFilterParameter( concat( 'attr_', $attribute.identifier, '_si' ) )}
                         <label for="{$attribute.identifier}">{$attribute.name}</label>
-                        <input id="{$attribute.identifier}" size="5" type="text" name="filter[{concat( 'attr_', $attribute.identifier, '_si' )}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]}{/if}" />
+                        <input id="{$attribute.identifier}" size="5" type="text" name="filter[{concat( 'attr_', $attribute.identifier, '_si' )|wash()}]" value="{if is_set($filterParameter[0])}{$filterParameter[0]|wash()}{/if}" />
                     {/if}
                     {set $sorters = $sorters|append( hash( 'name', $attribute.name, 'value', concat( 'attr_', $attribute.identifier, '_si' ) ) )}
                 {/case}
@@ -492,9 +492,9 @@ $(function() {
             <fieldset>
                 <legend>Data di pubblicazione:</legend>
                 <label for="from">Dalla data: <small class="no-js-show"> (GG-MM-AAAA)</small>
-                <input type="text" class="from_picker" name="from" title="Dalla data" value="{if $from}{$from}{/if}" /></label>
+                <input type="text" class="from_picker" name="from" title="Dalla data" value="{if $from}{$from|wash()}{/if}" /></label>
                 <label for="to" >Alla data: <small class="no-js-show"> (GG-MM-AAAA)</small>
-                <input class="to_picker" type="text" name="to" title="Alla data" value="{if $to}{$to}{/if}" /></label>
+                <input class="to_picker" type="text" name="to" title="Alla data" value="{if $to}{$to|wash()}{/if}" /></label>
             </fieldset>
             
             <input name="filter[]" value="contentclass_id:{$class.id}" type="hidden" />
@@ -502,10 +502,10 @@ $(function() {
             {if is_array($subtreearray)}
                 {set $subtreearray = $subtreearray|unique()} 
                 {foreach $subtreearray as $sta}
-                    <input name="SubTreeArray[]" type="hidden" value="{$sta}" />
+                    <input name="SubTreeArray[]" type="hidden" value="{$sta|wash()}" />
                 {/foreach}
             {else}
-            <input name="SubTreeArray[]" type="hidden" value="{$subtreearray}" />
+            <input name="SubTreeArray[]" type="hidden" value="{$subtreearray|wash()}" />
             {/if}
 
         
@@ -587,7 +587,7 @@ $(function() {
                         <option value=""> - Seleziona</option>
                     {foreach $filters_search_extras.facet_fields.$key.nameList as $key2 => $facetName}
                         {if ne( $key2, '' )}
-                        <option value='{$filters_search_extras.facet_fields.$key.queryLimit[$key2]|explode("'")|implode("_")|addQuoteOnFilter}'>{$facetName} ({$filters_search_extras.facet_fields.$key.countList[$key2]})</option>
+                        <option value='{$filters_search_extras.facet_fields.$key.queryLimit[$key2]|explode("'")|implode("_")|addQuoteOnFilter|wash()}'>{$facetName|wash()} ({$filters_search_extras.facet_fields.$key.countList[$key2]|wash()})</option>
                         {/if}
                     {/foreach}
                     </select>
@@ -595,7 +595,7 @@ $(function() {
                     {foreach $filters_search_extras.facet_fields.$key.nameList as $key2 => $facetName}
                         {if ne( $key2, '' )}
                         <label>
-                            <input class="inline" type="checkbox" name="filter[]" value='{$filters_search_extras.facet_fields.$key.queryLimit[$key2]|explode("'")|implode("_")|addQuoteOnFilter}' /> {$facetName} ({$filters_search_extras.facet_fields.$key.countList[$key2]})
+                            <input class="inline" type="checkbox" name="filter[]" value='{$filters_search_extras.facet_fields.$key.queryLimit[$key2]|explode("'")|implode("_")|addQuoteOnFilter|wash()}' /> {$facetName|wash()} ({$filters_search_extras.facet_fields.$key.countList[$key2]|wash()})
                         </label>
                         {/if}
                     {/foreach}

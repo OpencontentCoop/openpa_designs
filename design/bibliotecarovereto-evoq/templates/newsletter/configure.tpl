@@ -131,8 +131,8 @@
                                         {if $list_node.data_map.newsletter_list.content.output_format_array|count()|ne(0)}
                                             <td>
                                                 {*<li>status: ({$status|wash}) - confirmed( {if $confirmed|ne(0)} {$confirmed|datetime( 'custom', '%j.%m.%Y %H:%i' )}{else} n/a {/if}) | approved({if $approved|ne(0)}  {$approved|datetime( 'custom', '%j.%m.%Y %H:%i' )} {else} n/a {/if}) | removed({if $removed|ne(0)}  {$removed|datetime( 'custom', '%j.%m.%Y %H:%i' )} {else} n/a {/if})<br>*}
-                                                <input type="hidden" name="Subscription_IdArray[]" value="{$list_id}" title="" />
-                                                <input type="checkbox" name="Subscription_ListArray[]" value="{$list_id}"{if and( $is_removed|not , is_set( $subscription_array[ $list_id ] ) )} checked="checked"{/if} title="{$list_node.data_map.title.content|wash}" /> {$list_node.data_map.title.content|wash}
+                                                <input type="hidden" name="Subscription_IdArray[]" value="{$list_id|wash()}" title="" />
+                                                <input type="checkbox" name="Subscription_ListArray[]" value="{$list_id|wash()}"{if and( $is_removed|not , is_set( $subscription_array[ $list_id ] ) )} checked="checked"{/if} title="{$list_node.data_map.title.content|wash}" /> {$list_node.data_map.title.content|wash}
                                                 {*$list_node.data_map.newsletter_list|attribute(show)*}
                                             </td>
                                                 {if $list_node.data_map.newsletter_list.content.output_format_array|count()|gt(1)}

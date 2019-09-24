@@ -71,7 +71,7 @@ $(function() {
 <form id="search-form-box" action="{'content/search'|ezurl('no')}" method="get">
 	<h2>Cerca in {$folder}</h2>
 	
-	<input placeholder="Ricerca libera" {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text}" />
+	<input placeholder="Ricerca libera" {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text|wash()}" />
 
 {if $foldersClasses|contains( $node.class_identifier )}
 	{set $class_filters = $node.data_map.classi_filtro.content|explode(',')}
@@ -96,7 +96,7 @@ $(function() {
 				<div class="form-group">
                 <label for="{$attribute.identifier}">{$attribute.name}</label>
 				<input class="form-control" id="{$attribute.identifier}"
-					type="text" name="subfilter_arr[{$class.identifier}/{$attribute.identifier}]" value="{if is_set($subfilter_arr[concat($class.identifier,'/',$attribute.identifier)])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)]}{/if}" />
+					type="text" name="subfilter_arr[{$class.identifier}/{$attribute.identifier}]" value="{if is_set($subfilter_arr[concat($class.identifier,'/',$attribute.identifier)])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)|wash()]}{/if}" />
                 </div>
 			{/case}
 			{case in=array('ezobjectrelationlist')}
@@ -110,12 +110,12 @@ $(function() {
 			        <select class="form-control"  id="{$attribute.identifier}" name="anno_s[]">
 			                <option value="">Qualsiasi anno</option>
                 			{foreach $anni as $anno}
-        			        <option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno}">{$anno}</option>
+        			        <option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno|wash()}">{$anno|wash()}</option>
 			                {/foreach}
 			        </select>
 				{else}
 				<label for="{$attribute.identifier}">{$attribute.name}</label>
-				<input class="form-control"  id="{$attribute.identifier}" size="5" type="text" name="subfilter_arr[{$class.identifier}/{$attribute.identifier}]" value="{if is_set($subfilter_arr[concat($class.identifier,'/',$attribute.identifier)])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)]}{/if}" />
+				<input class="form-control"  id="{$attribute.identifier}" size="5" type="text" name="subfilter_arr[{$class.identifier}/{$attribute.identifier}]" value="{if is_set($subfilter_arr[concat($class.identifier,'/',$attribute.identifier)])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)|wash()]}{/if}" />
 				{/if}
                 </div>
 			{/case}
@@ -125,7 +125,7 @@ $(function() {
 		<input name="Filtri[]" value="contentclass_id:{$class.id}" type="hidden" />
 		<input name="facet_field" value="class" type="hidden" />
 		<input name="OriginalNode" value="{$node.node_id}" type="hidden" />
-		<input name="SubTreeArray[]" value="{$subtreearray}" type="hidden" />
+		<input name="SubTreeArray[]" value="{$subtreearray|wash()}" type="hidden" />
 </div>
 
 {/if}

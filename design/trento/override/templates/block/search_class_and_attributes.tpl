@@ -102,7 +102,7 @@ $(function() {
         {$open}
     
         <label for="search-string">Ricerca libera</label>
-        <input {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text}" />
+        <input {if $search_included} id="Search" size="20" class="halfbox" {else} id="search-string"{/if} type="text" name="SearchText" value="{$search_text|wash()}" />
     
         {def $class_filters = $class|explode(',')}
     
@@ -125,7 +125,7 @@ $(function() {
                             type="text" name="subfilter_arr[{$class.identifier}/{$attribute.identifier}]" value="{if is_set($subfilter_arr[concat($class.identifier,'/',$attribute.identifier)])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)]}{/if}" />*}
         
                         <input id="{$attribute.identifier}" 
-                            type="text" name="filter[{solr_field($attribute.identifier,'text')}]" value="{if is_set($subfilter[solr_field($attribute.identifier,'text')])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)]}{/if}" />
+                            type="text" name="filter[{solr_field($attribute.identifier,'text')}]" value="{if is_set($subfilter[solr_field($attribute.identifier,'text')])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)|wash()]}{/if}" />
         
         
                     {/case}
@@ -140,12 +140,12 @@ $(function() {
                             <option value="">Qualsiasi servizio</option>
                                 <optgroup  label="{$node_servizi_attivi.name|wash}">
                                 {foreach $servizi_attivi as $k => $servizio}
-                                    <option {if concat('"',$servizio.name|wash,'"')|eq($servizi[0])} class="marked" selected="selected" {/if} value='"{$servizio.name|explode("'")|implode("_")}"'>{$servizio.name|wash}</option>
+                                    <option {if concat('"',$servizio.name|wash,'"')|eq($servizi[0])} class="marked" selected="selected" {/if} value='"{$servizio.name|explode("'")|implode("_")|wash()}"'>{$servizio.name|wash}</option>
                                 {/foreach}
                                 </optgroup>
                                 <optgroup  label="Servizi non attivi">
                                 {foreach $servizi_non_attivi as $k => $servizio}
-                                    <option {if concat('"',$servizio.name|wash,'"')|eq($servizi[0])} class="marked" selected="selected" {/if} value='"{$servizio.name|explode("'")|implode("_")}"'>{$servizio.name|wash}</option>
+                                    <option {if concat('"',$servizio.name|wash,'"')|eq($servizi[0])} class="marked" selected="selected" {/if} value='"{$servizio.name|explode("'")|implode("_")|wash()}"'>{$servizio.name|wash}</option>
                                 {/foreach}
                                 </optgroup>
                         </select>
@@ -165,7 +165,7 @@ $(function() {
                                             'class_filter_array', array( 'argomento' )))}
                                 {if $argomenti_tutti|count()|gt(0)}
                                                {foreach $argomenti_tutti as $k => $argomento}
-                                    <option {if and(concat('"',$argomento.name,'"')|eq($argomenti[0]), $search_included)} class="marked" selected="selected"{/if} value='"{$argomento.name}"'>{$argomento.name|wash}</option>
+                                    <option {if and(concat('"',$argomento.name,'"')|eq($argomenti[0]), $search_included)} class="marked" selected="selected"{/if} value='"{$argomento.name|wash()}"'>{$argomento.name|wash}</option>
                                     {/foreach}
                                 {/if}
                                 </optgroup>
@@ -181,12 +181,12 @@ $(function() {
                             <select id="{$attribute.identifier}" name="anno_s[]">
                                     <option value="">Qualsiasi anno</option>
                                     {foreach $anni as $anno}
-                                    <option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno}">{$anno}</option>
+                                    <option {if $anno|eq($anno_s[0])} class="marked" selected="selected"{/if} value="{$anno|wash()}">{$anno|wash()}</option>
                                     {/foreach}
                             </select>
                         {else}
                         <label for="{$attribute.identifier}">{$attribute.name}</label>
-                        <input id="{$attribute.identifier}" size="5" type="text" name="subfilter_arr[{$class.identifier}/{$attribute.identifier}]" value="{if is_set($subfilter_arr[concat($class.identifier,'/',$attribute.identifier)])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)]}{/if}" />
+                        <input id="{$attribute.identifier}" size="5" type="text" name="subfilter_arr[{$class.identifier}/{$attribute.identifier}]" value="{if is_set($subfilter_arr[concat($class.identifier,'/',$attribute.identifier)])}{$subfilter_arr[concat($class.identifier,'/',$attribute.identifier)|wash()]}{/if}" />
                         {/if}
                     {/case}
                     
@@ -199,7 +199,7 @@ $(function() {
                 <input name="filter[]" value="contentclass_id:{$class.id}" type="hidden" />
                 <input name="facet_field" value="class" type="hidden" />
                 <input name="OriginalNode" value="{$node.node_id}" type="hidden" />
-                <input name="SubTreeArray[]" value="{$subtreearray}" type="hidden" />
+                <input name="SubTreeArray[]" value="{$subtreearray|wash()}" type="hidden" />
         </div>
         
         </div>

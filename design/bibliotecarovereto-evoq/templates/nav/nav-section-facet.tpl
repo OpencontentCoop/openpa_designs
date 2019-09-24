@@ -10,13 +10,13 @@
           {*<a class="{if $item.active}active {/if}list-group-item" href="{$item.url|ezurl( 'no' )}" data-key={$name} data-value="{$item.name}">*}
           <li>
             {if $item.active}
-            <a class="active bg-primary" href="{$item.url|ezurl( 'no' )}" data-key="{$name}" data-value="{$item.query}">
+            <a class="active bg-primary" href="{$item.url|ezurl( 'no' )}" data-key="{$name|wash()}" data-value="{$item.query|wash()}">
               <span class="glyphicon glyphicon-remove"></span>
               {$item.name|wash()}
               <span class="badge">{$item.count}</span>
             </a>
             {else}
-            <a href="{$item.url|ezurl( 'no' )}" data-key="{$name}" data-value="{$item.query}">
+            <a href="{$item.url|ezurl( 'no' )}" data-key="{$name}" data-value="{$item.queryWash()}">
               {$item.name|wash()}
               <span class="badge">{$item.count}</span>
             </a>
