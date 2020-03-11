@@ -13,7 +13,7 @@
     <div class="content-title">
 
         {if ezini( 'NodeSettings', 'RootNode', 'content.ini' )|ne($node.node_id)}
-        <h1>Area {$node.name|wash()}</h1>
+        <h1>{$node.name|wash()}</h1>
         {/if}
 
     </div>
