@@ -1,5 +1,5 @@
 {ezpagedata_set( 'has_container', true() )}
-
+<div id="contentId">
 <section class="container">
     <div class="row">
         <div class="col-lg-8 px-lg-4 py-lg-2">
@@ -60,3 +60,4 @@
     <script src="https://simpatico.smartcommunitylab.it/simp-engines/wae/webdemo/demo/simpatico-ife-oc.js"></script>
     <!-- SIMPATICO END -->
 {/if}
+</div>
