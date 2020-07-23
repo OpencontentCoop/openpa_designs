@@ -392,7 +392,7 @@
 {/if}
 
         
-    {* FORSE CERCAVI... *}
+    {* FORSE CERCAVI...
     
     {if $search_extras.spellcheck_collation}
         {def $spell_url=concat('content/advancedsearch/',$search_text|count_chars()|gt(0)|choose('',concat('?SearchText=',$search_extras.spellcheck_collation|urlencode)))|ezurl}
@@ -400,7 +400,7 @@
             Forse intendevi cercare per <a href='{$spell_url}'><strong>{$search_extras.spellcheck_collation}</strong></a> ?
         </small></p>
     {/if}
-    
+    *}
     {* PAROLE ESCLUSE *}
     {if $stop_word_array}
         <p><small>
