@@ -55,6 +55,7 @@
         </script>
         {ezscript_require(array(
             'jquery-migrate.min.js',
+            'jquery.popupoverlay.js',
             'log-core.js',
             'ctz-ui.js',
             'ctz-core.js',

@@ -54,7 +54,7 @@
                     <li><a href="https://twitter.com/BiblioCivicaRov" title="Visita il profilo Twitter della Biblioteca" class="icon-twitter"><span class="sr-only">Twitter</span></a></li>
                     <li><a href="http://www.youtube.com/user/bibliocivicarov" title="Visita il canale YouTube della Biblioteca" class="icon-youtube"><span class="sr-only">YouTube</span></a></li>
                     <li><a href="http://www.anobii.com" title="Consulta il sito aNobii" class="icon-anobii"><span class="sr-only">Anobii</span></a></li>
-                    <li><a href="http://www.cbt.biblioteche.provincia.tn.it/" title="Consulta il CBT - catalogo bibliografico trentino" class="icon-cbt"><span class="sr-only">Cbt</span></a></li>
+                    <li><a href="https://strutture-provincia.primo.exlibrisgroup.com/discovery/search?vid=39SBT_INST:39SBT_VU1&lang=it" title="Consulta il SBT - sistema bibliotecario trentino" class="icon-cbt"><span class="sr-only">SBT</span></a></li>
                     <li><a href="http://trentino.medialibrary.it/home/home.aspx" title="Consulta il sito MediaLibraryOnLine" class="icon-mlol"><span class="sr-only">Mlol</span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
