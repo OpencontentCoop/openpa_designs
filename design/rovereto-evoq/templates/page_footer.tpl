@@ -87,13 +87,18 @@
         <div class="row">
             <div class="col-md-8 vcard">
                 <p><strong class="fn org">Comune di Rovereto</strong></p>
-                <p><span class="adr"><span class="street-address">piazza Podestà, 11</span> - <span class="postal-code">38068</span> <span class="locality">Rovereto</span> <abbr class="region" title="Trento">TN</abbr></span> - 
+                <p><span class="adr"><span class="street-address">piazza Podestà, 11</span> - <span class="postal-code">38068</span> <span class="locality">Rovereto</span> <abbr class="region" title="Trento">TN</abbr></span> -
                     <span class="tel"><span class="type">tel.</span> 0464 452 111</span> -
                     <span class="tel"><span class="type">fax</span> 0464 452 433</span> <br />
                     e-mail <a class="email" href="mailto:urp@comune.rovereto.tn.it">{'urp@comune.rovereto.tn.it'|wash(email)}</a> {*- Skype <a class="email" href="skype:comune.rovereto.skype?call">comune.rovereto.skype</a> *}<br />
                     posta elettronica certificata (p.e.c.) <a class="email" href="mailto:comunerovereto.tn@legalmail.it">{'comunerovereto.tn@legalmail.it'|wash(email)}</a> <br />
                     partita iva / codice fiscale  00125390229
                 </p>
+                <a href="/PSR-2014-2020">
+                    <img src="{'PSR-2014-2020.png'|ezimage(no)}"
+                         alt="Il Comune di Rovereto è beneficiario del Programma di Sviluppo Rurale, ovvero lo strumento del Fondo Europeo Agricolo (FEASR) attraverso il quale la Provincia Autonoma di Trento realizzerà dal 2014 al 2020 interventi che orientano lo sviluppo della Trentino secondo le finalità delle politiche comunitarie e dei fabbisogni del contesto territoriale."
+                         title="Il Comune di Rovereto è beneficiario del Programma di Sviluppo Rurale, ovvero lo strumento del Fondo Europeo Agricolo (FEASR) attraverso il quale la Provincia Autonoma di Trento realizzerà dal 2014 al 2020 interventi che orientano lo sviluppo della Trentino secondo le finalità delle politiche comunitarie e dei fabbisogni del contesto territoriale.">
+                </a>
             </div>
             <div class="col-md-4 info">
                 {def $infos = cond( openpaini( 'LinkSpeciali', 'NodoInfos'), fetch( content, node, hash( node_id, openpaini( 'LinkSpeciali', 'NodoInfos') ) ), false())}
