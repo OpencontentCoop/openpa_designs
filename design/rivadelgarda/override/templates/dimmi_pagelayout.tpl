@@ -28,7 +28,6 @@
 {/if}
 
 {include uri='design:page_head_style.tpl'}
-<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href={"stylesheets/dimmi.css"|ezdesign} />
 {include uri='design:page_head_script.tpl'}
 

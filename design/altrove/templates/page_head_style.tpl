@@ -2,27 +2,7 @@
     {def $load_css_file_list = true()}
 {/if}
 
-<style>{literal}
-    @font-face {
-        font-family: "Open Sans";
-        font-style: normal;
-        font-weight: 400;
-        src: local("Open Sans"), local("OpenSans"), url("://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2") format("woff2");
-    }
-    @font-face {
-        font-family: "Open Sans";
-        font-style: normal;
-        font-weight: 600;
-        src: local("Open Sans Semibold"), local("OpenSans-Semibold"), url("://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNShampu5_7CjHW5spxoeN3Vs.woff2") format("woff2");
-    }
-    @font-face {
-        font-family: "Open Sans";
-        font-style: normal;
-        font-weight: 700;
-        src: local("Open Sans Bold"), local("OpenSans-Bold"), url("://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzBampu5_7CjHW5spxoeN3Vs.woff2") format("woff2");
-    }
-    {/literal}</style>
-
+<link type="text/css" rel="stylesheet" media="all" href="{'stylesheets/opensans.css'|ezdesign(no)}" />
 <link type="text/css" rel="stylesheet" media="all" href="{'stylesheets/app.css'|ezdesign(no)}" />
 <!--[if lte IE 9]>
 <link type="text/css" rel="stylesheet" media="all" href="{'stylesheets/app_1.css'|ezdesign(no)}" />
