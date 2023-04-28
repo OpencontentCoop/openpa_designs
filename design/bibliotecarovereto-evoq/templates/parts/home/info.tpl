@@ -13,7 +13,7 @@
                     </p>
                     <p>
                         <span class="text-uppercase">BIBLIOTECA STORICA,<br>ARCHIVI E MANOSCRITTI</span><br>
-                        lunedì - venerdì 8.30 - 19.00
+                        lunedì - venerdì 8.30 - 18.30
                     </p>
                     <p>
                         <a href="{'Informazioni-generali/Orario-Calendario'|ezurl(no)}" class="btn btn-default btn-dark btn-sm text-uppercase">maggiori dettagli e calendario apertura</a>

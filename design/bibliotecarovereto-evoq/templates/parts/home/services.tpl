@@ -48,6 +48,7 @@
                 </ul>
 
 
+{*
                 <hr>
 
                 <form class="form-horizontal form-newsletter" role="form">
@@ -62,6 +63,7 @@
                         </div>
                     </div>
                 </form>
+*}                
                 {*
                 <div class="row">
                     <div class="col-sm-4 col-sm-offset-4">
