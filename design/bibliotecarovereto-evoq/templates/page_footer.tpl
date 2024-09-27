@@ -8,7 +8,7 @@
                     <li><a href="{'/Privacy'|ezurl(no)}">Privacy</a></li>
                     <li><a href="{'/Note-legali'|ezurl(no)}">Note legali</a></li>
                     <li><a href="{'/backend'|ezurl(no)}">Accesso redazione</a></li>
-                    <li><a href="https://form.agid.gov.it/view/d49f35f0-1739-47bc-b406-1e4842694f39">Dichiarazione di accessibilità</a></li>
+                    <li><a href="https://form.agid.gov.it/view/2dd8f790-7434-11ef-a090-99f8e80c8301">Dichiarazione di accessibilità</a></li>
                 </ul>
 
                 <p>
